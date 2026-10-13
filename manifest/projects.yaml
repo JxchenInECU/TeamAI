@@ -7,6 +7,20 @@ projects:
     - common
     knowledge:
     - common
+    agents:
+    - common
+    mcp:
+    - common
+    env:
+    - common
+    hooks:
+    - common
+    models:
+    - common
+    docs:
+    - common
+    learnings:
+    - common
 - id: project-CHY_T1EJ
   name: CHY_T1EJ
   resources:
@@ -15,4 +29,18 @@ projects:
     - jlink
     - s32k31x
     knowledge:
+    - common
+    agents:
+    - common
+    mcp:
+    - common
+    env:
+    - common
+    hooks:
+    - common
+    models:
+    - common
+    docs:
+    - common
+    learnings:
     - common

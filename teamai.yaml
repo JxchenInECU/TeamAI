@@ -8,4 +8,4 @@ sharing:
   docs:
     localDir: ~/.teamai/docs
   env:
-    injectShellProfile: true
+    injectShellProfile: false
