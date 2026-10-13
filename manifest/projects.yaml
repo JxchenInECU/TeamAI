@@ -1,24 +1,18 @@
 version: 1
 projects:
-  - id: global-common
-    name: 整机通用资源
-    description: ""
-    resources:
-      knowledge:
-        - common
-      skills:
-        - common
-      learnings: []
-      agents: []
-  - id: project-CHY_T1EJ
-    name: project-CHY_T1EJ
-    description: ""
-    resources:
-      knowledge:
-        - common jlink s32k31x
-      skills:
-        - common jlink s32k31x
-      learnings:
-        - common jlink s32k31x
-      agents:
-        - common jlink s32k31x
+- id: global-common
+  name: 整机通用资源
+  resources:
+    skills:
+    - common
+    knowledge:
+    - common
+- id: project-CHY_T1EJ
+  name: project-CHY_T1EJ
+  resources:
+    skills:
+    - common
+    - jlink
+    - s32k31x
+    knowledge:
+    - common
