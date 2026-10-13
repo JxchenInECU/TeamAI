@@ -1,0 +1,4 @@
+interface:
+  display_name: "s32k31x驱动开发"
+  short_description: "分析和修改 S32DS MEX 驱动配置、新建 S32K31X 工程及配置答疑"
+  default_prompt: "使用 $s32k31x-driver-develop 按我的请求范围处理 S32K31X/S32DS 问题，并报告依据与实际验证状态。"

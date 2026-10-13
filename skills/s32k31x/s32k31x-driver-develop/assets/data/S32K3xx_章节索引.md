@@ -1,0 +1,96 @@
+# S32K3xx — 章节索引
+
+> 总计 **90** 条目录项，最深层级 **3**
+
+---
+
+- 1 Overview  `p3`
+- 2 Block diagram  `p3`
+- 3 Feature comparison  `p11`
+- 4 Ordering information  `p17`
+  - 4.1 Determining valid orderable parts  `p17`
+- 5 General  `p17`
+  - 5.1 Absolute maximum ratings  `p17`
+  - 5.2 Operating conditions  `p19`
+  - 5.3 Thermal operating characteristics  `p22`
+  - 5.4 ESD and latch-up protection characteristics  `p22`
+- 6 Power management  `p22`
+  - 6.1 Power mode transition operating behaviors  `p22`
+    - 6.1.1 Power mode transition operating behavior  `p22`
+    - 6.1.2 Boot time, HSE firmware not installed  `p23`
+    - 6.1.3 Boot time, HSE firmware installed  `p24`
+    - 6.1.4 HSE firmware memory verification time examples  `p25`
+  - 6.2 Supply monitoring  `p29`
+  - 6.3 Recommended decoupling capacitors  `p30`
+    - 6.3.1 Recommended decoupling capacitor diagrams  `p32`
+  - 6.4 V15 regulator (SMPS option) electrical specifications  `p47`
+  - 6.5 V15 regulator (BJT option, NPN ballast transistor control) electrical specifications  `p48`
+  - 6.6 V11 regulator (NMOS ballast transistor control) electrical specifications  `p49`
+  - 6.7 Supply currents  `p50`
+  - 6.8 Operating mode  `p67`
+  - 6.9 Cyclic wake-up current  `p72`
+  - 6.10 NXP recommended PMIC  `p73`
+- 7 I/O parameters  `p73`
+  - 7.1 GPIO DC electrical specifications, 3.3V Range (2.97V - 3.63V)  `p73`
+  - 7.2 GPIO DC electrical specifications, 5.0V (4.5V - 5.5V)  `p78`
+  - 7.3 5.0V (4.5V - 5.5V) GPIO Output AC Specification  `p82`
+  - 7.4 3.3V (2.97V - 3.63V) GPIO Output AC Specification  `p84`
+- 8 Glitch filter  `p85`
+- 9 Flash memory specification  `p86`
+  - 9.1 Flash memory program and erase specifications  `p86`
+  - 9.2 Flash memory Array Integrity and Margin Read specifications  `p87`
+  - 9.3 Flash memory module life specifications  `p87`
+    - 9.3.1 Data retention vs program/erase cycles  `p88`
+  - 9.4 Flash memory AC timing specifications  `p88`
+  - 9.5 Flash memory read timing parameters  `p89`
+- 10 Analog modules  `p90`
+  - 10.1 SAR_ADC  `p90`
+  - 10.2 Supply Diagnosis  `p92`
+  - 10.3 Low Power Comparator (LPCMP)  `p93`
+  - 10.4 Temperature sensor  `p97`
+- 11 Clocking modules  `p97`
+  - 11.1 FIRC  `p97`
+  - 11.2 SIRC  `p98`
+  - 11.3 PLL  `p98`
+  - 11.4 FXOSC  `p99`
+  - 11.5 SXOSC  `p102`
+- 12 Communication interfaces  `p103`
+  - 12.1 LPSPI  `p103`
+  - 12.2 LPSPI0 20 MHz and 15 MHz Combinations  `p108`
+  - 12.3 LPSPI* 20MHz combination for S32K388 and S32K389  `p108`
+  - 12.4 Communication between two S32K38x devices  `p110`
+    - 12.4.1 Timing specification for S32K38x to S32K38x communication  `p111`
+  - 12.5 I2C  `p112`
+  - 12.6 FlexCAN characteristics  `p112`
+  - 12.7 SAI electrical specifications  `p112`
+    - 12.7.1 SAI Electrical Characteristics, Target Mode  `p112`
+    - 12.7.2 SAI Electrical Characteristics, Controller Mode  `p113`
+  - 12.8 Ethernet characteristics  `p115`
+    - 12.8.1 Ethernet MII (10/100 Mbps)  `p115`
+    - 12.8.2 Ethernet MII (200 Mbps)  `p117`
+    - 12.8.3 Ethernet RMII (10/100 Mbps)  `p119`
+    - 12.8.4 Ethernet RGMII  `p121`
+    - 12.8.5 MDIO timing specifications  `p122`
+  - 12.9 QuadSPI  `p123`
+    - 12.9.1 QuadSPI Quad 3.3V SDR 120MHz  `p123`
+    - 12.9.2 QuadSPI Octal 3.3V DDR 100MHz  `p125`
+    - 12.9.3 QuadSPI Quad 3.3V SDR 103.33MHz  `p126`
+    - 12.9.4 QuadSPI Octal 3.3V DDR 120MHz  `p127`
+    - 12.9.5 QuadSPI Quad 3.3V SDR 125MHz  `p129`
+    - 12.9.6 QuadSPI configurations  `p130`
+  - 12.10 uSDHC  `p131`
+    - 12.10.1 uSDHC SDR electrical specifications  `p131`
+    - 12.10.2 uSDHC DDR electrical specifications  `p133`
+  - 12.11 LPUART specifications  `p134`
+- 13 Debug modules  `p134`
+  - 13.1 Debug trace timing specifications  `p134`
+  - 13.2 SWD electrical specifications  `p135`
+  - 13.3 JTAG electrical specifications  `p136`
+- 14 Thermal Attributes  `p138`
+  - 14.1 Description  `p138`
+  - 14.2 Thermal characteristics  `p139`
+- 15 Dimensions  `p141`
+  - 15.1 Obtaining package dimensions  `p141`
+- 16 Revision history  `p141`
+- Legal information  `p165`
+- Contents  `p168`
