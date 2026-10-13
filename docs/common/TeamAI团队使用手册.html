@@ -1,0 +1,213 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TeamAI 团队使用手册</title><style>
+*{box-sizing:border-box}body{margin:0;color:#172334;background:#f4f6f8;font:16px/1.85 "Microsoft YaHei",system-ui,sans-serif}nav{position:fixed;inset:0 auto 0 0;width:280px;overflow:auto;padding:28px 20px;background:#fff;border-right:1px solid #dbe1e8}nav strong{display:block;font-size:20px;margin-bottom:16px}nav a{display:block;color:#35485f;text-decoration:none;font-size:13px;padding:5px 2px}nav a:hover{color:#005fbb}main{margin-left:280px;max-width:1160px;padding:46px 56px 100px;background:#fff;min-height:100vh}h1{font-size:34px;line-height:1.35;color:#000;margin:0 0 24px}h2{font-size:25px;color:#000;margin:52px 0 18px;scroll-margin-top:24px}p{margin:14px 0}a{color:#075eaa;overflow-wrap:anywhere}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px;margin:20px 0}th,td{border:1px solid #d9d9d9;padding:10px 13px;text-align:left;vertical-align:middle}th{background:#dbe7f3;color:#000}tr:nth-child(odd) td{background:#f7f9fb}.code{position:relative;margin:20px 0}pre{padding:18px;background:#f3f5f7;white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.7 Consolas,"Microsoft YaHei",monospace;border-radius:5px}button{position:absolute;right:8px;top:6px;border:1px solid #ccd4dd;background:white;padding:3px 9px;cursor:pointer;color:#35485f}.actions{margin-bottom:22px;font-size:13px;color:#526174}.actions button{position:static;margin-left:12px} @media(max-width:850px){nav{position:static;width:100%;max-height:280px}main{margin:0;padding:25px 20px}h1{font-size:28px}}@media print{nav,.actions,.code button{display:none}body{background:white}main{margin:0;max-width:none;padding:0;font-size:10pt}h2{break-after:avoid;font-size:16pt}pre{font-size:8pt}tr{break-inside:avoid}a{color:#172334;text-decoration:none}}
+</style></head><body><nav><strong>TeamAI 使用手册</strong><a href="#section1">01 先选择你要完成的事情</a><a href="#section2">02 理解范围 项目和命名空间</a><a href="#section3">03 当前团队基线和目录职责</a><a href="#section4">04 新电脑安装和账号准备</a><a href="#section5">05 把任意本地工程接入现有项目</a><a href="#section6">06 管理员新增未来项目</a><a href="#section7">07 精确编写项目清单</a><a href="#section8">08 日常同步和切换项目</a><a href="#section9">09 两个现有能力的实际使用</a><a href="#section10">10 新电脑配置 J-Link MCP</a><a href="#section11">11 发布新的 skill</a><a href="#section12">12 更新 改名和移动 skill</a><a href="#section13">13 编写和发布规则与 agents</a><a href="#section14">14 管理 MCP 服务</a><a href="#section15">15 环境变量和密钥的正确用法</a><a href="#section16">16 文档 经验知识和大型代码库</a><a href="#section17">17 Hooks 自动同步和不同 AI 工具</a><a href="#section18">18 成员权限和团队管理</a><a href="#section19">19 暂停 使用排除和删除资源</a><a href="#section20">20 常见问题和处理顺序</a><a href="#section21">21 强制参数和本地修改保护</a><a href="#section22">22 新电脑迁移和新增工程验收清单</a><a href="#section23">23 扩展功能和版本维护</a><a href="#section24">24 命令与自然语言对照</a><a href="#section25">25 参考入口和维护说明</a></nav><main><div class="actions">版本 0.27.0 · 2026-10-13 · 项目范围接入<button onclick="window.print()">打印</button></div><h1>TeamAI 团队使用手册</h1><p>项目接入 资源共享 新电脑部署与日常维护</p><p>适用对象：团队管理员、项目负责人和使用 AI 开发工具的成员。命令以 Windows PowerShell 为主，其他平台使用相同 TeamAI 子命令，并替换路径与安装方式。</p><p>本手册采用“仅项目范围接入”的团队方案：每个代码工程显式选择逻辑项目，由项目清单决定需要哪些 skills、规则、agents、MCP、环境变量和文档。公共能力放入 common 或能力命名空间；common 只是目录名，不会自动成为整机资源。新电脑按项目重新接入，不复制旧电脑的个人配置和密钥。</p><p>版本基准：TeamAI CLI 0.27.0；配置核对日期：2026 年 10 月 13 日。升级后以 teamai skill get core --full 返回的命令说明为准。CHY_T1EJ 仅用于演示，所有项目模板都可替换为未来工程。</p><p>团队仓库：<a href="https://github.com/JxchenInECU/TeamAI">https://github.com/JxchenInECU/TeamAI</a></p><p>本手册中的命令是操作示例，不会因为打开文档而自动执行。代码块中的项目目录、项目 ID、技能目录和占位值必须先替换为实际值。无需一次执行全部章节。</p><h2 id="section1">01 先选择你要完成的事情</h2><p>第一次在新电脑使用：先读第 04、05 章，再按第 10 章配置 J-Link（仅在需要时）。新建业务项目：管理员先做第 06、07 章，成员再做第 05 章。日常开发：主要使用第 08 章。发布或修改资源：按第 11 至 15 章操作。出现警告：查第 20 章，不要先加 --force。</p><p>自然语言入口可以直接写“使用 TeamAI skill，帮我……”。在支持技能快捷调用的工具中，也可以使用 /teamai；Codex 可使用 $teamai。它们是发给 AI 的提示词，不是 PowerShell 命令。PowerShell 中执行的是 teamai pull、teamai init 等 CLI 命令。</p><p>你可以把下面这段交给 AI，先让它确认当前状态：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>使用 TeamAI skill，检查当前工程的接入状态。
+列出实际工程目录、项目 ID、启用的 AI 工具、资源命名空间、
+用户级继承状态，以及 doctor 和 hooks 检查结果。
+本次只检查，不修改配置、不发布资源、不操作硬件。</code></pre></div><p>最常用的命令如下，均在已接入的实际工程目录运行：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>teamai status
+teamai projects list
+teamai pull
+teamai list skills --source repo
+teamai mcp list
+teamai doctor
+teamai hooks list</code></pre></div><p>判断完成不能只看“initialized successfully”。应同时确认项目 ID 正确、技能已部署、MCP 依赖满足、Codex 项目和 hooks 已获信任。下载、擦除和调试硬件是另外的任务，不属于 TeamAI 安装验收。</p><h2 id="section2">02 理解范围 项目和命名空间</h2><p>TeamAI 有三个不同层次。安装范围 scope 决定配置作用于整机还是代码工程；项目 ID 决定当前工程选择哪套资源；命名空间是仓库里按用途归类的目录。名称相似不代表含义相同。</p><div class="table-wrap"><table><tr><th>概念</th><th>示例</th><th>作用</th></tr><tr><td>团队仓库</td><td>JxchenInECU/TeamAI</td><td>保存可共享的定义与资料</td></tr><tr><td>本地工程目录</td><td>D:\Projects\ProjectA</td><td>本次开发实际发生的位置</td></tr><tr><td>项目 ID</td><td>project-a</td><td>init 和 projects set 使用的稳定标识</td></tr><tr><td>显示名称 name</td><td>A 项目</td><td>列表中供人阅读的名称</td></tr><tr><td>命名空间</td><td>common、jlink、s32k31x</td><td>一组可被多个项目引用的资源</td></tr><tr><td>AI 工具 ID</td><td>codex、claude</td><td>决定向哪种工具格式部署</td></tr></table></div><p>推荐按业务工程定义项目，例如 project-a 和 project-b 都可以引用 s32k31x。芯片能力只维护一份；A 和 B 的业务规则分别放在 project-a 和 project-b 目录中。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>团队仓库
+  skills/s32k31x/  ── A 项目引用
+                   └─ B 项目引用
+  skills/project-a/ ── 仅 A 项目引用
+  skills/project-b/ ── 仅 B 项目引用</code></pre></div><p>项目分发是配置选择机制，不是仓库访问权限控制。能访问团队仓库的成员可能获得完整仓库副本。不同项目之间需要真正的数据保密时，应使用不同仓库和平台权限，不能仅靠 resources 列表隔离。</p><p>同一资源类型下尽量避免两个活动命名空间出现同名 skill 或 agent；命名冲突可能阻止分发。共用能力应复用原目录，不复制一份改成同名。单个命名空间使用一个安全目录段，推荐小写字母、数字和连字符，不含斜杠或 Windows 保留名称。</p><h2 id="section3">03 当前团队基线和目录职责</h2><p>截至版本基准日期，本机已停用用户级 TeamAI 接入，CHY_T1EJ 使用项目范围、仅启用 Codex、inheritUserScope 为 false。global-common 仍是仓库中的逻辑项目名称，保留它不代表本机重新启用了整机同步。</p><p>当前仓库的有效结构如下；.gitkeep 只是保留空目录的占位文件，不是规则或 skill。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>manifest/projects.yaml
+teamai.yaml
+skills/common/
+skills/jlink/jlink-mcp/
+skills/s32k31x/s32k31x-driver-develop/
+rules/common/
+agents/common/
+mcp/common/mcp.yaml
+env/common/env.yaml
+docs/common/
+hooks/common/
+models/common/
+learnings/common/</code></pre></div><div class="table-wrap"><table><tr><th>目录或文件</th><th>保存的内容</th></tr><tr><td>skills/&lt;ns&gt;/&lt;name&gt;/SKILL.md</td><td>可复用工作流程，按需加载</td></tr><tr><td>rules/&lt;ns&gt;/*.md</td><td>项目行为约定，经工具适配后生效</td></tr><tr><td>agents/&lt;ns&gt;/</td><td>专职 AI 助手定义，不等于自动启动</td></tr><tr><td>mcp/&lt;ns&gt;/mcp.yaml</td><td>MCP 服务启动或连接定义</td></tr><tr><td>env/&lt;ns&gt;/env.yaml</td><td>可共享的环境变量声明与默认值</td></tr><tr><td>env/&lt;ns&gt;/secrets.yaml</td><td>密钥名称和取得方式，不含密钥值</td></tr><tr><td>docs/&lt;ns&gt;/</td><td>团队文档</td></tr><tr><td>hooks/&lt;ns&gt;/hooks.yaml</td><td>团队定义的事件处理命令</td></tr><tr><td>models/&lt;ns&gt;/</td><td>模型配置或模型别名</td></tr><tr><td>learnings/&lt;ns&gt;/</td><td>经过整理的经验知识</td></tr></table></div><p>TeamAI 仓库本机副本用于同步，工具目录中的副本用于实际加载。不要在两处分别修改同一内容。业务代码、固件和目标板读回数据不会因为使用 TeamAI 就需要放入团队配置仓库。</p><h2 id="section4">04 新电脑安装和账号准备</h2><p>成员先向管理员取得团队仓库地址、自己应加入的项目 ID，以及项目代码。管理员应在 GitHub 仓库设置中授予适当权限；需要通过 TeamAI 发布资源的成员应有写入权限。新电脑加入已有团队，不必再创建 TeamAI 仓库。</p><p>基础依赖是 Node.js 20+、npm、Git、GitHub CLI，以及实际要使用的 AI 工具。Windows 可通过官方安装程序或组织认可的软件分发渠道安装。以下 winget 命令是独立选项，仅在工具尚未安装时使用：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>winget install --id OpenJS.NodeJS.LTS --exact
+winget install --id Git.Git --exact
+winget install --id GitHub.cli --exact</code></pre></div><p>安装后重新打开终端，以便 PATH 生效，再逐项检查：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>node --version
+npm --version
+git --version
+gh --version
+npm install -g teamai-cli@0.27.0
+teamai --version</code></pre></div><p>这里固定 0.27.0 便于复现。团队批准升级后可以使用 @latest，但所有成员应核对新版本说明，特别是项目分发、hooks、MCP 和模型映射变化。</p><p>GitHub 授权在浏览器完成，不把访问令牌粘贴到聊天或文档：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>gh auth status
+gh auth login --web --git-protocol https --hostname github.com
+gh auth status</code></pre></div><p>如果已登录且有正确仓库权限，无需重复授权。登录命令会给出一次性代码和设备授权页面；成员亲自批准。让 AI 操作时，AI 可以运行命令，你只负责浏览器授权。</p><p>希望通过自然语言管理 TeamAI 时，安装其 skill：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>安装并加载 TeamAI skill：
+https://github.com/Tencent/teamai-cli/tree/main/skills/teamai
+随后帮我加入现有团队，不创建新仓库。
+仓库：https://github.com/JxchenInECU/TeamAI
+暂不执行用户级初始化，等我提供工程目录和项目 ID。</code></pre></div><p>CLI 已安装后，可运行 teamai skill get core 和 teamai skill get setup 读取匹配当前版本的流程。支持的工具在 init 时也会得到内置 TeamAI skill。</p><h2 id="section5">05 把任意本地工程接入现有项目</h2><p>前提是管理员已经在 manifest/projects.yaml 中定义项目。下面的变量是模板，先替换目录和项目 ID；实际代码工程应已存在。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>$teamRepo = &#x27;https://github.com/JxchenInECU/TeamAI&#x27;
+$projectDir = &#x27;D:\Projects\ProjectA&#x27;
+$projectId = &#x27;project-a&#x27;
+Set-Location -LiteralPath $projectDir
+teamai init $teamRepo --scope project `
+  --project $projectId --no-inherit-user-scope --agent codex</code></pre></div><p>--agent codex 表示本例只配置 Codex。如果成员同时使用其他工具，可写 --agent codex,claude；省略 --agent 会在交互终端显示选择界面，应认真选择所需工具，而不是默认接受所有工具。无交互终端时，省略该参数可能不会立即创建项目工具目录。</p><p>init 会完成首次同步，不需要习惯性再加 --force。接入之后运行：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>teamai projects list
+teamai status
+teamai list skills --source repo
+teamai mcp list
+teamai doctor
+teamai hooks list</code></pre></div><p>自然语言模板：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>使用 TeamAI skill，将 D:\Projects\ProjectA 接入团队仓库
+https://github.com/JxchenInECU/TeamAI。
+使用项目范围，选择 project-a，只配置 Codex，关闭用户级继承。
+不要在用户目录执行整机初始化。完成后检查技能部署、MCP、
+项目和 hooks 信任状态，列出需要我在本机填写的变量。</code></pre></div><p>同一个逻辑项目可以由不同成员放在不同路径中。更换电脑、移动工程目录或新增工作副本后，应在新位置重新核对接入状态，不手工复制旧路径对应的内部缓存目录。</p><h2 id="section6">06 管理员新增未来项目</h2><p>新增项目之前先决定稳定 ID、显示名称，以及各类资源需要哪些命名空间。ID 用于命令和成员配置，改名时优先只改显示名称。不要为了换显示名称删除再重建项目。</p><p>在一个已经接入该团队的工程目录中运行管理命令；本机已停用用户级接入，因此在用户主目录执行管理命令可能提示未初始化。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>teamai projects add project-b --namespaces common,project-b `
+  --name &#x27;B项目&#x27; --dry-run
+teamai projects add project-b --namespaces common,project-b `
+  --name &#x27;B项目&#x27;</code></pre></div><p>重要：--namespaces 同时为 knowledge、skills、agents、learnings 四类资源填入目录，并不是只设置 skills。它不会替你配置 env、mcp、hooks、models、docs、wiki。若各资源类型的选择不同，需要在发布请求中编辑 projects.yaml，按第 07 章的模板精确设置。</p><p>管理命令通常生成 GitHub 发布请求（PR）。检查最终清单、确认没有无关改动并合入后，成员才能通过正常同步使用新项目。PR 创建成功不等于主配置已经生效。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>使用 TeamAI skill，为未来的 B 项目增加配置。
+ID 为 project-b，显示名称为 B项目。
+skills 使用 common、s32k31x、project-b；knowledge 使用 common、project-b；
+agents 使用 project-b；本项目暂不需要 MCP、环境变量或模型配置。
+精确设置各 resources 字段，不把所有命名空间应用到所有类型。
+发布并合入后核对清单，不改变当前工程绑定。</code></pre></div><p>更新和移除的命令入口：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>teamai projects update project-b --name &#x27;B项目新名称&#x27;
+teamai projects members project-b
+teamai projects remove project-b --dry-run</code></pre></div><p>实际移除项目之前，先确认成员工程不再使用它。不要同时立即删除它的所有资源目录，成员可能仍需要一次同步才能清理旧副本。只需解绑某个本机工程时，不应删除团队项目定义。</p><h2 id="section7">07 精确编写项目清单</h2><p>这是通用项目模板。resources 的字段使用 TeamAI 固定名称；规则对应 knowledge，不写 rules。没有需要的资源可以省略，或显式写空数组。下列示例不是当前仓库的替换指令。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>version: 1
+projects:
+  - id: project-a
+    name: A项目
+    resources:
+      skills: [common, jlink, s32k31x, project-a]
+      knowledge: [common, project-a]
+      agents: [project-a]
+      mcp: [common]
+      env: [common]
+      hooks: []
+      models: []
+      docs: [common, project-a]
+      learnings: [project-a]
+  - id: project-b
+    name: B项目
+    resources:
+      skills: [common, s32k31x, project-b]
+      knowledge: [common, project-b]</code></pre></div><p>A 和 B 同时使用 s32k31x，但只有 A 选择 jlink。MCP 和 env 要分别声明；选择 jlink-mcp skill 并不会自动选择 J-Link MCP 服务。</p><p>common 没有特殊权限。如果项目需要 common，就在相应字段写 [common]。global-common 也只是一个项目 ID，在本团队当前“仅项目接入”方案中无需每个成员额外选择它：业务项目可以直接引用 common 目录。</p><p>目录隔离要求清单和文件放置同时正确。不要在根目录保留原本打算限制给部分项目的 MCP、环境变量或其他共享定义。不同资源类型的根目录回退规则并不完全相同；未在任何清单中声明的目录也不应被当作可靠的隔离边界。</p><p>YAML 用空格缩进，不使用 Tab；version 为数字；projects 为列表；每项 ID 唯一。命名空间填目录段，例如 s32k31x，不填 skills/s32k31x 或本机绝对路径。</p><p>发布后，在目标工程运行 teamai pull、teamai projects list、teamai doctor。清单解析错误时修复具体字段，不通过删除清单来“解除错误”，否则可能扩大资源分发范围。</p><h2 id="section8">08 日常同步和切换项目</h2><p>进入正确工程是第一步。当前工作目录决定 TeamAI 解析哪份接入配置；不要把所有日常命令都在 C:\Users\某用户 中运行。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>Set-Location -LiteralPath &#x27;D:\Projects\ProjectA&#x27;
+teamai status
+teamai pull --dry-run
+teamai pull
+teamai list skills --source repo
+teamai list skills --source local --agent codex
+teamai doctor</code></pre></div><p>status 显示当前范围和差异；pull 将团队版本部署到本机；list --source repo 用于看当前团队候选；list --source local 用于看工具中实际可见副本。两者要结合检查。</p><p>在已经接入的工程中选择另一个项目，或组合多个逻辑项目：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>teamai projects set project-b
+teamai pull
+# 多项目组合会取所选资源的并集，仅在确实需要时使用
+teamai projects set project-a project-b
+teamai pull</code></pre></div><p>projects set 不带 ID 会清空活动项目，但不是“停止一切 TeamAI 行为”的总开关。不要用 --project all 代替精确选择；all 是执行时项目列表的快照，既可能扩大分发，也不保证自动包含以后新增项目。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>使用 TeamAI skill，同步当前工程的团队资源。
+先确认本地目录和项目 ID；保留我未发布的修改。
+若发现冲突，列出本地与团队差异，不直接强制覆盖。
+完成后报告新增、更新、未同步项目和原因。</code></pre></div><p>手动修改过的 skill、规则或 agent 副本通常会被保护并提示 Kept。要采用团队版本，先备份需要的修改，再按明确路径清理相应副本后同步；不要把警告当作已合并本地修改的证明。</p><h2 id="section9">09 两个现有能力的实际使用</h2><p>CHY_T1EJ 的接入实例可写为：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>Set-Location -LiteralPath `
+  &#x27;C:\Users\76600\Desktop\work\code\CHY_A_Plus_T1EJ&#x27;
+teamai init https://github.com/JxchenInECU/TeamAI `
+  --scope project --project project-CHY_T1EJ `
+  --no-inherit-user-scope --agent codex</code></pre></div><p>这是初始化或明确重新配置时的例子。已成功接入的工程日常执行 teamai pull 即可，不必每次重新 init。</p><p>s32k31x-driver-develop 的显示名为 s32k31x驱动开发，支持 S32K310/311/312/314 的 S32DS 工程、MEX 配置分析与修改。skill 内 assets/data/ 包含资料，脚本与资料路径应按当前 skill 所在位置解析，不复制旧电脑的绝对路径。运行 PDF/XLSX 查询需要相应 Python 依赖。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>使用 $s32k31x-driver-develop 分析当前工程的 CAN 配置。
+只分析，不修改 MEX、不生成代码、不烧录。
+明确目标型号、RTD 版本、配置依据和仍需确认的参数。</code></pre></div><p>jlink-mcp 是硬件操作流程 skill；对应 MCP 服务名为 jlink。skill 文件存在、MCP 配置存在、MCP 已启动、探针已连接、目标型号正确，是五个不同状态。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>使用 jlink-mcp skill 检查当前 J-Link MCP 配置和目标连接。
+先核对实际器件与探针，只进行连接检查，保持 Flash 不变。
+不要依据上一次的默认器件直接操作当前板卡。</code></pre></div><p>只有成员明确请求下载、擦除或调试且目标、文件、地址范围充分确定时，才执行对应硬件操作。TeamAI 同步成功不代表固件构建通过、下载校验通过或总线行为正确。</p><h2 id="section10">10 新电脑配置 J-Link MCP</h2><p>需要 J-Link 的项目应同时选择 skills 中的 jlink，以及 mcp、env 中的 common。新电脑还需 Node.js、jlink-mcp@0.7.0、SEGGER J-Link 软件和驱动；源码调试可能另需 ARM GDB 和匹配 ELF，符号化外设读取需要匹配 SVD。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>npm install --global jlink-mcp@0.7.0
+npm root --global</code></pre></div><p>将 npm root --global 输出目录与 jlink-mcp/out/mcp/standalone.js 拼接，得到本机入口文件。安装 SEGGER J-Link 后，核对实际安装目录；不要照抄旧机器上的 JLink_V980 路径。</p><p>在已接入的工程中，使用交互命令输入本机值：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>teamai env set TEAMAI_JLINK_NODE
+teamai env set TEAMAI_JLINK_ENTRY
+teamai env set TEAMAI_JLINK_INSTALL_DIR
+teamai env set TEAMAI_JLINK_DEVICE
+teamai env set TEAMAI_JLINK_INTERFACE
+teamai env set TEAMAI_JLINK_SPEED
+teamai pull
+teamai mcp list
+teamai doctor</code></pre></div><div class="table-wrap"><table><tr><th>变量</th><th>填写方式</th></tr><tr><td>TEAMAI_JLINK_NODE</td><td>node 或 Node 可执行文件绝对路径</td></tr><tr><td>TEAMAI_JLINK_ENTRY</td><td>MCP standalone.js 绝对路径，必须填写</td></tr><tr><td>TEAMAI_JLINK_INSTALL_DIR</td><td>SEGGER 安装目录，必须填写</td></tr><tr><td>TEAMAI_JLINK_DEVICE</td><td>默认 Unspecified；也可填初始型号，但每次仍要核对目标</td></tr><tr><td>TEAMAI_JLINK_INTERFACE</td><td>SWD 或 JTAG，按板卡选择</td></tr><tr><td>TEAMAI_JLINK_SPEED</td><td>kHz，默认 4000，按目标调整</td></tr></table></div><p>这些成员值按团队身份保存在本机；同一电脑上，同一团队的多个项目可能复用同一组成员值，不应把每个工程的不同目标型号视为彼此独立的本地变量槽。并行使用不同板卡时，应明确项目级目标设计或在每次操作前调用 set_device。</p><p>路径填写完后重开 AI 会话。先验收服务启动和工具发现，再按具体授权验证目标板。本手册不要求在新电脑安装流程中执行擦除或烧录。</p><h2 id="section11">11 发布新的 skill</h2><p>共享 skill 的最小结构如下。目录和 name 使用稳定的英文标识，界面显示名可使用中文；相关脚本、参考资料和可共享资产放在 skill 内。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>my-skill/
+  SKILL.md
+  agents/openai.yaml
+  references/
+  scripts/
+  assets/</code></pre></div><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>---
+name: my-skill
+description: 在指定任务中完成某项可复用工作。
+---</code></pre></div><p>发布前排除 __pycache__、.pyc、node_modules、个人配置、令牌、设备序列号、业务日志和不需要共享的镜像。资料采用 skill 内相对路径；检查可分发范围和仓库容量，较大数据资产应核对远端完整性，不只看命令退出码。</p><p>在已接入工程中明确发布单个 skill：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>$skillDir = &#x27;D:\Skills\my-skill&#x27;
+teamai push --skill $skillDir --role common</code></pre></div><p>这里 --role common 用作新资源目标命名空间，结果为 skills/common/my-skill。虽然参数叫 role，但这个用途不要求先把业务工程改成“角色”。已有资源的更新通常回到记录的原命名空间。</p><p>0.27.0 的预览可能优先匹配工具中已经安装的同名 skill，而不是临时目录。务必检查 from 和 to 两行：来源必须是经过检查的内容，目标必须是预期命名空间。来源不对时取消，先统一工作副本再发布。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>使用 TeamAI skill，把 D:\Skills\my-skill 发布到团队仓库的
+skills/common/my-skill。仅发布这一项，排除缓存、个人路径和凭据。
+先展示实际来源、目标位置与文件清单，验证后创建并合入发布请求。
+不要上传其他本地 skills、规则或配置。</code></pre></div><p>发布请求合入后，再到目标工程 teamai pull，并检查实际工具目录。命名空间存在还不够，接收项目的 resources.skills 必须包含它。</p><h2 id="section12">12 更新 改名和移动 skill</h2><p>修改已同步的 skill 时，从当前工程实际部署的副本着手，保留原始功能与授权边界。更新前先同步或核对团队最新版本，避免把旧副本重新发布覆盖别人的改动。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>teamai status
+teamai push --skill &#x27;D:\Projects\ProjectA\.codex\skills\my-skill&#x27;</code></pre></div><p>上述路径适用于按此结构部署的 Codex 工程；其他工具或自定义路径以 list/status 输出为准。不要假定 --role 会把已发布技能自动迁移到新命名空间，也不要因为多个项目共用一个 skill 就复制多份。</p><p>只改显示名称：更新 agents/openai.yaml 的 interface.display_name。修改技能标识：需要同时改目录名、SKILL.md 中 name、默认提示词中的 $skill-name 和相关引用；还应处理旧部署副本，防止新旧两项同时可见。</p><p>将 skill 从一个命名空间移到另一个命名空间，应作为显式仓库迁移：保留文件内容，更新涉及的项目清单，核对旧目录不再存在，成员同步后验证旧副本已退出。目录迁移并不自动更新所有文档引用。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>使用 TeamAI skill，将 my-skill 从 common 移到 project-a 命名空间。
+保留内容，更新需要继续使用它的项目清单，检查其他项目的影响。
+发布前展示差异；同步后确认没有残留的同名全局副本或旧路径副本。</code></pre></div><p>--project 的发布目标依据项目资源字段解析。一个项目可能引用多个命名空间，不要假设命令一定选择你想要的目录。新增共享能力时，使用明确命名空间并检查发布预览；无法唯一确定时先解决目标选择。</p><h2 id="section13">13 编写和发布规则与 agents</h2><p>规则适合长期约束，例如编码约定、变更范围和验证要求；skill 适合按任务调用的工作流程。不要把只适用于一个芯片、一个客户或一次实验的约束放进 common 规则。</p><p>规则示例：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>rules/project-a/verification.md
+
+# 验证要求
+交付时分别报告静态分析、编译链接、下载读回和运行验证。
+只读分析任务不得自行修改配置或操作硬件。</code></pre></div><p>TeamAI 的通用规则发布入口是纯 Markdown，例如工程内 .claude/rules/ 下的新文件，再通过 teamai push 选择发布项。工具专用规则格式不一定会被当作可发布的新规则。也可以由 AI 在团队仓库中直接新增 rules/&lt;ns&gt;/ 文件并提交发布请求。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>teamai push --role project-a</code></pre></div><p>交互列表中只选择此次规则，不选择无关 skills、docs 或个人配置。没有通用的 --rule 单文件发布参数，不要套用不存在的命令。</p><p>agents 定义助手的职责、工作步骤、工具与模型选择；它不是 TeamAI 的 --agent codex 参数。前者是专职助手，后者是接收资源的 AI 应用。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>使用 TeamAI skill，新增一个只用于 project-a 的代码审查助手，
+放入 agents/project-a/，并让项目 resources.agents 引用该命名空间。
+先读取当前 TeamAI 版本支持的 agent 格式，生成定义并验证工具兼容性。
+不要配置未经确认的模型 ID，也不要自动启动该助手进行硬件操作。</code></pre></div><p>不同 AI 工具对 agent 文件格式、模型别名和工具限制的支持不同。不要把某一工具的 Markdown 定义原样同步成功，等同于所有工具都能按同样方式调用。支持模型别名时，优先按团队别名维护，并用 doctor 核对最终映射。</p><h2 id="section14">14 管理 MCP 服务</h2><p>MCP 服务定义位于 mcp/&lt;ns&gt;/mcp.yaml。它描述启动命令、参数、环境变量或远程服务地址；真正的程序、驱动和账号权限仍由成员安装和准备。不要把个人 config.toml 整份上传。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>servers:
+  - name: example-tool
+    transport: stdio
+    command: &quot;${EXAMPLE_NODE}&quot;
+    args: [&quot;${EXAMPLE_ENTRY}&quot;]
+    timeout: 30000</code></pre></div><p>对应项目必须声明 mcp: [该命名空间]；变量放在项目已选择的 env 命名空间中。共享文件中只有占位符或安全默认值。与工具相关的本机权限、审批设置不要无条件复制给全团队。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>teamai mcp list
+teamai mcp inject --dry-run
+teamai mcp inject
+teamai doctor</code></pre></div><p>mcp inject 更新本地工具配置，不是发布共享定义。0.27.0 没有 mcp add 命令，普通 teamai push 也不收集 mcp/ 和 hooks/ 文件；新增或更新这些文件需通过仓库编辑和发布请求完成，可直接让 AI 操作，完成后再同步。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>使用 TeamAI skill，把新的 MCP 服务定义放入 mcp/project-a/mcp.yaml。
+参数采用成员变量，不上传令牌或个人路径。
+更新 project-a 的 mcp 和 env 引用，发布后先 dry-run 检查，
+已有同名个人服务时保留并解释冲突，不直接强制覆盖。</code></pre></div><p>已有同名服务时，“not the team&#x27;s definition”通常表示个人配置与团队配置不同。检查差异后才能决定迁移。teamai mcp inject --force 可以接管冲突项，应先预览、备份并确认影响；不要为了 doctor 全绿而丢失原有工具审批策略。</p><p>项目 MCP 可能含有解析后的成员值。TeamAI 会尝试把文件排除在业务仓库提交之外；出现 withheld 时应修复排除失败的原因，不绕过保护把文件提交。</p><h2 id="section15">15 环境变量和密钥的正确用法</h2><p>区分三个动作：env add 修改团队声明或共享默认值；env set 保存成员自己的值；env exec 把当前目录对应的团队环境注入一条命令。个人路径必须用 env set，不用 env add。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code># 管理员声明可共享默认值，明确写入 common
+teamai env add BUILD_MODE debug --role common
+# 声明密钥名称，不在命令里提供密钥值
+teamai env add SERVICE_TOKEN --secret --role common `
+  -d &#x27;供指定服务使用，由成员自行取得&#x27;
+# 成员在自己的终端输入，输入过程不回显
+teamai env set SERVICE_TOKEN
+teamai env list</code></pre></div><p>声明变更完成后检查命令输出和仓库差异，按提示完成发布。只有共享声明可以进入仓库，成员值不能进入 env.yaml、聊天记录或 PR 内容。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code># 普通命令示例；-- 是 TeamAI 参数与子命令的分隔符
+teamai env exec -- python build.py
+# 将成员值关联到已有的本机环境变量，而不是复制值
+teamai env set SERVICE_TOKEN --from-env MY_SERVICE_TOKEN</code></pre></div><p>--from-env 要求每次运行时来源变量存在。桌面启动的 AI 工具不一定继承终端中新设的环境变量，需要重新启动或选择适当的本机配置方式。</p><p>当前团队 injectShellProfile 为 false，因此开终端不会自动导出所有团队变量。确实需要环境的 CLI 使用 env exec；不要用它包裹整个 AI 主程序，以免同名模型变量覆盖工具的模型设置。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>使用 TeamAI skill，为 project-a 声明服务所需的变量名称和说明。
+共享配置保留占位符；密钥由我在自己的终端输入。
+不要让我在聊天里发送密钥，不读取或展示本机 secrets 存储。</code></pre></div><p>同一团队的成员值可能被多个工程复用。--global 会扩大为多个团队可用，仅在确有需要时使用。需要删除本机值时用 teamai env unset KEY；删除团队声明用 env remove，并确认命名空间与发布影响。</p><h2 id="section16">16 文档 经验知识和大型代码库</h2><p>docs 是维护后的团队说明，learnings 是从任务中整理的可复用经验。业务项目知识应优先进入其专属命名空间，跨项目通用经验才放 common。project resources.docs 和 resources.learnings 决定接收范围。</p><p>TeamAI 同步 docs 目录有镜像清理行为：某些过期文件和本地额外文件会被清理。不要把同步目标目录作为个人草稿箱；先在独立工作目录编辑和备份，再按预览发布。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>teamai recall status
+teamai recall enable
+teamai recall &#x27;CAN 接收队列 并发&#x27;
+teamai skill get share
+teamai contribute --file &#x27;D:\Drafts\can-queue-note.md&#x27; `
+  --title &#x27;CAN 接收队列处理经验&#x27; --namespace common</code></pre></div><p>是否启用 recall 是独立选择，不是接入团队的必需条件。当前基线未主动启用团队 recall。启用后，可能在合适的任务结束时提示分享经验；提示不等于已经上传原始对话。发布前审查内容和目标命名空间。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>使用 TeamAI skill，将这次任务的可复用经验整理成团队知识草稿。
+删除个人路径、客户数据和凭据；分别写清结论、适用条件、证据和未知项。
+先让我审阅，不发布。确认后再放入 project-a 的经验命名空间。</code></pre></div><p>大型多仓库架构知识库使用专门的 wiki 流程：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>teamai skill get wiki
+teamai codebase --status
+teamai codebase --lint
+teamai import --cache-status</code></pre></div><p>import、代码提取和 AI 增强可能扫描大量业务代码并产生待发布内容，应先明确仓库白名单、发布范围、成本及目标。不要把 wiki 的目录和 docs/common 简单等同；其资源映射应按当前 wiki 工作流设置。</p><h2 id="section17">17 Hooks 自动同步和不同 AI 工具</h2><p>Hooks 是事件触发的本地处理程序。TeamAI 可以在会话开始、工具执行后、用户提交消息、回答结束等事件执行对应逻辑。并非每个事件都在下载资源，也不代表每个 skill 每次都会执行。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>teamai hooks list
+teamai doctor
+teamai hooks inject</code></pre></div><p>inject 用于修复或安装 hooks，不应把“写入成功”当作“已执行”的证据。Codex 需要同时信任工程和相关 hooks；其设置可能仍位于用户目录，这是事件入口的位置，不代表已经启用用户级资源同步。</p><p>Codex 未信任工程时，项目 .codex/config.toml 中的 MCP 定义可能不会加载。请在该工程打开 Codex，按实际提示信任工程，并在 Hooks 设置或支持的 /hooks 界面审查相关命令。重开会话后再运行 doctor。</p><p>多工具成员应根据当前版本的安装结果验收，不假设所有工具的项目级能力相同。Claude、CodeBuddy、WorkBuddy、OpenCode 等采用不同配置格式；有些工具或宿主没有可写 hooks，需手动 teamai pull。</p><p>dsh 特别说明：TeamAI 的 0.27.0 适配能分发 skill，且有单独的 hook patch；自动 hooks 需要启动时加载 --patch 指向的 cordis.patch.yml。此前本机使用过用户级 .dsh/skills，但那不能证明 dsh 支持与 Codex 一样的项目隔离。项目级接入前应核对实际部署路径和当前 dsh provider 行为。不要为绕过限制重新把项目专属 skill 安装成全局。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>使用 TeamAI skill，检查当前工具的自动同步是否真正生效。
+核对安装路径、项目范围、hooks 信任与 MCP 加载结果。
+如果工具无法实现项目隔离，先说明限制，不改用全局安装代替。</code></pre></div><h2 id="section18">18 成员权限和团队管理</h2><p>TeamAI 没有独立于仓库平台的权限体系。GitHub 仓库权限决定成员是否能读取、提交和审核共享资源；项目清单只决定日常分发，不替代仓库权限。</p><p>管理员在仓库 Settings → Collaborators 或组织对应的团队权限页面添加成员。需要贡献资源的成员给予合适的写权限；需要严格隔离的业务资料应放在不同权限边界的仓库中。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>teamai members list
+teamai projects members project-a
+teamai roles list</code></pre></div><p>新增成员邀请文本：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>请加入团队仓库 https://github.com/JxchenInECU/TeamAI。
+你的项目 ID 是 project-a；在自己的代码工程目录进行项目级接入，
+关闭用户级继承，只选择自己使用的 AI 工具。
+请让 AI 使用 TeamAI skill 完成安装与 doctor 检查。
+本机路径和密钥自行配置，不使用其他成员的配置文件。</code></pre></div><p>roles 是按岗位组织资源的另一个维度，与 projects 可以组合。本团队当前主要使用项目清单，不必为了使用 common 创建角色体系。如果以后启用角色，应评估角色资源与项目资源叠加后的实际分发范围。</p><p>发布流程建议明确谁可提出修改、谁检查资源范围、谁审核资料和凭据、谁最终合入。不要把 teamai push --all 设为日常默认，它可能包含多个本地资源。</p><h2 id="section19">19 暂停 使用排除和删除资源</h2><p>先分清想做哪一种操作。只在当前本机不用某个 skill，使用排除；团队不再需要某个资源，使用 remove 并发布；停止某个工具或项目接入，先检查 uninstall 范围。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code># 在当前工程范围排除和恢复一个 skill
+teamai skill exclude add my-skill
+teamai pull
+teamai skill exclude list
+teamai skill exclude remove my-skill
+teamai pull</code></pre></div><p>排除项按检测到的配置范围保存。在项目目录中操作项目配置；旧用户级排除不应作为未来新项目的永久过滤清单。排除不是所有资源类型通用的暂停开关。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code># 团队删除示例，先查看影响再执行
+teamai remove skills my-skill --dry-run
+teamai remove rules common/obsolete-rule --dry-run
+teamai remove agents obsolete-reviewer --dry-run
+teamai remove mcp example-tool --role common --dry-run</code></pre></div><p>确认之后去掉 --dry-run，再检查发布请求及成员同步结果。0.27.0 在本机曾对命名空间中的 skill 出现移除标记已写入但原始目录未清理完整的情况。删除后必须检查仓库目标目录、移除标记、实际部署和再次 pull 结果，不只看 Removed 摘要。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>使用 TeamAI skill，只让当前工程暂时不用 my-skill，
+不要从团队仓库删除，不影响其他工程。修改后验证下次同步不会恢复它。</code></pre></div><p>需要彻底退出时，先运行 teamai uninstall --dry-run 查看作用对象。--agent codex 可以限定工具，但不要把它理解成只暂停同步且保留全部资源。卸载会清理受管资源与 hooks，可能保留其他项目共用的入口。不会删除网上的团队仓库。</p><h2 id="section20">20 常见问题和处理顺序</h2><p>排错顺序：工程目录 → 接入范围 → 项目 ID → 清单与命名空间 → 实际部署 → MCP 变量与依赖 → 项目及 hooks 信任。每次修复后重跑 doctor，避免反复重装掩盖原因。</p><div class="table-wrap"><table><tr><th>提示或现象</th><th>常见原因</th><th>首先检查</th></tr><tr><td>NotInitializedError</td><td>当前目录未接入且没有用户级配置</td><td>是否进入实际工程</td></tr><tr><td>Unknown project</td><td>项目 ID 不存在或本地仓库未更新</td><td>ID 与 name、发布是否合入</td></tr><tr><td>No resources to sync</td><td>当前选择为空或命名空间为空</td><td>projects list 与仓库内容</td></tr><tr><td>Kept skill</td><td>本地被修改、空目录残留或无法验证所有权</td><td>文件是否存在、是否有 SKILL.md</td></tr><tr><td>Missing variables</td><td>MCP 占位符没有成员值</td><td>env list 和 env set</td></tr><tr><td>not the team&#x27;s definition</td><td>同名个人 MCP 与共享定义不同</td><td>原配置、审批策略和预期值</td></tr><tr><td>项目 MCP 不加载</td><td>工程未获信任或服务依赖未准备</td><td>Codex 项目信任与程序路径</td></tr><tr><td>hooks installed 但不运行</td><td>未信任、PATH、宿主或 patch 问题</td><td>hooks list 与实际会话日志</td></tr><tr><td>withheld</td><td>配置可能包含成员值而无法排除提交</td><td>提示中的具体文件与原因</td></tr></table></div><p>EBUSY 表示文件或目录被进程占用。先关闭占用该目录的编辑器标签、终端或服务，再重试；不要强杀所有进程。若只移走入口文件，目录虽不再是可发现的 skill，也应如实说明残留状态，不能称为完整删除。</p><p>Cannot find gh 或 teamai：重新打开终端并检查 Get-Command gh、Get-Command teamai；桌面应用可能需要重新启动才读取新 PATH。不要为解决路径问题将账号令牌硬编码进命令。</p><p>技能列在仓库但本机不可见：核对资源在选中的命名空间中、当前工具被启用、目录名与 SKILL.md 的 name 一致、没有排除项，且新会话已重新发现文件。</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>使用 TeamAI skill，诊断下面的完整输出。
+区分已经成功的步骤、阻止功能的错误和普通提示。
+先读当前配置及实际文件，再做最小修复；不要直接使用 --force，
+不要重建仓库，不修改业务代码或进行硬件操作。</code></pre></div><h2 id="section21">21 强制参数和本地修改保护</h2><p>不同命令的 --force 含义不同，不能把它当作通用修复开关。</p><div class="table-wrap"><table><tr><th>命令</th><th>--force 的主要影响</th></tr><tr><td>init --force</td><td>跳过已有配置覆盖确认</td></tr><tr><td>pull --force</td><td>强制完整同步；MCP 冲突等也需特别核对</td></tr><tr><td>mcp inject --force</td><td>覆盖与团队同名的个人 MCP 项</td></tr><tr><td>remove --force</td><td>跳过移除确认</td></tr><tr><td>uninstall --force</td><td>跳过卸载确认</td></tr></table></div><p>当前版本会保护部分已经由成员改动的 skills、rules、agents，即使 pull --force 也不应被描述为必定丢弃所有修改。第一次升级后的同步、新工作副本首次同步或没有交付记录时，保护边界可能不同。先备份重要修改，再选择合并、发布或采用团队版本。</p><p>发布时不仅检查文件数量，还应检查目标项目与命名空间。上传大型附件后核对远端大小或哈希；版本历史中的文件被删除不代表历史记录中不存在，敏感值若已泄漏需要处理凭据本身。</p><p>需要修复某个文件时，向 AI 明确说：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>先展示本机与团队配置差异和计划影响。
+保留个人审批设置、已有 MCP 和未发布修改。
+仅修复确认的问题，完成后重新验证。</code></pre></div><h2 id="section22">22 新电脑迁移和新增工程验收清单</h2><p>迁移不是复制 C:\Users\旧用户\.teamai 或 .codex。旧目录中可能包含账号状态、成员私有值、机器路径、缓存和与本机绑定的项目索引。正确做法是安装工具、登录自己的账号、在新工程路径重新 init，再填写成员值。</p><div class="table-wrap"><table><tr><th>检查项</th><th>完成标准</th></tr><tr><td>基础工具</td><td>Node 20+、Git、gh、TeamAI 均可调用</td></tr><tr><td>仓库权限</td><td>自己的账号能访问正确团队仓库</td></tr><tr><td>工程路径</td><td>本机代码工程真实存在且路径明确</td></tr><tr><td>项目选择</td><td>使用稳定 ID，不误用显示名称</td></tr><tr><td>范围</td><td>project，inheritUserScope 为 false</td></tr><tr><td>工具选择</td><td>仅配置实际要用的工具</td></tr><tr><td>资源选择</td><td>common 与其他命名空间逐类显式声明</td></tr><tr><td>私有值</td><td>本机重新配置，未上传旧机器路径或凭据</td></tr><tr><td>skills</td><td>实际部署位置正确，未意外全局安装</td></tr><tr><td>MCP</td><td>本机依赖可用，服务可以启动</td></tr><tr><td>信任</td><td>工程和 hooks 的信任状态满足要求</td></tr><tr><td>验证</td><td>doctor 无未解释故障，新会话实际可发现资源</td></tr></table></div><p>新电脑一段式自然语言模板：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>这是新电脑，请使用 TeamAI skill 接入已有团队。
+仓库：https://github.com/JxchenInECU/TeamAI
+工程目录：D:\Projects\ProjectA
+项目 ID：project-a
+工具：Codex
+采用项目范围，关闭用户级继承，不创建整机接入。
+检查基础依赖和账号授权，登录由我在浏览器批准。
+只同步该项目声明的资源，个人路径由本机填写，密钥不进聊天。
+完成后检查 doctor、hooks、skill 发现和 MCP 启动，
+不要连接、复位、擦除或烧录目标板。</code></pre></div><p>同一电脑的新工程也按此流程，只可跳过已经满足的安装和登录步骤。已有项目成功接入后，不需要为每次会话重复 init。</p><h2 id="section23">23 扩展功能和版本维护</h2><p>这些功能并非项目接入的前提。先明确用途，再阅读与安装版本一致的专门流程，不在不了解范围时批量开启。</p><div class="table-wrap"><table><tr><th>功能</th><th>命令入口</th><th>使用提示</th></tr><tr><td>版本检查</td><td>teamai update --check</td><td>团队协调后再升级</td></tr><tr><td>实际升级</td><td>teamai update</td><td>升级后重跑 doctor</td></tr><tr><td>仪表盘</td><td>teamai dashboard</td><td>本地服务，默认端口 3721</td></tr><tr><td>使用统计</td><td>teamai stats</td><td>可加 --by-repo 或 --by-time</td></tr><tr><td>周报</td><td>teamai digest</td><td>依赖团队已有活动数据</td></tr><tr><td>团队包</td><td>teamai packages install</td><td>检查将安装的软件来源</td></tr><tr><td>标签</td><td>teamai tags list</td><td>不替代项目清单与权限</td></tr><tr><td>外部技能源</td><td>teamai source list</td><td>加源前评估信任与范围</td></tr><tr><td>模型配置</td><td>teamai models list</td><td>成员凭据与团队定义分开</td></tr><tr><td>模型切换</td><td>teamai models switch --dry-run</td><td>实际执行前核对目标工具</td></tr><tr><td>恢复模型设置</td><td>teamai models restore</td><td>按需用 --agent 限定工具</td></tr><tr><td>经验开关</td><td>teamai recall status</td><td>明确是否需要自动回忆</td></tr></table></div><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>teamai skill list
+teamai skill get core --full
+teamai skill get setup --full
+teamai skill get wiki
+teamai skill get share</code></pre></div><p>模型别名、网关、HTTP 只读源、跨团队源及 CI 提取有各自的配置与权限要求。不要将 API key 放进共享模型文件；不要为了演示向真实 webhook 发送通知；任何经验或会话内容发布前都应确认目的地和可共享范围。</p><h2 id="section24">24 命令与自然语言对照</h2><div class="table-wrap"><table><tr><th>目的</th><th>CLI 入口</th><th>可以对 AI 这样说</th></tr><tr><td>检查当前接入</td><td>teamai status</td><td>检查当前工程的 TeamAI 范围和差异</td></tr><tr><td>同步资源</td><td>teamai pull</td><td>同步当前项目，保留未发布修改</td></tr><tr><td>查询项目</td><td>teamai projects list</td><td>列出可选项目和当前绑定</td></tr><tr><td>更换绑定</td><td>teamai projects set ID</td><td>将当前工程改为 ID，先检查影响</td></tr><tr><td>新增项目</td><td>teamai projects add ID</td><td>为新业务工程建立精确资源清单</td></tr><tr><td>发布单个 skill</td><td>teamai push --skill PATH</td><td>只发布这个 skill 到指定命名空间</td></tr><tr><td>发布规则</td><td>teamai push</td><td>仅发布这次新增的规则，检查清单</td></tr><tr><td>检查 MCP</td><td>teamai mcp list</td><td>检查服务定义、成员值与实际安装</td></tr><tr><td>配置成员值</td><td>teamai env set KEY</td><td>告诉我需要填写哪些本机变量</td></tr><tr><td>检查自动同步</td><td>teamai hooks list</td><td>核对 hooks 是否已安装并获信任</td></tr><tr><td>本机排除</td><td>teamai skill exclude add NAME</td><td>只在此工程暂停使用该 skill</td></tr><tr><td>团队删除</td><td>teamai remove TYPE NAME</td><td>从团队移除资源并验证后续同步</td></tr><tr><td>故障排查</td><td>teamai doctor</td><td>解释并最小化修复 doctor 的问题</td></tr><tr><td>卸载预览</td><td>teamai uninstall --dry-run</td><td>预览退出影响，先不执行卸载</td></tr></table></div><p>自然语言指令最好包含“工程目录、项目 ID、资源类型、命名空间、是否发布、是否允许覆盖”六项中的相关内容。只分析、先准备不发布、仅当前工程等范围限制，应该明确写出来。</p><p>以下模板适合交给任何已安装 TeamAI skill 的 AI 工具：</p><div class="code"><button type="button" onclick="copyCode(this)">复制</button><pre><code>使用 TeamAI skill，在【工程目录】处理【任务】。
+仓库为【完整 URL】，项目 ID 为【ID】。
+只涉及【资源类型与名称】，目标命名空间为【目录段】。
+采用项目范围，关闭用户级继承。
+【先准备不发布 / 验证后发布并合入】。
+保留无关配置与本地修改，完成后说明验证结果及未完成项。</code></pre></div><h2 id="section25">25 参考入口和维护说明</h2><p>本手册的命令和行为依据已安装 TeamAI 0.27.0 的 core、setup、commands、contribute-member、manage-admin、join-member、troubleshooting 和 uninstall 工作流，以及团队当前的 projects.yaml、teamai.yaml 和项目配置核对。</p><p>官方与团队入口：</p><p class="bullet">• TeamAI 项目：<a href="https://github.com/Tencent/teamai-cli">https://github.com/Tencent/teamai-cli</a></p><p class="bullet">• TeamAI skill：<a href="https://github.com/Tencent/teamai-cli/tree/main/skills/teamai">https://github.com/Tencent/teamai-cli/tree/main/skills/teamai</a></p><p class="bullet">• 团队仓库：<a href="https://github.com/JxchenInECU/TeamAI">https://github.com/JxchenInECU/TeamAI</a></p><p class="bullet">• 项目清单：<a href="https://github.com/JxchenInECU/TeamAI/blob/main/manifest/projects.yaml">https://github.com/JxchenInECU/TeamAI/blob/main/manifest/projects.yaml</a></p><p class="bullet">• J-Link 安装说明：<a href="https://github.com/JxchenInECU/TeamAI/blob/main/skills/jlink/jlink-mcp/references/setup.md">https://github.com/JxchenInECU/TeamAI/blob/main/skills/jlink/jlink-mcp/references/setup.md</a></p><p class="bullet">• J-Link MCP 上游：<a href="https://github.com/Klievan/jlink-mcp">https://github.com/Klievan/jlink-mcp</a></p><p class="bullet">• SEGGER 下载：<a href="https://www.segger.com/downloads/jlink/">https://www.segger.com/downloads/jlink/</a></p><p>升级 TeamAI、变更项目分发策略、改名或迁移共享资源后，应更新本手册中的实际例子与命令核对日期。保留通用模板，不把当前工程路径、某块板卡型号或某位成员的本机配置写成所有新项目的固定要求。</p><p>当前默认方案是：一个团队仓库维护共享能力；每个业务工程独立接入；common 逐类显式选择；成员路径与密钥只保存在成员本机；发布前检查范围，发布后核对实际分发。</p></main><script>
+async function copyCode(btn){const value=btn.parentElement.querySelector('code').textContent;try{await navigator.clipboard.writeText(value)}catch(e){const t=document.createElement('textarea');t.value=value;document.body.append(t);t.select();document.execCommand('copy');t.remove()}btn.textContent='已复制';setTimeout(()=>btn.textContent='复制',1500)}
+</script></body></html>
