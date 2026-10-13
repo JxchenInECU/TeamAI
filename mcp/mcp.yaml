@@ -1,0 +1,14 @@
+servers:
+  - name: jlink
+    description: SEGGER J-Link MCP 0.7.0; member-local paths and target settings
+    transport: stdio
+    command: "${TEAMAI_JLINK_NODE}"
+    args:
+      - "${TEAMAI_JLINK_ENTRY}"
+    timeout: 30000
+    env:
+      PROBE_TYPE: jlink
+      JLINK_INSTALL_DIR: "${TEAMAI_JLINK_INSTALL_DIR}"
+      JLINK_DEVICE: "${TEAMAI_JLINK_DEVICE}"
+      JLINK_INTERFACE: "${TEAMAI_JLINK_INTERFACE}"
+      JLINK_SPEED: "${TEAMAI_JLINK_SPEED}"

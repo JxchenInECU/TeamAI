@@ -1,0 +1,3 @@
+interface:
+  display_name: "J-Link MCU 操作"
+  short_description: "连接目标板，执行固件下载、擦除和调试"
