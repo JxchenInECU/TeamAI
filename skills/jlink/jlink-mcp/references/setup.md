@@ -25,7 +25,7 @@ npm root --global
 
 ## 本机变量（不提交到团队仓库）
 
-团队 `env/env.yaml` 仅声明默认值；`mcp/mcp.yaml` 引用 `${TEAMAI_JLINK_*}` 占位符。TeamAI 同步时将成员的值写入该成员本机 MCP 配置。
+团队 `env/common/env.yaml` 仅声明默认值；`mcp/common/mcp.yaml` 引用 `${TEAMAI_JLINK_*}` 占位符。TeamAI 同步时将成员的值写入该成员本机 MCP 配置。
 
 | 变量 | 默认值 | 成员填写内容 |
 |---|---|---|
@@ -63,4 +63,4 @@ teamai doctor
 
 ## 分发范围
 
-当前配置位于共享根目录，供整个团队使用；路径由每个成员配置。将来若限定项目，应把 skill、MCP 和 env 一并移入对应命名空间，并在 `manifest/projects.yaml` 的 `resources.skills`、`resources.mcp`、`resources.env` 中同时声明。
+当前 skill 位于 `skills/jlink/jlink-mcp/`，MCP 和环境变量位于 `mcp/common/`、`env/common/`。项目必须在 `manifest/projects.yaml` 中显式选择 `resources.skills: [jlink]`、`resources.mcp: [common]` 和 `resources.env: [common]`（可与其他命名空间组合）。每个本地工程按项目范围接入并关闭用户级继承；成员路径仅保存在本机。团队已关闭 shell profile 自动注入，需团队环境变量的命令使用 `teamai env exec -- <命令>`。
