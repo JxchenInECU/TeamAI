@@ -1,0 +1,5576 @@
+# S32K3XXRM — 章节索引
+
+> 总计 **5570** 条目录项，最深层级 **7**
+
+---
+
+- Contents  `p2`
+- 1 About This Manual  `p7`
+  - 1.1 Audience  `p7`
+  - 1.2 Organization  `p7`
+    - 1.2.1 Attachments  `p7`
+  - 1.3 Module descriptions  `p7`
+    - 1.3.1 Chip-specific information that clarifies content in the same chapter  `p8`
+    - 1.3.2 Chip-specific information that refers to a different chapter  `p9`
+  - 1.4 Register descriptions  `p10`
+  - 1.5 Conventions  `p12`
+    - 1.5.1 Notes and cautions  `p12`
+    - 1.5.2 Numbering systems  `p12`
+    - 1.5.3 Typographic notation  `p12`
+    - 1.5.4 Special terms  `p13`
+  - 1.6 Editorial changes  `p13`
+- 2 Introduction  `p15`
+  - 2.1 Overview  `p15`
+  - 2.2 S32K3xx product series  `p15`
+  - 2.3 Feature summary  `p17`
+  - 2.4 Block diagram  `p21`
+  - 2.5 Feature comparison  `p27`
+  - 2.6 Glossary  `p32`
+- 3 Memory Map  `p34`
+  - 3.1 Introduction  `p34`
+  - 3.2 SRAM memory map  `p34`
+  - 3.3 Access-related details of the memory types used in this chip  `p34`
+  - 3.4 TCM as system memory  `p34`
+  - 3.5 Considerations related to TCM's implementation  `p35`
+  - 3.6 Flash memory map  `p35`
+  - 3.7 AIPS-Lite memory map  `p35`
+  - 3.8 Serialization of memory operations  `p36`
+  - 3.9 PPB memory map  `p36`
+  - 3.10 Glossary  `p37`
+- 4 Signal Multiplexing  `p38`
+  - 4.1 Introduction  `p38`
+  - 4.2 Pad description  `p38`
+  - 4.3 Functional description  `p40`
+  - 4.4 Signal Multiplexing sheet  `p40`
+    - 4.4.1 IO Signal Table  `p40`
+    - 4.4.2 Input muxing table  `p43`
+    - 4.4.3 MSCR/IMCR description/explanation  `p43`
+    - 4.4.4 Pinout diagrams  `p44`
+  - 4.5 Pin States  `p44`
+    - 4.5.1 Pin numbers  `p44`
+    - 4.5.2 Power up  `p44`
+    - 4.5.3 Destructive Reset  `p44`
+    - 4.5.4 Functional Reset including Functional entry sequence  `p45`
+    - 4.5.5 SELFTEST(MC_RGM.ERCTRL[ERASSERT] configured as 1)  `p46`
+    - 4.5.6 SELFTEST (RGM_ERCTRL[ERASSERT]=0 and RGM_FRBE[ST_DONE] =0)  `p46`
+    - 4.5.7 FCCU fault in RUN mode when the fault reaction is not Reset  `p47`
+    - 4.5.8 STANDBY ( DCMRWF1[STANDBY_IO_CONFIG] must be configured as 1)  `p48`
+  - 4.6 Glossary  `p49`
+- Core and Systems  `p50`
+  - 5 Cortex-M7 Overview  `p50`
+    - 5.1 Introduction  `p50`
+      - 5.1.1 Features  `p50`
+      - 5.1.2 Related information  `p50`
+      - 5.1.3 Buses, interconnects, and interfaces  `p51`
+      - 5.1.4 Core configuration  `p51`
+    - 5.2 Speculative accesses  `p52`
+    - 5.3 Debug facilities  `p53`
+    - 5.4 Vector fetch behavior on Cortex-M7  `p53`
+    - 5.5 TCM retry  `p53`
+    - 5.6 Glossary  `p53`
+  - 6 Miscellaneous Control Module (MCM)  `p55`
+    - 6.1 Chip-specific MCM information  `p55`
+      - 6.1.1 MCM instances and configuration  `p55`
+    - 6.2 Overview  `p56`
+      - 6.2.1 Features  `p56`
+    - 6.3 Functional description  `p56`
+      - 6.3.1 Interrupts  `p56`
+    - 6.4 Memory map and register descriptions  `p57`
+      - 6.4.1 MCM register descriptions  `p57`
+        - 6.4.1.1 MCM memory map  `p57`
+        - 6.4.1.2 Chip-Defined Platform Revision (PLREV)  `p58`
+        - 6.4.1.3 Processor Core Type (PCT)  `p58`
+        - 6.4.1.4 Core Platform Control (CPCR)  `p59`
+        - 6.4.1.5 Interrupt Status and Control (ISCR)  `p60`
+        - 6.4.1.6 Process Identifier (PID)  `p63`
+        - 6.4.1.7 Local Memory Descriptor 0 (LMEM_DESC_0)  `p64`
+        - 6.4.1.8 Local Memory Descriptor a (LMEM_DESC_1 - LMEM_DESC_2)  `p67`
+        - 6.4.1.9 Local Memory Descriptor 3 (LMEM_DESC_3)  `p69`
+        - 6.4.1.10 Local Memory Descriptor 4 (LMEM_DESC_4)  `p72`
+    - 6.5 Glossary  `p75`
+  - 7 Miscellaneous System Control Module (MSCM)  `p76`
+    - 7.1 Chip-specific MSCM information  `p76`
+      - 7.1.1 MSCM instance  `p76`
+      - 7.1.2 Reporting of core-to-core interrupts  `p76`
+      - 7.1.3 ENEDC register implementation  `p76`
+        - 7.1.3.1 EN_WR_TCM and EN_ADD_TCM definition  `p76`
+      - 7.1.4 ENEDC and ENEDC1 register implementation for S32K358, S32K356, S32K348, S32K338, and S32K328  `p76`
+        - 7.1.4.1 ENEDC[ADD_TCM_BACKDOOR] and ENEDC1 [USDHC] definition  `p77`
+    - 7.2 Overview  `p77`
+      - 7.2.1 Features  `p78`
+    - 7.3 Functional description  `p78`
+      - 7.3.1 MSI routing  `p78`
+        - 7.3.1.1 Core-to-core MSIs  `p79`
+      - 7.3.2 Interrupt steering and semaphores  `p79`
+        - 7.3.2.1 Interrupt handling overview  `p79`
+        - 7.3.2.2 MSCM interrupt router functional description  `p79`
+      - 7.3.3 Clocking  `p79`
+    - 7.4 External signals  `p79`
+    - 7.5 Initialization  `p79`
+    - 7.6 Memory map and register definition  `p79`
+      - 7.6.1 Core configuration registers  `p80`
+      - 7.6.2 Shared peripheral interrupt (SPI) routing  `p80`
+      - 7.6.3 MSCM register descriptions  `p80`
+        - 7.6.3.1 MSCM memory map  `p80`
+        - 7.6.3.2 Processor X Type (CPXTYPE)  `p83`
+        - 7.6.3.3 Processor X Number (CPXNUM)  `p84`
+        - 7.6.3.4 Processor X Revision (CPXREV)  `p85`
+        - 7.6.3.5 Processor X Configuration 0 (CPXCFG0)  `p86`
+        - 7.6.3.6 Processor X Configuration 1 (CPXCFG1)  `p87`
+        - 7.6.3.7 Processor X Configuration 2 (CPXCFG2)  `p88`
+        - 7.6.3.8 Processor X Configuration 3 (CPXCFG3)  `p89`
+        - 7.6.3.9 Processor 0 Type (CP0TYPE)  `p91`
+        - 7.6.3.10 Processor 0 Number (CP0NUM)  `p92`
+        - 7.6.3.11 Processor 0 Count (CP0REV)  `p93`
+        - 7.6.3.12 Processor 0 Configuration 0 (CP0CFG0)  `p93`
+        - 7.6.3.13 Processor 0 Configuration 1 (CP0CFG1)  `p95`
+        - 7.6.3.14 Processor 0 Configuration 2 (CP0CFG2)  `p96`
+        - 7.6.3.15 Processor 0 Configuration 3 (CP0CFG3)  `p97`
+        - 7.6.3.16 Processor 1 Type (CP1TYPE)  `p98`
+        - 7.6.3.17 Processor 1 Number (CP1NUM)  `p99`
+        - 7.6.3.18 Processor 1 Count (CP1REV)  `p100`
+        - 7.6.3.19 Processor 1 Configuration 0 (CP1CFG0)  `p101`
+        - 7.6.3.20 Processor 1 Configuration 1 (CP1CFG1)  `p102`
+        - 7.6.3.21 Processor 1 Configuration 2 (CP1CFG2)  `p103`
+        - 7.6.3.22 Processor 1 Configuration 3 (CP1CFG3)  `p105`
+        - 7.6.3.23 Processor 2 Type (CP2TYPE)  `p106`
+        - 7.6.3.24 Processor 2 Number (CP2NUM)  `p107`
+        - 7.6.3.25 Processor 2 Count (CP2REV)  `p108`
+        - 7.6.3.26 Processor 2 Configuration 0 (CP2CFG0)  `p109`
+        - 7.6.3.27 Processor 2 Configuration 1 (CP2CFG1)  `p110`
+        - 7.6.3.28 Processor 2 Configuration 2 (CP2CFG2)  `p111`
+        - 7.6.3.29 Processor 2 Configuration 3 (CP2CFG3)  `p113`
+        - 7.6.3.30 Processor 3 Type (CP3TYPE)  `p114`
+        - 7.6.3.31 Processor 3 Number (CP3NUM)  `p115`
+        - 7.6.3.32 Processor 3 Count (CP3REV)  `p116`
+        - 7.6.3.33 Processor 3 Configuration 0 (CP3CFG0)  `p117`
+        - 7.6.3.34 Processor 3 Configuration 1 (CP3CFG1)  `p118`
+        - 7.6.3.35 Processor 3 Configuration 2 (CP3CFG2)  `p119`
+        - 7.6.3.36 Processor 3 Configuration 3 (CP3CFG3)  `p121`
+        - 7.6.3.37 Interrupt Router CPn Interrupt Status (IRCP0ISR0 - IRCP3ISR3)  `p122`
+        - 7.6.3.38 Interrupt Router CPn Interrupt Generation (IRCP0IGR0 - IRCP3IGR3)  `p124`
+        - 7.6.3.39 Interrupt Router Configuration (IRCPCFG)  `p125`
+        - 7.6.3.40 Memory Execution Controls (XN_CTRL)  `p127`
+        - 7.6.3.41 Enable Interconnect Error Detection (ENEDC)  `p131`
+        - 7.6.3.42 Enable Interconnect Error Detection (ENEDC1)  `p135`
+        - 7.6.3.43 AHB Gasket Configuration (IAHBCFGREG)  `p139`
+        - 7.6.3.44 Interrupt Router Shared Peripheral Routing Control (IRSPRC0 - IRSPRC239)  `p145`
+    - 7.7 Glossary  `p147`
+  - 8 Virtualization Wrapper (VIRT_WRAPPER) for S32K388 and S32K389  `p148`
+    - 8.1 Chip-specific VIRT_WRAPPER information  `p148`
+      - 8.1.1 Virtual Wrapper instances  `p148`
+      - 8.1.2 System overview of PDAC scheme  `p148`
+      - 8.1.3 Initial VIRT_WRAPPER operation  `p148`
+      - 8.1.4 Additional VIRT_WRAPPER details  `p149`
+    - 8.2 Introduction  `p150`
+      - 8.2.1 Overview  `p150`
+      - 8.2.2 Features  `p151`
+      - 8.2.3 Modes of operation  `p151`
+    - 8.3 Functional description  `p152`
+      - 8.3.1 PDAC-based protection scheme  `p152`
+      - 8.3.2 Clocking  `p152`
+      - 8.3.3 Register group mapping for SIUL2  `p152`
+        - 8.3.3.1 Virtualization of pad output registers  `p153`
+        - 8.3.3.2 Virtualization of input multiplexing control registers  `p153`
+        - 8.3.3.3 Virtualization of interrupt control registers  `p154`
+    - 8.4 External signals  `p156`
+    - 8.5 Initialization  `p156`
+    - 8.6 Application Information  `p156`
+    - 8.7 VIRT_WRAPPER register descriptions  `p156`
+      - 8.7.1 VIRT_WRAPPER memory map  `p156`
+      - 8.7.2 Parameter_n Register (REG_A3_0 - REG_A35_32)  `p158`
+      - 8.7.3 Parameter_n Register (REG_A39_36)  `p160`
+      - 8.7.4 Parameter_n Register (REG_A43_40 - REG_A139_136)  `p161`
+      - 8.7.5 Parameter_n Register (REG_A143_140)  `p163`
+      - 8.7.6 Parameter_n Register (REG_A147_144 - REG_A323_320)  `p164`
+      - 8.7.7 Parameter_n Register (REG_B3_0)  `p166`
+      - 8.7.8 Parameter_n Register (REG_B7_4)  `p167`
+      - 8.7.9 Parameter_n Register (REG_B19_16 - REG_B147_144)  `p169`
+      - 8.7.10 Parameter_n Register (REG_B151_148)  `p171`
+      - 8.7.11 Parameter_n Register (REG_B155_152 - REG_B199_196)  `p172`
+      - 8.7.12 Parameter_n Register (REG_B203_200)  `p174`
+      - 8.7.13 Parameter_n Register (REG_B211_208)  `p175`
+      - 8.7.14 Parameter_n Register (REG_B215_212 - REG_B267_264)  `p176`
+      - 8.7.15 Parameter_n Register (REG_B271_268)  `p178`
+      - 8.7.16 Parameter_n Register (REG_B291_288)  `p180`
+      - 8.7.17 Parameter_n Register (REG_B295_292 - REG_B307_304)  `p181`
+      - 8.7.18 Parameter_n Register (REG_B311_308)  `p183`
+      - 8.7.19 Parameter_n Register (REG_B315_312)  `p184`
+      - 8.7.20 Parameter_n Register (REG_B319_316 - REG_B323_320)  `p186`
+      - 8.7.21 Parameter_n Register (REG_B327_324)  `p187`
+      - 8.7.22 Parameter_n Register (REG_B343_340)  `p189`
+      - 8.7.23 Parameter_n Register (REG_B347_344 - REG_B367_364)  `p190`
+      - 8.7.24 Parameter_n Register (REG_B371_368)  `p192`
+      - 8.7.25 Parameter_n Register (REG_B375_372)  `p193`
+      - 8.7.26 Parameter_n Register (REG_B379_376)  `p195`
+      - 8.7.27 Parameter_n Register (REG_B391_388)  `p196`
+      - 8.7.28 Parameter_n Register (REG_B399_396)  `p198`
+      - 8.7.29 Parameter_n Register (REG_B411_408)  `p199`
+      - 8.7.30 Parameter_n Register (REG_B415_412)  `p201`
+      - 8.7.31 Parameter_n Register (REG_B419_416)  `p202`
+      - 8.7.32 Parameter_n Register (REG_B443_440)  `p204`
+      - 8.7.33 Parameter_n Register (REG_B451_448 - REG_B471_468)  `p205`
+      - 8.7.34 Parameter_n Register (REG_B475_472)  `p207`
+      - 8.7.35 Parameter_n Register (REG_C)  `p208`
+      - 8.7.36 Parameter_n Register (REG_D)  `p209`
+    - 8.8 Glossary  `p210`
+  - 9 Virtualization Wrapper (VIRT_WRAPPER) for all chips except S32K388 and S32K389  `p211`
+    - 9.1 Chip-specific VIRT_WRAPPER information  `p211`
+      - 9.1.1 Virtual Wrapper instances  `p211`
+      - 9.1.2 System overview of PDAC scheme  `p211`
+      - 9.1.3 Initial VIRT_WRAPPER operation  `p211`
+      - 9.1.4 Additional VIRT_WRAPPER details  `p212`
+    - 9.2 Introduction  `p213`
+      - 9.2.1 Overview  `p213`
+      - 9.2.2 Features  `p214`
+      - 9.2.3 Modes of operation  `p214`
+    - 9.3 Functional description  `p214`
+      - 9.3.1 PDAC-based protection scheme  `p214`
+      - 9.3.2 Clocking  `p215`
+      - 9.3.3 Register group mapping for SIUL2  `p215`
+        - 9.3.3.1 Virtualization of pad output registers  `p215`
+        - 9.3.3.2 Virtualization of input multiplexing control registers  `p216`
+        - 9.3.3.3 Virtualization of interrupt control registers  `p216`
+    - 9.4 External signals  `p217`
+    - 9.5 Initialization  `p217`
+    - 9.6 Application Information  `p217`
+    - 9.7 VIRT_WRAPPER memory map register descriptions  `p217`
+      - 9.7.1 VIRT_WRAPPER memory map  `p217`
+      - 9.7.2 Parameter_n Register (REG_A0 - REG_A1)  `p219`
+      - 9.7.3 Parameter_n Register (REG_A2)  `p222`
+      - 9.7.4 Parameter_n Register (REG_A3 - REG_A13)  `p225`
+      - 9.7.5 Parameter_n Register (REG_A14)  `p229`
+      - 9.7.6 Parameter_n Register (REG_B0)  `p232`
+      - 9.7.7 Parameter_n Register (REG_B1 - REG_B3)  `p234`
+      - 9.7.8 Parameter_n Register (REG_B4)  `p238`
+      - 9.7.9 Parameter_n Register (REG_B5)  `p240`
+      - 9.7.10 Parameter_n Register (REG_B6)  `p244`
+      - 9.7.11 Parameter_n Register (REG_B7)  `p246`
+      - 9.7.12 Parameter_n Register (REG_B8)  `p250`
+      - 9.7.13 Parameter_n Register (REG_B9)  `p252`
+      - 9.7.14 Parameter_n Register (REG_B10 - REG_B11)  `p255`
+      - 9.7.15 Parameter_n Register (REG_B12)  `p259`
+      - 9.7.16 Parameter_n Register (REG_B13)  `p262`
+      - 9.7.17 Parameter_n Register (REG_B14 - REG_B15)  `p265`
+      - 9.7.18 Parameter_n Register (REG_B16)  `p268`
+      - 9.7.19 Parameter_n Register (REG_B18)  `p272`
+      - 9.7.20 Parameter_n Register (REG_B19)  `p275`
+      - 9.7.21 Parameter_n Register (REG_B20)  `p278`
+      - 9.7.22 Parameter_n Register (REG_B21)  `p281`
+      - 9.7.23 Parameter_n Register (REG_B22)  `p283`
+      - 9.7.24 Parameter_n Register (REG_B23)  `p287`
+      - 9.7.25 Parameter_n Register (REG_B24)  `p290`
+      - 9.7.26 Parameter_n Register (REG_B25)  `p292`
+      - 9.7.27 Parameter_n Register (REG_B26)  `p295`
+      - 9.7.28 Parameter_n Register (REG_B27)  `p298`
+      - 9.7.29 Parameter_n Register (REG_C1039_1024)  `p300`
+    - 9.8 Glossary  `p301`
+  - 10 System Integration Unit Lite2 (SIUL2)  `p302`
+    - 10.1 Chip-specific SIUL2 information  `p302`
+      - 10.1.1 Feature availability  `p302`
+      - 10.1.2 Mapping of MSCR and IMCR instances  `p302`
+    - 10.2 Overview  `p302`
+      - 10.2.1 Block diagram  `p302`
+      - 10.2.2 Features  `p303`
+    - 10.3 Functional description  `p304`
+      - 10.3.1 Pad control  `p304`
+      - 10.3.2 General-purpose input and output pads (GPIO)  `p304`
+      - 10.3.3 Clocking  `p305`
+      - 10.3.4 External interrupts  `p305`
+        - 10.3.4.1 External interrupt initialization  `p305`
+        - 10.3.4.2 External interrupt management  `p306`
+        - 10.3.4.3 External interrupt request  `p306`
+      - 10.3.5 DMA requests  `p306`
+    - 10.4 External signal description  `p307`
+    - 10.5 Initialization  `p307`
+    - 10.6 SIUL2 register descriptions  `p307`
+      - 10.6.1 SIUL2 memory map  `p307`
+      - 10.6.2 SIUL2 MCU ID Register #1 (MIDR1)  `p351`
+      - 10.6.3 SIUL2 MCU ID Register #2 (MIDR2)  `p352`
+      - 10.6.4 DMA or Interrupt Status Flag 0 (DISR0)  `p354`
+      - 10.6.5 DMA or Interrupt Request Enable 0 (DIRER0)  `p366`
+      - 10.6.6 DMA or Interrupt Request Select 0 (DIRSR0)  `p371`
+      - 10.6.7 Interrupt Rising-Edge Event Enable 0 (IREER0)  `p378`
+      - 10.6.8 Interrupt Falling-Edge Event Enable 0 (IFEER0)  `p383`
+      - 10.6.9 Interrupt Filter Enable 0 (IFER0)  `p388`
+      - 10.6.10 Interrupt Filter Maximum Counter (IFMCR0 - IFMCR31)  `p392`
+      - 10.6.11 Interrupt Filter Clock Prescaler (IFCPR)  `p393`
+      - 10.6.12 MUX0 EMIOS ENABLE 1 (MUX0_EMIOS_EN1)  `p394`
+      - 10.6.13 MUX0 MISC ENABLE (MUX0_MISC_EN)  `p397`
+      - 10.6.14 MUX1 EMIOS ENABLE (MUX1_EMIOS_EN)  `p400`
+      - 10.6.15 MUX1 MISC ENABLE (MUX1_MISC_EN)  `p403`
+      - 10.6.16 MUX2 EMIOS ENABLE (MUX2_EMIOS_EN)  `p405`
+      - 10.6.17 MUX2 MISC ENABLE (MUX2_MISC_EN)  `p408`
+      - 10.6.18 SIUL2 MCU ID Register #3 (MIDR3)  `p411`
+      - 10.6.19 SIUL2 MCU ID Register #4 (MIDR4)  `p412`
+      - 10.6.20 Multiplexed Signal Configuration (MSCR0 - MSCR323)  `p413`
+      - 10.6.21 Input Multiplexed Signal Configuration (IMCR0 - IMCR473)  `p428`
+      - 10.6.22 GPIO Pad Data Output (GPDO0 - GPDO323)  `p439`
+      - 10.6.23 GPIO Pad Data Input (GPDI0 - GPDI323)  `p440`
+      - 10.6.24 Parallel GPIO Pad Data Output (PGPDO0 - PGPDO3)  `p441`
+      - 10.6.25 Parallel GPIO Pad Data Output (PGPDO2)  `p444`
+      - 10.6.26 Parallel GPIO Pad Data Output (PGPDO4 - PGPDO9)  `p447`
+      - 10.6.27 Parallel GPIO Pad Data Output (PGPDO8)  `p450`
+      - 10.6.28 Parallel GPIO Pad Data Output (PGPDO10 - PGPDO19)  `p453`
+      - 10.6.29 Parallel GPIO Pad Data Input (PGPDI0 - PGPDI3)  `p456`
+      - 10.6.30 Parallel GPIO Pad Data Input (PGPDI2)  `p459`
+      - 10.6.31 Parallel GPIO Pad Data Input (PGPDI4 - PGPDI9)  `p462`
+      - 10.6.32 Parallel GPIO Pad Data Input (PGPDI8)  `p465`
+      - 10.6.33 Parallel GPIO Pad Data Input (PGPDI10 - PGPDI19)  `p468`
+      - 10.6.34 Masked Parallel GPIO Pad Data Output (MPGPDO0 - MPGPDO1)  `p471`
+      - 10.6.35 Masked Parallel GPIO Pad Data Output (MPGPDO2)  `p475`
+      - 10.6.36 Masked Parallel GPIO Pad Data Output (MPGPDO3 - MPGPDO7)  `p479`
+      - 10.6.37 Masked Parallel GPIO Pad Data Output (MPGPDO8)  `p483`
+      - 10.6.38 Masked Parallel GPIO Pad Data Output (MPGPDO9 - MPGPDO19)  `p487`
+  - 11 Touch Sensing Pin Coupling (TSPC)  `p492`
+    - 11.1 Chip-specific TSPC information  `p492`
+      - 11.1.1 Chip Specific TSPC Information  `p492`
+    - 11.2 Overview  `p492`
+      - 11.2.1 Block diagram  `p492`
+      - 11.2.2 Features  `p492`
+    - 11.3 Functional description  `p493`
+      - 11.3.1 Submodules  `p493`
+        - 11.3.1.1 Logic block description  `p493`
+      - 11.3.2 Operation  `p494`
+      - 11.3.3 Clocking  `p494`
+      - 11.3.4 Interrupts  `p494`
+    - 11.4 External signals  `p495`
+    - 11.5 Initialization  `p495`
+    - 11.6 Application information  `p495`
+    - 11.7 TSPC register descriptions  `p495`
+      - 11.7.1 TSPC memory map  `p495`
+      - 11.7.2 Group Enable (GRP_EN)  `p495`
+      - 11.7.3 Group OBE (GRP1_OBE1 - GRP2_OBE1)  `p496`
+      - 11.7.4 Group OBE (GRP1_OBE2)  `p497`
+      - 11.7.5 Group OBE (GRP2_OBE2)  `p498`
+    - 11.8 Glossary  `p499`
+  - 12 Crossbar Switch (AXBS)  `p500`
+    - 12.1 Chip-specific AXBS information  `p500`
+      - 12.1.1 AXBS instances and connectivity matrix  `p500`
+    - 12.2 Overview  `p505`
+      - 12.2.1 Features  `p505`
+    - 12.3 Functional description  `p505`
+      - 12.3.1 General operation  `p505`
+      - 12.3.2 Register coherency  `p506`
+      - 12.3.3 Arbitration  `p506`
+        - 12.3.3.1 Fixed-priority operation  `p506`
+        - 12.3.3.2 Round-robin priority operation  `p507`
+        - 12.3.3.3 Clocking  `p507`
+        - 12.3.3.4 Interrupts  `p507`
+        - 12.3.3.5 Priority assignment  `p507`
+    - 12.4 External signals  `p507`
+    - 12.5 Initialization/application information  `p507`
+    - 12.6 Memory map and register definition  `p508`
+      - 12.6.1 AXBS register descriptions  `p508`
+        - 12.6.1.1 AXBS memory map  `p508`
+        - 12.6.1.2 Priority Target Registers (PRS0 - PRS7)  `p509`
+        - 12.6.1.3 Control Register (CRS0 - CRS7)  `p513`
+    - 12.7 Glossary  `p516`
+  - 13 Peripheral Bridge (AIPS_Lite)  `p517`
+    - 13.1 Chip-specific AIPS_Lite information  `p517`
+      - 13.1.1 AIPS_Lite instances  `p517`
+    - 13.2 Overview  `p517`
+      - 13.2.1 Features  `p517`
+      - 13.2.2 General operation  `p517`
+    - 13.3 Functional description  `p517`
+      - 13.3.1 Access support  `p518`
+      - 13.3.2 Clocking  `p518`
+      - 13.3.3 Interrupts  `p518`
+    - 13.4 External signals  `p518`
+    - 13.5 Memory map and register definition  `p518`
+  - 14 Direct Memory Access Multiplexer (DMAMUX)  `p519`
+    - 14.1 Chip-specific DMAMUX information  `p519`
+      - 14.1.1 DMAMUX instances  `p519`
+      - 14.1.2 Periodic DMA triggering  `p519`
+    - 14.2 Introduction  `p519`
+      - 14.2.1 Overview  `p519`
+      - 14.2.2 Block diagram  `p520`
+      - 14.2.3 Features  `p520`
+      - 14.2.4 Modes of operation  `p520`
+    - 14.3 Functional description  `p521`
+      - 14.3.1 DMA channels with periodic triggering capability  `p521`
+      - 14.3.2 DMA channels with no triggering capability  `p522`
+      - 14.3.3 Always-enabled DMA sources  `p522`
+    - 14.4 Initialization and application information  `p523`
+      - 14.4.1 Reset  `p523`
+      - 14.4.2 Enabling and configuring sources  `p523`
+        - 14.4.2.1 Enable a source with periodic triggering  `p523`
+        - 14.4.2.2 Enable a source without periodic triggering  `p524`
+        - 14.4.2.3 Disable a source  `p525`
+    - 14.5 Memory map and register definition  `p526`
+      - 14.5.1 DMAMUX register descriptions  `p526`
+        - 14.5.1.1 DMAMUX memory map  `p526`
+        - 14.5.1.2 Channel Configuration (CHCFG0 - CHCFG15)  `p527`
+    - 14.6 Glossary  `p528`
+  - 15 Enhanced Direct Memory Access (eDMA)  `p529`
+    - 15.1 Chip-specific eDMA information  `p529`
+      - 15.1.1 eDMA instances  `p529`
+      - 15.1.2 DMA channels  `p529`
+      - 15.1.3 eDMA ID replication  `p529`
+    - 15.2 Overview  `p530`
+      - 15.2.1 Block diagram  `p530`
+      - 15.2.2 Block parts  `p531`
+      - 15.2.3 Features  `p532`
+    - 15.3 Functional description  `p533`
+      - 15.3.1 Modes of operation  `p533`
+      - 15.3.2 eDMA basic data flow  `p533`
+      - 15.3.3 Fault reporting and handling  `p536`
+      - 15.3.4 Channel preemption  `p537`
+      - 15.3.5 Clocking  `p538`
+      - 15.3.6 Interrupts  `p538`
+    - 15.4 External signals  `p538`
+    - 15.5 Initialization  `p538`
+      - 15.5.1 eDMA initialization  `p538`
+      - 15.5.2 eDMA arbitration  `p540`
+      - 15.5.3 Programming errors  `p542`
+      - 15.5.4 Arbitration mode considerations  `p542`
+        - 15.5.4.1 Fixed group arbitration, fixed channel arbitration  `p542`
+        - 15.5.4.2 Fixed group arbitration, round-robin channel arbitration  `p542`
+      - 15.5.5 Performing DMA transfers  `p542`
+        - 15.5.5.1 Single request  `p542`
+        - 15.5.5.2 Multiple requests  `p543`
+        - 15.5.5.3 Using the modulo feature  `p544`
+      - 15.5.6 Monitoring transfer descriptor status  `p545`
+        - 15.5.6.1 Testing for minor loop completion  `p545`
+        - 15.5.6.2 Reading the transfer descriptors of active channels  `p546`
+        - 15.5.6.3 Checking channel preemption status  `p546`
+      - 15.5.7 Channel linking  `p546`
+      - 15.5.8 Dynamic programming  `p547`
+        - 15.5.8.1 Dynamically changing the channel priority  `p547`
+        - 15.5.8.2 Dynamic channel linking  `p547`
+        - 15.5.8.3 Dynamic scatter/gather  `p548`
+          - 15.5.8.3.1 Method 1 (channel not using major loop channel linking)  `p548`
+          - 15.5.8.3.2 Method 2 (channel using major loop channel linking)  `p549`
+      - 15.5.9 Suspend/resume a DMA channel with active hardware service requests  `p549`
+        - 15.5.9.1 Suspend an active DMA channel  `p549`
+        - 15.5.9.2 Resume a DMA channel  `p550`
+    - 15.6 Memory map/register definition  `p550`
+      - 15.6.1 eDMA register descriptions  `p551`
+        - 15.6.1.1 eDMA memory map  `p551`
+        - 15.6.1.2 Management Page Control (CSR)  `p551`
+        - 15.6.1.3 Management Page Error Status (ES)  `p554`
+        - 15.6.1.4 Management Page Interrupt Request Status (INT)  `p557`
+        - 15.6.1.5 Management Page Hardware Request Status (HRS)  `p557`
+        - 15.6.1.6 Channel Arbitration Group (CH0_GRPRI - CH31_GRPRI)  `p558`
+      - 15.6.2 TCD register descriptions  `p559`
+        - 15.6.2.1 TCD memory map  `p559`
+        - 15.6.2.2 Channel Control and Status (CH0_CSR - CH31_CSR)  `p585`
+        - 15.6.2.3 Channel Error Status (CH0_ES - CH31_ES)  `p588`
+        - 15.6.2.4 Channel Interrupt Status (CH0_INT - CH31_INT)  `p591`
+        - 15.6.2.5 Channel System Bus (CH0_SBR - CH31_SBR)  `p593`
+        - 15.6.2.6 Channel Priority (CH0_PRI - CH31_PRI)  `p596`
+        - 15.6.2.7 TCD Source Address (TCD0_SADDR - TCD31_SADDR)  `p598`
+        - 15.6.2.8 TCD Signed Source Address Offset (TCD0_SOFF - TCD31_SOFF)  `p600`
+        - 15.6.2.9 TCD Transfer Attributes (TCD0_ATTR - TCD31_ATTR)  `p601`
+        - 15.6.2.10 TCD Transfer Size Without Minor Loop Offsets (TCD0_NBYTES_MLOFFNO - TCD31_NBYTES_MLOFFNO)  `p604`
+        - 15.6.2.11 TCD Transfer Size with Minor Loop Offsets (TCD0_NBYTES_MLOFFYES - TCD31_NBYTES_MLOFFYES)  `p607`
+        - 15.6.2.12 TCD Last Source Address Adjustment / Store DADDR Address (TCD0_SLAST_SDA - TCD31_SLAST_SDA)  `p610`
+        - 15.6.2.13 TCD Destination Address (TCD0_DADDR - TCD31_DADDR)  `p612`
+        - 15.6.2.14 TCD Signed Destination Address Offset (TCD0_DOFF - TCD31_DOFF)  `p614`
+        - 15.6.2.15 TCD Current Major Loop Count (Minor Loop Channel Linking Disabled) (TCD0_CITER_ELINKNO - TCD31_CITER_ELINKNO)  `p616`
+        - 15.6.2.16 TCD Current Major Loop Count (Minor Loop Channel Linking Enabled) (TCD0_CITER_ELINKYES - TCD31_CITER_ELINKYES)  `p618`
+        - 15.6.2.17 TCD Last Destination Address Adjustment / Scatter Gather Address (TCD0_DLAST_SGA - TCD31_DLAST_SGA)  `p621`
+        - 15.6.2.18 TCD Control and Status (TCD0_CSR - TCD31_CSR)  `p623`
+        - 15.6.2.19 TCD Beginning Major Loop Count (Minor Loop Channel Linking Disabled) (TCD0_BITER_ELINKNO - TCD31_BITER_ELINKNO)  `p627`
+        - 15.6.2.20 TCD Beginning Major Loop Count (Minor Loop Channel Linking Enabled) (TCD0_BITER_ELINKYES - TCD31_BITER_ELINKYES)  `p629`
+    - 15.7 Glossary  `p632`
+  - 16 Interrupt Monitor (INTM)  `p633`
+    - 16.1 Overview  `p633`
+      - 16.1.1 Block diagram  `p633`
+      - 16.1.2 Features  `p633`
+    - 16.2 Functional description  `p633`
+      - 16.2.1 Clocking  `p634`
+      - 16.2.2 Interrupts  `p634`
+    - 16.3 External signals  `p634`
+    - 16.4 Initialization  `p634`
+    - 16.5 INTM register descriptions  `p634`
+      - 16.5.1 INTM memory map  `p634`
+      - 16.5.2 Monitor Mode (INTM_MM)  `p635`
+      - 16.5.3 Interrupt Acknowledge (INTM_IACK)  `p636`
+      - 16.5.4 Interrupt Request Select for Monitor a (INTM_IRQSEL0 - INTM_IRQSEL3)  `p637`
+      - 16.5.5 Interrupt Latency for Monitor a (INTM_LATENCY0 - INTM_LATENCY3)  `p638`
+      - 16.5.6 Timer for Monitor a (INTM_TIMER0 - INTM_TIMER3)  `p639`
+      - 16.5.7 Status for Monitor a (INTM_STATUS0 - INTM_STATUS3)  `p640`
+  - 17 Semaphores2 (SEMA42)  `p642`
+    - 17.1 Chip-specific SEMA42 information  `p642`
+      - 17.1.1 SEMA42 instance and configuration  `p642`
+    - 17.2 Overview  `p642`
+      - 17.2.1 Block diagram  `p643`
+      - 17.2.2 Features  `p643`
+    - 17.3 Functional description  `p643`
+      - 17.3.1 Multi-core programming: software gates  `p644`
+      - 17.3.2 16 Hardware-enforced gates  `p644`
+      - 17.3.3 State machine of the GATEn registers  `p645`
+      - 17.3.4 Clocking  `p646`
+      - 17.3.5 Interrupts  `p646`
+    - 17.4 External signals  `p646`
+    - 17.5 Initialization  `p646`
+    - 17.6 Memory map/register definition  `p646`
+      - 17.6.1 SEMA42 register descriptions  `p646`
+        - 17.6.1.1 SEMA42 memory map  `p646`
+        - 17.6.1.2 Gate (GATE0 - GATE15)  `p647`
+        - 17.6.1.3 Reset Gate Read (RSTGT_R)  `p648`
+        - 17.6.1.4 Reset Gate Write (RSTGT_W)  `p649`
+    - 17.7 Glossary  `p650`
+  - 18 Crossbar Integrity Checker (XBIC)  `p651`
+    - 18.1 Chip-specific XBIC information  `p651`
+      - 18.1.1 XBIC instances and configuration  `p651`
+      - 18.1.2 Target master IDs  `p656`
+      - 18.1.3 XBIC_ESR[VLD] behavior across S32K3xx chips  `p656`
+    - 18.2 Overview  `p656`
+      - 18.2.1 Block diagram  `p656`
+      - 18.2.2 Features  `p657`
+    - 18.3 Functional description  `p657`
+      - 18.3.1 Interrupts  `p659`
+    - 18.4 External signals  `p659`
+    - 18.5 Initialization  `p659`
+    - 18.6 XBIC register descriptions  `p659`
+      - 18.6.1 XBIC memory map  `p659`
+      - 18.6.2 XBIC Module Control (MCR)  `p659`
+      - 18.6.3 XBIC Error Injection Attributes (EIR)  `p669`
+      - 18.6.4 XBIC Error Status Attributes (ESR)  `p670`
+      - 18.6.5 XBIC Error Address (EAR)  `p673`
+    - 18.7 Glossary  `p674`
+  - 19 Extended Resource Domain Controller (XRDC)  `p675`
+    - 19.1 Chip-specific XRDC information  `p675`
+      - 19.1.1 MDAC configuration  `p675`
+      - 19.1.2 MRC configuration  `p676`
+      - 19.1.3 PAC configuration  `p677`
+      - 19.1.4 Number of Domain ID  `p678`
+      - 19.1.5 Domain Error Word registers (DERR_Wx_0-18) mapping  `p678`
+      - 19.1.6 Exceptions and violations  `p679`
+      - 19.1.7 Configuration using SBAF  `p679`
+        - 19.1.7.1 PDAC default configuration  `p679`
+      - 19.1.8 Configuration when HSE_B firmware-feature flag is cleared  `p679`
+      - 19.1.9 HWCFG0 register reset value in different chips  `p679`
+    - 19.2 Overview  `p680`
+      - 19.2.1 Features  `p680`
+      - 19.2.2 Block diagram  `p680`
+      - 19.2.3 Block descriptions  `p681`
+      - 19.2.4 Indexes used in this chapter  `p681`
+      - 19.2.5 Exceptions and violations  `p682`
+    - 19.3 Modes of operation  `p682`
+    - 19.4 External signal description  `p682`
+    - 19.5 Functional description  `p682`
+      - 19.5.1 Introduction to domains  `p682`
+      - 19.5.2 Submodules  `p682`
+        - 19.5.2.1 Master domain assignment controller (MDAC)  `p682`
+        - 19.5.2.2 Memory region controller (MRC)  `p683`
+        - 19.5.2.3 Peripheral access controller (PAC)  `p683`
+      - 19.5.3 Transaction protection  `p683`
+      - 19.5.4 XRDC transaction flow  `p683`
+      - 19.5.5 Domain assignment  `p684`
+        - 19.5.5.1 Overview  `p684`
+        - 19.5.5.2 PID-based domain assignment  `p684`
+        - 19.5.5.3 Transaction request sources  `p685`
+        - 19.5.5.4 DFMT0 core domain assignment registers  `p685`
+        - 19.5.5.5 DFMT1 noncore domain assignment registers  `p685`
+        - 19.5.5.6 MDA register structure  `p686`
+      - 19.5.6 ACP evaluation  `p686`
+        - 19.5.6.1 Overview  `p686`
+        - 19.5.6.2 Transaction targets  `p686`
+        - 19.5.6.3 Peripheral ACP evaluation registers  `p687`
+        - 19.5.6.4 PDAC register structure  `p687`
+        - 19.5.6.5 Memory ACP evaluation registers  `p687`
+        - 19.5.6.6 MRGD register structure  `p688`
+        - 19.5.6.7 Access control model  `p688`
+          - 19.5.6.7.1 Access control model levels  `p688`
+          - 19.5.6.7.2 Generation of secure attribute  `p689`
+        - 19.5.6.8 Domain ACP specification  `p689`
+        - 19.5.6.9 Memory region ACP evaluation  `p689`
+        - 19.5.6.10 Hardware semaphores and dynamic access rights  `p690`
+      - 19.5.7 XRDC transaction examples  `p690`
+        - 19.5.7.1 DFMT0 direct domain assignment example  `p690`
+          - 19.5.7.1.1 Register settings for DFMT0 direct domain assignment transactions  `p690`
+          - 19.5.7.1.2 DFMT0 direct domain assignment process  `p691`
+        - 19.5.7.2 DFMT0 PID-based domain assignment example  `p691`
+          - 19.5.7.2.1 Register settings for DFMT0 PID-based transactions  `p691`
+          - 19.5.7.2.2 DFMT0 PID-based domain assignment process  `p692`
+          - 19.5.7.2.3 DFMT0 PID-based domain assignment evaluation  `p692`
+        - 19.5.7.3 DFMT1 direct domain assignment example-single MDA  `p693`
+          - 19.5.7.3.1 Register settings for DFMT1 direct domain assignment transactions  `p693`
+          - 19.5.7.3.2 DFMT1 direct domain assignment process  `p693`
+        - 19.5.7.4 Peripheral ACP evaluation example  `p693`
+          - 19.5.7.4.1 Finding the PDAC slot number for a peripheral  `p694`
+          - 19.5.7.4.2 Register settings for peripheral ACP evaluation  `p694`
+          - 19.5.7.4.3 Peripheral ACP evaluation process  `p695`
+        - 19.5.7.5 Memory ACP evaluation example  `p695`
+          - 19.5.7.5.1 Register settings for memory ACP evaluation  `p695`
+          - 19.5.7.5.2 Memory ACP evaluation process  `p695`
+      - 19.5.8 Clocking  `p696`
+      - 19.5.9 Interrupts  `p696`
+    - 19.6 Initialization information  `p696`
+      - 19.6.1 Initialization procedure  `p696`
+      - 19.6.2 Minimize access errors  `p696`
+    - 19.7 Application information  `p697`
+      - 19.7.1 Master domain assignments  `p697`
+      - 19.7.2 Memory region descriptor management  `p697`
+      - 19.7.3 Domain error capture management  `p697`
+        - 19.7.3.1 Domain error capture registers  `p697`
+        - 19.7.3.2 Handling domain access violation errors  `p698`
+        - 19.7.3.3 Domain error retrieval  `p699`
+    - 19.8 Memory map and register definitions  `p699`
+      - 19.8.1 Register organization  `p699`
+      - 19.8.2 Register access guidelines  `p699`
+      - 19.8.3 XRDC register descriptions  `p700`
+        - 19.8.3.1 XRDC memory map  `p700`
+        - 19.8.3.2 Control (CR)  `p725`
+        - 19.8.3.3 Hardware Configuration 0 (HWCFG0)  `p727`
+        - 19.8.3.4 Hardware Configuration 1 (HWCFG1)  `p728`
+        - 19.8.3.5 Hardware Configuration 2 (HWCFG2)  `p729`
+        - 19.8.3.6 Master Domain Assignment Configuration (MDACFG0 - MDACFG9)  `p730`
+        - 19.8.3.7 Memory Region Configuration (MRCFG0 - MRCFG5)  `p732`
+        - 19.8.3.8 Domain Error Location (DERRLOC0 - DERRLOC4)  `p733`
+        - 19.8.3.9 Domain Error Word 0 (DERR_W0_0 - DERR_W0_18)  `p734`
+        - 19.8.3.10 Domain Error Word 1 (DERR_W1_0 - DERR_W1_18)  `p736`
+        - 19.8.3.11 Domain Error Word 3 (DERR_W3_0 - DERR_W3_18)  `p738`
+        - 19.8.3.12 Process Identifier (PID0 - PID8)  `p739`
+        - 19.8.3.13 Master Domain Assignment (MDA_W0_0_DFMT0 - MDA_W0_8_DFMT0)  `p740`
+        - 19.8.3.14 Master Domain Assignment (MDA_W0_1_DFMT1 - MDA_W0_9_DFMT1)  `p743`
+        - 19.8.3.15 Peripheral Domain Access Control Word 0 (PDAC_W0_2 - PDAC_W0_347)  `p745`
+        - 19.8.3.16 Peripheral Domain Access Control Word 1 (PDAC_W1_2 - PDAC_W1_347)  `p753`
+        - 19.8.3.17 Memory Region Descriptor Word 0 (MRGD_W0_0 - MRGD_W0_95)  `p761`
+        - 19.8.3.18 Memory Region Descriptor Word 1 (MRGD_W1_0 - MRGD_W1_95)  `p762`
+        - 19.8.3.19 Memory Region Descriptor Word 2 (MRGD_W2_0 - MRGD_W2_95)  `p763`
+        - 19.8.3.20 Memory Region Descriptor Word 3 (MRGD_W3_0 - MRGD_W3_95)  `p764`
+    - 19.9 Glossary  `p766`
+- Memories and Memory Overview  `p767`
+  - 20 Memory and Memory Interfaces  `p767`
+    - 20.1 Introduction  `p767`
+    - 20.2 Flash memory controller and flash memory modules  `p767`
+    - 20.3 Related information  `p767`
+    - 20.4 SRAM access  `p767`
+    - 20.5 Memories  `p767`
+    - 20.6 Recommendations for Arm memories  `p779`
+    - 20.7 Memory ECC initialization summary  `p780`
+    - 20.8 Glossary  `p780`
+  - 21 Embedded Flash Memory (c40asf)  `p781`
+    - 21.1 Chip-specific c40asf flash memory information  `p781`
+      - 21.1.1 Flash memory configuration and register settings  `p781`
+      - 21.1.2 MCRE register reset value  `p783`
+      - 21.1.3 Debugger considerations while Flash Program/Erase  `p784`
+    - 21.2 Introduction  `p784`
+      - 21.2.1 Overview  `p784`
+      - 21.2.2 Features  `p785`
+      - 21.2.3 Modes of operation  `p786`
+    - 21.3 UTest NVM Block  `p786`
+    - 21.4 Test Mode Disable Seal  `p786`
+    - 21.5 Functional Description  `p787`
+      - 21.5.1 User mode  `p788`
+        - 21.5.1.1 Read and write  `p788`
+        - 21.5.1.2 Program  `p788`
+          - 21.5.1.2.1 Program hardware locking  `p790`
+          - 21.5.1.2.2 Over-program protection enable  `p790`
+        - 21.5.1.3 Erase  `p790`
+          - 21.5.1.3.1 Erase hardware locking  `p791`
+        - 21.5.1.4 Express program  `p791`
+      - 21.5.2 Low-Power mode  `p792`
+      - 21.5.3 Program and erase watchdog timer  `p792`
+      - 21.5.4 UTest mode  `p793`
+        - 21.5.4.1 Array integrity self check  `p793`
+        - 21.5.4.2 User margin read  `p794`
+        - 21.5.4.3 ECC logic check  `p795`
+        - 21.5.4.4 EDC after ECC logic check  `p796`
+        - 21.5.4.5 Address encode logic check  `p796`
+        - 21.5.4.6 Read reference and voltage check  `p797`
+      - 21.5.5 Data flash memory requirements for EEPROM emulation  `p797`
+    - 21.6 Initialization Information  `p797`
+    - 21.7 Memory map and register description  `p798`
+      - 21.7.1 c40asf flash memory register descriptions  `p798`
+        - 21.7.1.1 c40asf_flash memory map  `p798`
+        - 21.7.1.2 Module Configuration (MCR)  `p799`
+        - 21.7.1.3 Module Configuration Status (MCRS)  `p802`
+        - 21.7.1.4 Extended Module Configuration (MCRE)  `p807`
+        - 21.7.1.5 Module Control (CTL)  `p809`
+        - 21.7.1.6 Address (ADR)  `p811`
+        - 21.7.1.7 Program and Erase Address (PEADR)  `p814`
+        - 21.7.1.8 Sector Program and Erase Hardware Lock (SPELOCK)  `p817`
+        - 21.7.1.9 Super Sector Program and Erase Hardware Lock (SSPELOCK)  `p818`
+        - 21.7.1.10 Express Sector Program and Erase Hardware Lock (XSPELOCK)  `p819`
+        - 21.7.1.11 Express Super Sector Program and Erase Hardware Lock (XSSPELOCK)  `p820`
+        - 21.7.1.12 Test Mode Disable Password Check (TMD)  `p822`
+        - 21.7.1.13 UTest 0 (UT0)  `p823`
+        - 21.7.1.14 UMISRn (UM0 - UM8)  `p826`
+        - 21.7.1.15 UMISR9 (UM9)  `p828`
+        - 21.7.1.16 UTest Data 0 (UD0)  `p829`
+        - 21.7.1.17 UTest Data 1 (UD1)  `p830`
+        - 21.7.1.18 UTest Data 2 (UD2)  `p831`
+        - 21.7.1.19 UTest Data 3 (UD3)  `p832`
+        - 21.7.1.20 UTest Data 4 (UD4)  `p833`
+        - 21.7.1.21 UTest Data 5 (UD5)  `p834`
+        - 21.7.1.22 UTest Address 0 (UA0)  `p835`
+        - 21.7.1.23 UTest Address 1 (UA1)  `p836`
+        - 21.7.1.24 Express Module Configuration (XMCR)  `p837`
+        - 21.7.1.25 Express Program Address (XPEADR)  `p840`
+        - 21.7.1.26 Program Data (DATA0 - DATA31)  `p842`
+    - 21.8 Glossary  `p844`
+  - 22 Flash Memory Controller (PFLASH)  `p845`
+    - 22.1 Chip-specific PFLASH information  `p845`
+      - 22.1.1 Flash memory architecture  `p845`
+      - 22.1.2 Flash memory controller  `p846`
+        - 22.1.2.1 Dual Flash memory controller architecture (for S32K389)  `p846`
+      - 22.1.3 ECC error handling on data flash block (for S32K389)  `p847`
+      - 22.1.4 Platform flash configuration registers (PFCRn)  `p848`
+      - 22.1.5 Platform flash access protection register (PFAPR)  `p848`
+    - 22.2 Overview  `p849`
+      - 22.2.1 Block diagrams  `p849`
+      - 22.2.2 Features  `p849`
+    - 22.3 Functional description  `p849`
+      - 22.3.1 Read transactions  `p850`
+      - 22.3.2 Write transactions  `p850`
+      - 22.3.3 Access protections  `p850`
+        - 22.3.3.1 PFAPR  `p850`
+      - 22.3.4 Error termination  `p850`
+      - 22.3.5 Line read buffers and prefetch operation  `p850`
+      - 22.3.6 Array integrity considerations  `p851`
+      - 22.3.7 Safety considerations  `p851`
+        - 22.3.7.1 Flash memory address generation check  `p851`
+      - 22.3.8 ECC error handling on data flash block  `p851`
+      - 22.3.9 Read cycles—buffer miss  `p851`
+      - 22.3.10 Read cycles—buffer hit  `p851`
+      - 22.3.11 Flash memory error response operation  `p852`
+      - 22.3.12 Clocking  `p852`
+      - 22.3.13 Interrupts  `p852`
+    - 22.4 External signals  `p852`
+    - 22.5 PFLASH0 register descriptions  `p852`
+      - 22.5.1 PFLASH0 memory map  `p852`
+      - 22.5.2 Platform Flash Memory Configuration 0 (PFCR0)  `p853`
+      - 22.5.3 Platform Flash Memory Configuration 1 (PFCR1)  `p855`
+      - 22.5.4 Platform Flash Memory Configuration 2 (PFCR2)  `p856`
+      - 22.5.5 Platform Flash Memory Configuration 3 (PFCR3)  `p858`
+      - 22.5.6 Platform Flash Memory Configuration 4 (PFCR4)  `p859`
+      - 22.5.7 Platform Flash Memory Access Protection (PFAPR)  `p861`
+      - 22.5.8 Platform Flash Memory Program Erase Address Logical (PFCPGM_PEADR_L)  `p862`
+      - 22.5.9 Platform Flash Memory Program Erase Address Physical (PFCPGM_PEADR_P)  `p863`
+      - 22.5.10 Platform Flash Memory Express Program Erase Address Logical (PFCPGM_XPEADR_L)  `p864`
+      - 22.5.11 Platform Flash Memory Express Program Erase Address Physical (PFCPGM_XPEADR_P)  `p865`
+      - 22.5.12 Block n Sector Program Erase Lock (PFCBLK0_SPELOCK - PFCBLK4_SPELOCK)  `p865`
+      - 22.5.13 Block UTEST Sector Program Erase Lock (PFCBLKU_SPELOCK)  `p866`
+      - 22.5.14 Block n Super Sector Program Erase Lock (PFCBLK0_SSPELOCK - PFCBLK3_SSPELOCK)  `p867`
+      - 22.5.15 Block n Set Sector Lock (PFCBLK0_SETSLOCK - PFCBLK4_SETSLOCK)  `p868`
+      - 22.5.16 Block UTEST Set Sector Lock (PFCBLKU_SETSLOCK)  `p869`
+      - 22.5.17 Block n Set Super Sector Lock (PFCBLK0_SSETSLOCK - PFCBLK3_SSETSLOCK)  `p870`
+      - 22.5.18 Block a Lock Master Sector b (PFCBLK0_LOCKMASTER_S0 - PFCBLK4_LOCKMASTER_S7)  `p871`
+      - 22.5.19 Block UTEST Lock Master Sector (PFCBLKU_LOCKMASTER_S)  `p872`
+      - 22.5.20 Block m Lock Master Super Sector n (PFCBLK0_LOCKMASTER_SS0 - PFCBLK3_LOCKMASTER_SS6)  `p873`
+    - 22.6 PFLASH1 register descriptions  `p873`
+      - 22.6.1 PFLASH1 memory map  `p874`
+      - 22.6.2 Platform Flash Memory Configuration 0 (PFCR0)  `p875`
+      - 22.6.3 Platform Flash Memory Configuration 1 (PFCR1)  `p877`
+      - 22.6.4 Platform Flash Memory Configuration 2 (PFCR2)  `p878`
+      - 22.6.5 Platform Flash Memory Configuration 3 (PFCR3)  `p880`
+      - 22.6.6 Platform Flash Memory Configuration 4 (PFCR4)  `p881`
+      - 22.6.7 Platform Flash Memory Access Protection (PFAPR)  `p883`
+      - 22.6.8 Platform Flash Memory Program Erase Address Logical (PFCPGM_PEADR_L)  `p884`
+      - 22.6.9 Platform Flash Memory Program Erase Address Physical (PFCPGM_PEADR_P)  `p885`
+      - 22.6.10 Platform Flash Memory Express Program Erase Address Logical (PFCPGM_XPEADR_L)  `p886`
+      - 22.6.11 Platform Flash Memory Express Program Erase Address Physical (PFCPGM_XPEADR_P)  `p887`
+      - 22.6.12 Block n Sector Program Erase Lock (PFCBLK0_SPELOCK - PFCBLK4_SPELOCK)  `p887`
+      - 22.6.13 Block UTEST Sector Program Erase Lock (PFCBLKU_SPELOCK)  `p888`
+      - 22.6.14 Block n Super Sector Program Erase Lock (PFCBLK0_SSPELOCK - PFCBLK3_SSPELOCK)  `p889`
+      - 22.6.15 Block n Set Sector Lock (PFCBLK0_SETSLOCK - PFCBLK4_SETSLOCK)  `p890`
+      - 22.6.16 Block UTEST Set Sector Lock (PFCBLKU_SETSLOCK)  `p891`
+      - 22.6.17 Block n Set Super Sector Lock (PFCBLK0_SSETSLOCK - PFCBLK3_SSETSLOCK)  `p892`
+      - 22.6.18 Block a Lock Master Sector b (PFCBLK0_LOCKMASTER_S0 - PFCBLK4_LOCKMASTER_S7)  `p893`
+      - 22.6.19 Block UTEST Lock Master Sector (PFCBLKU_LOCKMASTER_S)  `p894`
+      - 22.6.20 Block m Lock Master Super Sector n (PFCBLK0_LOCKMASTER_SS0 - PFCBLK3_LOCKMASTER_SS2)  `p895`
+    - 22.7 Glossary  `p895`
+  - 23 RAM Controller (PRAMC)  `p896`
+    - 23.1 Chip-specific PRAMC information  `p896`
+      - 23.1.1 PRAMC instances and configuration  `p896`
+      - 23.1.2 RAM initialization  `p896`
+      - 23.1.3 SRAM0 behavior while XRDC is configured to block access to SRAM0  `p896`
+    - 23.2 Overview  `p896`
+      - 23.2.1 Block diagram  `p897`
+      - 23.2.2 Features  `p897`
+    - 23.3 Functional description  `p897`
+      - 23.3.1 Read and write operations  `p897`
+        - 23.3.1.1 Reads  `p897`
+        - 23.3.1.2 Optional read wait state  `p897`
+      - 23.3.2 Writes  `p898`
+        - 23.3.2.1 64-bit writes  `p898`
+        - 23.3.2.2 Unaligned writes  `p898`
+      - 23.3.3 Clocking  `p898`
+      - 23.3.4 Interrupts  `p898`
+    - 23.4 External signals  `p898`
+    - 23.5 Initialization Application information  `p898`
+    - 23.6 PRAMC register descriptions  `p898`
+      - 23.6.1 PRAMC memory map  `p899`
+      - 23.6.2 Platform RAM Configuration 1 (PRCR1)  `p899`
+    - 23.7 Glossary  `p900`
+- Clocking  `p901`
+  - 24 Clocking  `p901`
+    - 24.1 Introduction  `p901`
+    - 24.2 Features  `p901`
+    - 24.3 Clocking overview  `p901`
+      - 24.3.1 Clock source generation  `p903`
+      - 24.3.2 MC_CGM mux 0 clocks  `p904`
+      - 24.3.3 Clockout overview  `p905`
+        - 24.3.3.1 SIUL2 options for CLKOUT_RUN  `p905`
+        - 24.3.3.2 SIUL2 options for CLKOUT_STANDBY  `p906`
+      - 24.3.4 Other clocks  `p906`
+      - 24.3.5 GMAC clocks (S32K388 and S32K389)  `p907`
+      - 24.3.6 GMAC clocks (S32K328, S32K338, S32K348, S32K356, and S32K358)  `p908`
+      - 24.3.7 EMAC clocks (S32K344, S32K324, S32K314, S32K322, S32K341 and S32K342)  `p909`
+      - 24.3.8 S32K389 clock system diagram  `p910`
+      - 24.3.9 S32K388 clock system diagram  `p911`
+      - 24.3.10 S32K328, S32K338, S32K348, S32K356, and S32K358 clock system diagram  `p912`
+      - 24.3.11 S32K344, S32K324, S32K314, S32K322, S32K341 and S32K342 clock system diagram  `p913`
+      - 24.3.12 S32K312 clock system diagram  `p914`
+      - 24.3.13 S32K310 and S32K311 clock system diagram  `p915`
+    - 24.4 Clock sources  `p916`
+      - 24.4.1 Introduction  `p916`
+        - 24.4.1.1 Chip clock sources  `p916`
+      - 24.4.2 Chip input clocks  `p917`
+      - 24.4.3 Chip output clocks  `p918`
+      - 24.4.4 Fast internal RC oscillator (FIRC)  `p918`
+        - 24.4.4.1 FIRC failure detection  `p918`
+        - 24.4.4.2 FIRC_CLK behavior in Standby mode  `p919`
+      - 24.4.5 SIRC  `p920`
+        - 24.4.5.1 SIRC failure detection  `p920`
+        - 24.4.5.2 SIRC behavior in Standby mode  `p920`
+      - 24.4.6 FXOSC  `p921`
+      - 24.4.7 SXOSC  `p921`
+      - 24.4.8 PLL  `p921`
+        - 24.4.8.1 PLL configurations  `p922`
+          - 24.4.8.1.1 PLL configuration sequence  `p922`
+      - 24.4.9 Chip clock outputs  `p922`
+    - 24.5 MC_CGM  `p922`
+      - 24.5.1 MC_CGM clock multiplexer types  `p922`
+      - 24.5.2 MC_CGM clock multiplexers for S32K310, S32K311, and S32K312  `p923`
+      - 24.5.3 MC_CGM clock multiplexers (excluding S32K310, S32K311, and S32K312)  `p924`
+      - 24.5.4 MC_CGM clock sources mapping  `p929`
+    - 24.6 Peripheral clocking  `p930`
+      - 24.6.1 Module clocking  `p930`
+        - 24.6.1.1 Communication modules  `p930`
+          - 24.6.1.1.1 FlexCANn clocking  `p930`
+            - 24.6.1.1.1.1 FlexCAN timestamp implementation  `p931`
+          - 24.6.1.1.2 LPI2Cn clocking  `p932`
+          - 24.6.1.1.3 GMAC clocking  `p933`
+          - 24.6.1.1.4 EMAC clocking  `p941`
+            - 24.6.1.1.4.1 EMAC RMII clocking  `p942`
+            - 24.6.1.1.4.2 EMAC MII clocking  `p942`
+          - 24.6.1.1.5 LPSPIn clocking  `p944`
+          - 24.6.1.1.6 LPUARTn clocking  `p944`
+          - 24.6.1.1.7 FlexIO clocking  `p946`
+          - 24.6.1.1.8 QuadSPI clocking  `p947`
+          - 24.6.1.1.9 SAIn clocking  `p948`
+          - 24.6.1.1.10 uSDHC clocking  `p949`
+        - 24.6.1.2 System modules  `p950`
+          - 24.6.1.2.1 SIUL2 clocking  `p951`
+        - 24.6.1.3 Clocking modules  `p951`
+          - 24.6.1.3.1 FIRC clocking  `p952`
+          - 24.6.1.3.2 SIRC clocking  `p952`
+          - 24.6.1.3.3 FXOSC clocking  `p952`
+          - 24.6.1.3.4 SXOSC clocking  `p953`
+          - 24.6.1.3.5 PLLDIG clocking  `p953`
+        - 24.6.1.4 Reset modules  `p953`
+        - 24.6.1.5 Security modules  `p954`
+          - 24.6.1.5.1 HSE_B clocking  `p955`
+          - 24.6.1.5.2 ACE_ACCEL clocking  `p955`
+        - 24.6.1.6 Power-management modules  `p956`
+        - 24.6.1.7 Safety modules  `p956`
+          - 24.6.1.7.1 FCCU clocking  `p957`
+          - 24.6.1.7.2 STCU2 clocking  `p957`
+          - 24.6.1.7.3 ERM clocking  `p958`
+        - 24.6.1.8 ADC and motor control modules  `p958`
+          - 24.6.1.8.1 ADCn clocking  `p958`
+          - 24.6.1.8.2 eMIOSn clocking  `p959`
+          - 24.6.1.8.3 BCTU clocking  `p960`
+        - 24.6.1.9 Timer modules  `p960`
+          - 24.6.1.9.1 PITn clocking  `p960`
+          - 24.6.1.9.2 SWTn clocking  `p962`
+          - 24.6.1.9.3 RTC clocking  `p963`
+        - 24.6.1.10 Debug modules  `p963`
+          - 24.6.1.10.1 JTAGC clocking  `p964`
+          - 24.6.1.10.2 JDC clocking  `p964`
+        - 24.6.1.11 Analog modules  `p964`
+          - 24.6.1.11.1 LPCMPn clocking  `p965`
+        - 24.6.1.12 Memory modules  `p965`
+      - 24.6.2 Peripheral data rates  `p965`
+      - 24.6.3 Core and peripheral clock control  `p967`
+        - 24.6.3.1 Clock gating  `p967`
+        - 24.6.3.2 Peripheral clock gating  `p968`
+    - 24.7 Clocking details  `p968`
+      - 24.7.1 System clock frequency limitations  `p968`
+      - 24.7.2 System clocking configurations  `p971`
+        - 24.7.2.1 Option A++ - Very High Performance mode (CM7_CORE_CLK @ 320 MHz) (For S32K388/S32K389)  `p973`
+        - 24.7.2.2 Option A+ - Very High Performance mode (CM7_CORE_CLK @ 240 MHz) (For S32K388/S32K389)  `p975`
+        - 24.7.2.3 Option A+ - Very High Performance mode (CORE_CLK @ 240 MHz) (For S32K328, S32K338, S32K348, S32K356, and S32K358)  `p977`
+        - 24.7.2.4 Option A - High Performance mode (CM7_CORE_CLK @ 160 MHz) (For S32K388/S32K389  `p979`
+        - 24.7.2.5 Option A - High Performance mode (CORE_CLK @ 160 MHz)  `p981`
+        - 24.7.2.6 Option B - Reduced Speed mode (CORE_CLK @ 120 MHz)  `p983`
+        - 24.7.2.7 Option C - Boot Standby mode (CM7_CORE_CLK @ 24 MHz) (For S32K388/S32K389)  `p986`
+        - 24.7.2.8 Option C - Boot Standby mode (CORE_CLK @ 24 MHz)  `p988`
+        - 24.7.2.9 Option D - Low-Speed Run mode (CM7_CORE_CLK @ 48 MHz) (For S32K388/S32K389)  `p989`
+        - 24.7.2.10 Option D - Low-Speed Run mode (CORE_CLK @ 48 MHz)  `p991`
+        - 24.7.2.11 Option E - Low-Speed Run mode (CORE_CLK @ 3 MHz) (For S32K388/S32K389)  `p992`
+        - 24.7.2.12 Option E - Low-Speed Run mode (CORE_CLK @ 3 MHz)  `p993`
+        - 24.7.2.13 Option E2 - Very-Low-Speed Run mode (CORE_CLK @ 750 KHz) (For S32K388/S32K389)  `p995`
+        - 24.7.2.14 Option E2 - Very-Low-Speed Run mode (CORE_CLK @ 750 KHz)  `p996`
+        - 24.7.2.15 Option F - Operation in 1:1 mode with CORE_CLK and AIPS_PLAT_CLK at same speed (For all chips except S32K388/S32K389)  `p998`
+      - 24.7.3 Gasket configurations in various clocking modes  `p1000`
+      - 24.7.4 Default clock configuration  `p1002`
+      - 24.7.5 PCFS  `p1003`
+      - 24.7.6 Updating dividers: crossbar halt handshake  `p1003`
+      - 24.7.7 Changing system clock configurations  `p1003`
+    - 24.8 Clock monitoring  `p1004`
+    - 24.9 Glossary  `p1005`
+  - 25 Clock Generation Module (MC_CGM)  `p1007`
+    - 25.1 Chip-specific MC_CGM information  `p1007`
+      - 25.1.1 Chip Specific MC_CGM Information  `p1007`
+      - 25.1.2 Clock Mux 7 select control register MUX_7_CSC[SELCTL] description (S32K328, S32K338, S32K348, S32K356, and S32K358)  `p1007`
+      - 25.1.3 Clock Mux 7 select control register MUX_7_CSC[SELCTL] description (S32K344, S32K324, S32K314, S32K322, S32K341 and S32K342)  `p1007`
+    - 25.2 Introduction  `p1008`
+    - 25.3 Features  `p1008`
+    - 25.4 Functional description  `p1008`
+      - 25.4.1 Clock selection multiplexer  `p1008`
+        - 25.4.1.1 Hardware-controlled clock multiplexer  `p1009`
+        - 25.4.1.2 Software-controlled clock multiplexer  `p1010`
+      - 25.4.2 PCFS  `p1012`
+        - 25.4.2.1 PCFS control  `p1014`
+        - 25.4.2.2 Clock source power-up and selection  `p1014`
+        - 25.4.2.3 Clock source power-down and deselection  `p1015`
+        - 25.4.2.4 Clock switch with load change  `p1016`
+      - 25.4.3 Clock dividers  `p1017`
+        - 25.4.3.1 50% clock divider  `p1017`
+        - 25.4.3.2 Clock dividers update  `p1018`
+    - 25.5 MC_CGM register descriptions  `p1019`
+      - 25.5.1 MC_CGM memory map  `p1019`
+      - 25.5.2 PCFS Step Duration (PCFS_SDUR)  `p1023`
+      - 25.5.3 PCFS Divider Change 8 Register (PCFS_DIVC8)  `p1024`
+      - 25.5.4 PCFS Divider End 8 Register (PCFS_DIVE8)  `p1025`
+      - 25.5.5 PCFS Divider Start 8 Register (PCFS_DIVS8)  `p1025`
+      - 25.5.6 Clock Mux 0 Select Control Register (MUX_0_CSC)  `p1026`
+      - 25.5.7 Clock Mux 0 Select Status Register (MUX_0_CSS)  `p1028`
+      - 25.5.8 Clock Mux 0 Divider 0 Control Register (MUX_0_DC_0)  `p1030`
+      - 25.5.9 Clock Mux 0 Divider 1 Control Register (MUX_0_DC_1)  `p1031`
+      - 25.5.10 Clock Mux 0 Divider 2 Control Register (MUX_0_DC_2)  `p1032`
+      - 25.5.11 Clock Mux 0 Divider 3 Control Register (MUX_0_DC_3)  `p1033`
+      - 25.5.12 Clock Mux 0 Divider 4 Control Register (MUX_0_DC_4)  `p1034`
+      - 25.5.13 Clock Mux 0 Divider 5 Control Register (MUX_0_DC_5)  `p1035`
+      - 25.5.14 Clock Mux 0 Divider 6 Control Register (MUX_0_DC_6)  `p1036`
+      - 25.5.15 Clock Mux 0 Divider 7 Control Register (MUX_0_DC_7)  `p1037`
+      - 25.5.16 Clock Mux 0 Divider Trigger Control Register (MUX_0_DIV_TRIG_CTRL)  `p1038`
+      - 25.5.17 Clock Mux 0 Divider Trigger Register (MUX_0_DIV_TRIG)  `p1039`
+      - 25.5.18 Clock Mux 0 Divider Update Status Register (MUX_0_DIV_UPD_STAT)  `p1040`
+      - 25.5.19 Clock Mux 1 Select Control Register (MUX_1_CSC)  `p1041`
+      - 25.5.20 Clock Mux 1 Select Status Register (MUX_1_CSS)  `p1043`
+      - 25.5.21 Clock Mux 1 Divider 0 Control Register (MUX_1_DC_0)  `p1045`
+      - 25.5.22 Clock Mux 1 Divider Update Status Register (MUX_1_DIV_UPD_STAT)  `p1046`
+      - 25.5.23 Clock Mux 2 Select Control Register (MUX_2_CSC)  `p1047`
+      - 25.5.24 Clock Mux 2 Select Status Register (MUX_2_CSS)  `p1048`
+      - 25.5.25 Clock Mux 2 Divider 0 Control Register (MUX_2_DC_0)  `p1050`
+      - 25.5.26 Clock Mux 2 Divider Update Status Register (MUX_2_DIV_UPD_STAT)  `p1051`
+      - 25.5.27 Clock Mux 3 Select Control Register (MUX_3_CSC)  `p1053`
+      - 25.5.28 Clock Mux 3 Select Status Register (MUX_3_CSS)  `p1054`
+      - 25.5.29 Clock Mux 3 Divider 0 Control Register (MUX_3_DC_0)  `p1056`
+      - 25.5.30 Clock Mux 3 Divider Update Status Register (MUX_3_DIV_UPD_STAT)  `p1057`
+      - 25.5.31 Clock Mux 4 Select Control Register (MUX_4_CSC)  `p1058`
+      - 25.5.32 Clock Mux 4 Select Status Register (MUX_4_CSS)  `p1060`
+      - 25.5.33 Clock Mux 4 Divider 0 Control Register (MUX_4_DC_0)  `p1062`
+      - 25.5.34 Clock Mux 4 Divider Update Status Register (MUX_4_DIV_UPD_STAT)  `p1063`
+      - 25.5.35 Clock Mux 5 Select Control Register (MUX_5_CSC)  `p1064`
+      - 25.5.36 Clock Mux 5 Select Status Register (MUX_5_CSS)  `p1065`
+      - 25.5.37 Clock Mux 5 Divider 0 Control Register (MUX_5_DC_0)  `p1067`
+      - 25.5.38 Clock Mux 5 Divider Update Status Register (MUX_5_DIV_UPD_STAT)  `p1068`
+      - 25.5.39 Clock Mux 6 Select Control Register (MUX_6_CSC)  `p1069`
+      - 25.5.40 Clock Mux 6 Select Status Register (MUX_6_CSS)  `p1071`
+      - 25.5.41 Clock Mux 6 Divider 0 Control Register (MUX_6_DC_0)  `p1073`
+      - 25.5.42 Clock Mux 6 Divider Update Status Register (MUX_6_DIV_UPD_STAT)  `p1074`
+      - 25.5.43 Clock Mux 7 Select Control Register (MUX_7_CSC)  `p1075`
+      - 25.5.44 Clock Mux 7 Select Status Register (MUX_7_CSS)  `p1076`
+      - 25.5.45 Clock Mux 7 Divider 0 Control Register (MUX_7_DC_0)  `p1078`
+      - 25.5.46 Clock Mux 7 Divider Update Status Register (MUX_7_DIV_UPD_STAT)  `p1079`
+      - 25.5.47 Clock Mux 8 Select Control Register (MUX_8_CSC)  `p1081`
+      - 25.5.48 Clock Mux 8 Select Status Register (MUX_8_CSS)  `p1082`
+      - 25.5.49 Clock Mux 8 Divider 0 Control Register (MUX_8_DC_0)  `p1084`
+      - 25.5.50 Clock Mux 8 Divider Update Status Register (MUX_8_DIV_UPD_STAT)  `p1085`
+      - 25.5.51 Clock Mux 9 Select Control Register (MUX_9_CSC)  `p1086`
+      - 25.5.52 Clock Mux 9 Select Status Register (MUX_9_CSS)  `p1088`
+      - 25.5.53 Clock Mux 9 Divider 0 Control Register (MUX_9_DC_0)  `p1090`
+      - 25.5.54 Clock Mux 9 Divider Update Status Register (MUX_9_DIV_UPD_STAT)  `p1091`
+      - 25.5.55 Clock Mux 10 Select Control Register (MUX_10_CSC)  `p1092`
+      - 25.5.56 Clock Mux 10 Select Status Register (MUX_10_CSS)  `p1094`
+      - 25.5.57 Clock Mux 10 Divider 0 Control Register (MUX_10_DC_0)  `p1096`
+      - 25.5.58 Clock Mux 10 Divider Update Status Register (MUX_10_DIV_UPD_STAT)  `p1097`
+      - 25.5.59 Clock Mux 11 Select Control Register (MUX_11_CSC)  `p1098`
+      - 25.5.60 Clock Mux 11 Select Status Register (MUX_11_CSS)  `p1100`
+      - 25.5.61 Clock Mux 11 Divider 0 Control Register (MUX_11_DC_0)  `p1101`
+      - 25.5.62 Clock Mux 11 Divider Update Status Register (MUX_11_DIV_UPD_STAT)  `p1102`
+      - 25.5.63 Clock Mux 13 Select Control Register (MUX_13_CSC)  `p1103`
+      - 25.5.64 Clock Mux 13 Select Status Register (MUX_13_CSS)  `p1105`
+      - 25.5.65 Clock Mux 13 Divider 0 Control Register (MUX_13_DC_0)  `p1107`
+      - 25.5.66 Clock Mux 13 Divider Update Status Register (MUX_13_DIV_UPD_STAT)  `p1108`
+      - 25.5.67 Clock Mux 15 Select Control Register (MUX_15_CSC)  `p1109`
+      - 25.5.68 Clock Mux 15 Select Status Register (MUX_15_CSS)  `p1110`
+      - 25.5.69 Clock Mux 15 Divider 0 Control Register (MUX_15_DC_0)  `p1112`
+      - 25.5.70 Clock Mux 15 Divider Update Status Register (MUX_15_DIV_UPD_STAT)  `p1113`
+      - 25.5.71 Clock Mux 16 Select Control Register (MUX_16_CSC)  `p1115`
+      - 25.5.72 Clock Mux 16 Select Status Register (MUX_16_CSS)  `p1116`
+      - 25.5.73 Clock Mux 16 Divider 0 Control Register (MUX_16_DC_0)  `p1118`
+      - 25.5.74 Clock Mux 16 Divider Update Status Register (MUX_16_DIV_UPD_STAT)  `p1119`
+      - 25.5.75 Clock Mux 18 Select Control Register (MUX_18_CSC)  `p1120`
+      - 25.5.76 Clock Mux 18 Select Status Register (MUX_18_CSS)  `p1122`
+      - 25.5.77 Clock Mux 18 Divider 0 Control Register (MUX_18_DC_0)  `p1124`
+      - 25.5.78 Clock Mux 18 Divider Update Status Register (MUX_18_DIV_UPD_STAT)  `p1125`
+      - 25.5.79 Clock Mux 19 Select Control Register (MUX_19_CSC)  `p1126`
+      - 25.5.80 Clock Mux 19 Select Status Register (MUX_19_CSS)  `p1127`
+      - 25.5.81 Clock Mux 19 Divider 0 Control Register (MUX_19_DC_0)  `p1129`
+      - 25.5.82 Clock Mux 19 Divider Update Status Register (MUX_19_DIV_UPD_STAT)  `p1130`
+      - 25.5.83 Clock Mux 20 Select Control Register (MUX_20_CSC)  `p1132`
+      - 25.5.84 Clock Mux 20 Select Status Register (MUX_20_CSS)  `p1133`
+      - 25.5.85 Clock Mux 20 Divider 0 Control Register (MUX_20_DC_0)  `p1135`
+      - 25.5.86 Clock Mux 20 Divider Update Status Register (MUX_20_DIV_UPD_STAT)  `p1136`
+    - 25.6 Glossary  `p1137`
+  - 26 Fast Internal RC Oscillator (FIRC)  `p1138`
+    - 26.1 Overview  `p1138`
+      - 26.1.1 Features  `p1138`
+    - 26.2 External signals  `p1138`
+    - 26.3 Initialization  `p1138`
+    - 26.4 FIRC register descriptions  `p1138`
+      - 26.4.1 FIRC memory map  `p1138`
+      - 26.4.2 Status Register (Status_Register)  `p1138`
+      - 26.4.3 Standby Enable Register (STDBY_ENABLE)  `p1139`
+    - 26.5 Glossary  `p1140`
+  - 27 Slow Internal RC Oscillator (SIRC)  `p1141`
+    - 27.1 Overview  `p1141`
+      - 27.1.1 Features  `p1141`
+    - 27.2 Operating mode  `p1141`
+    - 27.3 External signals  `p1141`
+    - 27.4 Initialization  `p1141`
+    - 27.5 SIRC register descriptions  `p1141`
+      - 27.5.1 SIRC memory map  `p1141`
+      - 27.5.2 Status Register (SR)  `p1142`
+      - 27.5.3 Miscellaneous input (MISCELLANEOUS_IN)  `p1142`
+  - 28 Fast Crystal Oscillator Digital Controller (FXOSC)  `p1144`
+    - 28.1 Chip-specific FXOSC information  `p1144`
+      - 28.1.1 Chip-specific FXOSC information  `p1144`
+    - 28.2 Overview  `p1144`
+      - 28.2.1 Block diagram  `p1144`
+      - 28.2.2 Features  `p1144`
+    - 28.3 Functional description  `p1145`
+      - 28.3.1 Clock generation in Crystal mode  `p1145`
+      - 28.3.2 Clock generation in Single-Input Bypass mode  `p1145`
+      - 28.3.3 Clocking  `p1145`
+      - 28.3.4 Interrupts  `p1145`
+    - 28.4 External signals  `p1145`
+    - 28.5 Initialization  `p1145`
+    - 28.6 FXOSC register descriptions  `p1146`
+      - 28.6.1 FXOSC memory map  `p1146`
+      - 28.6.2 FXOSC Control Register (CTRL)  `p1146`
+      - 28.6.3 Oscillator Status Register (STAT)  `p1149`
+  - 29 Slow Crystal Oscillator Digital Controller (SXOSC)  `p1151`
+    - 29.1 Overview  `p1151`
+      - 29.1.1 Block diagram  `p1151`
+    - 29.2 Features  `p1151`
+    - 29.3 Functional description  `p1151`
+      - 29.3.1 Clock generation in crystal mode  `p1152`
+      - 29.3.2 Clock stopping in crystal mode  `p1152`
+      - 29.3.1 Modes of operation  `p1152`
+        - 29.3.1.1 Crystal mode  `p1152`
+        - 29.3.1.2 Bypass mode  `p1152`
+      - 29.3.2 Clocking  `p1152`
+      - 29.3.3 Interrupts  `p1152`
+    - 29.4 External signals  `p1152`
+    - 29.5 Initialization information  `p1152`
+    - 29.6 SXOSC register descriptions  `p1153`
+      - 29.6.1 SXOSC memory map  `p1153`
+      - 29.6.2 Oscillator Control Register (SXOSC_CTRL)  `p1153`
+      - 29.6.3 Oscillator Status Register (SXOSC_STAT)  `p1155`
+  - 30 PLL Digital Interface (PLLDIG)  `p1157`
+    - 30.1 Chip-specific PLLDIG information  `p1157`
+      - 30.1.1 PLLDIG instances  `p1157`
+      - 30.1.2 PLL-supported accesses and frequencies  `p1157`
+      - 30.1.3 Register implementation  `p1157`
+        - 30.1.3.1 PLLCLKMUX definition  `p1157`
+      - 30.1.4 Initialization information for S32K311 and S32K310  `p1158`
+    - 30.2 Overview  `p1158`
+      - 30.2.1 Block diagram  `p1159`
+      - 30.2.2 Features  `p1159`
+    - 30.3 Functional description  `p1159`
+      - 30.3.1 Modes of operation  `p1159`
+      - 30.3.2 Input clock frequency  `p1160`
+      - 30.3.3 Clock configuration  `p1160`
+      - 30.3.4 Loss of lock (LOL)  `p1161`
+      - 30.3.5 Frequency modulation  `p1161`
+        - 30.3.5.1 Frequency modulation programming  `p1161`
+      - 30.3.6 Interrupt signals  `p1163`
+    - 30.4 External signals  `p1163`
+    - 30.5 Initialization information  `p1163`
+    - 30.6 PLLDIG register descriptions  `p1163`
+      - 30.6.1 PLLDIG memory map  `p1163`
+      - 30.6.2 PLL Control (PLLCR)  `p1164`
+      - 30.6.3 PLL Status (PLLSR)  `p1165`
+      - 30.6.4 PLL Divider (PLLDV)  `p1166`
+      - 30.6.5 PLL Frequency Modulation (PLLFM)  `p1168`
+      - 30.6.6 PLL Fractional Divider (PLLFD)  `p1169`
+      - 30.6.7 PLL Calibration Register 2 (PLLCAL2)  `p1171`
+      - 30.6.8 PLL Output Divider (PLLODIV_0 - PLLODIV_1)  `p1172`
+- Reset and Boot  `p1175`
+  - 31 Reset Overview  `p1175`
+    - 31.1 Introduction  `p1175`
+    - 31.2 Chip reset types and reactions  `p1175`
+      - 31.2.1 Chip reset blocks  `p1176`
+      - 31.2.2 Chip reset types  `p1176`
+      - 31.2.3 High-level reset sequence overview  `p1177`
+        - 31.2.3.1 Reset event reactions  `p1177`
+        - 31.2.3.2 Chip action after reset event  `p1177`
+    - 31.3 Reset sources—POR, destructive, and functional  `p1178`
+      - 31.3.1 POR sources  `p1178`
+      - 31.3.2 Stages of the POR sequence  `p1178`
+      - 31.3.3 Destructive reset sources  `p1179`
+      - 31.3.4 Functional reset sources  `p1179`
+      - 31.3.5 Functional reset sequence descriptions  `p1180`
+    - 31.4 Reset and boot sequence  `p1182`
+      - 31.4.1 POR  `p1183`
+        - 31.4.1.1 POR sequence  `p1184`
+      - 31.4.2 Destructive reset  `p1184`
+        - 31.4.2.1 Destructive reset sequence  `p1185`
+          - 31.4.2.1.1 Destructive sequence stage description  `p1185`
+        - 31.4.2.2 Destructive reset event bypass  `p1185`
+      - 31.4.3 Functional reset  `p1185`
+        - 31.4.3.1 Functional reset sequence  `p1186`
+          - 31.4.3.1.1 Functional reset flow  `p1187`
+        - 31.4.3.2 FUNC9 and FUNC10 stage bypass for faster Standby mode exit  `p1187`
+        - 31.4.3.3 Standby reset sequence  `p1187`
+        - 31.4.3.4 Reset function redirection  `p1188`
+          - 31.4.3.4.1 Functional reset demotion to an interrupt  `p1188`
+          - 31.4.3.4.2 Reset escalation  `p1188`
+            - 31.4.3.4.2.1 Destructive reset escalation  `p1188`
+    - 31.5 Reset timing diagram  `p1188`
+    - 31.6 Chip status after reset deassertion  `p1189`
+    - 31.7 Module reset status  `p1189`
+    - 31.8 System RAM retention across functional reset  `p1193`
+      - 31.8.1 Halt handshake using the daisy-chaining method  `p1194`
+    - 31.9 Pad state during reset and after reset  `p1194`
+    - 31.10 Reset pin  `p1194`
+      - 31.10.1 Reset pin control during self-test  `p1195`
+    - 31.11 Reset control in Lockstep mode  `p1196`
+      - 31.11.1 PORESETn control in Lockstep mode  `p1196`
+        - 31.11.1.1 PORESETn control in Lockstep mode  `p1197`
+      - 31.11.2 SYSRESETn control in lockstep  `p1197`
+        - 31.11.2.1 SYSRESETn control in Lockstep mode  `p1198`
+    - 31.12 Glossary  `p1198`
+  - 32 Boot Overview  `p1199`
+    - 32.1 Overview  `p1199`
+      - 32.1.1 Introduction  `p1199`
+    - 32.2 Appendix  `p1199`
+      - 32.2.1 Features  `p1199`
+    - 32.3 Chip configuration  `p1199`
+      - 32.3.1 Memory map  `p1199`
+        - 32.3.1.1 Configuration details when the HSE firmware usage feature flag is disabled  `p1200`
+        - 32.3.1.2 Configuration details when the HSE_B firmware usage feature flag is enabled  `p1201`
+        - 32.3.1.3 AB swap configuration  `p1202`
+    - 32.4 Common configuration pertaining to the chip  `p1202`
+      - 32.4.1 Feature configuration in CUST_DEL Device Life Cycle  `p1202`
+      - 32.4.2 UTEST memory location usage by SBAF  `p1204`
+      - 32.4.3 UTEST flag description  `p1205`
+        - 32.4.3.1 HSE firmware usage feature flag  `p1205`
+        - 32.4.3.2 Crystal oscillator configuration flag  `p1205`
+    - 32.5 Image vector table  `p1207`
+      - 32.5.1 Boot configuration word  `p1207`
+      - 32.5.2 Address LC configuration word  `p1209`
+      - 32.5.3 Structure definition of image vector table  `p1209`
+    - 32.6 Boot flow  `p1210`
+    - 32.7 Standby boot  `p1210`
+    - 32.8 Reduced clock mode configuration  `p1211`
+    - 32.9 Debug authorization  `p1212`
+    - 32.10 FIRC divider register control  `p1212`
+    - 32.11 Application boot  `p1212`
+    - 32.12 Recovery mode sequence  `p1213`
+    - 32.13 XRDC configuration  `p1214`
+      - 32.13.1 XRDC configuration of MDAC  `p1214`
+      - 32.13.2 XRDC configuration of MRC  `p1215`
+      - 32.13.3 XRDC configuration of PDAC  `p1215`
+    - 32.14 BAF flash programming controls  `p1215`
+    - 32.15 Status registers for application usage  `p1216`
+      - 32.15.1 SBAF version information  `p1216`
+      - 32.15.2 DCM.DCMRWP1  `p1217`
+      - 32.15.3 Status bits on HSE.GPR  `p1217`
+    - 32.16 Interrupt and exception handling  `p1218`
+    - 32.17 Hardware modules used by SBAF  `p1218`
+    - 32.18 Hardware IP registers details modified by SBAF  `p1218`
+    - 32.19 Glossary  `p1219`
+  - 33 Reset Generation Module (MC_RGM)  `p1220`
+    - 33.1 Chip-specific MC_RGM information  `p1220`
+      - 33.1.1 MC_RGM configuration  `p1220`
+      - 33.1.2 Functional reset entry timer implementation  `p1220`
+      - 33.1.3 S32K3xx reset state machine  `p1220`
+    - 33.2 Introduction  `p1221`
+    - 33.3 Features  `p1222`
+    - 33.4 Reset sources  `p1223`
+    - 33.5 External signal description  `p1223`
+    - 33.6 RESET_B pin assertion and pin safe state control  `p1223`
+    - 33.7 Functional description  `p1223`
+      - 33.7.1 Reset state machine  `p1223`
+        - 33.7.1.1 Power-on reset sequence  `p1224`
+        - 33.7.1.2 Destructive reset sequence  `p1224`
+        - 33.7.1.3 Functional reset sequence  `p1225`
+          - 33.7.1.3.1 Functional reset entry sequence  `p1225`
+          - 33.7.1.3.2 Functional reset exit sequence  `p1225`
+        - 33.7.1.4 Idle phase  `p1225`
+      - 33.7.2 Destructive resets  `p1225`
+      - 33.7.3 External reset  `p1226`
+      - 33.7.4 Functional resets  `p1226`
+      - 33.7.5 Alternate event generation  `p1226`
+      - 33.7.6 RESET_B assertion control  `p1226`
+      - 33.7.7 Functional reset escalation  `p1227`
+      - 33.7.8 Destructive reset escalation  `p1227`
+    - 33.8 MC_RGM register descriptions  `p1228`
+      - 33.8.1 MC RGM Register Map memory map  `p1228`
+      - 33.8.2 Destructive Event Status Register (DES)  `p1229`
+      - 33.8.3 Functional /External Reset Status Register (FES)  `p1232`
+      - 33.8.4 Functional Event Reset Disable Register (FERD)  `p1236`
+      - 33.8.5 Functional Bidirectional Reset Enable Register (FBRE)  `p1239`
+      - 33.8.6 Functional Reset Escalation Counter Register (FREC)  `p1243`
+      - 33.8.7 Functional Reset Escalation Threshold Register (FRET)  `p1243`
+      - 33.8.8 Destructive Reset Escalation Threshold Register (DRET)  `p1244`
+      - 33.8.9 External Reset Control Register (ERCTRL)  `p1245`
+      - 33.8.10 Reset During Standby Status Register (RDSS)  `p1246`
+  - 34 Power-on Reset Watchdog (POR_WDG)  `p1248`
+    - 34.1 Introduction  `p1248`
+    - 34.2 Features  `p1248`
+    - 34.3 Configurations  `p1248`
+      - 34.3.1 Enable/disable configurations  `p1248`
+      - 34.3.2 Timeout configurations  `p1248`
+      - 34.3.3 Event and status registers  `p1249`
+    - 34.4 Reset sequence monitoring  `p1249`
+      - 34.4.1 Introduction  `p1249`
+      - 34.4.2 Inactive windows or bypass operation  `p1249`
+      - 34.4.3 Windows of operation  `p1249`
+    - 34.5 Standby entry/exit sequence monitoring  `p1250`
+      - 34.5.1 Introduction  `p1250`
+      - 34.5.2 Inactive windows/bypass operation  `p1250`
+      - 34.5.3 Windows of operation  `p1250`
+    - 34.6 Glossary  `p1250`
+- Security and Device GPRs  `p1251`
+  - 35 Security Overview  `p1251`
+    - 35.1 Introduction  `p1251`
+    - 35.2 Security features  `p1251`
+    - 35.3 Security information  `p1252`
+    - 35.4 Glossary  `p1252`
+  - 36 Hardware Security Engine (HSE)  `p1253`
+    - 36.1 HSE subsystem  `p1253`
+      - 36.1.1 CPU subsystem  `p1253`
+      - 36.1.2 Cryptographic accelerators  `p1253`
+      - 36.1.3 Random number generator (RNG)  `p1253`
+      - 36.1.4 Timers  `p1254`
+      - 36.1.5 Memory resources  `p1254`
+        - 36.1.5.1 Secure RAM  `p1254`
+        - 36.1.5.2 Secure flash  `p1254`
+    - 36.2 HSE interface  `p1254`
+      - 36.2.1 Messaging unit (MU)  `p1254`
+        - 36.2.1.1 Overview  `p1254`
+    - 36.3 Debug  `p1255`
+      - 36.3.1 HSE subsystem debug  `p1255`
+      - 36.3.2 Host debug  `p1255`
+    - 36.4 HSE firmware  `p1255`
+    - 36.5 Configuration_GPR register descriptions  `p1257`
+      - 36.5.1 Configuration_GPR memory map  `p1257`
+      - 36.5.2 General Purpose Configuration 0 (CONFIG_REG0)  `p1258`
+      - 36.5.3 General Purpose Configuration 6 (CONFIG_REG6)  `p1259`
+      - 36.5.4 Configuration RAM Protected Region (CONFIG_RAMPR)  `p1261`
+      - 36.5.5 Configuration Code Flash Memory Active Block (CONFIG_CFPRL)  `p1262`
+      - 36.5.6 Configuration Code Flash Memory Passive Block (CONFIG_CFPRH)  `p1263`
+      - 36.5.7 Configuration Data Flash Memory Protected Region (CONFIG_DFPR)  `p1264`
+      - 36.5.8 Configuration Program and Erase Lock (CONFIG_PE_LOCK)  `p1265`
+      - 36.5.9 Configuration RAM Protected Region Alternate (CONFIG_RAMPR_ALT)  `p1267`
+      - 36.5.10 Configuration Code Flash Memory Active Block Alternate (CONFIG_CFPRL_ALT)  `p1268`
+      - 36.5.11 Configuration Code Flash Memory Passive Block Alternate (CONFIG_CFPRH_ALT)  `p1268`
+      - 36.5.12 Configuration Data Flash Memory Protected Region Alternate (CONFIG_DFPR_ALT)  `p1269`
+      - 36.5.13 Configuration REG_GPR (CONFIG_REG_GPR)  `p1270`
+    - 36.6 Glossary  `p1271`
+  - 37 Device Configuration Format (DCF) records  `p1273`
+    - 37.1 Overview  `p1273`
+    - 37.2 DCF clients  `p1273`
+      - 37.2.1 Safety features of DCF clients  `p1273`
+        - 37.2.1.1 Parity  `p1273`
+        - 37.2.1.2 Triple voting  `p1273`
+      - 37.2.2 DCF client modification rules  `p1274`
+        - 37.2.2.1 Write once  `p1274`
+        - 37.2.2.2 Write 0 only  `p1274`
+        - 37.2.2.3 Write 1 only  `p1274`
+    - 37.3 DCF record structure  `p1274`
+    - 37.4 DCF records sequence  `p1275`
+    - 37.5 Chip configuration records  `p1276`
+    - 37.6 Glossary  `p1277`
+  - 38 Device Configuration Module General-Purpose Registers (DCM_GPR)  `p1278`
+    - 38.1 DCM controlled features and availability in product family  `p1278`
+    - 38.2 DCM_GPR register descriptions  `p1303`
+      - 38.2.1 DCM_GPR memory map  `p1303`
+      - 38.2.2 Read-Only GPR On Destructive Reset 1 (DCMROD1)  `p1305`
+      - 38.2.3 Read-Only GPR On Destructive Reset 3 (DCMROD3)  `p1306`
+      - 38.2.4 Read-Only GPR On Destructive Reset 4 (DCMROD4)  `p1312`
+      - 38.2.5 Read-Only GPR On Destructive Reset 5 (DCMROD5)  `p1318`
+      - 38.2.6 Read-Only GPR On Destructive Reset 6 (DCMROD6)  `p1324`
+      - 38.2.7 Read-Only GPR On Destructive Reset 7 (DCMROD7)  `p1328`
+      - 38.2.8 Read-Only GPR On Destructive Reset Register (DCMROD8)  `p1332`
+      - 38.2.9 Read-Only GPR On Destructive Reset 9 (DCMROD9)  `p1335`
+      - 38.2.10 Read-Only GPR On Functional Reset 1 (DCMROF1)  `p1340`
+      - 38.2.11 Read-Only GPR On Functional Reset 2 (DCMROF2)  `p1342`
+      - 38.2.12 Read-Only GPR On Functional Reset 3 (DCMROF3)  `p1343`
+      - 38.2.13 Read-Only GPR On Functional Reset 4 (DCMROF4)  `p1344`
+      - 38.2.14 Read-Only GPR On Functional Reset 5 (DCMROF5)  `p1345`
+      - 38.2.15 Read-Only GPR On Functional Reset 6 (DCMROF6)  `p1346`
+      - 38.2.16 Read-Only GPR On Functional Reset 7 (DCMROF7)  `p1347`
+      - 38.2.17 Read-Only GPR On Functional Reset 8 (DCMROF8)  `p1348`
+      - 38.2.18 Read-Only GPR On Functional Reset 9 (DCMROF9)  `p1349`
+      - 38.2.19 Read-Only GPR On Functional Reset 10 (DCMROF10)  `p1350`
+      - 38.2.20 Read-Only GPR On Functional Reset 11 (DCMROF11)  `p1351`
+      - 38.2.21 Read-Only GPR On Functional Reset 12 (DCMROF12)  `p1352`
+      - 38.2.22 Read-Only GPR On Functional Reset 13 (DCMROF13)  `p1353`
+      - 38.2.23 Read-Only GPR On Functional Reset 14 (DCMROF14)  `p1354`
+      - 38.2.24 Read-Only GPR On Functional Reset 15 (DCMROF15)  `p1355`
+      - 38.2.25 Read-Only GPR On Functional Reset 16 (DCMROF16)  `p1356`
+      - 38.2.26 Read-Only GPR On Functional Reset 17 (DCMROF17)  `p1357`
+      - 38.2.27 Read-Only GPR On Functional Reset 19 (DCMROF19)  `p1358`
+      - 38.2.28 Read-Only GPR On Functional Reset 20 (DCMROF20)  `p1360`
+      - 38.2.29 Read-Only GPR On Functional Reset 21 (DCMROF21)  `p1362`
+      - 38.2.30 Read Write GPR On POR 1 (DCMRWP1)  `p1363`
+      - 38.2.31 Read Write GPR On POR 3 (DCMRWP3)  `p1365`
+      - 38.2.32 Read Write GPR On Destructive Reset 2 (DCMRWD2)  `p1366`
+      - 38.2.33 Read Write GPR On Destructive Reset 3 (DCMRWD3)  `p1368`
+      - 38.2.34 Read Write GPR On Destructive Reset 4 (DCMRWD4)  `p1373`
+      - 38.2.35 Read Write GPR On Destructive Reset 5 (DCMRWD5)  `p1379`
+      - 38.2.36 Read Write GPR On Destructive Reset 6 (DCMRWD6)  `p1385`
+      - 38.2.37 Read Write GPR On Destructive Reset 7 (DCMRWD7)  `p1391`
+      - 38.2.38 Read Write GPR On Destructive Reset 8 (DCMRWD8)  `p1395`
+      - 38.2.39 Read Write GPR On Destructive Reset 9 (DCMRWD9)  `p1401`
+      - 38.2.40 Read Write GPR On Destructive Reset 12 (DCMRWD12)  `p1404`
+      - 38.2.41 Read Write GPR On Destructive Reset 13 (DCMRWD13)  `p1410`
+      - 38.2.42 Read Write GPR On Destructive Reset 14 (DCMRWD14)  `p1414`
+      - 38.2.43 Read Write GPR On Destructive Reset 15 (DCMRWD15)  `p1417`
+      - 38.2.44 Read Write GPR On Destructive Reset 16 (DCMRWD16)  `p1421`
+      - 38.2.45 Read Write GPR On Destructive Reset 17 (DCMRWD17)  `p1425`
+      - 38.2.46 Read Write GPR On Destructive Reset 19 (DCMRWD19)  `p1429`
+      - 38.2.47 Read Write GPR On Destructive Reset 20 (DCMRWD20)  `p1435`
+      - 38.2.48 Read Write GPR On Functional Reset 1 (DCMRWF1)  `p1438`
+      - 38.2.49 Read Write GPR On Functional Reset 2 (DCMRWF2)  `p1442`
+      - 38.2.50 Read Write GPR On Functional Reset 3 (DCMRWF3)  `p1446`
+      - 38.2.51 Read Write GPR On Functional Reset 4 (DCMRWF4)  `p1448`
+      - 38.2.52 Read Write GPR On Functional Reset 5 (DCMRWF5)  `p1453`
+      - 38.2.53 Read-Only GPR On PMCPOR Reset 1 (DCMROPP1)  `p1454`
+      - 38.2.54 Read-Only GPR On PMCPOR Reset 2 (DCMROPP2)  `p1458`
+      - 38.2.55 Read-Only GPR On PMCPOR Reset 3 (DCMROPP3)  `p1461`
+      - 38.2.56 Read-Only GPR On PMCPOR Reset 4 (DCMROPP4)  `p1465`
+  - 39 Device Configuration Module (DCM)  `p1467`
+    - 39.1 Overview  `p1467`
+      - 39.1.1 Block diagram  `p1467`
+      - 39.1.2 Features  `p1467`
+    - 39.2 Functional description  `p1468`
+      - 39.2.1 Modes of operation  `p1468`
+      - 39.2.2 DCF mechanism  `p1468`
+      - 39.2.3 DCF error recording  `p1468`
+      - 39.2.4 DCF client error mechanism  `p1468`
+      - 39.2.5 DCM error detection mechanism  `p1469`
+      - 39.2.6 LC  `p1470`
+    - 39.3 DCM register descriptions  `p1471`
+      - 39.3.1 DCM memory map  `p1471`
+      - 39.3.2 DCM Status (DCMSTAT)  `p1472`
+      - 39.3.3 LC and LC Control (DCMLCC)  `p1474`
+      - 39.3.4 LC Scan Status (DCMLCS)  `p1476`
+      - 39.3.5 DCM Miscellaneous (DCMMISC)  `p1479`
+      - 39.3.6 Debug Status and Configuration (DCMDEB)  `p1481`
+      - 39.3.7 DCF Error Count (DCMEC)  `p1482`
+      - 39.3.8 DCF Scan Report (DCMSRR1)  `p1483`
+      - 39.3.9 DCF Scan Report (DCMSRR2)  `p1484`
+      - 39.3.10 DCF Scan Report (DCMSRR3)  `p1486`
+      - 39.3.11 DCF Scan Report (DCMSRR4)  `p1487`
+      - 39.3.12 DCF Scan Report (DCMSRR5)  `p1489`
+      - 39.3.13 DCF Scan Report (DCMSRR6)  `p1490`
+      - 39.3.14 DCF Scan Report (DCMSRR7)  `p1492`
+      - 39.3.15 DCF Scan Report (DCMSRR8)  `p1493`
+      - 39.3.16 DCF Scan Report (DCMSRR9)  `p1495`
+      - 39.3.17 DCF Scan Report (DCMSRR10)  `p1496`
+      - 39.3.18 DCF Scan Report (DCMSRR11)  `p1498`
+      - 39.3.19 DCF Scan Report (DCMSRR12)  `p1499`
+      - 39.3.20 DCF Scan Report (DCMSRR13)  `p1501`
+      - 39.3.21 DCF Scan Report (DCMSRR14)  `p1502`
+      - 39.3.22 DCF Scan Report (DCMSRR15)  `p1504`
+      - 39.3.23 DCF Scan Report (DCMSRR16)  `p1505`
+      - 39.3.24 LC Scan Status 2 (DCMLCS_2)  `p1507`
+    - 39.4 Glossary  `p1508`
+  - 40 Messaging Unit (MU)  `p1509`
+    - 40.1 Chip-specific MU information  `p1509`
+      - 40.1.1 MU instances and configuration  `p1509`
+    - 40.2 Overview  `p1510`
+      - 40.2.1 Block diagram  `p1510`
+      - 40.2.2 Features  `p1510`
+    - 40.3 Functional description  `p1511`
+      - 40.3.1 Submodules  `p1511`
+        - 40.3.1.1 MUA side  `p1511`
+        - 40.3.1.2 MUB side  `p1512`
+      - 40.3.2 Event update timing  `p1512`
+      - 40.3.3 Clocking  `p1512`
+      - 40.3.4 Resets  `p1512`
+        - 40.3.4.1 Asynchronous system reset  `p1512`
+        - 40.3.4.2 MU software reset  `p1512`
+      - 40.3.5 Interrupts  `p1513`
+    - 40.4 External signals  `p1513`
+    - 40.5 Initialization  `p1513`
+    - 40.6 Application information  `p1513`
+      - 40.6.1 Messaging protocols using interrupts  `p1514`
+      - 40.6.2 Messaging protocols using event interrupts  `p1515`
+      - 40.6.3 Exclusive access to shared memory  `p1516`
+      - 40.6.4 Packet data transfers  `p1518`
+      - 40.6.5 Freeing a processor from deadlock  `p1518`
+    - 40.7 Register definition  `p1518`
+      - 40.7.1 MU register descriptions  `p1519`
+        - 40.7.1.1 MU memory map  `p1519`
+        - 40.7.1.2 Version ID (VER)  `p1520`
+        - 40.7.1.3 Parameter (PAR)  `p1521`
+        - 40.7.1.4 Control (CR)  `p1522`
+        - 40.7.1.5 Status (SR)  `p1523`
+        - 40.7.1.6 Flag Control (FCR)  `p1526`
+        - 40.7.1.7 Flag Status (FSR)  `p1527`
+        - 40.7.1.8 General-Purpose Interrupt Enable (GIER)  `p1528`
+        - 40.7.1.9 General-Purpose Control (GCR)  `p1529`
+        - 40.7.1.10 General-purpose Status (GSR)  `p1530`
+        - 40.7.1.11 Transmit Control (TCR)  `p1531`
+        - 40.7.1.12 Transmit Status (TSR)  `p1532`
+        - 40.7.1.13 Receive Control (RCR)  `p1533`
+        - 40.7.1.14 Receive Status (RSR)  `p1534`
+        - 40.7.1.15 Transmit (TR0 - TR3)  `p1535`
+        - 40.7.1.16 Receive (RR0 - RR3)  `p1536`
+      - 40.7.2 MU register descriptions  `p1537`
+        - 40.7.2.1 MU memory map  `p1537`
+        - 40.7.2.2 Version ID (VER)  `p1538`
+        - 40.7.2.3 Parameter (PAR)  `p1539`
+        - 40.7.2.4 Control (CR)  `p1540`
+        - 40.7.2.5 Status (SR)  `p1541`
+        - 40.7.2.6 Core Control 0 (CCR0)  `p1544`
+        - 40.7.2.7 Core Sticky Status 0 (CSSR0)  `p1546`
+        - 40.7.2.8 Flag Control (FCR)  `p1547`
+        - 40.7.2.9 Flag Status (FSR)  `p1565`
+        - 40.7.2.10 General-Purpose Interrupt Enable (GIER)  `p1583`
+        - 40.7.2.11 General-Purpose Control (GCR)  `p1602`
+        - 40.7.2.12 General-purpose Status (GSR)  `p1624`
+        - 40.7.2.13 Transmit Control (TCR)  `p1651`
+        - 40.7.2.14 Transmit Status (TSR)  `p1652`
+        - 40.7.2.15 Receive Control (RCR)  `p1653`
+        - 40.7.2.16 Receive Status (RSR)  `p1654`
+        - 40.7.2.17 Transmit (TR0 - TR3)  `p1655`
+        - 40.7.2.18 Receive (RR0 - RR3)  `p1656`
+    - 40.8 Glossary  `p1657`
+- Modes and Power Management  `p1658`
+  - 41 Power Management  `p1658`
+    - 41.1 Introduction  `p1658`
+      - 41.1.1 Power management system for S32K344, S32K324, S32K314, S32K341, S32K342, and S32K322  `p1659`
+      - 41.1.2 Power management system for S32K312 and S32K311, and S32K310  `p1660`
+      - 41.1.3 Power management system for S32K358/S32K356/S32K348/S32K338/S32K328  `p1661`
+      - 41.1.4 Power management system for S32K388/S32K389  `p1662`
+      - 41.1.5 Features  `p1662`
+      - 41.1.6 Operational power modes  `p1663`
+      - 41.1.7 External 1.5 V source  `p1664`
+      - 41.1.8 External 1.5 V source (applicable for S32K388/S32K389)  `p1665`
+      - 41.1.9 Using a BJT for 1.5 V generation (not applicable for S32K388, S32K389, S32K312, S32K311, and S32K310)  `p1666`
+    - 41.2 Power-up sequence  `p1666`
+    - 41.3 PMC last-mile regulator auto-enable feature (applicable for S32K344, S32K324, S32K314, S32K341, S32K342, and S32K322)  `p1667`
+      - 41.3.1 Last-mile regulator with 1.5 V from an external source (applicable for S32K344, S32K324, S32K314, S32K341, S32K342, and S32K322)  `p1668`
+      - 41.3.2 Last-mile regulator using a BJT (applicable for S32K344, S32K324, S32K314, S32K341, S32K342, and S32K322)  `p1668`
+    - 41.4 PMC last-mile regulator auto-enable feature (applicable for S32K358, S32K356, S32K348, S32K338 and S32K328)  `p1668`
+      - 41.4.1 Last-mile regulator with 1.5 V from an external source (applicable for S32K358, S32K356, S32K348, S32K338 and S32K328)  `p1669`
+      - 41.4.2 Last-mile regulator using a BJT (applicable for S32K358, S32K356, S32K348, S32K338 and S32K328)  `p1669`
+    - 41.5 Standby mode entry sequence  `p1669`
+      - 41.5.1 Software Standby mode entry sequence  `p1669`
+        - 41.5.1.1 SW1: Module shutdown process  `p1670`
+          - 41.5.1.1.1 Disabling modules  `p1670`
+          - 41.5.1.1.2 I/O and module configuration for Standby mode  `p1671`
+        - 41.5.1.2 SW2: Application core shutdown process  `p1672`
+        - 41.5.1.3 SW3: Flash memory low-power handshake and PMC last-mile regulator  `p1672`
+          - 41.5.1.3.1 Last-mile regulator disable sequence (not applicable for S32K3x8, S32K312, S32K311 and S32K310)  `p1673`
+        - 41.5.1.4 SW4: Main core shutdown process  `p1673`
+      - 41.5.2 Hardware Standby mode entry sequence  `p1673`
+      - 41.5.3 PMC Standby mode entry  `p1674`
+    - 41.6 Chip status at the end of Standby mode entry sequence  `p1674`
+    - 41.7 Chip operation in Standby mode  `p1675`
+    - 41.8 Standby mode exit  `p1675`
+      - 41.8.1 Faster Standby mode exit  `p1676`
+      - 41.8.2 Last-mile regulator enable sequence (not applicable for S32K388, S32K389, S32K312, S32K311 and S32K310)  `p1676`
+    - 41.9 PMIC Handshake with MCU (applicable for S32K328, S32K338, S32K348, S32K358, S32K356, S32K388, and S32K389)  `p1677`
+    - 41.10 SMPS  `p1678`
+    - 41.11 Chip power domain partitioning  `p1678`
+      - 41.11.1 Modules available in Standby domain  `p1679`
+    - 41.12 Pad keeping  `p1679`
+      - 41.12.1 Pad keeping on Run domain pins  `p1680`
+      - 41.12.2 Pad keeping on Standby domain pins  `p1680`
+      - 41.12.3 Pad keeping configuration procedure  `p1680`
+      - 41.12.4 Pad keeping waveforms  `p1680`
+        - 41.12.4.1 Pad keeping when the chip wakes up from Standby mode via an interrupt wake-up event  `p1681`
+        - 41.12.4.2 Pad keeping when the chip wakes up from Standby mode via reset  `p1681`
+      - 41.12.5 SIUL2's fields for actively-driven pins in Standby mode  `p1681`
+    - 41.13 Glossary  `p1682`
+  - 42 Power Management Controller (PMC for S32K34x, S32K322, S32K324, and S32K314)  `p1684`
+    - 42.1 Overview  `p1684`
+      - 42.1.1 Block diagram  `p1684`
+      - 42.1.2 Features  `p1685`
+    - 42.2 Functional description  `p1685`
+      - 42.2.1 Modes of operation  `p1685`
+      - 42.2.2 Reset  `p1685`
+      - 42.2.3 Interrupts  `p1685`
+    - 42.3 Signals  `p1685`
+    - 42.4 PMC register descriptions  `p1686`
+      - 42.4.1 PMC memory map  `p1686`
+      - 42.4.2 Low Voltage Status and Control Register (LVSC)  `p1686`
+      - 42.4.3 PMC Configuration Register (CONFIG)  `p1691`
+      - 42.4.4 Version ID register (VERID)  `p1694`
+    - 42.5 Glossary  `p1694`
+  - 43 Power Management Controller (PMC for S32K310, S32K311 and S32K312)  `p1696`
+    - 43.1 Overview  `p1696`
+      - 43.1.1 Block diagram  `p1697`
+      - 43.1.2 Features  `p1697`
+    - 43.2 Functional description  `p1697`
+      - 43.2.1 Modes of operation  `p1697`
+      - 43.2.2 Reset  `p1698`
+      - 43.2.3 Interrupts  `p1698`
+    - 43.3 Signals  `p1698`
+    - 43.4 PMC register descriptions  `p1698`
+      - 43.4.1 PMC memory map  `p1698`
+      - 43.4.2 Low Voltage Status And Control (LVSC)  `p1699`
+      - 43.4.3 PMC Configuration (CONFIG)  `p1705`
+      - 43.4.4 Version ID (VERID)  `p1707`
+    - 43.5 Glossary  `p1708`
+  - 44 Power Management Controller (PMC for S32K358, S32K356, S32K328, S32K338, and S32K348)  `p1709`
+    - 44.1 Overview  `p1709`
+      - 44.1.1 Block diagram  `p1709`
+      - 44.1.2 Features  `p1710`
+    - 44.2 Functional description  `p1710`
+      - 44.2.1 Modes of operation  `p1710`
+      - 44.2.2 Reset  `p1710`
+      - 44.2.3 Interrupts  `p1710`
+    - 44.3 Signals  `p1710`
+    - 44.4 PMC register descriptions  `p1711`
+      - 44.4.1 PMC memory map  `p1711`
+      - 44.4.2 Low Voltage Status and Control Register (LVSC)  `p1712`
+      - 44.4.3 PMC Configuration Register (CONFIG)  `p1717`
+      - 44.4.4 SMPS Configuration Register (SMPSCONFIG)  `p1719`
+      - 44.4.5 Version ID register (VERID)  `p1722`
+    - 44.5 Glossary  `p1723`
+  - 45 Power Management Controller (PMC for S32K388 and S32K389)  `p1724`
+    - 45.1 Overview  `p1724`
+      - 45.1.1 Block diagram  `p1724`
+      - 45.1.2 Features  `p1724`
+    - 45.2 Functional description  `p1725`
+      - 45.2.1 Modes of operation  `p1725`
+      - 45.2.2 Reset  `p1725`
+      - 45.2.3 Interrupts  `p1725`
+    - 45.3 Signals  `p1725`
+    - 45.4 PMC register descriptions  `p1726`
+      - 45.4.1 PMC memory map  `p1726`
+      - 45.4.2 Low Voltage Status and Control (LVSC)  `p1727`
+      - 45.4.3 PMC Configuration (CONFIG)  `p1732`
+      - 45.4.4 SMPS Configuration (SMPSCONFIG)  `p1734`
+      - 45.4.5 Version ID (VERID)  `p1737`
+    - 45.5 Glossary  `p1738`
+  - 46 Mode Entry Module (MC_ME)  `p1739`
+    - 46.1 Chip-specific MC_ME information  `p1739`
+      - 46.1.1 MC_ME modes  `p1739`
+      - 46.1.2 Core operation modes  `p1739`
+      - 46.1.3 MC_ME partition mapping of cores and peripherals  `p1739`
+      - 46.1.4 Core clock gating  `p1739`
+      - 46.1.5 Peripheral clock gating  `p1740`
+      - 46.1.6 Application core initialization process  `p1750`
+      - 46.1.7 Application core shutdown process  `p1751`
+      - 46.1.8 Peripheral initialization process  `p1752`
+      - 46.1.9 Peripheral shutdown process  `p1752`
+    - 46.2 Introduction  `p1753`
+    - 46.3 Features  `p1754`
+    - 46.4 Partition processes  `p1754`
+    - 46.5 Mode transition  `p1755`
+    - 46.6 Standby entry  `p1756`
+      - 46.6.1 Application core shutdown  `p1756`
+      - 46.6.2 Main core shutdown and standby entry  `p1757`
+    - 46.7 MC_ME register descriptions  `p1758`
+      - 46.7.1 MC_ME memory map  `p1759`
+      - 46.7.2 Control Key Register (CTL_KEY)  `p1761`
+      - 46.7.3 Mode Configuration Register (MODE_CONF)  `p1762`
+      - 46.7.4 Mode Update Register (MODE_UPD)  `p1763`
+      - 46.7.5 Mode Status Register (MODE_STAT)  `p1764`
+      - 46.7.6 Main Core ID Register (MAIN_COREID)  `p1765`
+      - 46.7.7 Partition 0 Process Configuration Register (PRTN0_PCONF)  `p1766`
+      - 46.7.8 Partition 0 Process Update Register (PRTN0_PUPD)  `p1768`
+      - 46.7.9 Partition 0 Status Register (PRTN0_STAT)  `p1769`
+      - 46.7.10 Partition 0 Core Lockstep Control Register (PRTN0_CORE_LOCKSTEP)  `p1770`
+      - 46.7.11 Partition 0 COFB Set 0 Clock Status Register (PRTN0_COFB0_STAT)  `p1771`
+      - 46.7.12 Partition 0 COFB Set 1 Clock Status Register (PRTN0_COFB1_STAT)  `p1774`
+      - 46.7.13 Partition 0 COFB Set 0 Clock Enable Register (PRTN0_COFB0_CLKEN)  `p1778`
+      - 46.7.14 Partition 0 COFB Set 1 Clock Enable Register (PRTN0_COFB1_CLKEN)  `p1781`
+      - 46.7.15 Partition 0 Core 0 Process Configuration Register (PRTN0_CORE0_PCONF)  `p1785`
+      - 46.7.16 Partition 0 Core 0 Process Update Register (PRTN0_CORE0_PUPD)  `p1786`
+      - 46.7.17 Partition 0 Core 0 Status Register (PRTN0_CORE0_STAT)  `p1787`
+      - 46.7.18 Partition 0 Core 0 Address Register (PRTN0_CORE0_ADDR)  `p1788`
+      - 46.7.19 Partition 0 Core 1 Process Configuration Register (PRTN0_CORE1_PCONF)  `p1789`
+      - 46.7.20 Partition 0 Core 1 Process Update Register (PRTN0_CORE1_PUPD)  `p1790`
+      - 46.7.21 Partition 0 Core 1 Status Register (PRTN0_CORE1_STAT)  `p1791`
+      - 46.7.22 Partition 0 Core 1 Address Register (PRTN0_CORE1_ADDR)  `p1792`
+      - 46.7.23 Partition 0 Core 2 Status Register (PRTN0_CORE2_STAT)  `p1793`
+      - 46.7.24 Partition 0 Core 2 Address Register (PRTN0_CORE2_ADDR)  `p1794`
+      - 46.7.25 Partition 0 Core 3 Process Configuration Register (PRTN0_CORE3_PCONF)  `p1795`
+      - 46.7.26 Partition 0 Core 3 Process Update Register (PRTN0_CORE3_PUPD)  `p1796`
+      - 46.7.27 Partition 0 Core 3 Status Register (PRTN0_CORE3_STAT)  `p1797`
+      - 46.7.28 Partition 0 Core 3 Address Register (PRTN0_CORE3_ADDR)  `p1798`
+      - 46.7.29 Partition 0 Core 4 Process Configuration Register (PRTN0_CORE4_PCONF)  `p1799`
+      - 46.7.30 Partition 0 Core 4 Process Update Register (PRTN0_CORE4_PUPD)  `p1800`
+      - 46.7.31 Partition 0 Core 4 Status Register (PRTN0_CORE4_STAT)  `p1801`
+      - 46.7.32 Partition 0 Core 4 Address Register (PRTN0_CORE4_ADDR)  `p1802`
+      - 46.7.33 Partition 0 Core 5 Process Configuration Register (PRTN0_CORE5_PCONF)  `p1803`
+      - 46.7.34 Partition 0 Core 5 Process Update Register (PRTN0_CORE5_PUPD)  `p1804`
+      - 46.7.35 Partition 0 Core 5 Status Register (PRTN0_CORE5_STAT)  `p1805`
+      - 46.7.36 Partition 0 Core 5 Address Register (PRTN0_CORE5_ADDR)  `p1806`
+      - 46.7.37 Partition 1 Process Configuration Register (PRTN1_PCONF)  `p1807`
+      - 46.7.38 Partition 1 Process Update Register (PRTN1_PUPD)  `p1809`
+      - 46.7.39 Partition 1 Status Register (PRTN1_STAT)  `p1810`
+      - 46.7.40 Partition 1 COFB Set 0 Clock Status Register (PRTN1_COFB0_STAT)  `p1811`
+      - 46.7.41 Partition 1 COFB Set 1 Clock Status Register (PRTN1_COFB1_STAT)  `p1816`
+      - 46.7.42 Partition 1 COFB Set 2 Clock Status Register (PRTN1_COFB2_STAT)  `p1821`
+      - 46.7.43 Partition 1 COFB Set 3 Clock Status Register (PRTN1_COFB3_STAT)  `p1825`
+      - 46.7.44 Partition 1 COFB Set 0 Clock Enable Register (PRTN1_COFB0_CLKEN)  `p1830`
+      - 46.7.45 Partition 1 COFB Set 1 Clock Enable Register (PRTN1_COFB1_CLKEN)  `p1834`
+      - 46.7.46 Partition 1 COFB Set 2 Clock Enable Register (PRTN1_COFB2_CLKEN)  `p1838`
+      - 46.7.47 Partition 1 COFB Set 3 Clock Enable Register (PRTN1_COFB3_CLKEN)  `p1843`
+      - 46.7.48 Partition 2 Process Configuration Register (PRTN2_PCONF)  `p1847`
+      - 46.7.49 Partition 2 Process Update Register (PRTN2_PUPD)  `p1848`
+      - 46.7.50 Partition 2 Status Register (PRTN2_STAT)  `p1850`
+      - 46.7.51 Partition 2 COFB Set 0 Clock Status Register (PRTN2_COFB0_STAT)  `p1851`
+      - 46.7.52 Partition 2 COFB Set 1 Clock Status Register (PRTN2_COFB1_STAT)  `p1856`
+      - 46.7.53 Partition 2 COFB Set 2 Clock Status Register (PRTN2_COFB2_STAT)  `p1860`
+      - 46.7.54 Partition 2 COFB Set 3 Clock Status Register (PRTN2_COFB3_STAT)  `p1865`
+      - 46.7.55 Partition 2 COFB Set 0 Clock Enable Register (PRTN2_COFB0_CLKEN)  `p1868`
+      - 46.7.56 Partition 2 COFB Set 1 Clock Enable Register (PRTN2_COFB1_CLKEN)  `p1872`
+      - 46.7.57 Partition 2 COFB Set 2 Clock Enable Register (PRTN2_COFB2_CLKEN)  `p1876`
+    - 46.8 Glossary  `p1881`
+  - 47 Power Control Unit (MC_PCU)  `p1882`
+    - 47.1 Introduction  `p1882`
+    - 47.2 Power sequence FSM  `p1882`
+    - 47.3 Glossary  `p1884`
+  - 48 Wakeup Unit (WKPU)  `p1885`
+    - 48.1 Chip-specific WKPU information  `p1885`
+      - 48.1.1 WKPU configuration on the chip  `p1885`
+      - 48.1.2 WKPU register fields and their applicability  `p1886`
+      - 48.1.3 WKPU NMI configuration  `p1887`
+      - 48.1.4 WKPU wake-up source connectivity  `p1887`
+    - 48.2 Overview  `p1888`
+      - 48.2.1 Block diagram  `p1888`
+      - 48.2.2 Features  `p1889`
+    - 48.3 Functional description  `p1889`
+      - 48.3.1 Nonmaskable interrupts  `p1889`
+        - 48.3.1.1 NMI management  `p1890`
+      - 48.3.2 Clocking  `p1891`
+      - 48.3.3 Interrupts  `p1891`
+        - 48.3.3.1 External interrupt management  `p1892`
+      - 48.3.4 External signals  `p1892`
+    - 48.4 Initialization  `p1892`
+      - 48.4.1 Glitch filter and pad configuration  `p1893`
+      - 48.4.2 Nonmaskable interrupts  `p1893`
+      - 48.4.3 Wake-up event  `p1893`
+    - 48.5 WKPU memory map and registers  `p1893`
+      - 48.5.1 WKPU register descriptions  `p1893`
+        - 48.5.1.1 WKPU memory map  `p1893`
+        - 48.5.1.2 NMI Status Flag (NSR)  `p1894`
+        - 48.5.1.3 NMI Configuration (NCR)  `p1898`
+        - 48.5.1.4 Wake-Up and Interrupt Status Flag (WISR)  `p1903`
+        - 48.5.1.5 Interrupt Request Enable (IRER)  `p1904`
+        - 48.5.1.6 Wake-Up Request Enable (WRER)  `p1905`
+        - 48.5.1.7 Wake-Up and Interrupt Rising-Edge Event Enable (WIREER)  `p1905`
+        - 48.5.1.8 Wake-Up and Interrupt Falling-Edge Event Enable (WIFEER)  `p1906`
+        - 48.5.1.9 Wake-Up and Interrupt Filter Enable (WIFER)  `p1907`
+        - 48.5.1.10 Wake-Up and Interrupt Status Flag (WISR_64)  `p1908`
+        - 48.5.1.11 Interrupt Request Enable (IRER_64)  `p1909`
+        - 48.5.1.12 Wake-Up Request Enable (WRER_64)  `p1910`
+        - 48.5.1.13 Wake-Up and Interrupt Rising-Edge Event Enable (WIREER_64)  `p1911`
+        - 48.5.1.14 Wake-Up and Interrupt Falling-Edge Event Enable (WIFEER_64)  `p1912`
+        - 48.5.1.15 Wake-Up and Interrupt Filter Enable (WIFER_64)  `p1913`
+    - 48.6 Glossary  `p1914`
+- Safety  `p1915`
+  - 49 Safety Overview  `p1915`
+    - 49.1 Introduction  `p1915`
+    - 49.2 Safety architecture elements  `p1916`
+    - 49.3 I/O peripherals  `p1917`
+    - 49.4 Self-test  `p1917`
+    - 49.5 Glossary  `p1919`
+  - 50 Error Injection Module (EIM)  `p1921`
+    - 50.1 Chip-specific EIM information  `p1921`
+      - 50.1.1 EIM instances  `p1921`
+      - 50.1.2 EIM0 base address  `p1921`
+      - 50.1.3 EIM channel mapping  `p1921`
+      - 50.1.4 Behavior of EIM error injection on gaskets  `p1964`
+      - 50.1.5 Constraints to use EIM on CM7 cache memories  `p1964`
+    - 50.2 Overview  `p1965`
+      - 50.2.1 Features  `p1965`
+      - 50.2.2 Block diagram  `p1965`
+    - 50.3 Functional description  `p1966`
+    - 50.4 Initialization  `p1967`
+    - 50.5 EIM_0 register descriptions  `p1967`
+      - 50.5.1 EIM_0 memory map  `p1969`
+      - 50.5.2 Error Injection Module Configuration Register (EIMCR)  `p1971`
+      - 50.5.3 Error Injection Channel Enable register (EICHEN)  `p1972`
+      - 50.5.4 Error Injection Channel Descriptor 0, Word0 (EICHD0_WORD0)  `p1979`
+      - 50.5.5 Error Injection Channel Descriptor 0, Word1 (EICHD0_WORD1)  `p1980`
+      - 50.5.6 Error Injection Channel Descriptor 0, Word2 (EICHD0_WORD2)  `p1981`
+      - 50.5.7 Error Injection Channel Descriptor 1, Word0 (EICHD1_WORD0)  `p1981`
+      - 50.5.8 Error Injection Channel Descriptor 1, Word1 (EICHD1_WORD1)  `p1982`
+      - 50.5.9 Error Injection Channel Descriptor 1, Word2 (EICHD1_WORD2)  `p1983`
+      - 50.5.10 Error Injection Channel Descriptor 1, Word3 (EICHD1_WORD3)  `p1984`
+      - 50.5.11 Error Injection Channel Descriptor 1, Word4 (EICHD1_WORD4)  `p1985`
+      - 50.5.12 Error Injection Channel Descriptor n, Word0 (EICHD2_WORD0 - EICHD4_WORD0)  `p1986`
+      - 50.5.13 Error Injection Channel Descriptor 2, Word1 (EICHD2_WORD1)  `p1987`
+      - 50.5.14 Error Injection Channel Descriptor 2, Word2 (EICHD2_WORD2)  `p1988`
+      - 50.5.15 Error Injection Channel Descriptor 2, Word3 (EICHD2_WORD3)  `p1989`
+      - 50.5.16 Error Injection Channel Descriptor 2, Word4 (EICHD2_WORD4)  `p1990`
+      - 50.5.17 Error Injection Channel Descriptor 3, Word1 (EICHD3_WORD1)  `p1991`
+      - 50.5.18 Error Injection Channel Descriptor 3, Word2 (EICHD3_WORD2)  `p1992`
+      - 50.5.19 Error Injection Channel Descriptor 3, Word3 (EICHD3_WORD3)  `p1993`
+      - 50.5.20 Error Injection Channel Descriptor 3, Word4 (EICHD3_WORD4)  `p1994`
+      - 50.5.21 Error Injection Channel Descriptor 4, Word1 (EICHD4_WORD1)  `p1995`
+      - 50.5.22 Error Injection Channel Descriptor 4, Word2 (EICHD4_WORD2)  `p1996`
+      - 50.5.23 Error Injection Channel Descriptor 4, Word3 (EICHD4_WORD3)  `p1997`
+      - 50.5.24 Error Injection Channel Descriptor 4, Word4 (EICHD4_WORD4)  `p1998`
+      - 50.5.25 Error Injection Channel Descriptor 5, Word0 (EICHD5_WORD0)  `p1999`
+      - 50.5.26 Error Injection Channel Descriptor 5, Word1 (EICHD5_WORD1)  `p2000`
+      - 50.5.27 Error Injection Channel Descriptor 5, Word2 (EICHD5_WORD2)  `p2001`
+      - 50.5.28 Error Injection Channel Descriptor 6, Word0 (EICHD6_WORD0)  `p2002`
+      - 50.5.29 Error Injection Channel Descriptor 6, Word1 (EICHD6_WORD1)  `p2003`
+      - 50.5.30 Error Injection Channel Descriptor 6, Word2 (EICHD6_WORD2)  `p2004`
+      - 50.5.31 Error Injection Channel Descriptor 6, Word3 (EICHD6_WORD3)  `p2005`
+      - 50.5.32 Error Injection Channel Descriptor 6, Word4 (EICHD6_WORD4)  `p2006`
+      - 50.5.33 Error Injection Channel Descriptor n, Word0 (EICHD7_WORD0 - EICHD9_WORD0)  `p2007`
+      - 50.5.34 Error Injection Channel Descriptor 7, Word1 (EICHD7_WORD1)  `p2008`
+      - 50.5.35 Error Injection Channel Descriptor 7, Word2 (EICHD7_WORD2)  `p2009`
+      - 50.5.36 Error Injection Channel Descriptor 7, Word3 (EICHD7_WORD3)  `p2010`
+      - 50.5.37 Error Injection Channel Descriptor 7, Word4 (EICHD7_WORD4)  `p2011`
+      - 50.5.38 Error Injection Channel Descriptor 8, Word1 (EICHD8_WORD1)  `p2012`
+      - 50.5.39 Error Injection Channel Descriptor 8, Word2 (EICHD8_WORD2)  `p2013`
+      - 50.5.40 Error Injection Channel Descriptor 8, Word3 (EICHD8_WORD3)  `p2014`
+      - 50.5.41 Error Injection Channel Descriptor 8, Word4 (EICHD8_WORD4)  `p2015`
+      - 50.5.42 Error Injection Channel Descriptor 9, Word1 (EICHD9_WORD1)  `p2016`
+      - 50.5.43 Error Injection Channel Descriptor 9, Word2 (EICHD9_WORD2)  `p2017`
+      - 50.5.44 Error Injection Channel Descriptor 9, Word3 (EICHD9_WORD3)  `p2018`
+      - 50.5.45 Error Injection Channel Descriptor 9, Word4 (EICHD9_WORD4)  `p2019`
+      - 50.5.46 Error Injection Channel Descriptor n, Word0 (EICHD10_WORD0 - EICHD15_WORD0)  `p2020`
+      - 50.5.47 Error Injection Channel Descriptor 10, Word1 (EICHD10_WORD1)  `p2021`
+      - 50.5.48 Error Injection Channel Descriptor 10, Word2 (EICHD10_WORD2)  `p2022`
+      - 50.5.49 Error Injection Channel Descriptor 11, Word1 (EICHD11_WORD1)  `p2023`
+      - 50.5.50 Error Injection Channel Descriptor 12, Word1 (EICHD12_WORD1)  `p2024`
+      - 50.5.51 Error Injection Channel Descriptor 13, Word1 (EICHD13_WORD1)  `p2025`
+      - 50.5.52 Error Injection Channel Descriptor 13, Word2 (EICHD13_WORD2)  `p2026`
+      - 50.5.53 Error Injection Channel Descriptor 14, Word1 (EICHD14_WORD1)  `p2027`
+      - 50.5.54 Error Injection Channel Descriptor 15, Word1 (EICHD15_WORD1)  `p2028`
+      - 50.5.55 Error Injection Channel Descriptor 16, Word1 (EICHD16_WORD1)  `p2029`
+    - 50.6 EIM_1 register descriptions  `p2030`
+      - 50.6.1 EIM_1 memory map  `p2032`
+      - 50.6.2 Error Injection Module Configuration Register (EIMCR)  `p2034`
+      - 50.6.3 Error Injection Channel Enable register (EICHEN)  `p2035`
+      - 50.6.4 Error Injection Channel Descriptor 0, Word0 (EICHD0_WORD0)  `p2042`
+      - 50.6.5 Error Injection Channel Descriptor 0, Word1 (EICHD0_WORD1)  `p2043`
+      - 50.6.6 Error Injection Channel Descriptor 0, Word2 (EICHD0_WORD2)  `p2044`
+      - 50.6.7 Error Injection Channel Descriptor 1, Word0 (EICHD1_WORD0)  `p2044`
+      - 50.6.8 Error Injection Channel Descriptor 1, Word1 (EICHD1_WORD1)  `p2045`
+      - 50.6.9 Error Injection Channel Descriptor 1, Word2 (EICHD1_WORD2)  `p2046`
+      - 50.6.10 Error Injection Channel Descriptor 1, Word3 (EICHD1_WORD3)  `p2047`
+      - 50.6.11 Error Injection Channel Descriptor 1, Word4 (EICHD1_WORD4)  `p2048`
+      - 50.6.12 Error Injection Channel Descriptor n, Word0 (EICHD2_WORD0 - EICHD4_WORD0)  `p2049`
+      - 50.6.13 Error Injection Channel Descriptor 2, Word1 (EICHD2_WORD1)  `p2050`
+      - 50.6.14 Error Injection Channel Descriptor 2, Word2 (EICHD2_WORD2)  `p2051`
+      - 50.6.15 Error Injection Channel Descriptor 2, Word3 (EICHD2_WORD3)  `p2052`
+      - 50.6.16 Error Injection Channel Descriptor 2, Word4 (EICHD2_WORD4)  `p2053`
+      - 50.6.17 Error Injection Channel Descriptor 3, Word1 (EICHD3_WORD1)  `p2054`
+      - 50.6.18 Error Injection Channel Descriptor 3, Word2 (EICHD3_WORD2)  `p2055`
+      - 50.6.19 Error Injection Channel Descriptor 3, Word3 (EICHD3_WORD3)  `p2056`
+      - 50.6.20 Error Injection Channel Descriptor 3, Word4 (EICHD3_WORD4)  `p2057`
+      - 50.6.21 Error Injection Channel Descriptor 4, Word1 (EICHD4_WORD1)  `p2058`
+      - 50.6.22 Error Injection Channel Descriptor 4, Word2 (EICHD4_WORD2)  `p2059`
+      - 50.6.23 Error Injection Channel Descriptor 4, Word3 (EICHD4_WORD3)  `p2060`
+      - 50.6.24 Error Injection Channel Descriptor 4, Word4 (EICHD4_WORD4)  `p2061`
+      - 50.6.25 Error Injection Channel Descriptor 5, Word0 (EICHD5_WORD0)  `p2062`
+      - 50.6.26 Error Injection Channel Descriptor 5, Word1 (EICHD5_WORD1)  `p2063`
+      - 50.6.27 Error Injection Channel Descriptor 5, Word2 (EICHD5_WORD2)  `p2064`
+      - 50.6.28 Error Injection Channel Descriptor 6, Word0 (EICHD6_WORD0)  `p2065`
+      - 50.6.29 Error Injection Channel Descriptor 6, Word1 (EICHD6_WORD1)  `p2066`
+      - 50.6.30 Error Injection Channel Descriptor 6, Word2 (EICHD6_WORD2)  `p2067`
+      - 50.6.31 Error Injection Channel Descriptor 6, Word3 (EICHD6_WORD3)  `p2068`
+      - 50.6.32 Error Injection Channel Descriptor 6, Word4 (EICHD6_WORD4)  `p2069`
+      - 50.6.33 Error Injection Channel Descriptor n, Word0 (EICHD7_WORD0 - EICHD9_WORD0)  `p2070`
+      - 50.6.34 Error Injection Channel Descriptor 7, Word1 (EICHD7_WORD1)  `p2071`
+      - 50.6.35 Error Injection Channel Descriptor 7, Word2 (EICHD7_WORD2)  `p2072`
+      - 50.6.36 Error Injection Channel Descriptor 7, Word3 (EICHD7_WORD3)  `p2073`
+      - 50.6.37 Error Injection Channel Descriptor 7, Word4 (EICHD7_WORD4)  `p2074`
+      - 50.6.38 Error Injection Channel Descriptor 8, Word1 (EICHD8_WORD1)  `p2075`
+      - 50.6.39 Error Injection Channel Descriptor 8, Word2 (EICHD8_WORD2)  `p2076`
+      - 50.6.40 Error Injection Channel Descriptor 8, Word3 (EICHD8_WORD3)  `p2077`
+      - 50.6.41 Error Injection Channel Descriptor 8, Word4 (EICHD8_WORD4)  `p2078`
+      - 50.6.42 Error Injection Channel Descriptor 9, Word1 (EICHD9_WORD1)  `p2079`
+      - 50.6.43 Error Injection Channel Descriptor 9, Word2 (EICHD9_WORD2)  `p2080`
+      - 50.6.44 Error Injection Channel Descriptor 9, Word3 (EICHD9_WORD3)  `p2081`
+      - 50.6.45 Error Injection Channel Descriptor 9, Word4 (EICHD9_WORD4)  `p2082`
+      - 50.6.46 Error Injection Channel Descriptor n, Word0 (EICHD10_WORD0 - EICHD15_WORD0)  `p2083`
+      - 50.6.47 Error Injection Channel Descriptor 10, Word1 (EICHD10_WORD1)  `p2084`
+      - 50.6.48 Error Injection Channel Descriptor 10, Word2 (EICHD10_WORD2)  `p2085`
+      - 50.6.49 Error Injection Channel Descriptor 11, Word1 (EICHD11_WORD1)  `p2086`
+      - 50.6.50 Error Injection Channel Descriptor 12, Word1 (EICHD12_WORD1)  `p2087`
+      - 50.6.51 Error Injection Channel Descriptor 13, Word1 (EICHD13_WORD1)  `p2088`
+      - 50.6.52 Error Injection Channel Descriptor 13, Word2 (EICHD13_WORD2)  `p2089`
+      - 50.6.53 Error Injection Channel Descriptor 14, Word1 (EICHD14_WORD1)  `p2090`
+      - 50.6.54 Error Injection Channel Descriptor 15, Word1 (EICHD15_WORD1)  `p2091`
+      - 50.6.55 Error Injection Channel Descriptor 16, Word1 (EICHD16_WORD1)  `p2092`
+    - 50.7 EIM_2 register descriptions  `p2093`
+      - 50.7.1 EIM_2 memory map  `p2095`
+      - 50.7.2 Error Injection Module Configuration Register (EIMCR)  `p2098`
+      - 50.7.3 Error Injection Channel Enable register (EICHEN)  `p2099`
+      - 50.7.4 Error Injection Channel Descriptor n, Word0 (EICHD0_WORD0 - EICHD3_WORD0)  `p2109`
+      - 50.7.5 Error Injection Channel Descriptor 0, Word1 (EICHD0_WORD1)  `p2110`
+      - 50.7.6 Error Injection Channel Descriptor 0, Word2 (EICHD0_WORD2)  `p2111`
+      - 50.7.7 Error Injection Channel Descriptor 1, Word1 (EICHD1_WORD1)  `p2112`
+      - 50.7.8 Error Injection Channel Descriptor 1, Word2 (EICHD1_WORD2)  `p2112`
+      - 50.7.9 Error Injection Channel Descriptor 2, Word1 (EICHD2_WORD1)  `p2113`
+      - 50.7.10 Error Injection Channel Descriptor 2, Word2 (EICHD2_WORD2)  `p2114`
+      - 50.7.11 Error Injection Channel Descriptor 3, Word1 (EICHD3_WORD1)  `p2115`
+      - 50.7.12 Error Injection Channel Descriptor 3, Word2 (EICHD3_WORD2)  `p2116`
+      - 50.7.13 Error Injection Channel Descriptor 4, Word1 (EICHD4_WORD1)  `p2117`
+      - 50.7.14 Error Injection Channel Descriptor 4, Word2 (EICHD4_WORD2)  `p2118`
+      - 50.7.15 Error Injection Channel Descriptor 5, Word1 (EICHD5_WORD1)  `p2119`
+      - 50.7.16 Error Injection Channel Descriptor 5, Word2 (EICHD5_WORD2)  `p2120`
+      - 50.7.17 Error Injection Channel Descriptor 7, Word1 (EICHD7_WORD1)  `p2121`
+      - 50.7.18 Error Injection Channel Descriptor 7, Word2 (EICHD7_WORD2)  `p2122`
+      - 50.7.19 Error Injection Channel Descriptor 8, Word1 (EICHD8_WORD1)  `p2123`
+      - 50.7.20 Error Injection Channel Descriptor 8, Word2 (EICHD8_WORD2)  `p2124`
+      - 50.7.21 Error Injection Channel Descriptor 9, Word1 (EICHD9_WORD1)  `p2125`
+      - 50.7.22 Error Injection Channel Descriptor 9, Word2 (EICHD9_WORD2)  `p2126`
+      - 50.7.23 Error Injection Channel Descriptor 10, Word1 (EICHD10_WORD1)  `p2127`
+      - 50.7.24 Error Injection Channel Descriptor 10, Word2 (EICHD10_WORD2)  `p2128`
+      - 50.7.25 Error Injection Channel Descriptor 11, Word1 (EICHD11_WORD1)  `p2129`
+      - 50.7.26 Error Injection Channel Descriptor 11, Word2 (EICHD11_WORD2)  `p2130`
+      - 50.7.27 Error Injection Channel Descriptor 12, Word1 (EICHD12_WORD1)  `p2131`
+      - 50.7.28 Error Injection Channel Descriptor 12, Word2 (EICHD12_WORD2)  `p2132`
+      - 50.7.29 Error Injection Channel Descriptor 13, Word1 (EICHD13_WORD1)  `p2133`
+      - 50.7.30 Error Injection Channel Descriptor 13, Word2 (EICHD13_WORD2)  `p2134`
+      - 50.7.31 Error Injection Channel Descriptor 14, Word1 (EICHD14_WORD1)  `p2135`
+      - 50.7.32 Error Injection Channel Descriptor 14, Word2 (EICHD14_WORD2)  `p2136`
+      - 50.7.33 Error Injection Channel Descriptor 15, Word1 (EICHD15_WORD1)  `p2137`
+      - 50.7.34 Error Injection Channel Descriptor 15, Word2 (EICHD15_WORD2)  `p2138`
+      - 50.7.35 Error Injection Channel Descriptor 16, Word1 (EICHD16_WORD1)  `p2139`
+      - 50.7.36 Error Injection Channel Descriptor 16, Word2 (EICHD16_WORD2)  `p2140`
+      - 50.7.37 Error Injection Channel Descriptor 17, Word1 (EICHD17_WORD1)  `p2141`
+      - 50.7.38 Error Injection Channel Descriptor 17, Word2 (EICHD17_WORD2)  `p2142`
+      - 50.7.39 Error Injection Channel Descriptor 18, Word1 (EICHD18_WORD1)  `p2143`
+      - 50.7.40 Error Injection Channel Descriptor 18, Word2 (EICHD18_WORD2)  `p2144`
+      - 50.7.41 Error Injection Channel Descriptor 19, Word1 (EICHD19_WORD1)  `p2145`
+      - 50.7.42 Error Injection Channel Descriptor 19, Word2 (EICHD19_WORD2)  `p2146`
+      - 50.7.43 Error Injection Channel Descriptor 20, Word1 (EICHD20_WORD1)  `p2147`
+      - 50.7.44 Error Injection Channel Descriptor 20, Word2 (EICHD20_WORD2)  `p2148`
+      - 50.7.45 Error Injection Channel Descriptor 21, Word1 (EICHD21_WORD1)  `p2149`
+      - 50.7.46 Error Injection Channel Descriptor 21, Word2 (EICHD21_WORD2)  `p2150`
+      - 50.7.47 Error Injection Channel Descriptor 22, Word1 (EICHD22_WORD1)  `p2151`
+      - 50.7.48 Error Injection Channel Descriptor 22, Word2 (EICHD22_WORD2)  `p2152`
+      - 50.7.49 Error Injection Channel Descriptor 22, Word3 (EICHD22_WORD3)  `p2153`
+      - 50.7.50 Error Injection Channel Descriptor 22, Word4 (EICHD22_WORD4)  `p2154`
+      - 50.7.51 Error Injection Channel Descriptor 22, Word5 (EICHD22_WORD5)  `p2155`
+      - 50.7.52 Error Injection Channel Descriptor 22, Word6 (EICHD22_WORD6)  `p2156`
+      - 50.7.53 Error Injection Channel Descriptor 23, Word1 (EICHD23_WORD1)  `p2157`
+      - 50.7.54 Error Injection Channel Descriptor 23, Word2 (EICHD23_WORD2)  `p2158`
+      - 50.7.55 Error Injection Channel Descriptor 23, Word3 (EICHD23_WORD3)  `p2159`
+      - 50.7.56 Error Injection Channel Descriptor 23, Word4 (EICHD23_WORD4)  `p2160`
+      - 50.7.57 Error Injection Channel Descriptor 23, Word5 (EICHD23_WORD5)  `p2161`
+      - 50.7.58 Error Injection Channel Descriptor 23, Word6 (EICHD23_WORD6)  `p2162`
+      - 50.7.59 Error Injection Channel Descriptor 24, Word1 (EICHD24_WORD1)  `p2163`
+      - 50.7.60 Error Injection Channel Descriptor 24, Word2 (EICHD24_WORD2)  `p2164`
+      - 50.7.61 Error Injection Channel Descriptor 24, Word3 (EICHD24_WORD3)  `p2165`
+      - 50.7.62 Error Injection Channel Descriptor 24, Word4 (EICHD24_WORD4)  `p2166`
+      - 50.7.63 Error Injection Channel Descriptor 24, Word5 (EICHD24_WORD5)  `p2167`
+      - 50.7.64 Error Injection Channel Descriptor 24, Word6 (EICHD24_WORD6)  `p2168`
+      - 50.7.65 Error Injection Channel Descriptor 25, Word1 (EICHD25_WORD1)  `p2169`
+      - 50.7.66 Error Injection Channel Descriptor 25, Word2 (EICHD25_WORD2)  `p2170`
+      - 50.7.67 Error Injection Channel Descriptor 25, Word3 (EICHD25_WORD3)  `p2171`
+      - 50.7.68 Error Injection Channel Descriptor 25, Word4 (EICHD25_WORD4)  `p2172`
+      - 50.7.69 Error Injection Channel Descriptor 25, Word5 (EICHD25_WORD5)  `p2173`
+      - 50.7.70 Error Injection Channel Descriptor 25, Word6 (EICHD25_WORD6)  `p2174`
+      - 50.7.71 Error Injection Channel Descriptor 26, Word1 (EICHD26_WORD1)  `p2175`
+      - 50.7.72 Error Injection Channel Descriptor 27, Word1 (EICHD27_WORD1)  `p2176`
+      - 50.7.73 Error Injection Channel Descriptor 28, Word1 (EICHD28_WORD1)  `p2177`
+      - 50.7.74 Error Injection Channel Descriptor 29, Word1 (EICHD29_WORD1)  `p2178`
+      - 50.7.75 Error Injection Channel Descriptor 30, Word1 (EICHD30_WORD1)  `p2179`
+      - 50.7.76 Error Injection Channel Descriptor 31, Word1 (EICHD31_WORD1)  `p2180`
+    - 50.8 EIM_3 register descriptions  `p2181`
+      - 50.8.1 EIM_3 memory map  `p2182`
+      - 50.8.2 Error Injection Module Configuration Register (EIMCR)  `p2183`
+      - 50.8.3 Error Injection Channel Enable register (EICHEN)  `p2184`
+      - 50.8.4 Error Injection Channel Descriptor 0, Word1 (EICHD0_WORD1)  `p2189`
+      - 50.8.5 Error Injection Channel Descriptor 0, Word2 (EICHD0_WORD2)  `p2190`
+      - 50.8.6 Error Injection Channel Descriptor 1, Word1 (EICHD1_WORD1)  `p2191`
+      - 50.8.7 Error Injection Channel Descriptor 1, Word2 (EICHD1_WORD2)  `p2192`
+      - 50.8.8 Error Injection Channel Descriptor n, Word0 (EICHD2_WORD0 - EICHD6_WORD0)  `p2193`
+      - 50.8.9 Error Injection Channel Descriptor 2, Word1 (EICHD2_WORD1)  `p2194`
+      - 50.8.10 Error Injection Channel Descriptor 2, Word2 (EICHD2_WORD2)  `p2195`
+      - 50.8.11 Error Injection Channel Descriptor 3, Word1 (EICHD3_WORD1)  `p2196`
+      - 50.8.12 Error Injection Channel Descriptor 3, Word2 (EICHD3_WORD2)  `p2197`
+      - 50.8.13 Error Injection Channel Descriptor 4, Word1 (EICHD4_WORD1)  `p2198`
+      - 50.8.14 Error Injection Channel Descriptor 4, Word2 (EICHD4_WORD2)  `p2199`
+      - 50.8.15 Error Injection Channel Descriptor 5, Word1 (EICHD5_WORD1)  `p2200`
+      - 50.8.16 Error Injection Channel Descriptor 5, Word2 (EICHD5_WORD2)  `p2201`
+      - 50.8.17 Error Injection Channel Descriptor 6, Word1 (EICHD6_WORD1)  `p2202`
+      - 50.8.18 Error Injection Channel Descriptor 6, Word2 (EICHD6_WORD2)  `p2203`
+      - 50.8.19 Error Injection Channel Descriptor 7, Word1 (EICHD7_WORD1)  `p2204`
+      - 50.8.20 Error Injection Channel Descriptor 8, Word1 (EICHD8_WORD1)  `p2205`
+      - 50.8.21 Error Injection Channel Descriptor 9, Word1 (EICHD9_WORD1)  `p2206`
+      - 50.8.22 Error Injection Channel Descriptor 10, Word1 (EICHD10_WORD1)  `p2207`
+    - 50.9 Glossary  `p2208`
+  - 51 Error Reporting Module (ERM)  `p2209`
+    - 51.1 Chip-specific ERM information  `p2209`
+      - 51.1.1 ERM instances  `p2209`
+      - 51.1.2 ERM channel mapping  `p2209`
+      - 51.1.3 ECC error address remapping (S32K389)  `p2213`
+    - 51.2 Overview  `p2213`
+      - 51.2.1 Features  `p2213`
+      - 51.2.2 Block diagram  `p2214`
+    - 51.3 Functional description  `p2214`
+      - 51.3.1 Single-bit correction events  `p2214`
+      - 51.3.2 Non-correctable error events  `p2215`
+    - 51.4 Initialization  `p2215`
+    - 51.5 ERM_0 register descriptions  `p2216`
+      - 51.5.1 ERM_0 memory map  `p2216`
+      - 51.5.2 ERM Configuration Register 0 (CR0)  `p2218`
+      - 51.5.3 ERM Configuration Register 1 (CR1)  `p2222`
+      - 51.5.4 ERM Configuration Register 2 (CR2)  `p2225`
+      - 51.5.5 ERM Status Register 0 (SR0)  `p2228`
+      - 51.5.6 ERM Status Register 1 (SR1)  `p2232`
+      - 51.5.7 ERM Status Register 2 (SR2)  `p2236`
+      - 51.5.8 ERM Memory a Error Address Register (EAR0 - EAR21)  `p2239`
+      - 51.5.9 ERM Memory a Syndrome Register (SYN0 - SYN21)  `p2241`
+      - 51.5.10 ERM Memory a Correctable Error Count Register (CORR_ERR_CNT0 - CORR_ERR_CNT21)  `p2242`
+    - 51.6 ERM_1 register descriptions  `p2243`
+      - 51.6.1 ERM_1 memory map  `p2244`
+      - 51.6.2 ERM Configuration Register 0 (CR0)  `p2245`
+      - 51.6.3 ERM Configuration Register 1 (CR1)  `p2248`
+      - 51.6.4 ERM Configuration Register 2 (CR2)  `p2252`
+      - 51.6.5 ERM Status Register 0 (SR0)  `p2254`
+      - 51.6.6 ERM Status Register 1 (SR1)  `p2258`
+      - 51.6.7 ERM Status Register 2 (SR2)  `p2262`
+      - 51.6.8 ERM Memory a Error Address Register (EAR0 - EAR19)  `p2264`
+      - 51.6.9 ERM Memory a Syndrome Register (SYN0 - SYN19)  `p2265`
+      - 51.6.10 ERM Memory a Correctable Error Count Register (CORR_ERR_CNT0 - CORR_ERR_CNT19)  `p2266`
+    - 51.7 Glossary  `p2267`
+  - 52 Fault Collection and Control Unit (FCCU)  `p2268`
+    - 52.1 Chip-specific FCCU information  `p2268`
+      - 52.1.1 FCCU NCF slots  `p2268`
+      - 52.1.2 Chip-boundary FCCU signals  `p2269`
+      - 52.1.3 FCCU clocking  `p2269`
+      - 52.1.4 FOSU timer interval  `p2269`
+      - 52.1.5 Supported internal chip reactions  `p2269`
+      - 52.1.6 Recommended reaction programming for faults  `p2269`
+      - 52.1.7 FCCU NCF handling architecture  `p2270`
+    - 52.2 Overview  `p2270`
+      - 52.2.1 Block diagram  `p2270`
+      - 52.2.2 Features  `p2271`
+    - 52.3 Functional description  `p2272`
+      - 52.3.1 Definitions  `p2272`
+      - 52.3.2 FSM description  `p2272`
+      - 52.3.3 Fault priority scheme and nesting  `p2274`
+      - 52.3.4 Fault recovery  `p2274`
+      - 52.3.5 EOUT interface  `p2276`
+        - 52.3.5.1 Bi-Stable protocol  `p2278`
+        - 52.3.5.2 Fault-Toggle protocol  `p2279`
+      - 52.3.6 Modes of operation  `p2281`
+        - 52.3.6.1 Put FCCU in the NORMAL state  `p2282`
+          - 52.3.6.1.1 Introduction  `p2282`
+          - 52.3.6.1.2 About putting FCCU in NORMAL state  `p2282`
+          - 52.3.6.1.3 Put FCCU in the NORMAL state  `p2282`
+        - 52.3.6.2 Manage faults  `p2282`
+          - 52.3.6.2.1 Introduction  `p2282`
+          - 52.3.6.2.2 Determine if there are any unrecovered non-critical faults  `p2282`
+          - 52.3.6.2.3 Recover a software-recoverable non-critical fault  `p2282`
+          - 52.3.6.2.4 Clear the freeze-status indicators  `p2283`
+        - 52.3.6.3 Run operations  `p2283`
+          - 52.3.6.3.1 Introduction  `p2283`
+          - 52.3.6.3.2 About running operations  `p2283`
+          - 52.3.6.3.3 Run an operation  `p2283`
+      - 52.3.7 FOSU  `p2284`
+      - 52.3.8 Clocking  `p2285`
+      - 52.3.9 Interrupts  `p2285`
+    - 52.4 External signals  `p2285`
+    - 52.5 Initialization  `p2285`
+      - 52.5.1 Prepare FCCU for configuration  `p2285`
+        - 52.5.1.1 Introduction  `p2285`
+        - 52.5.1.2 About preparing FCCU for configuration  `p2285`
+        - 52.5.1.3 Configure the CONFIG state  `p2286`
+        - 52.5.1.4 Put FCCU in the CONFIG state  `p2286`
+      - 52.5.2 Configure FCCU  `p2286`
+        - 52.5.2.1 Introduction  `p2286`
+        - 52.5.2.2 About configuring FCCU  `p2286`
+        - 52.5.2.3 Configure the non-critical fault channels  `p2286`
+    - 52.6 Application information  `p2287`
+      - 52.6.1 Use cases and limitations  `p2287`
+    - 52.7 Register descriptions  `p2288`
+      - 52.7.1 FCCU register descriptions  `p2288`
+        - 52.7.1.1 FCCU memory map  `p2288`
+        - 52.7.1.2 Control (CTRL)  `p2289`
+        - 52.7.1.3 Control Key (CTRLK)  `p2292`
+        - 52.7.1.4 Configuration (CFG)  `p2293`
+        - 52.7.1.5 Non-critical Fault Configuration (NCF_CFG0)  `p2295`
+        - 52.7.1.6 Non-critical Fault-State Configuration (NCFS_CFG0)  `p2296`
+        - 52.7.1.7 Non-critical Fault Status (NCF_S0)  `p2297`
+        - 52.7.1.8 Non-critical Fault Key (NCFK)  `p2298`
+        - 52.7.1.9 Non-critical Fault Enable (NCF_E0)  `p2299`
+        - 52.7.1.10 Non-critical-Fault Alarm-State Timeout Enable (NCF_TOE0)  `p2300`
+        - 52.7.1.11 Non-critical-Fault Alarm-State Timeout Interval (NCF_TO)  `p2301`
+        - 52.7.1.12 Configuration-State Timeout Interval (CFG_TO)  `p2302`
+        - 52.7.1.13 IO Control (EINOUT)  `p2303`
+        - 52.7.1.14 Status (STAT)  `p2305`
+        - 52.7.1.15 Normal-to-Alarm Freeze Status (N2AF_STATUS)  `p2307`
+        - 52.7.1.16 Alarm-to-Fault Freeze Status (A2FF_STATUS)  `p2308`
+        - 52.7.1.17 Normal-to-Fault Freeze Status (N2FF_STATUS)  `p2310`
+        - 52.7.1.18 Fault-to-Alarm Freeze Status (F2AF_STATUS)  `p2311`
+        - 52.7.1.19 Non-critical Fault Fake (NCFF)  `p2312`
+        - 52.7.1.20 IRQ Status (IRQ_STAT)  `p2313`
+        - 52.7.1.21 IRQ Enable (IRQ_EN)  `p2315`
+        - 52.7.1.22 Transient Configuration Lock (TRANS_LOCK)  `p2316`
+        - 52.7.1.23 Permanent Configuration Lock (PERMNT_LOCK)  `p2317`
+        - 52.7.1.24 Delta T (DELTA_T)  `p2318`
+        - 52.7.1.25 Non-critical Alarm-State Interrupt-Request Enable (IRQ_ALARM_EN0)  `p2319`
+        - 52.7.1.26 Non-critical Fault-State Non-maskable-Interrupt-Request Enable (NMI_EN0)  `p2320`
+        - 52.7.1.27 Non-critical Fault-State EOUT Signaling Enable (EOUT_SIG_EN0)  `p2321`
+        - 52.7.1.28 Alarm-State Timer (TMR_ALARM)  `p2322`
+        - 52.7.1.29 Configuration-State Timer (TMR_CFG)  `p2323`
+        - 52.7.1.30 Fault-Output Timer (TMR_ETMR)  `p2324`
+      - 52.7.2 Configuration registers  `p2325`
+        - 52.7.2.1 Definition  `p2325`
+        - 52.7.2.2 Configuration registers  `p2326`
+      - 52.7.3 CFG register bit value at different events  `p2326`
+    - 52.8 Glossary  `p2326`
+  - 53 Self-test General-Purpose Registers (SELFTEST_GPR)  `p2327`
+    - 53.1 Introduction  `p2327`
+    - 53.2 Peripheral shift clock switching (PCS)  `p2327`
+    - 53.3 SELFTEST_GPR register descriptions  `p2327`
+      - 53.3.1 SELFTEST_GPR memory map  `p2327`
+      - 53.3.2 Configuration register (CONFIG_REG)  `p2328`
+      - 53.3.3 LBIST Program (LBIST_PROG_REG)  `p2329`
+    - 53.4 Glossary  `p2330`
+  - 54 Self-Test Control Unit (STCU2)  `p2331`
+    - 54.1 Chip-specific STCU2 information  `p2331`
+      - 54.1.1 Supported BIST sequences  `p2331`
+      - 54.1.2 Self-test overview  `p2331`
+      - 54.1.3 STCU2 LBIST/MBIST mapping  `p2332`
+      - 54.1.4 Clock connectivity  `p2353`
+      - 54.1.5 Memory map for self-test GPRs  `p2354`
+      - 54.1.6 Handling unrecoverable faults  `p2354`
+      - 54.1.7 Indicating fault state during the main reset domain Self-Test  `p2354`
+      - 54.1.8 Error events management in main reset domain Self-Test  `p2354`
+      - 54.1.9 AUTOLOCK_VALUE for register write access via STCU2_SKC  `p2354`
+      - 54.1.10 PLL loss of lock during Self-Test  `p2354`
+      - 54.1.11 STCU2 BIST start (BSTART) register description  `p2354`
+      - 54.1.12 STCU2 algorithm select (ALGOSEL) register description  `p2355`
+      - 54.1.13 Self-Test programming sequence  `p2355`
+      - 54.1.14 Modules operation during/post Self-Test  `p2356`
+      - 54.1.15 Reset events and configurations while Self-Test  `p2356`
+      - 54.1.16 Software considerations before Self-Test  `p2357`
+      - 54.1.17 End of Self-Test  `p2357`
+    - 54.2 Introduction  `p2358`
+    - 54.3 Main features  `p2358`
+    - 54.4 Block diagram  `p2358`
+    - 54.5 Peripheral bus interface  `p2360`
+    - 54.6 BISTs and BIST partitions  `p2361`
+      - 54.6.1 Definition: BIST  `p2361`
+      - 54.6.2 Definition: BIST partition  `p2361`
+      - 54.6.3 Example: BIST partitions on a chip  `p2361`
+      - 54.6.4 Types of BIST partitions  `p2361`
+    - 54.7 BIST sequences  `p2361`
+      - 54.7.1 Definition: BIST sequence  `p2361`
+      - 54.7.2 STCU2 executes MBISTs before LBISTs  `p2361`
+      - 54.7.3 Example: Single-phase BIST sequence  `p2362`
+      - 54.7.4 Example: Multi-phase BIST sequence  `p2362`
+      - 54.7.5 Types of BIST sequences  `p2362`
+      - 54.7.6 Supported BIST sequences  `p2362`
+    - 54.8 Functional description  `p2362`
+      - 54.8.1 FSM description  `p2362`
+      - 54.8.2 BIST scheduling  `p2363`
+      - 54.8.3 FCCU interface  `p2363`
+      - 54.8.4 Watchdogs  `p2363`
+        - 54.8.4.1 BIST watchdog timer  `p2363`
+        - 54.8.4.2 Register write-access watchdog timer  `p2363`
+    - 54.9 STCU2 register descriptions  `p2363`
+      - 54.9.1 STCU2 memory map  `p2364`
+      - 54.9.2 STCU2 Run Software (RUNSW)  `p2364`
+      - 54.9.3 STCU2 SK Code (SKC)  `p2366`
+      - 54.9.4 STCU2 Configuration (CFG)  `p2367`
+      - 54.9.5 STCU2 Watchdog Granularity (WDG)  `p2369`
+      - 54.9.6 STCU2 Error (ERR_STAT)  `p2370`
+      - 54.9.7 STCU2 Error FM (ERR_FM)  `p2373`
+      - 54.9.8 STCU2 Online LBIST Status (LBSSW0)  `p2374`
+      - 54.9.9 STCU2 Online LBIST End Flag (LBESW0)  `p2375`
+      - 54.9.10 STCU2 Online LBIST Unrecoverable FM (LBUFM0)  `p2376`
+      - 54.9.11 STCU2 Online MBIST Status (MBSSW0)  `p2377`
+      - 54.9.12 STCU2 Online MBIST End Flag (MBESW0)  `p2377`
+      - 54.9.13 STCU2 MBIST Unrecoverable FM (MBUFM0)  `p2378`
+      - 54.9.14 STCU2 LBIST Control (LB_CTRL0)  `p2379`
+      - 54.9.15 STCU2 LBIST PC Stop (LB_PCS0)  `p2383`
+      - 54.9.16 STCU2 Online LBIST MISR Expected Low (LB_MISRELSW0)  `p2383`
+      - 54.9.17 STCU2 Online LBIST MISR Expected High (LB_MISREHSW0)  `p2384`
+      - 54.9.18 STCU2 Online LBIST MISR Read Low (LB_MISRRLSW0)  `p2385`
+      - 54.9.19 STCU2 Online LBIST MISR Read High (LB_MISRRHSW0)  `p2386`
+      - 54.9.20 STCU2 Algorithm Select (ALGOSEL)  `p2387`
+      - 54.9.21 STCU2 MBIST Stagger (STGGR)  `p2387`
+      - 54.9.22 STCU2 BIST Start (BSTART)  `p2388`
+      - 54.9.23 STCU2 MBIST Control (MB_CTRL0 - MB_CTRL18)  `p2389`
+    - 54.10 Glossary  `p2390`
+  - 55 Register Protection (REG_PROT)  `p2392`
+    - 55.1 Chip-specific REG_PROT information  `p2392`
+      - 55.1.1 REG_PROT configuration  `p2392`
+        - 55.1.1.1 CMU_BRIDGE register protection  `p2392`
+    - 55.2 Overview  `p2393`
+      - 55.2.1 Block Diagram  `p2394`
+      - 55.2.2 Features  `p2394`
+    - 55.3 Functional description  `p2394`
+      - 55.3.1 Modes of operation  `p2394`
+      - 55.3.2 Memory space and Protection size  `p2395`
+        - 55.3.2.1 Module register (MR)  `p2397`
+        - 55.3.2.2 Module Register and Set Soft Lock Bit (LMR)  `p2397`
+      - 55.3.3 General  `p2397`
+      - 55.3.4 Change lock settings  `p2397`
+        - 55.3.4.1 Change lock settings via area #2  `p2398`
+        - 55.3.4.2 Change lock settings via area #3  `p2398`
+        - 55.3.4.3 Write protection for locking bits  `p2400`
+      - 55.3.5 Access errors  `p2400`
+    - 55.4 External Signals  `p2400`
+    - 55.5 Initialization  `p2400`
+      - 55.5.1 Sequence  `p2400`
+      - 55.5.2 Reset  `p2401`
+    - 55.6 REG_PROT register descriptions  `p2401`
+      - 55.6.1 REG_PROT memory map  `p2401`
+      - 55.6.2 Soft Lock Bit Register (SLBR​n)  `p2401`
+      - 55.6.3 Global Configuration Register (GCR)  `p2403`
+    - 55.7 Glossary  `p2404`
+  - 56 Clock Monitoring Unit – Frequency Check (CMU_FC)  `p2405`
+    - 56.1 Chip-specific CMU_FC information  `p2405`
+      - 56.1.1 Chip Specific CMU_FC Information  `p2405`
+    - 56.2 Overview  `p2405`
+      - 56.2.1 Block diagram  `p2405`
+      - 56.2.2 Features  `p2406`
+    - 56.3 Functional description  `p2406`
+      - 56.3.1 Operating modes  `p2406`
+      - 56.3.2 Frequency checking  `p2406`
+        - 56.3.2.1 Monitored clock lost  `p2407`
+      - 56.3.3 Clocking  `p2408`
+      - 56.3.4 Reset  `p2408`
+    - 56.4 External signals  `p2408`
+    - 56.5 Programming guidelines  `p2408`
+      - 56.5.1 Programming RCCR[REF_CNT]  `p2408`
+      - 56.5.2 Programming HFREF and LFREF  `p2409`
+      - 56.5.3 Module programming sequence  `p2411`
+        - 56.5.3.1 Module programming sequence  `p2411`
+    - 56.6 CMU_FC register descriptions  `p2411`
+      - 56.6.1 CMU_FC memory map  `p2412`
+      - 56.6.2 Global Configuration Register (GCR)  `p2412`
+      - 56.6.3 Reference Count Configuration Register (RCCR)  `p2413`
+      - 56.6.4 High Threshold Configuration Register (HTCR)  `p2414`
+      - 56.6.5 Low Threshold Configuration Register (LTCR)  `p2415`
+      - 56.6.6 Status Register (SR)  `p2416`
+      - 56.6.7 Interrupt Enable Register (IER)  `p2417`
+    - 56.7 Glossary  `p2420`
+  - 57 Clock Monitoring Unit – Frequency Meter (CMU_FM)  `p2421`
+    - 57.1 Chip-specific CMU_FM information  `p2421`
+      - 57.1.1 Chip Specific CMU_FM Information  `p2421`
+    - 57.2 Overview  `p2421`
+      - 57.2.1 Block diagram  `p2421`
+      - 57.2.2 Features  `p2421`
+    - 57.3 Functional description  `p2422`
+      - 57.3.1 Clocking  `p2422`
+      - 57.3.2 Reset  `p2422`
+    - 57.4 Programming guidelines  `p2422`
+      - 57.4.1 Programming RCCR[REF_CNT]  `p2422`
+      - 57.4.2 Module programming sequence  `p2423`
+    - 57.5 External signals  `p2423`
+    - 57.6 CMU_FM register descriptions  `p2424`
+      - 57.6.1 CMU_FM memory map  `p2424`
+      - 57.6.2 Global Configuration Register (GCR)  `p2424`
+      - 57.6.3 Reference Count Configuration Register (RCCR)  `p2425`
+      - 57.6.4 Status Register (SR)  `p2426`
+      - 57.6.5 Interrupt Enable Register (IER)  `p2427`
+  - 58 Cyclic Redundancy Check (CRC)  `p2429`
+    - 58.1 Chip-specific CRC information  `p2429`
+    - 58.2 Overview  `p2429`
+      - 58.2.1 Block diagram  `p2429`
+      - 58.2.2 Features  `p2429`
+    - 58.3 Functional description  `p2429`
+      - 58.3.1 Modes of Operation  `p2429`
+        - 58.3.1.1 Run mode  `p2430`
+        - 58.3.1.2 Low-power modes  `p2430`
+      - 58.3.2 CRC calculations  `p2430`
+        - 58.3.2.1 Calculating a 16-bit CRC  `p2430`
+        - 58.3.2.2 Calculating a 32-bit CRC  `p2430`
+      - 58.3.3 Transpose feature  `p2431`
+        - 58.3.3.1 Types of transpose  `p2431`
+      - 58.3.4 Result complement  `p2432`
+      - 58.3.5 Clocking  `p2432`
+      - 58.3.6 Interrupts  `p2432`
+    - 58.4 External signals  `p2432`
+    - 58.5 Initialization  `p2432`
+    - 58.6 Use cases  `p2433`
+      - 58.6.1 CTRL programming  `p2433`
+      - 58.6.2 Expected read data fields  `p2434`
+    - 58.7 Memory map and register descriptions  `p2435`
+      - 58.7.1 CRC register descriptions  `p2435`
+        - 58.7.1.1 CRC memory map  `p2435`
+        - 58.7.1.2 Data (DATA)  `p2436`
+        - 58.7.1.3 Polynomial (GPOLY)  `p2437`
+        - 58.7.1.4 Control (CTRL)  `p2438`
+    - 58.8 Glossary  `p2439`
+- Real-time control  `p2440`
+  - 59 Power Conversion and Motor Control (PCMC)  `p2440`
+    - 59.1 Introduction  `p2440`
+    - 59.2 Block diagram  `p2440`
+    - 59.3 Functional overview  `p2442`
+      - 59.3.1 Analog signal measurement  `p2442`
+      - 59.3.2 Advanced ADC triggering  `p2442`
+      - 59.3.3 BCTU-to-ADC interface  `p2442`
+      - 59.3.4 Generate PWM outputs and measure digital inputs  `p2443`
+      - 59.3.5 eMIOS connections  `p2443`
+      - 59.3.6 Create combinatorial and sequential logic functions  `p2443`
+      - 59.3.7 LCU connections  `p2444`
+      - 59.3.8 Fault detection  `p2444`
+      - 59.3.9 Programmable module interconnections  `p2444`
+        - 59.3.9.1 PCMC connections diagram  `p2446`
+    - 59.4 Reset, clocking, and other considerations  `p2446`
+      - 59.4.1 Reset  `p2446`
+      - 59.4.2 Clocking  `p2446`
+      - 59.4.3 Power modes  `p2447`
+    - 59.5 Use case examples  `p2447`
+      - 59.5.1 Motor control use case  `p2447`
+        - 59.5.1.1 PMSM motor control use case  `p2447`
+          - 59.5.1.1.1 Generic PMSM motor control  `p2447`
+          - 59.5.1.1.2 PMSM motor control  `p2448`
+        - 59.5.1.2 Sensored BLDC motor control use case  `p2449`
+          - 59.5.1.2.1 Generic sensored BLDC motor control  `p2449`
+          - 59.5.1.2.2 PCMC sensored field-oriented control (FOC) of 3-phase BLDC motor  `p2450`
+    - 59.6 Design considerations  `p2451`
+      - 59.6.1 ADC design considerations  `p2451`
+        - 59.6.1.1 ADC measurement accuracy  `p2451`
+          - 59.6.1.1.1 ADC precision channels  `p2451`
+          - 59.6.1.1.2 ADC input noise  `p2451`
+          - 59.6.1.1.3 ADC triggering  `p2452`
+        - 59.6.1.2 Example ADC configurations  `p2452`
+      - 59.6.2 BCTU design considerations  `p2453`
+        - 59.6.2.1 BCTU or ADC data retrieval  `p2453`
+        - 59.6.2.2 Disabling BCTU triggers  `p2453`
+      - 59.6.3 eMIOS design considerations  `p2453`
+        - 59.6.3.1 PWM considerations  `p2453`
+        - 59.6.3.2 Input measurement  `p2454`
+        - 59.6.3.3 eMIOS channel modes useful in motor control  `p2454`
+          - 59.6.3.3.1 OPWMCB PWM and trigger generation  `p2454`
+          - 59.6.3.3.2 OPWMB PWM and trigger generation  `p2455`
+    - 59.7 Glossary  `p2455`
+  - 60 Analog-to-Digital Converter (ADC)  `p2457`
+    - 60.1 Chip-specific ADC information  `p2457`
+      - 60.1.1 ADC Configuration  `p2457`
+      - 60.1.2 ANAMUX for internal supply monitoring  `p2463`
+      - 60.1.3 BCTU Interface  `p2463`
+      - 60.1.4 DMA interface  `p2464`
+      - 60.1.5 Hardware triggers  `p2464`
+      - 60.1.6 ADC Self-Test  `p2465`
+      - 60.1.7 ADC mux-mode channels  `p2465`
+    - 60.2 Overview  `p2466`
+      - 60.2.1 Block diagram  `p2467`
+      - 60.2.2 Features  `p2468`
+    - 60.3 Functional description  `p2469`
+      - 60.3.1 Clock  `p2469`
+      - 60.3.2 Modes of operation  `p2470`
+      - 60.3.3 Conversion  `p2470`
+      - 60.3.4 Normal trigger  `p2471`
+        - 60.3.4.1 Starting conversions in normal conversion mode  `p2471`
+        - 60.3.4.2 Operation modes in normal conversions  `p2471`
+      - 60.3.5 Injected trigger  `p2472`
+        - 60.3.5.1 Starting conversions in injected conversion mode  `p2473`
+      - 60.3.6 BCTU interface  `p2473`
+        - 60.3.6.1 BCTU Trigger mode  `p2474`
+        - 60.3.6.2 BCTU Control mode  `p2474`
+      - 60.3.7 Aborting a conversion  `p2475`
+      - 60.3.8 Configuring ADC clock divider and sample time settings  `p2475`
+      - 60.3.9 Presampling  `p2475`
+        - 60.3.9.1 Enabling presampling per channel  `p2476`
+      - 60.3.10 Analog watchdog functions  `p2476`
+        - 60.3.10.1 Channel analog watchdog select registers  `p2477`
+        - 60.3.10.2 Analog watchdog configuration (up to 16 watchdogs)  `p2477`
+      - 60.3.11 DMA functionality  `p2478`
+      - 60.3.12 Interrupts  `p2479`
+      - 60.3.13 External decode signals delay  `p2482`
+      - 60.3.14 Power Down state  `p2482`
+      - 60.3.15 Low Power mode support  `p2483`
+      - 60.3.16 Auto Clock Off mode  `p2484`
+      - 60.3.17 Calibration and self-test  `p2484`
+        - 60.3.17.1 Calibration  `p2484`
+        - 60.3.17.2 Self-test  `p2484`
+          - 60.3.17.2.1 CPU mode  `p2486`
+          - 60.3.17.2.2 BCTU mode  `p2488`
+          - 60.3.17.2.3 Abort and abort chain for self-testing channel  `p2488`
+          - 60.3.17.2.4 Self-test analog watchdog  `p2489`
+          - 60.3.17.2.5 Watchdog timer  `p2489`
+            - 60.3.17.2.5.1 Watchdog sequence checking  `p2490`
+          - 60.3.17.2.6 Baud rate control for test channel  `p2491`
+            - 60.3.17.2.6.1 Abort chain when baud rate is nonzero  `p2491`
+      - 60.3.18 Conversion time  `p2491`
+      - 60.3.19 Conversion data processing  `p2493`
+      - 60.3.20 User-defined offset and gain values  `p2493`
+    - 60.4 External signals  `p2494`
+    - 60.5 Clock frequency  `p2494`
+    - 60.6 Memory map and register definition  `p2494`
+      - 60.6.1 Transfer error description  `p2494`
+      - 60.6.2 ADC register descriptions  `p2494`
+        - 60.6.2.1 ADC memory map  `p2494`
+        - 60.6.2.2 Main Configuration (MCR)  `p2497`
+        - 60.6.2.3 Main Status (MSR)  `p2502`
+        - 60.6.2.4 Interrupt Status (ISR)  `p2504`
+        - 60.6.2.5 Channel End Of Conversion Flag For Precision Inputs (CEOCFR0)  `p2507`
+        - 60.6.2.6 Channel End Of Conversion Flag For Standard Inputs (CEOCFR1)  `p2510`
+        - 60.6.2.7 Channel End Of Conversion Flag For External Inputs (CEOCFR2)  `p2511`
+        - 60.6.2.8 Interrupt Mask (IMR)  `p2512`
+        - 60.6.2.9 EOC Interrupt Enable For Precision Inputs (CIMR0)  `p2514`
+        - 60.6.2.10 EOC Interrupt Enable For Standard Inputs (CIMR1)  `p2516`
+        - 60.6.2.11 EOC Interrupt Enable For External Inputs (CIMR2)  `p2516`
+        - 60.6.2.12 Analog Watchdog Threshold Interrupt Status (WTISR)  `p2517`
+        - 60.6.2.13 Analog Watchdog Threshold Interrupt Enable (WTIMR)  `p2528`
+        - 60.6.2.14 Direct Memory Access Configuration (DMAE)  `p2530`
+        - 60.6.2.15 DMA Request Enable For Precision Inputs (DMAR0)  `p2531`
+        - 60.6.2.16 DMA Request Enable For Standard Inputs (DMAR1)  `p2533`
+        - 60.6.2.17 DMA Request Enable For External Inputs (DMAR2)  `p2534`
+        - 60.6.2.18 Analog Watchdog Threshold Values (THRHLR0 - THRHLR3)  `p2535`
+        - 60.6.2.19 Presampling Control (PSCR)  `p2536`
+        - 60.6.2.20 Presampling Enable For Precision Inputs (PSR0)  `p2538`
+        - 60.6.2.21 Presampling Enable For Standard Inputs (PSR1)  `p2540`
+        - 60.6.2.22 Presampling Enable For External Inputs (PSR2)  `p2541`
+        - 60.6.2.23 Conversion Timing For Precision Inputs (CTR0)  `p2542`
+        - 60.6.2.24 Conversion Timing For Standard Inputs (CTR1)  `p2543`
+        - 60.6.2.25 Conversion Timing For External Inputs (CTR2)  `p2544`
+        - 60.6.2.26 Normal Conversion Enable For Precision Inputs (NCMR0)  `p2545`
+        - 60.6.2.27 Normal Conversion Enable For Standard Inputs (NCMR1)  `p2546`
+        - 60.6.2.28 Normal Conversion Enable For External Inputs (NCMR2)  `p2547`
+        - 60.6.2.29 Injected Conversion Enable For Precision Inputs (JCMR0)  `p2548`
+        - 60.6.2.30 Injected Conversion Enable For Standard Inputs (JCMR1)  `p2550`
+        - 60.6.2.31 Injected Conversion Enable For External Inputs (JCMR2)  `p2551`
+        - 60.6.2.32 Delay Start Of Data Conversion (DSDR)  `p2552`
+        - 60.6.2.33 Power Down Exit Delay (PDEDR)  `p2553`
+        - 60.6.2.34 Precision Input n Conversion Data (PCDR0 - PCDR7)  `p2554`
+        - 60.6.2.35 Standard Input n Conversion Data (ICDR0 - ICDR23)  `p2555`
+        - 60.6.2.36 External Input n Conversion Data (ECDR0 - ECDR31)  `p2557`
+        - 60.6.2.37 Channel Analog Watchdog Select For Precision Inputs (CWSELRPI0)  `p2558`
+        - 60.6.2.38 Channel Analog Watchdog Select For Precision Inputs (CWSELRPI1)  `p2561`
+        - 60.6.2.39 Channel Analog Watchdog Select For Standard Inputs (CWSELRSI0)  `p2562`
+        - 60.6.2.40 Channel Analog Watchdog Select For Standard Inputs (CWSELRSI1)  `p2565`
+        - 60.6.2.41 Channel Analog Watchdog Select For Standard Inputs (CWSELRSI2)  `p2567`
+        - 60.6.2.42 Channel Analog Watchdog Select For External inputs (CWSELREI0)  `p2570`
+        - 60.6.2.43 Channel Analog Watchdog Select For External inputs (CWSELREI1)  `p2573`
+        - 60.6.2.44 Channel Analog Watchdog Select For External inputs (CWSELREI2)  `p2576`
+        - 60.6.2.45 Channel Analog Watchdog Select For External inputs (CWSELREI3)  `p2579`
+        - 60.6.2.46 Channel Watchdog Enable For Precision Inputs (CWENR0)  `p2582`
+        - 60.6.2.47 Channel Watchdog Enable For Standard Inputs (CWENR1)  `p2584`
+        - 60.6.2.48 Channel Watchdog Enable For External Inputs (CWENR2)  `p2585`
+        - 60.6.2.49 Analog Watchdog Out Of Range For Precision Inputs (AWORR0)  `p2586`
+        - 60.6.2.50 Analog Watchdog Out Of Range For Standard Inputs (AWORR1)  `p2590`
+        - 60.6.2.51 Analog Watchdog Out Of Range For External Inputs (AWORR2)  `p2591`
+        - 60.6.2.52 Self-Test Configuration 1 (STCR1)  `p2592`
+        - 60.6.2.53 Self-Test Configuration 2 (STCR2)  `p2593`
+        - 60.6.2.54 Self-Test Configuration 3 (STCR3)  `p2596`
+        - 60.6.2.55 Self-Test Baud Rate (STBRR)  `p2598`
+        - 60.6.2.56 Self-Test Status 1 (STSR1)  `p2599`
+        - 60.6.2.57 Self-Test Status 2 (STSR2)  `p2603`
+        - 60.6.2.58 Self-Test Status 3 (STSR3)  `p2604`
+        - 60.6.2.59 Self-Test Status 4 (STSR4)  `p2605`
+        - 60.6.2.60 Self-Test Conversion Data 1 (STDR1)  `p2606`
+        - 60.6.2.61 Self-Test Analog Watchdog S0 (STAW0R)  `p2608`
+        - 60.6.2.62 Self-Test Analog Watchdog S1 (STAW1R)  `p2609`
+        - 60.6.2.63 Self-Test Analog Watchdog S2 (STAW2R)  `p2610`
+        - 60.6.2.64 Self-Test Analog Watchdog C0 (STAW4R)  `p2611`
+        - 60.6.2.65 Self-Test Analog Watchdog C (STAW5R)  `p2612`
+        - 60.6.2.66 Analog Miscellaneous In/Out register (AMSIO)  `p2613`
+        - 60.6.2.67 Control And Calibration Status (CALBISTREG)  `p2615`
+        - 60.6.2.68 Offset And Gain User (OFSGNUSR)  `p2617`
+        - 60.6.2.69 Calibration Value 2 (CAL2)  `p2618`
+    - 60.7 Glossary  `p2619`
+  - 61 Low Power Comparator (LPCMP)  `p2620`
+    - 61.1 Chip-specific LPCMP information  `p2620`
+      - 61.1.1 Instantiation information  `p2620`
+      - 61.1.2 LPCMP input output connections  `p2620`
+      - 61.1.3 LPCMP-DAC "vrefh0" and "vrefh1" references  `p2620`
+      - 61.1.4 LPCMP window control  `p2620`
+      - 61.1.5 Comparator Trigger Mode  `p2620`
+      - 61.1.6 Interaction with RTC API to cause wakeup  `p2621`
+    - 61.2 Overview  `p2622`
+      - 61.2.1 Block diagram  `p2623`
+      - 61.2.2 Features  `p2623`
+    - 61.3 Functional Description  `p2624`
+      - 61.3.1 Functional block diagram  `p2624`
+      - 61.3.2 Round-robin trigger mode  `p2625`
+      - 61.3.3 Low-pass filter mode  `p2627`
+        - 61.3.3.1 Enabling low-pass filter mode  `p2628`
+        - 61.3.3.2 Latency issues  `p2628`
+      - 61.3.4 Low power mode operation  `p2628`
+      - 61.3.5 Functional modes  `p2628`
+        - 61.3.5.1 Disabled mode (#1)  `p2629`
+        - 61.3.5.2 Continuous mode (#2A and #2B)  `p2630`
+        - 61.3.5.3 Sampled, non-filtered mode (#3A and #3B)  `p2631`
+        - 61.3.5.4 Sampled, filtered mode (#4A and #4B)  `p2633`
+        - 61.3.5.5 Windowed mode (#5A and #5B)  `p2635`
+        - 61.3.5.6 Windowed/Resampled mode (#6)  `p2637`
+        - 61.3.5.7 Windowed/Filtered mode (#7)  `p2638`
+      - 61.3.6 DMA  `p2639`
+      - 61.3.7 Clocking  `p2639`
+      - 61.3.8 Resets  `p2639`
+      - 61.3.9 Interrupts  `p2639`
+    - 61.4 External signal descriptions  `p2639`
+    - 61.5 Initialization  `p2639`
+    - 61.6 Application information  `p2640`
+      - 61.6.1 Round-robin trigger mode programing recommendation  `p2640`
+      - 61.6.2 Round-robin clock (RCLK) frequency requirement  `p2640`
+    - 61.7 LPCMP register descriptions  `p2641`
+      - 61.7.1 LPCMP memory map  `p2641`
+      - 61.7.2 Version ID (VERID)  `p2641`
+      - 61.7.3 Parameter (PARAM)  `p2642`
+      - 61.7.4 Comparator Control Register 0 (CCR0)  `p2643`
+      - 61.7.5 Comparator Control Register 1 (CCR1)  `p2645`
+      - 61.7.6 Comparator Control Register 2 (CCR2)  `p2648`
+      - 61.7.7 DAC Control (DCR)  `p2651`
+      - 61.7.8 Interrupt Enable (IER)  `p2652`
+      - 61.7.9 Comparator Status (CSR)  `p2653`
+      - 61.7.10 Round Robin Control Register 0 (RRCR0)  `p2655`
+      - 61.7.11 Round Robin Control Register 1 (RRCR1)  `p2657`
+      - 61.7.12 Round Robin Control and Status (RRCSR)  `p2658`
+      - 61.7.13 Round Robin Status (RRSR)  `p2659`
+    - 61.8 Glossary  `p2660`
+  - 62 Logic Control Unit (LCU)  `p2661`
+    - 62.1 Chip-specific LCU information  `p2661`
+      - 62.1.1 LCU instances  `p2661`
+    - 62.2 Overview  `p2661`
+      - 62.2.1 Block diagram  `p2662`
+      - 62.2.2 Features  `p2662`
+    - 62.3 Functional description  `p2663`
+      - 62.3.1 LC operation  `p2663`
+        - 62.3.1.1 Overview  `p2663`
+        - 62.3.1.2 LC diagram  `p2663`
+        - 62.3.1.3 Logic operations  `p2664`
+        - 62.3.1.4 LC LUT  `p2665`
+        - 62.3.1.5 LC output filters  `p2665`
+      - 62.3.2 Behavior in different chip modes of operation  `p2666`
+      - 62.3.3 Clocking  `p2666`
+      - 62.3.4 Interrupts  `p2666`
+      - 62.3.5 DMA  `p2666`
+    - 62.4 External signals  `p2666`
+    - 62.5 Initialization  `p2666`
+    - 62.6 Application information  `p2666`
+      - 62.6.1 Use-case examples  `p2666`
+        - 62.6.1.1 Two-channel multiplexer  `p2666`
+          - 62.6.1.1.1 Overview  `p2667`
+          - 62.6.1.1.2 Logic diagram  `p2667`
+          - 62.6.1.1.3 Implementation  `p2667`
+          - 62.6.1.1.4 Connections and controls  `p2667`
+          - 62.6.1.1.5 Truth table  `p2668`
+          - 62.6.1.1.6 Register configuration  `p2668`
+          - 62.6.1.1.7 Waveforms  `p2669`
+        - 62.6.1.2 Binary to Gray code converter  `p2669`
+          - 62.6.1.2.1 Overview  `p2669`
+          - 62.6.1.2.2 Conversion table  `p2669`
+          - 62.6.1.2.3 Logic diagram  `p2670`
+          - 62.6.1.2.4 Implementation  `p2670`
+          - 62.6.1.2.5 Connections and controls  `p2671`
+          - 62.6.1.2.6 Truth table  `p2671`
+          - 62.6.1.2.7 Register configuration  `p2672`
+          - 62.6.1.2.8 Waveforms  `p2672`
+        - 62.6.1.3 Manchester encoder and decoder  `p2673`
+          - 62.6.1.3.1 Overview  `p2673`
+          - 62.6.1.3.2 Logic diagram  `p2673`
+          - 62.6.1.3.3 Implementation  `p2673`
+          - 62.6.1.3.4 Connections and controls  `p2674`
+          - 62.6.1.3.5 Truth table for encoder  `p2674`
+          - 62.6.1.3.6 Truth table for decoder  `p2674`
+          - 62.6.1.3.7 Register configuration  `p2674`
+          - 62.6.1.3.8 Waveforms for encoder  `p2675`
+          - 62.6.1.3.9 Waveforms for decoder  `p2675`
+        - 62.6.1.4 Adjustable PWM/FM generator  `p2676`
+          - 62.6.1.4.1 Overview  `p2676`
+          - 62.6.1.4.2 Implementation  `p2676`
+          - 62.6.1.4.3 Connections and controls  `p2676`
+          - 62.6.1.4.4 Truth table  `p2677`
+          - 62.6.1.4.5 Output edge delays  `p2677`
+          - 62.6.1.4.6 Register configuration  `p2677`
+          - 62.6.1.4.7 Waveforms for immediate software override  `p2678`
+          - 62.6.1.4.8 Waveforms for synced software override  `p2678`
+        - 62.6.1.5 SR latch  `p2679`
+          - 62.6.1.5.1 Overview  `p2679`
+          - 62.6.1.5.2 Implementation  `p2679`
+          - 62.6.1.5.3 Connections and controls  `p2679`
+          - 62.6.1.5.4 Truth table  `p2679`
+          - 62.6.1.5.5 Register configuration  `p2680`
+          - 62.6.1.5.6 Waveforms  `p2681`
+        - 62.6.1.6 D flip-flop  `p2681`
+          - 62.6.1.6.1 Overview  `p2681`
+          - 62.6.1.6.2 Implementation  `p2681`
+          - 62.6.1.6.3 Connections and controls  `p2681`
+          - 62.6.1.6.4 Truth table  `p2682`
+          - 62.6.1.6.5 Register configuration  `p2682`
+          - 62.6.1.6.6 Waveforms  `p2683`
+        - 62.6.1.7 JK flip-flop  `p2683`
+          - 62.6.1.7.1 Overview  `p2683`
+          - 62.6.1.7.2 Implementation  `p2684`
+          - 62.6.1.7.3 Truth table for JK flip-flop  `p2684`
+          - 62.6.1.7.4 Truth table for LC0  `p2684`
+          - 62.6.1.7.5 Truth table for LC1  `p2684`
+          - 62.6.1.7.6 Register configuration for LC0  `p2685`
+          - 62.6.1.7.7 Register configuration for LC1  `p2686`
+          - 62.6.1.7.8 Waveforms  `p2686`
+        - 62.6.1.8 Incremental encoder  `p2687`
+          - 62.6.1.8.1 Overview  `p2687`
+          - 62.6.1.8.2 Outputs  `p2687`
+          - 62.6.1.8.3 Implementation  `p2687`
+          - 62.6.1.8.4 Truth table for pulse generation  `p2688`
+          - 62.6.1.8.5 Truth table for decoding direction of rotation  `p2688`
+          - 62.6.1.8.6 Register configuration for LC0  `p2689`
+          - 62.6.1.8.7 Register configuration for LC1  `p2689`
+          - 62.6.1.8.8 Waveforms  `p2690`
+        - 62.6.1.9 AC motor PWM controller  `p2690`
+          - 62.6.1.9.1 Overview  `p2690`
+          - 62.6.1.9.2 Implementation for AC motor controller  `p2691`
+          - 62.6.1.9.3 Implementation for controlling one phase of AC motor controller  `p2691`
+          - 62.6.1.9.4 Connections and controls  `p2691`
+          - 62.6.1.9.5 Truth table  `p2692`
+          - 62.6.1.9.6 Register configuration  `p2692`
+          - 62.6.1.9.7 Waveforms for force cleared on force deassertion  `p2693`
+          - 62.6.1.9.8 Waveforms for force cleared on rising sync after force deassertion  `p2693`
+        - 62.6.1.10 AC motor double-switching controller  `p2693`
+          - 62.6.1.10.1 Overview  `p2693`
+          - 62.6.1.10.2 Double-switching  `p2694`
+          - 62.6.1.10.3 Fault inputs and deadtime insertion  `p2694`
+          - 62.6.1.10.4 Deadtime insertion  `p2694`
+          - 62.6.1.10.5 Fault events  `p2694`
+          - 62.6.1.10.6 AC motor power stage schematic  `p2695`
+          - 62.6.1.10.7 Waveforms for double-switching technique example  `p2695`
+          - 62.6.1.10.8 Implementation for AC motor double-switching controller  `p2696`
+          - 62.6.1.10.9 Implementation for controlling one phase  `p2696`
+          - 62.6.1.10.10 Connections and controls  `p2696`
+          - 62.6.1.10.11 Truth table  `p2697`
+          - 62.6.1.10.12 Register configuration  `p2697`
+          - 62.6.1.10.13 Waveforms for generation of PWM complementary signals using an LC  `p2698`
+          - 62.6.1.10.14 Waveforms for force cleared on force deassertion  `p2698`
+          - 62.6.1.10.15 Waveforms for force cleared on rising sync after force deassertion  `p2698`
+        - 62.6.1.11 Brushless DC (BLDC) motor PWM controller  `p2699`
+          - 62.6.1.11.1 Overview  `p2699`
+          - 62.6.1.11.2 Implementation  `p2699`
+          - 62.6.1.11.3 BLDC motor power stage schematic  `p2700`
+          - 62.6.1.11.4 BLDC motor electrical arrangement  `p2700`
+          - 62.6.1.11.5 Waveforms for BLDC motor control technique  `p2700`
+          - 62.6.1.11.6 Connections and controls  `p2701`
+          - 62.6.1.11.7 Truth table for generating switching states  `p2702`
+          - 62.6.1.11.8 Truth table for generating switching pulses for phases A and B  `p2703`
+          - 62.6.1.11.9 Truth table for generating switching pulses for phase C  `p2703`
+          - 62.6.1.11.10 Configuration for generating switching states  `p2704`
+          - 62.6.1.11.11 Configuration for switching pulses for phases A and B  `p2705`
+          - 62.6.1.11.12 Configuration for switching pulses for phase C  `p2705`
+          - 62.6.1.11.13 Waveforms for reversing BLDC motor  `p2706`
+          - 62.6.1.11.14 Waveforms for reversing BLDC motor with fault assertion  `p2707`
+    - 62.7 Mapping of 12-bit input, output, and state fields  `p2707`
+    - 62.8 LCU register descriptions  `p2708`
+      - 62.8.1 LCU memory map  `p2708`
+      - 62.8.2 LC n Output m LUT Control (LC0_LUTCTRL0 - LC2_LUTCTRL3)  `p2710`
+      - 62.8.3 LC n Output m Filter (LC0_FILT0 - LC2_FILT3)  `p2711`
+      - 62.8.4 LC n Interrupt and DMA Enable (LC0_INTDMAEN - LC2_INTDMAEN)  `p2712`
+      - 62.8.5 LC n Status (LC0_STS - LC2_STS)  `p2714`
+      - 62.8.6 LC n Output Polarity Control (LC0_OUTPOL - LC2_OUTPOL)  `p2716`
+      - 62.8.7 LC n Force Filter (LC0_FFILT - LC2_FFILT)  `p2717`
+      - 62.8.8 LC n Force Control (LC0_FCTRL - LC2_FCTRL)  `p2719`
+      - 62.8.9 LC n Sync Control (LC0_SCTRL - LC2_SCTRL)  `p2723`
+      - 62.8.10 Mux Select (MUXSEL0 - MUXSEL11)  `p2725`
+      - 62.8.11 Configuration (CFG)  `p2726`
+      - 62.8.12 Software Override Enable (SWEN)  `p2728`
+      - 62.8.13 Software Override Value (SWVALUE)  `p2728`
+      - 62.8.14 Output Enable (OUTEN)  `p2729`
+      - 62.8.15 Logic Inputs (LCIN)  `p2730`
+      - 62.8.16 Overridden Inputs (SWOUT)  `p2731`
+      - 62.8.17 Logic Outputs (LCOUT)  `p2732`
+      - 62.8.18 Forced Outputs (FORCEOUT)  `p2733`
+      - 62.8.19 Force Status (FORCESTS)  `p2734`
+      - 62.8.20 Debug Mode Enable (DBGEN)  `p2735`
+    - 62.9 Glossary  `p2736`
+  - 63 Enhanced Modular IO Subsystem (eMIOS)  `p2737`
+    - 63.1 Chip-specific eMIOS information  `p2737`
+      - 63.1.1 eMIOS configuration  `p2737`
+      - 63.1.2 Channel types  `p2737`
+      - 63.1.3 Channel configuration  `p2739`
+      - 63.1.4 eMIOS disabling  `p2740`
+      - 63.1.5 BCTU Interface  `p2740`
+    - 63.2 Introduction  `p2741`
+    - 63.3 Block diagram  `p2741`
+    - 63.4 Features  `p2741`
+    - 63.5 Functional description  `p2742`
+      - 63.5.1 Reset  `p2742`
+      - 63.5.2 Counter buses, channels, and timebase sources  `p2742`
+      - 63.5.3 Unified channels (UC)  `p2743`
+        - 63.5.3.1 Overview  `p2743`
+        - 63.5.3.2 UC block diagram  `p2744`
+        - 63.5.3.3 Buffered modes  `p2744`
+        - 63.5.3.4 UC control and datapath  `p2744`
+        - 63.5.3.5 UC control and datapath diagram  `p2745`
+        - 63.5.3.6 UC modes  `p2745`
+        - 63.5.3.7 General-Purpose Input and Output (GPIO) mode  `p2746`
+          - 63.5.3.7.1 Overview  `p2746`
+          - 63.5.3.7.2 Differences for input and output submodes  `p2746`
+        - 63.5.3.8 Single Action Input Capture (SAIC) mode  `p2746`
+          - 63.5.3.8.1 Overview  `p2746`
+          - 63.5.3.8.2 SAIC submodes and MODE field values  `p2747`
+          - 63.5.3.8.3 Effect of Cn[EDPOL] on edge capturing  `p2747`
+          - 63.5.3.8.4 SAIC with rising edge triggering  `p2747`
+          - 63.5.3.8.5 SAIC with both edges triggering  `p2748`
+        - 63.5.3.9 Single Action Output Capture (SAOC) mode  `p2748`
+          - 63.5.3.9.1 Overview  `p2748`
+          - 63.5.3.9.2 Preload the desired match value  `p2748`
+          - 63.5.3.9.3 SAOC with Cn[EDPOL] transferred to the output flip-flop  `p2749`
+          - 63.5.3.9.4 SAOC toggling the output flip-flop  `p2749`
+          - 63.5.3.9.5 SAOC with flag behavior  `p2749`
+        - 63.5.3.10 Input Pulse Width Measurement (IPWM) mode  `p2749`
+          - 63.5.3.10.1 Overview  `p2750`
+          - 63.5.3.10.2 Coherency  `p2750`
+          - 63.5.3.10.3 Timing example: measure pulse width  `p2750`
+          - 63.5.3.10.4 Timing example: AS1 and BS1 updates on channel reads  `p2751`
+        - 63.5.3.11 Input Period Measurement (IPM) Mode  `p2751`
+          - 63.5.3.11.1 Overview  `p2751`
+          - 63.5.3.11.2 Coherency  `p2751`
+          - 63.5.3.11.3 Timing example: measure input period  `p2752`
+          - 63.5.3.11.4 Timing example: AS1 and BS1 updates on channel reads  `p2752`
+        - 63.5.3.12 Double Action Output Compare (DAOC) mode  `p2752`
+          - 63.5.3.12.1 Overview  `p2752`
+          - 63.5.3.12.2 DAOC submodes and MODE field values  `p2753`
+          - 63.5.3.12.3 Data transfer and compare  `p2753`
+          - 63.5.3.12.4 Differences between flag on A match and flag on A and B matches  `p2753`
+          - 63.5.3.12.5 Forced operation by Cn[FORCMA] and Cn[FORCMB]  `p2753`
+          - 63.5.3.12.6 Timing example: flag on both matches  `p2753`
+          - 63.5.3.12.7 Timing example: flag on second match  `p2754`
+          - 63.5.3.12.8 Timing example: transfer disabling  `p2754`
+        - 63.5.3.13 Pulse Edge Counting (PEC) mode  `p2754`
+          - 63.5.3.13.1 Overview  `p2755`
+          - 63.5.3.13.2 PEC submodes and MODE field values  `p2755`
+          - 63.5.3.13.3 Timing example continuous  `p2755`
+          - 63.5.3.13.4 Timing example single-shot  `p2756`
+        - 63.5.3.14 Modulus Counter (MC) mode  `p2756`
+          - 63.5.3.14.1 Overview  `p2756`
+          - 63.5.3.14.2 MC submodes and MODE field values  `p2756`
+          - 63.5.3.14.3 Up Count submode  `p2757`
+          - 63.5.3.14.4 Timing example: Up Count submode  `p2757`
+          - 63.5.3.14.5 Up Count-Down Count submode operation  `p2757`
+          - 63.5.3.14.6 Timing example: Up Count-Down Count submode  `p2758`
+          - 63.5.3.14.7 Up Count with delayed reload operation  `p2758`
+          - 63.5.3.14.8 Timing example: Up Count mode with delayed reload  `p2759`
+        - 63.5.3.15 Modulus Counter Buffered (MCB) mode  `p2759`
+          - 63.5.3.15.1 Overview  `p2759`
+          - 63.5.3.15.2 MCB submodes and MODE field values  `p2759`
+          - 63.5.3.15.3 Up Count submode  `p2760`
+          - 63.5.3.15.4 Timing example: Up Count submode  `p2761`
+          - 63.5.3.15.5 Timing example: Up Count submode flag assertion  `p2761`
+          - 63.5.3.15.6 Up Count-Down Count submode  `p2761`
+          - 63.5.3.15.7 Timing example: Up Count-Down Count submode  `p2762`
+          - 63.5.3.15.8 Timing example: Up Count-Down Count submode flag assertion  `p2763`
+          - 63.5.3.15.9 Up Count mode with delayed reload operation  `p2763`
+          - 63.5.3.15.10 Timing example: Up Count mode with delayed reload  `p2764`
+        - 63.5.3.16 Output Pulse Width and Frequency Modulation Buffered (OPWFMB) mode  `p2764`
+          - 63.5.3.16.1 Overview  `p2764`
+          - 63.5.3.16.2 OPWFMB submodes and MODE field values  `p2765`
+          - 63.5.3.16.3 Avoid counter wrapping  `p2765`
+          - 63.5.3.16.4 AS1 and BS1 match timing  `p2765`
+          - 63.5.3.16.5 Timing example: AS1 and BS1 match  `p2765`
+          - 63.5.3.16.6 0% duty cycle  `p2766`
+          - 63.5.3.16.7 Timing example: AS1 = 0  `p2766`
+          - 63.5.3.16.8 Loading AS1 and BS1  `p2766`
+          - 63.5.3.16.9 Timing example: AS1 and BS1 update and FLAGs  `p2767`
+          - 63.5.3.16.10 Flag generation  `p2767`
+          - 63.5.3.16.11 Output disable  `p2767`
+          - 63.5.3.16.12 Timing example: active output disabled  `p2768`
+          - 63.5.3.16.13 Force match  `p2768`
+          - 63.5.3.16.14 100% and 0% duty cycles  `p2768`
+          - 63.5.3.16.15 Timing example: from 100% to 0% duty cycle  `p2769`
+        - 63.5.3.17 Center Aligned Output PWM with Dead Time Insertion Buffered (OPWMCB) mode  `p2769`
+          - 63.5.3.17.1 Overview  `p2769`
+          - 63.5.3.17.2 OPWMCB functions and MODE field values  `p2769`
+          - 63.5.3.17.3 Entering OPWMCB mode  `p2770`
+          - 63.5.3.17.4 Timing example: AS1 and BS1 load  `p2770`
+          - 63.5.3.17.5 Operation sequence with leading edge dead time insertion  `p2771`
+          - 63.5.3.17.6 Timing example: leading dead time insertion  `p2771`
+          - 63.5.3.17.7 Operation sequence with trailing edge dead time insertion  `p2772`
+          - 63.5.3.17.8 Timing example: trailing dead time insertion  `p2773`
+          - 63.5.3.17.9 Force match  `p2773`
+          - 63.5.3.17.10 Duty cycle  `p2773`
+          - 63.5.3.17.11 Timing example: duty cycle  `p2774`
+          - 63.5.3.17.12 Output disable  `p2774`
+        - 63.5.3.18 Output PWM Buffered (OPWMB) mode  `p2775`
+          - 63.5.3.18.1 Overview  `p2775`
+          - 63.5.3.18.2 OPWMB submodes and MODE field values  `p2775`
+          - 63.5.3.18.3 Force match  `p2775`
+          - 63.5.3.18.4 Matches and flag operation  `p2776`
+          - 63.5.3.18.5 Timing example: matches and flags  `p2776`
+          - 63.5.3.18.6 0% duty cycle  `p2776`
+          - 63.5.3.18.7 Timing example: 0% duty cycle  `p2777`
+          - 63.5.3.18.8 Active output disabled  `p2777`
+          - 63.5.3.18.9 Timing example: active output disabled  `p2778`
+          - 63.5.3.18.10 Changing from 100% to 0% duty cycle  `p2778`
+          - 63.5.3.18.11 Timing example: 100% to 0% duty cycle  `p2779`
+        - 63.5.3.19 Output PWM with Trigger (OPWMT) mode  `p2779`
+          - 63.5.3.19.1 Overview  `p2779`
+          - 63.5.3.19.2 Timing example: OPWMT  `p2780`
+          - 63.5.3.19.3 AS1 in OPWMT mode  `p2780`
+          - 63.5.3.19.4 AS2 in OPWMT mode  `p2780`
+          - 63.5.3.19.5 BS1 and BS2 in OPWMT mode  `p2780`
+          - 63.5.3.19.6 Force match  `p2781`
+          - 63.5.3.19.7 Duty cycle  `p2781`
+          - 63.5.3.19.8 Timing example: 0% duty cycle  `p2782`
+          - 63.5.3.19.9 Timing example: 100% duty cycle  `p2782`
+          - 63.5.3.19.10 Output disable  `p2782`
+        - 63.5.3.20 Programmable input filter (PIF)  `p2783`
+          - 63.5.3.20.1 Overview  `p2783`
+          - 63.5.3.20.2 Counter  `p2783`
+          - 63.5.3.20.3 UC PIF logic  `p2783`
+          - 63.5.3.20.4 Timing example: UC PIF at 4 cycles  `p2783`
+        - 63.5.3.21 UC clock prescaler (CP)  `p2784`
+      - 63.5.4 Peripheral bus interface unit (BIU)  `p2784`
+      - 63.5.5 Global clock prescaler (GCP)  `p2784`
+      - 63.5.6 Freeze and chip Debug mode  `p2784`
+        - 63.5.6.1 Enter and exit Freeze state  `p2784`
+        - 63.5.6.2 Freeze effects  `p2785`
+    - 63.6 Initialization information  `p2785`
+    - 63.7 Application information  `p2785`
+      - 63.7.1 Overview  `p2785`
+      - 63.7.2 Timebase generation  `p2785`
+      - 63.7.3 Timebase with the fastest prescaler ratio  `p2786`
+      - 63.7.4 Timebase generation with clear on match start and external clock  `p2787`
+      - 63.7.5 Timebase generation with clear on match start and internal clock  `p2787`
+      - 63.7.6 Timebase generation with clear on match end  `p2788`
+      - 63.7.7 Coherent accesses  `p2788`
+      - 63.7.8 Initializing channels and modes  `p2788`
+    - 63.8 Memory maps and registers  `p2789`
+      - 63.8.1 Overall address map organization  `p2789`
+      - 63.8.2 UC memory overview  `p2789`
+      - 63.8.3 AS1, AS2, BS1, and BS2 shadow registers  `p2789`
+      - 63.8.4 Relationship between An, Bn, ALTAn, and shadow registers  `p2790`
+      - 63.8.5 Assignment of values for An[A], Bn[B], and ALTAn[ALTA]  `p2790`
+      - 63.8.6 eMIOS register descriptions  `p2791`
+        - 63.8.6.1 eMIOS memory map  `p2791`
+        - 63.8.6.2 Module Configuration (MCR)  `p2797`
+        - 63.8.6.3 Global Flag (GFLAG)  `p2799`
+        - 63.8.6.4 Output Update Disable (OUDIS)  `p2802`
+        - 63.8.6.5 Disable Channel (UCDIS)  `p2805`
+        - 63.8.6.6 UC A n (A0 - A23)  `p2809`
+        - 63.8.6.7 UC B n (B0 - B23)  `p2810`
+        - 63.8.6.8 UC Counter n (CNT0 - CNT23)  `p2811`
+        - 63.8.6.9 UC Control n (C0 - C23)  `p2813`
+        - 63.8.6.10 UC Status n (S0 - S23)  `p2818`
+        - 63.8.6.11 Alternate Address n (ALTA0 - ALTA23)  `p2821`
+        - 63.8.6.12 UC Control 2 n (C2_0 - C2_23)  `p2822`
+    - 63.9 Glossary  `p2823`
+  - 64 Body Cross-triggering Unit (BCTU)  `p2824`
+    - 64.1 Chip-specific BCTU information  `p2824`
+      - 64.1.1 BCTU configuration  `p2824`
+      - 64.1.2 Instances and trigger sources  `p2824`
+    - 64.2 Overview  `p2828`
+      - 64.2.1 Block diagram  `p2828`
+      - 64.2.2 Features  `p2829`
+      - 64.2.3 Interaction with other peripherals  `p2829`
+      - 64.2.4 Implementation  `p2830`
+    - 64.3 Functional description  `p2830`
+      - 64.3.1 Triggers  `p2830`
+        - 64.3.1.1 Overview  `p2830`
+        - 64.3.1.2 Hardware triggers  `p2831`
+        - 64.3.1.3 Software triggers  `p2831`
+        - 64.3.1.4 Configure all triggers  `p2831`
+        - 64.3.1.5 Configure individual triggers  `p2831`
+        - 64.3.1.6 Reconfigure triggers on-the-fly  `p2831`
+        - 64.3.1.7 Enable software triggers  `p2832`
+        - 64.3.1.8 Trigger timing  `p2832`
+        - 64.3.1.9 Priority of simultaneous triggers  `p2832`
+        - 64.3.1.10 Simultaneous trigger priority management  `p2833`
+        - 64.3.1.11 Trigger management when ADC is busy  `p2833`
+        - 64.3.1.12 Trigger clearing mechanism  `p2833`
+      - 64.3.2 Conversion list (CL)  `p2833`
+        - 64.3.2.1 CL overview  `p2834`
+        - 64.3.2.2 CL architecture and operation  `p2834`
+        - 64.3.2.3 CL channel rules  `p2834`
+      - 64.3.3 ADC conversion results access  `p2835`
+        - 64.3.3.1 Overview  `p2835`
+        - 64.3.3.2 Access on interrupt request  `p2835`
+        - 64.3.3.3 Access on DMA request  `p2835`
+        - 64.3.3.4 Clear an interrupt request  `p2835`
+        - 64.3.3.5 Clear a DMA request  `p2836`
+        - 64.3.3.6 Clear an error-generated interrupt request  `p2836`
+        - 64.3.3.7 Conversion data overrun  `p2836`
+        - 64.3.3.8 Route conversion data to FIFO  `p2836`
+        - 64.3.3.9 Read ADC result from FIFO  `p2836`
+        - 64.3.3.10 Configuration of DMA and interrupt behavior  `p2837`
+      - 64.3.4 Multiple parallel conversions (MPC)  `p2837`
+        - 64.3.4.1 Overview  `p2837`
+        - 64.3.4.2 Configure MPC  `p2837`
+        - 64.3.4.3 CL address selection for MPC  `p2837`
+        - 64.3.4.4 Example: MPC with two ADCs  `p2837`
+        - 64.3.4.5 Example: MPC with three ADCs  `p2838`
+        - 64.3.4.6 MPC priority rules  `p2838`
+      - 64.3.5 Modes  `p2839`
+        - 64.3.5.1 Module Disable (Low Power state)  `p2839`
+      - 64.3.6 Clocking  `p2839`
+      - 64.3.7 Software reset  `p2839`
+      - 64.3.8 Interrupts and DMA requests  `p2839`
+    - 64.4 BCTU register descriptions  `p2840`
+      - 64.4.1 BCTU memory map  `p2840`
+      - 64.4.2 Module Configuration (MCR)  `p2840`
+      - 64.4.3 Module Status (MSR)  `p2843`
+      - 64.4.4 Trigger Configuration (TRGCFG_0 - TRGCFG_71)  `p2845`
+      - 64.4.5 Write Protection (WRPROT)  `p2848`
+      - 64.4.6 Software Trigger 1 (SFTRGR1)  `p2849`
+      - 64.4.7 Software Trigger 2 (SFTRGR2)  `p2849`
+      - 64.4.8 Software Trigger 3 (SFTRGR3)  `p2850`
+      - 64.4.9 ADCn Result Data (ADC0DR - ADC2DR)  `p2851`
+      - 64.4.10 CL Size Status (LISTSTAR)  `p2852`
+      - 64.4.11 CL Channel Address (LISTCHR_0 - LISTCHR_15)  `p2853`
+      - 64.4.12 FIFO Result Data (FIFO1DR - FIFO2DR)  `p2855`
+      - 64.4.13 FIFO Control (FIFOCR)  `p2856`
+      - 64.4.14 FIFO Watermark Configuration (FIFOWM)  `p2858`
+      - 64.4.15 FIFO Error/Status (FIFOERR)  `p2859`
+      - 64.4.16 FIFO Status (FIFOSR)  `p2861`
+      - 64.4.17 FIFO Counter (FIFOCNTR)  `p2861`
+    - 64.5 Glossary  `p2862`
+  - 65 Trigger MUX (TRGMUX)  `p2864`
+    - 65.1 Chip-specific TRGMUX information  `p2864`
+      - 65.1.1 TRGMUX input output configuration and instances  `p2864`
+      - 65.1.2 Pulse strechers in TRGMUX  `p2864`
+      - 65.1.3 Trigger monitor  `p2866`
+    - 65.2 Overview  `p2866`
+      - 65.2.1 Block diagram  `p2866`
+      - 65.2.2 Features  `p2867`
+    - 65.3 Functional description  `p2867`
+      - 65.3.1 Clocking  `p2867`
+      - 65.3.2 Interrupts  `p2867`
+    - 65.4 External signals  `p2867`
+    - 65.5 Initialization  `p2867`
+    - 65.6 TRGMUX register descriptions  `p2867`
+      - 65.6.1 TRGMUX memory map  `p2867`
+      - 65.6.2 TRGMUX ADC12_0 (ADC12_0)  `p2873`
+      - 65.6.3 TRGMUX ADC12_1 (ADC12_1)  `p2874`
+      - 65.6.4 TRGMUX ADC12_2 (ADC12_2)  `p2875`
+      - 65.6.5 TRGMUX LPCMP_0 (LPCMP_0)  `p2877`
+      - 65.6.6 TRGMUX LPCMP_1 (LPCMP_1)  `p2878`
+      - 65.6.7 TRGMUX LPCMP_2 (LPCMP_2)  `p2879`
+      - 65.6.8 TRGMUX BCTU (BCTU)  `p2881`
+      - 65.6.9 TRGMUX eMIOS012_ODIS (eMIOS012_ODIS)  `p2882`
+      - 65.6.10 TRGMUX eMIOS0_0 (eMIOS0_0)  `p2883`
+      - 65.6.11 TRGMUX eMIOS0_1 (eMIOS0_1)  `p2885`
+      - 65.6.12 TRGMUX eMIOS0_2 (eMIOS0_2)  `p2886`
+      - 65.6.13 TRGMUX eMIOS0_3 (eMIOS0_3)  `p2887`
+      - 65.6.14 TRGMUX eMIOS1_0 (eMIOS1_0)  `p2889`
+      - 65.6.15 TRGMUX eMIOS1_1 (eMIOS1_1)  `p2890`
+      - 65.6.16 TRGMUX eMIOS1_2 (eMIOS1_2)  `p2891`
+      - 65.6.17 TRGMUX eMIOS1_3 (eMIOS1_3)  `p2893`
+      - 65.6.18 TRGMUX FlexIO (FlexIO)  `p2894`
+      - 65.6.19 TRGMUX SIUL_OUT0 (SIUL_OUT0)  `p2895`
+      - 65.6.20 TRGMUX SIUL_OUT1 (SIUL_OUT1)  `p2897`
+      - 65.6.21 TRGMUX SIUL_OUT2 (SIUL_OUT2)  `p2898`
+      - 65.6.22 TRGMUX SIUL_OUT3 (SIUL_OUT3)  `p2899`
+      - 65.6.23 TRGMUX LPI2C_0 (LPI2C_0)  `p2901`
+      - 65.6.24 TRGMUX LPSPI_0 (LPSPI_0)  `p2902`
+      - 65.6.25 TRGMUX LPSPI_1 (LPSPI_1)  `p2903`
+      - 65.6.26 TRGMUX LPSPI_2 (LPSPI_2)  `p2905`
+      - 65.6.27 TRGMUX LPUART_0 (LPUART_0)  `p2906`
+      - 65.6.28 TRGMUX LPUART_1 (LPUART_1)  `p2907`
+      - 65.6.29 TRGMUX LPUART_2 (LPUART_2)  `p2909`
+      - 65.6.30 TRGMUX LPUART_3 (LPUART_3)  `p2910`
+      - 65.6.31 TRGMUX LCU0_SYNC (LCU0_SYNC)  `p2911`
+      - 65.6.32 TRGMUX LCU0_FORCE (LCU0_FORCE)  `p2913`
+      - 65.6.33 TRGMUX LCU0_0 (LCU0_0)  `p2914`
+      - 65.6.34 TRGMUX LCU0_1 (LCU0_1)  `p2915`
+      - 65.6.35 TRGMUX LCU0_2 (LCU0_2)  `p2917`
+      - 65.6.36 TRGMUX LCU1_SYNC (LCU1_SYNC)  `p2918`
+      - 65.6.37 TRGMUX LCU1_FORCE (LCU1_FORCE)  `p2919`
+      - 65.6.38 TRGMUX LCU1_0 (LCU1_0)  `p2921`
+      - 65.6.39 TRGMUX LCU1_1 (LCU1_1)  `p2922`
+      - 65.6.40 TRGMUX LCU1_2 (LCU1_2)  `p2923`
+      - 65.6.41 TRGMUX CM7_RXEV (CM7_RXEV)  `p2925`
+- Timers  `p2927`
+  - 66 Software Watchdog Timer (SWT)  `p2927`
+    - 66.1 Chip-specific SWT information  `p2927`
+      - 66.1.1 SWT instances and configuration  `p2927`
+    - 66.2 Overview  `p2928`
+      - 66.2.1 Block diagram  `p2929`
+      - 66.2.2 Features  `p2929`
+    - 66.3 Functional description  `p2929`
+      - 66.3.1 Behavior in different chip and core modes  `p2929`
+      - 66.3.2 Register access latency  `p2930`
+      - 66.3.3 Service key generation  `p2930`
+      - 66.3.4 Clocking  `p2930`
+      - 66.3.5 Reset  `p2930`
+      - 66.3.6 Interrupts  `p2930`
+      - 66.3.7 Reset only the SWT  `p2930`
+      - 66.3.8 Test SWT operation  `p2931`
+    - 66.4 External signals  `p2931`
+    - 66.5 Initialization  `p2931`
+      - 66.5.1 Initialize the SWT  `p2931`
+        - 66.5.1.1 Set the timeout period  `p2931`
+        - 66.5.1.2 Control timeout behavior  `p2931`
+          - 66.5.1.2.1 Select reset request on timeout  `p2931`
+          - 66.5.1.2.2 Select interrupt on initial timeout  `p2932`
+        - 66.5.1.3 Configure locking and unlocking  `p2932`
+          - 66.5.1.3.1 Enable the hard lock  `p2932`
+          - 66.5.1.3.2 Enable the soft lock  `p2932`
+          - 66.5.1.3.3 Unlock the soft lock  `p2932`
+          - 66.5.1.3.4 Avoid soft unlock  `p2932`
+        - 66.5.1.4 Select behavior on an invalid access  `p2933`
+      - 66.5.2 Initiate service operations  `p2933`
+        - 66.5.2.1 Initiate a fixed service sequence  `p2933`
+        - 66.5.2.2 Initiate a keyed service sequence  `p2933`
+        - 66.5.2.3 Select window service mode  `p2934`
+    - 66.6 SWT register descriptions  `p2934`
+      - 66.6.1 SWT memory map  `p2934`
+      - 66.6.2 Control (CR)  `p2935`
+      - 66.6.3 Interrupt (IR)  `p2938`
+      - 66.6.4 Timeout (TO)  `p2939`
+      - 66.6.5 Window (WN)  `p2940`
+      - 66.6.6 Service (SR)  `p2941`
+      - 66.6.7 Counter Output (CO)  `p2942`
+      - 66.6.8 Service Key (SK)  `p2943`
+      - 66.6.9 Event Request (RRR)  `p2943`
+  - 67 System Timer Module (STM)  `p2945`
+    - 67.1 Chip-specific STM information  `p2945`
+      - 67.1.1 STM instances and configuration  `p2945`
+    - 67.2 Overview  `p2945`
+      - 67.2.1 Block diagram  `p2946`
+      - 67.2.2 Features  `p2946`
+    - 67.3 Functional description  `p2946`
+      - 67.3.1 Count-up timer  `p2946`
+      - 67.3.2 Compare channels  `p2946`
+      - 67.3.3 Behavior in different chip modes  `p2947`
+      - 67.3.4 Clocking  `p2947`
+      - 67.3.5 Interrupts  `p2947`
+    - 67.4 External signals  `p2947`
+    - 67.5 Initialization  `p2947`
+    - 67.6 Application information  `p2947`
+      - 67.6.1 Configure the timer  `p2947`
+      - 67.6.2 Configure the compare channels  `p2947`
+      - 67.6.3 Respond to compare channel events  `p2947`
+    - 67.7 STM register descriptions  `p2948`
+      - 67.7.1 STM memory map  `p2948`
+      - 67.7.2 Control (CR)  `p2948`
+      - 67.7.3 Count (CNT)  `p2950`
+      - 67.7.4 Channel Control (CCR0 - CCR3)  `p2950`
+      - 67.7.5 Channel Interrupt (CIR0 - CIR3)  `p2951`
+      - 67.7.6 Channel Compare (CMP0 - CMP3)  `p2952`
+    - 67.8 Glossary  `p2953`
+  - 68 Periodic Interrupt Timer (PIT)  `p2954`
+    - 68.1 Chip-specific PIT information  `p2954`
+      - 68.1.1 PIT instances and configuration  `p2954`
+      - 68.1.2 Input Output  `p2954`
+    - 68.2 Overview  `p2954`
+      - 68.2.1 Block diagram  `p2955`
+      - 68.2.2 Features  `p2955`
+    - 68.3 Functional description  `p2955`
+      - 68.3.1 Modes of operation  `p2955`
+      - 68.3.2 Timer operation  `p2956`
+        - 68.3.2.1 Stop and start a timer  `p2956`
+        - 68.3.2.2 Restart counter period  `p2956`
+        - 68.3.2.3 Change timer period  `p2956`
+        - 68.3.2.4 Change current timer period  `p2957`
+        - 68.3.2.5 Change timer period dynamically  `p2957`
+        - 68.3.2.6 Dynamically setting a new timer period  `p2957`
+      - 68.3.3 Chained timers  `p2957`
+      - 68.3.4 Lifetimer  `p2957`
+      - 68.3.5 Debug mode  `p2958`
+      - 68.3.6 Clocking  `p2958`
+      - 68.3.7 Interrupts  `p2958`
+    - 68.4 External signals  `p2958`
+    - 68.5 Initialization  `p2958`
+    - 68.6 Application information  `p2959`
+      - 68.6.1 Example configuration for general timers  `p2959`
+      - 68.6.2 Example configuration using chained timers  `p2960`
+      - 68.6.3 Example configuration using the lifetimer  `p2961`
+    - 68.7 PIT register descriptions  `p2962`
+      - 68.7.1 PIT memory map  `p2962`
+      - 68.7.2 PIT Module Control (MCR)  `p2963`
+      - 68.7.3 PIT Upper Lifetimer (LTMR64H)  `p2965`
+      - 68.7.4 PIT Lower Lifetimer (LTMR64L)  `p2966`
+      - 68.7.5 RTI Timer Load Value Sync Status (RTI_LDVAL_STAT)  `p2967`
+      - 68.7.6 RTI Timer Load Value (RTI_LDVAL)  `p2968`
+      - 68.7.7 Current RTI Timer Value (RTI_CVAL)  `p2969`
+      - 68.7.8 RTI Timer Control (RTI_TCTRL)  `p2970`
+      - 68.7.9 RTI Timer Interrupt Flag (RTI_TFLG)  `p2972`
+      - 68.7.10 Timer Load Value (LDVAL0 - LDVAL3)  `p2973`
+      - 68.7.11 Current Timer Value (CVAL0 - CVAL3)  `p2974`
+      - 68.7.12 Timer Control (TCTRL0 - TCTRL3)  `p2975`
+      - 68.7.13 Timer Flag (TFLG0 - TFLG3)  `p2977`
+    - 68.8 Glossary  `p2978`
+  - 69 Real Time Clock (RTC)  `p2979`
+    - 69.1 Chip-specific RTC information  `p2979`
+      - 69.1.1 RTC instances and configuration  `p2979`
+    - 69.2 Overview  `p2979`
+      - 69.2.1 Block diagram  `p2979`
+      - 69.2.2 Features  `p2981`
+    - 69.3 Functional description  `p2981`
+      - 69.3.1 RTC  `p2981`
+      - 69.3.2 API functional description  `p2982`
+      - 69.3.3 Modes of operation  `p2982`
+        - 69.3.3.1 Functional mode  `p2982`
+        - 69.3.3.2 Debug mode  `p2982`
+    - 69.4 Initialization  `p2983`
+    - 69.5 RTC register descriptions  `p2983`
+      - 69.5.1 RTC memory map  `p2983`
+      - 69.5.2 RTC Supervisor control register (RTCSUPV)  `p2983`
+      - 69.5.3 RTC Control (RTCC)  `p2984`
+      - 69.5.4 RTC Status register (RTCS)  `p2987`
+      - 69.5.5 RTC Count (RTCCNT)  `p2989`
+      - 69.5.6 API Compare value register (APIVAL)  `p2989`
+      - 69.5.7 RTC Compare value register (RTCVAL)  `p2990`
+    - 69.6 Glossary  `p2991`
+- Communication  `p2992`
+  - 70 Low Power Serial Peripheral Interface (LPSPI)  `p2992`
+    - 70.1 Chip-specific LPSPI information  `p2992`
+      - 70.1.1 LPSPI instances and configuration  `p2992`
+      - 70.1.2 LPSPI HREQ considerations for S32K314, S32K324 and S32K344  `p2993`
+    - 70.2 Overview  `p2993`
+      - 70.2.1 Block diagram  `p2994`
+      - 70.2.2 Features  `p2994`
+    - 70.3 Functional description  `p2995`
+      - 70.3.1 Controller mode  `p2995`
+        - 70.3.1.1 Transmit and command FIFO commands  `p2995`
+          - 70.3.1.1.1 SPI bus transfers  `p2997`
+          - 70.3.1.1.2 Circular FIFO  `p2997`
+        - 70.3.1.2 Receive FIFO and data match  `p2997`
+        - 70.3.1.3 Timing parameters  `p2998`
+        - 70.3.1.4 Pin configuration  `p3001`
+        - 70.3.1.5 Clock loopback  `p3001`
+      - 70.3.2 Peripheral mode  `p3001`
+        - 70.3.2.1 Transmit and command FIFO commands  `p3001`
+        - 70.3.2.2 Receive FIFO and data match  `p3003`
+        - 70.3.2.3 Partial received word  `p3003`
+        - 70.3.2.4 Clocked interface  `p3003`
+      - 70.3.3 Debug mode  `p3003`
+      - 70.3.4 Clocking  `p3004`
+      - 70.3.5 Reset  `p3004`
+      - 70.3.6 Interrupts and DMA requests  `p3004`
+        - 70.3.6.1 DMA support registers  `p3005`
+      - 70.3.7 Peripheral triggers  `p3005`
+    - 70.4 External signals  `p3006`
+    - 70.5 Initialization  `p3008`
+    - 70.6 Memory map and registers  `p3008`
+      - 70.6.1 LPSPI register descriptions  `p3008`
+        - 70.6.1.1 LPSPI memory map  `p3008`
+        - 70.6.1.2 Version ID (VERID)  `p3009`
+        - 70.6.1.3 Parameter (PARAM)  `p3010`
+        - 70.6.1.4 Control (CR)  `p3011`
+        - 70.6.1.5 Status (SR)  `p3013`
+        - 70.6.1.6 Interrupt Enable (IER)  `p3016`
+        - 70.6.1.7 DMA Enable (DER)  `p3018`
+        - 70.6.1.8 Configuration 0 (CFGR0)  `p3019`
+        - 70.6.1.9 Configuration 1 (CFGR1)  `p3021`
+        - 70.6.1.10 Data Match 0 (DMR0)  `p3026`
+        - 70.6.1.11 Data Match 1 (DMR1)  `p3027`
+        - 70.6.1.12 Clock Configuration (CCR)  `p3028`
+        - 70.6.1.13 Clock Configuration 1 (CCR1)  `p3029`
+        - 70.6.1.14 FIFO Control (FCR)  `p3032`
+        - 70.6.1.15 FIFO Status (FSR)  `p3033`
+        - 70.6.1.16 Transmit Command (TCR)  `p3034`
+        - 70.6.1.17 Transmit Data (TDR)  `p3039`
+        - 70.6.1.18 Receive Status (RSR)  `p3040`
+        - 70.6.1.19 Receive Data (RDR)  `p3041`
+        - 70.6.1.20 Receive Data Read Only (RDROR)  `p3042`
+        - 70.6.1.21 Transmit Command Burst (TCBR)  `p3042`
+        - 70.6.1.22 Transmit Data Burst (TDBR0 - TDBR127)  `p3043`
+        - 70.6.1.23 Receive Data Burst (RDBR0 - RDBR127)  `p3044`
+    - 70.7 Glossary  `p3045`
+  - 71 Low Power Inter-Integrated Circuit (LPI2C)  `p3046`
+    - 71.1 Chip-specific LPI2C information  `p3046`
+      - 71.1.1 LPI2C instances and configuration  `p3046`
+    - 71.2 Overview  `p3046`
+      - 71.2.1 Block diagram  `p3047`
+      - 71.2.2 Features  `p3047`
+    - 71.3 Functional description  `p3048`
+      - 71.3.1 Controller mode  `p3048`
+        - 71.3.1.1 Transmit and Command FIFO commands  `p3048`
+        - 71.3.1.2 Controller operations  `p3049`
+        - 71.3.1.3 Receive FIFO and data matching  `p3049`
+        - 71.3.1.4 Timing parameters  `p3049`
+        - 71.3.1.5 Error conditions  `p3051`
+        - 71.3.1.6 Pin configuration  `p3051`
+      - 71.3.2 Target mode  `p3052`
+        - 71.3.2.1 Address matching  `p3052`
+        - 71.3.2.2 Transmit and receive data  `p3052`
+        - 71.3.2.3 Clock stretching  `p3053`
+        - 71.3.2.4 Timing parameters  `p3053`
+        - 71.3.2.5 Error conditions  `p3053`
+      - 71.3.3 Low-power modes  `p3053`
+      - 71.3.4 Debug mode  `p3054`
+      - 71.3.5 Peripheral triggers  `p3054`
+      - 71.3.6 Clocking  `p3054`
+      - 71.3.7 Reset  `p3055`
+      - 71.3.8 Interrupts and DMA requests  `p3055`
+        - 71.3.8.1 Controller mode  `p3055`
+        - 71.3.8.2 Target mode  `p3056`
+    - 71.4 External signals  `p3057`
+    - 71.5 Initialization  `p3059`
+    - 71.6 Application information  `p3059`
+    - 71.7 Memory map and registers  `p3059`
+      - 71.7.1 LPI2C register descriptions  `p3059`
+        - 71.7.1.1 LPI2C memory map  `p3060`
+        - 71.7.1.2 Version ID (VERID)  `p3061`
+        - 71.7.1.3 Parameter (PARAM)  `p3061`
+        - 71.7.1.4 Controller Control (MCR)  `p3062`
+        - 71.7.1.5 Controller Status (MSR)  `p3064`
+        - 71.7.1.6 Controller Interrupt Enable (MIER)  `p3068`
+        - 71.7.1.7 Controller DMA Enable (MDER)  `p3070`
+        - 71.7.1.8 Controller Configuration 0 (MCFGR0)  `p3071`
+        - 71.7.1.9 Controller Configuration 1 (MCFGR1)  `p3073`
+        - 71.7.1.10 Controller Configuration 2 (MCFGR2)  `p3076`
+        - 71.7.1.11 Controller Configuration 3 (MCFGR3)  `p3077`
+        - 71.7.1.12 Controller Data Match (MDMR)  `p3078`
+        - 71.7.1.13 Controller Clock Configuration 0 (MCCR0)  `p3079`
+        - 71.7.1.14 Controller Clock Configuration 1 (MCCR1)  `p3081`
+        - 71.7.1.15 Controller FIFO Control (MFCR)  `p3082`
+        - 71.7.1.16 Controller FIFO Status (MFSR)  `p3083`
+        - 71.7.1.17 Controller Transmit Data (MTDR)  `p3084`
+        - 71.7.1.18 Controller Receive Data (MRDR)  `p3086`
+        - 71.7.1.19 Target Control (SCR)  `p3087`
+        - 71.7.1.20 Target Status (SSR)  `p3088`
+        - 71.7.1.21 Target Interrupt Enable (SIER)  `p3092`
+        - 71.7.1.22 Target DMA Enable (SDER)  `p3095`
+        - 71.7.1.23 Target Configuration 1 (SCFGR1)  `p3096`
+        - 71.7.1.24 Target Configuration 2 (SCFGR2)  `p3099`
+        - 71.7.1.25 Target Address Match (SAMR)  `p3101`
+        - 71.7.1.26 Target Address Status (SASR)  `p3102`
+        - 71.7.1.27 Target Transmit ACK (STAR)  `p3103`
+        - 71.7.1.28 Target Transmit Data (STDR)  `p3104`
+        - 71.7.1.29 Target Receive Data (SRDR)  `p3105`
+    - 71.8 Glossary  `p3106`
+  - 72 Flexible I/O (FlexIO)  `p3108`
+    - 72.1 Chip-specific FlexIO information  `p3108`
+      - 72.1.1 FlexIO instances and configuration  `p3108`
+    - 72.2 Overview  `p3109`
+      - 72.2.1 Block diagram  `p3109`
+      - 72.2.2 Features  `p3109`
+    - 72.3 Functional description  `p3110`
+      - 72.3.1 Shifter operation  `p3110`
+        - 72.3.1.1 Transmit mode  `p3111`
+        - 72.3.1.2 Receive mode  `p3111`
+        - 72.3.1.3 Match Store mode  `p3111`
+        - 72.3.1.4 Match Continuous mode  `p3111`
+        - 72.3.1.5 State mode  `p3112`
+        - 72.3.1.6 Logic mode  `p3113`
+      - 72.3.2 Timer operation  `p3115`
+        - 72.3.2.1 Timer 8-bit Baud Counter mode  `p3115`
+        - 72.3.2.2 Timer 8-bit High PWM mode  `p3115`
+        - 72.3.2.3 Timer 16-bit Counter mode  `p3116`
+        - 72.3.2.4 Timer 16-bit Counter Disable mode  `p3116`
+        - 72.3.2.5 Timer 8-bit Word Counter mode  `p3116`
+        - 72.3.2.6 Timer 8-bit Low PWM mode  `p3116`
+        - 72.3.2.7 Timer enable and start functions  `p3116`
+        - 72.3.2.8 Timer decrement and reset functions  `p3117`
+        - 72.3.2.9 Timer disable and stop functions  `p3117`
+      - 72.3.3 Pin operation  `p3118`
+        - 72.3.3.1 Parallel interface  `p3118`
+        - 72.3.3.2 Pin synchronization  `p3118`
+        - 72.3.3.3 Pin override  `p3119`
+        - 72.3.3.4 Pin interrupt  `p3119`
+      - 72.3.4 Low-power modes  `p3119`
+      - 72.3.5 Debug mode  `p3119`
+      - 72.3.6 Clocking  `p3119`
+      - 72.3.7 Reset  `p3119`
+      - 72.3.8 Interrupts and DMA requests  `p3120`
+      - 72.3.9 Peripheral triggers  `p3120`
+        - 72.3.9.1 Output triggers  `p3120`
+        - 72.3.9.2 Input trigger  `p3120`
+    - 72.4 External signals  `p3120`
+    - 72.5 Initialization  `p3120`
+    - 72.6 Application information  `p3121`
+      - 72.6.1 UART transmit  `p3121`
+      - 72.6.2 UART receive  `p3122`
+      - 72.6.3 SPI controller  `p3124`
+      - 72.6.4 SPI target  `p3126`
+      - 72.6.5 I2C controller  `p3128`
+      - 72.6.6 I2S controller  `p3130`
+      - 72.6.7 I2S target  `p3131`
+      - 72.6.8 SENT receiver  `p3133`
+      - 72.6.9 Camera interface  `p3133`
+      - 72.6.10 Motorola 68K and Intel 8080 bus interface  `p3134`
+      - 72.6.11 Low-power state machine  `p3136`
+      - 72.6.12 Keypad interface  `p3138`
+    - 72.7 Memory map and registers  `p3140`
+      - 72.7.1 FLEXIO register descriptions  `p3140`
+        - 72.7.1.1 FLEXIO memory map  `p3140`
+        - 72.7.1.2 Version ID (VERID)  `p3142`
+        - 72.7.1.3 Parameter (PARAM)  `p3143`
+        - 72.7.1.4 FLEXIO Control (CTRL)  `p3144`
+        - 72.7.1.5 Pin State (PIN)  `p3145`
+        - 72.7.1.6 Shifter Status (SHIFTSTAT)  `p3146`
+        - 72.7.1.7 Shifter Error (SHIFTERR)  `p3147`
+        - 72.7.1.8 Timer Status Flag (TIMSTAT)  `p3149`
+        - 72.7.1.9 Shifter Status Interrupt Enable (SHIFTSIEN)  `p3150`
+        - 72.7.1.10 Shifter Error Interrupt Enable (SHIFTEIEN)  `p3151`
+        - 72.7.1.11 Timer Interrupt Enable (TIMIEN)  `p3152`
+        - 72.7.1.12 Shifter Status DMA Enable (SHIFTSDEN)  `p3152`
+        - 72.7.1.13 Timer Status DMA Enable (TIMERSDEN)  `p3153`
+        - 72.7.1.14 Shifter State (SHIFTSTATE)  `p3154`
+        - 72.7.1.15 Trigger Status (TRGSTAT)  `p3155`
+        - 72.7.1.16 External Trigger Interrupt Enable (TRIGIEN)  `p3156`
+        - 72.7.1.17 Pin Status (PINSTAT)  `p3157`
+        - 72.7.1.18 Pin Interrupt Enable (PINIEN)  `p3158`
+        - 72.7.1.19 Pin Rising Edge Enable (PINREN)  `p3159`
+        - 72.7.1.20 Pin Falling Edge Enable (PINFEN)  `p3160`
+        - 72.7.1.21 Pin Output Data (PINOUTD)  `p3161`
+        - 72.7.1.22 Pin Output Enable (PINOUTE)  `p3161`
+        - 72.7.1.23 Pin Output Disable (PINOUTDIS)  `p3162`
+        - 72.7.1.24 Pin Output Clear (PINOUTCLR)  `p3163`
+        - 72.7.1.25 Pin Output Set (PINOUTSET)  `p3164`
+        - 72.7.1.26 Pin Output Toggle (PINOUTTOG)  `p3164`
+        - 72.7.1.27 Shifter Control (SHIFTCTL0 - SHIFTCTL7)  `p3165`
+        - 72.7.1.28 Shifter Configuration (SHIFTCFG0 - SHIFTCFG7)  `p3167`
+        - 72.7.1.29 Shifter Buffer (SHIFTBUF0 - SHIFTBUF7)  `p3170`
+        - 72.7.1.30 Shifter Buffer Bit Swapped (SHIFTBUFBIS0 - SHIFTBUFBIS7)  `p3171`
+        - 72.7.1.31 Shifter Buffer Byte Swapped (SHIFTBUFBYS0 - SHIFTBUFBYS7)  `p3172`
+        - 72.7.1.32 Shifter Buffer Bit Byte Swapped (SHIFTBUFBBS0 - SHIFTBUFBBS7)  `p3173`
+        - 72.7.1.33 Timer Control (TIMCTL0 - TIMCTL7)  `p3173`
+        - 72.7.1.34 Timer Configuration (TIMCFG0 - TIMCFG7)  `p3177`
+        - 72.7.1.35 Timer Compare (TIMCMP0 - TIMCMP7)  `p3180`
+        - 72.7.1.36 Shifter Buffer Nibble Byte Swapped (SHIFTBUFNBS0 - SHIFTBUFNBS7)  `p3181`
+        - 72.7.1.37 Shifter Buffer Halfword Swapped (SHIFTBUFHWS0 - SHIFTBUFHWS7)  `p3182`
+        - 72.7.1.38 Shifter Buffer Nibble Swapped (SHIFTBUFNIS0 - SHIFTBUFNIS7)  `p3183`
+        - 72.7.1.39 Shifter Buffer Odd Even Swapped (SHIFTBUFOES0 - SHIFTBUFOES7)  `p3184`
+        - 72.7.1.40 Shifter Buffer Even Odd Swapped (SHIFTBUFEOS0 - SHIFTBUFEOS7)  `p3185`
+        - 72.7.1.41 Shifter Buffer Halfword Byte Swapped (SHIFTBUFHBS0 - SHIFTBUFHBS7)  `p3185`
+    - 72.8 Glossary  `p3186`
+  - 73 CAN (FlexCAN)  `p3187`
+    - 73.1 Chip-specific FlexCAN information  `p3187`
+      - 73.1.1 FlexCAN instances and configuration  `p3187`
+      - 73.1.2 FlexCAN error injection  `p3189`
+      - 73.1.3 Reset value of MDIS bit  `p3191`
+      - 73.1.4 CAN Timestamp Implementation  `p3192`
+        - 73.1.4.1 Considerations while using FlexCAN timestamp in S32K344  `p3192`
+      - 73.1.5 CAN clock setup  `p3192`
+    - 73.2 Overview  `p3192`
+      - 73.2.1 Block diagram  `p3192`
+      - 73.2.2 Features  `p3193`
+    - 73.3 Functional description  `p3194`
+      - 73.3.1 Modes of operation  `p3195`
+        - 73.3.1.1 Modes of operation details  `p3196`
+          - 73.3.1.1.1 Freeze mode  `p3196`
+          - 73.3.1.1.2 Module Disable mode  `p3196`
+      - 73.3.2 Transmission process  `p3197`
+      - 73.3.3 Arbitration process  `p3198`
+        - 73.3.3.1 Lowest-number message buffer first  `p3199`
+        - 73.3.3.2 Highest-priority message buffer first  `p3199`
+          - 73.3.3.2.1 Local priority disabled  `p3199`
+          - 73.3.3.2.2 Local priority enabled  `p3199`
+        - 73.3.3.3 Arbitration process (continued)  `p3199`
+      - 73.3.4 Receive process  `p3200`
+      - 73.3.5 Matching process  `p3202`
+        - 73.3.5.1 Matching priority  `p3203`
+        - 73.3.5.2 Special cases  `p3205`
+      - 73.3.6 Move process  `p3206`
+        - 73.3.6.1 Move-in  `p3206`
+        - 73.3.6.2 Move-out  `p3207`
+      - 73.3.7 Data coherence  `p3207`
+        - 73.3.7.1 Transmission abort mechanism  `p3207`
+        - 73.3.7.2 Message buffer inactivation  `p3208`
+        - 73.3.7.3 Message buffer lock mechanism  `p3208`
+      - 73.3.8 Enhanced RX FIFO  `p3209`
+        - 73.3.8.1 Enhanced RX FIFO matching process  `p3211`
+        - 73.3.8.2 Enhanced RX FIFO under DMA operation  `p3213`
+        - 73.3.8.3 Enhanced RX FIFO clear operation  `p3214`
+      - 73.3.9 Legacy RX FIFO  `p3214`
+        - 73.3.9.1 Legacy RX FIFO in DMA operation  `p3215`
+        - 73.3.9.2 Clear legacy FIFO  `p3216`
+      - 73.3.10 CAN protocol-related features  `p3216`
+        - 73.3.10.1 CAN FD ISO compliance  `p3216`
+        - 73.3.10.2 CAN FD frames  `p3216`
+          - 73.3.10.2.1 CAN FD messages  `p3216`
+          - 73.3.10.2.2 BRS in CAN FD  `p3217`
+          - 73.3.10.2.3 ESI in CAN FD  `p3219`
+          - 73.3.10.2.4 CRC calculations in CAN FD  `p3219`
+          - 73.3.10.2.5 CAN FD errors  `p3220`
+          - 73.3.10.2.6 CAN FD synchronization  `p3220`
+        - 73.3.10.3 Transceiver delay compensation  `p3220`
+        - 73.3.10.4 Remote frames  `p3222`
+        - 73.3.10.5 Overload frames  `p3223`
+        - 73.3.10.6 Message buffer timestamp  `p3223`
+        - 73.3.10.7 High-resolution timestamp  `p3223`
+        - 73.3.10.8 Protocol timing  `p3224`
+          - 73.3.10.8.1 Bit timing configuration  `p3224`
+          - 73.3.10.8.2 Bit time segments  `p3225`
+          - 73.3.10.8.3 Calculating peripheral clocks  `p3228`
+        - 73.3.10.9 Arbitration and matching timing  `p3229`
+        - 73.3.10.10 TX arbitration start delay  `p3229`
+          - 73.3.10.10.1 TASD configuration examples  `p3232`
+      - 73.3.11 Clocks  `p3233`
+        - 73.3.11.1 Clock domains and restrictions  `p3233`
+          - 73.3.11.1.1 Clock restrictions for CAN FD  `p3234`
+      - 73.3.12 Reset  `p3237`
+      - 73.3.13 Interrupts  `p3238`
+      - 73.3.14 Bus interface  `p3239`
+      - 73.3.15 Detection and correction of memory errors  `p3243`
+        - 73.3.15.1 Sources of memory access  `p3244`
+        - 73.3.15.2 Error indication  `p3244`
+        - 73.3.15.3 Error reporting  `p3245`
+        - 73.3.15.4 Error response  `p3245`
+        - 73.3.15.5 Error injection  `p3246`
+    - 73.4 External signal descriptions  `p3247`
+      - 73.4.1 CAN RX  `p3247`
+      - 73.4.2 CAN TX  `p3247`
+    - 73.5 Initialization and application information  `p3247`
+      - 73.5.1 FlexCAN initialization sequence  `p3247`
+    - 73.6 Memory map and register definition  `p3248`
+      - 73.6.1 FlexCAN memory mapping  `p3248`
+      - 73.6.2 FlexCAN register descriptions  `p3250`
+        - 73.6.2.1 FlexCAN memory map  `p3250`
+        - 73.6.2.2 Module Configuration (MCR)  `p3252`
+        - 73.6.2.3 Control 1 (CTRL1)  `p3258`
+        - 73.6.2.4 Free-Running Timer (TIMER)  `p3262`
+        - 73.6.2.5 RX Message Buffers Global Mask (RXMGMASK)  `p3263`
+        - 73.6.2.6 Receive 14 Mask (RX14MASK)  `p3265`
+        - 73.6.2.7 Receive 15 Mask (RX15MASK)  `p3265`
+        - 73.6.2.8 Error Counter (ECR)  `p3266`
+        - 73.6.2.9 Error and Status 1 (ESR1)  `p3268`
+        - 73.6.2.10 Interrupt Masks 2 (IMASK2)  `p3275`
+        - 73.6.2.11 Interrupt Masks 1 (IMASK1)  `p3276`
+        - 73.6.2.12 Interrupt Flags 2 (IFLAG2)  `p3277`
+        - 73.6.2.13 Interrupt Flags 1 (IFLAG1)  `p3278`
+        - 73.6.2.14 Control 2 (CTRL2)  `p3280`
+        - 73.6.2.15 Error and Status 2 (ESR2)  `p3286`
+        - 73.6.2.16 Cyclic Redundancy Check (CRCR)  `p3288`
+        - 73.6.2.17 Legacy RX FIFO Global Mask (RXFGMASK)  `p3289`
+        - 73.6.2.18 Legacy RX FIFO Information (RXFIR)  `p3290`
+        - 73.6.2.19 CAN Bit Timing (CBT)  `p3291`
+        - 73.6.2.20 Interrupt Masks 3 (IMASK3)  `p3293`
+        - 73.6.2.21 Interrupt Flags 3 (IFLAG3)  `p3295`
+        - 73.6.2.22 Receive Individual Mask (RXIMR0 - RXIMR95)  `p3296`
+        - 73.6.2.23 Memory Error Control (MECR)  `p3298`
+        - 73.6.2.24 Error Injection Address (ERRIAR)  `p3301`
+        - 73.6.2.25 Error Injection Data Pattern (ERRIDPR)  `p3302`
+        - 73.6.2.26 Error Injection Parity Pattern (ERRIPPR)  `p3303`
+        - 73.6.2.27 Error Report Address (RERRAR)  `p3304`
+        - 73.6.2.28 Error Report Data (RERRDR)  `p3306`
+        - 73.6.2.29 Error Report Syndrome (RERRSYNR)  `p3307`
+        - 73.6.2.30 Error Status (ERRSR)  `p3309`
+        - 73.6.2.31 Enhanced CAN Bit Timing Prescalers (EPRS)  `p3311`
+        - 73.6.2.32 Enhanced Nominal CAN Bit Timing (ENCBT)  `p3312`
+        - 73.6.2.33 Enhanced Data Phase CAN Bit Timing (EDCBT)  `p3314`
+        - 73.6.2.34 Enhanced Transceiver Delay Compensation (ETDC)  `p3315`
+        - 73.6.2.35 CAN FD Control (FDCTRL)  `p3317`
+        - 73.6.2.36 CAN FD Bit Timing (FDCBT)  `p3322`
+        - 73.6.2.37 CAN FD CRC (FDCRC)  `p3324`
+        - 73.6.2.38 Enhanced RX FIFO Control (ERFCR)  `p3325`
+        - 73.6.2.39 Enhanced RX FIFO Interrupt Enable (ERFIER)  `p3333`
+        - 73.6.2.40 Enhanced RX FIFO Status (ERFSR)  `p3335`
+        - 73.6.2.41 High-Resolution Timestamp (HR_TIME_STAMP0 - HR_TIME_STAMP95)  `p3338`
+        - 73.6.2.42 Enhanced RX FIFO Filter Element (ERFFEL0 - ERFFEL127)  `p3340`
+      - 73.6.3 Message buffer structure  `p3341`
+      - 73.6.4 FlexCAN memory partition for CAN FD  `p3348`
+      - 73.6.5 FlexCAN message buffer memory map  `p3349`
+      - 73.6.6 Legacy RX FIFO structure  `p3356`
+      - 73.6.7 Enhanced RX FIFO structure  `p3358`
+    - 73.7 Glossary  `p3361`
+  - 74 Synchronous Audio Interface (SAI)  `p3363`
+    - 74.1 Chip-specific SAI information  `p3363`
+      - 74.1.1 SAI instances and configuration  `p3363`
+    - 74.2 Overview  `p3363`
+      - 74.2.1 Block diagram  `p3364`
+      - 74.2.2 Features  `p3364`
+    - 74.3 Functional description  `p3365`
+      - 74.3.1 Modes of operation  `p3365`
+        - 74.3.1.1 Run mode  `p3365`
+        - 74.3.1.2 Debug mode  `p3365`
+      - 74.3.2 Synchronous modes  `p3365`
+      - 74.3.3 Frame sync configuration  `p3365`
+      - 74.3.4 Data FIFO  `p3366`
+        - 74.3.4.1 Data alignment  `p3366`
+        - 74.3.4.2 FIFO pointers  `p3367`
+        - 74.3.4.3 FIFO packing  `p3367`
+        - 74.3.4.4 FIFO Combining mode  `p3368`
+      - 74.3.5 Word mask register  `p3368`
+      - 74.3.6 Clocking  `p3369`
+        - 74.3.6.1 Audio clock  `p3369`
+        - 74.3.6.2 Bit clock  `p3369`
+        - 74.3.6.3 Bus clock  `p3369`
+      - 74.3.7 Reset  `p3369`
+        - 74.3.7.1 Software reset  `p3370`
+        - 74.3.7.2 FIFO reset  `p3370`
+      - 74.3.8 Interrupts and DMA requests  `p3370`
+        - 74.3.8.1 FIFO request flag  `p3370`
+        - 74.3.8.2 FIFO warning flag  `p3370`
+        - 74.3.8.3 FIFO error flag  `p3370`
+        - 74.3.8.4 Sync error flag  `p3371`
+        - 74.3.8.5 Word start flag  `p3371`
+    - 74.4 External signals  `p3371`
+    - 74.5 Initialization  `p3372`
+    - 74.6 Memory map and register definition  `p3372`
+      - 74.6.1 SAI register descriptions  `p3372`
+        - 74.6.1.1 SAI memory map  `p3372`
+        - 74.6.1.2 Version ID (VERID)  `p3373`
+        - 74.6.1.3 Parameter (PARAM)  `p3374`
+        - 74.6.1.4 Transmit Control (TCSR)  `p3375`
+        - 74.6.1.5 Transmit Configuration 1 (TCR1)  `p3379`
+        - 74.6.1.6 Transmit Configuration 2 (TCR2)  `p3380`
+        - 74.6.1.7 Transmit Configuration 3 (TCR3)  `p3383`
+        - 74.6.1.8 Transmit Configuration 4 (TCR4)  `p3385`
+        - 74.6.1.9 Transmit Configuration 5 (TCR5)  `p3388`
+        - 74.6.1.10 Transmit Data (TDR0 - TDR3)  `p3390`
+        - 74.6.1.11 Transmit FIFO (TFR0 - TFR3)  `p3391`
+        - 74.6.1.12 Transmit Mask (TMR)  `p3392`
+        - 74.6.1.13 Receive Control (RCSR)  `p3393`
+        - 74.6.1.14 Receive Configuration 1 (RCR1)  `p3397`
+        - 74.6.1.15 Receive Configuration 2 (RCR2)  `p3398`
+        - 74.6.1.16 Receive Configuration 3 (RCR3)  `p3401`
+        - 74.6.1.17 Receive Configuration 4 (RCR4)  `p3403`
+        - 74.6.1.18 Receive Configuration 5 (RCR5)  `p3406`
+        - 74.6.1.19 Receive Data (RDR0 - RDR3)  `p3408`
+        - 74.6.1.20 Receive FIFO (RFR0 - RFR3)  `p3409`
+        - 74.6.1.21 Receive Mask (RMR)  `p3411`
+    - 74.7 Glossary  `p3412`
+  - 75 Ethernet Media Access Controller (EMAC)  `p3413`
+    - 75.1 Chip-specific EMAC information  `p3413`
+      - 75.1.1 EMAC instance and configuration  `p3413`
+      - 75.1.2 Impact of MAC flush commands on MAC_PPSx_Target_Time_Seconds register  `p3416`
+    - 75.2 Overview  `p3416`
+      - 75.2.1 Features  `p3416`
+      - 75.2.2 Block diagram  `p3418`
+    - 75.3 Architecture  `p3418`
+      - 75.3.1 AHB master and CSR slave (APB3) interface  `p3418`
+      - 75.3.2 DMA inclusions  `p3419`
+        - 75.3.2.1 DMA controller bus burst access  `p3419`
+        - 75.3.2.2 DMA application data buffer alignment  `p3420`
+        - 75.3.2.3 DMA buffer size calculations  `p3420`
+        - 75.3.2.4 DMA arbiter  `p3421`
+      - 75.3.3 MTL  `p3421`
+        - 75.3.3.1 Transmit path  `p3421`
+          - 75.3.3.1.1 Transmit control word  `p3421`
+          - 75.3.3.1.2 Transmit operation  `p3421`
+          - 75.3.3.1.3 Initialization flow  `p3422`
+        - 75.3.3.2 Receive path  `p3422`
+          - 75.3.3.2.1 Receive operation  `p3422`
+            - 75.3.3.2.1.1 Threshold mode  `p3422`
+            - 75.3.3.2.1.2 Store-and-Forward mode  `p3422`
+          - 75.3.3.2.2 Multi-packet receive operation  `p3423`
+          - 75.3.3.2.3 Error handling in receive operation  `p3423`
+      - 75.3.4 MAC  `p3423`
+        - 75.3.4.1 MAC transmission  `p3423`
+        - 75.3.4.2 MAC reception  `p3424`
+      - 75.3.5 Interrupts  `p3424`
+    - 75.4 External signals  `p3427`
+      - 75.4.1 Module signals  `p3427`
+    - 75.5 Using PHY interfaces  `p3430`
+    - 75.6 VLAN and double VLAN insertion, deletion, replacement and tagging  `p3431`
+      - 75.6.1 Double VLAN processing  `p3431`
+        - 75.6.1.1 Transmit path  `p3431`
+        - 75.6.1.2 Receive path  `p3432`
+        - 75.6.1.3 Source address and VLAN insertion, replacement, or deletion  `p3432`
+        - 75.6.1.4 Programming source address insertion or replacement  `p3432`
+        - 75.6.1.5 Programming VLAN insertion, replacement, or deletion  `p3432`
+    - 75.7 Packet Filtering  `p3433`
+      - 75.7.1 Source address or destination address filtering  `p3434`
+        - 75.7.1.1 Unicast destination address filtering  `p3434`
+        - 75.7.1.2 Multicast destination address filtering  `p3435`
+        - 75.7.1.3 Hash or perfect address filtering  `p3435`
+        - 75.7.1.4 Broadcast address filtering  `p3435`
+        - 75.7.1.5 Unicast source address filtering  `p3435`
+        - 75.7.1.6 Inverse filtering  `p3435`
+      - 75.7.2 VLAN filtering  `p3437`
+      - 75.7.3 VLAN filter fail packets queue  `p3438`
+      - 75.7.4 Extended receive VLAN filtering and routing  `p3438`
+        - 75.7.4.1 Comparison mode  `p3438`
+        - 75.7.4.2 Filtering  `p3438`
+        - 75.7.4.3 Filter status  `p3439`
+        - 75.7.4.4 Stripping  `p3441`
+      - 75.7.5 Layer 3 and layer 4 filtering  `p3442`
+      - 75.7.6 Flexible receive parser  `p3442`
+        - 75.7.6.1 Instruction table format of the flexible receive parser  `p3443`
+        - 75.7.6.2 Number of valid entries (NVE)  `p3445`
+        - 75.7.6.3 Number of parsable entries (NPE)  `p3446`
+        - 75.7.6.4 Frame offset  `p3446`
+        - 75.7.6.5 Frame reject  `p3446`
+        - 75.7.6.6 Out of order processing  `p3446`
+        - 75.7.6.7 DMA channel selection  `p3446`
+        - 75.7.6.8 Receive queue selection  `p3446`
+        - 75.7.6.9 MAC packet filtering/drop/error handling  `p3447`
+        - 75.7.6.10 Pad strip or CRC strip handling  `p3447`
+        - 75.7.6.11 VLAN strip handling  `p3447`
+        - 75.7.6.12 Multicast and broadcast support  `p3447`
+        - 75.7.6.13 Pre-emption support  `p3447`
+        - 75.7.6.14 Software access to the flexible receive parser memory  `p3448`
+        - 75.7.6.15 Statistical counters  `p3448`
+        - 75.7.6.16 Changing the instruction table by software  `p3448`
+        - 75.7.6.17 Receive cut-through functionality  `p3448`
+        - 75.7.6.18 Receive packet drop indication  `p3448`
+        - 75.7.6.19 Runt packet handling  `p3448`
+        - 75.7.6.20 Uncorrectable ECC error handling  `p3448`
+    - 75.8 IEEE 1588 timestamp support  `p3449`
+      - 75.8.1 Delay request-response mechanism  `p3449`
+      - 75.8.2 Peer-to-peer PTP transparent clock (P2P TC) message support  `p3450`
+      - 75.8.3 Timestamp correction  `p3450`
+        - 75.8.3.1 Ingress correction  `p3451`
+        - 75.8.3.2 Egress correction  `p3451`
+        - 75.8.3.3 Frequency range of reference timing clock  `p3452`
+        - 75.8.3.4 PTP processing and control  `p3452`
+      - 75.8.4 Transmit path functions  `p3453`
+      - 75.8.5 Receive path functions  `p3454`
+      - 75.8.6 IEEE 1588 system time source  `p3454`
+      - 75.8.7 IEEE 1588 higher word register  `p3455`
+      - 75.8.8 Flexible pulse-per-second output  `p3455`
+      - 75.8.9 Media clock generation and recovery  `p3455`
+        - 75.8.9.1 Presentation time counter  `p3456`
+        - 75.8.9.2 Comparator modules  `p3456`
+        - 75.8.9.3 Media clock generation and recovery flow  `p3457`
+      - 75.8.10 One step timestamp  `p3458`
+      - 75.8.11 IEEE 1588 sub nanoseconds timestamp  `p3458`
+    - 75.9 Multiple channels and queues support  `p3459`
+      - 75.9.1 Multiple queues and channels support in the transmit path  `p3460`
+      - 75.9.2 Multiple queues and channels support in the receive path  `p3461`
+      - 75.9.3 Rx queue to DMA mapping  `p3461`
+        - 75.9.3.1 Static mapping  `p3461`
+        - 75.9.3.2 Dynamic (per packet) mapping  `p3462`
+          - 75.9.3.2.1 Broadcast/multicast packet duplication  `p3462`
+      - 75.9.4 Selection of tag priorities assigned to receive queues  `p3462`
+      - 75.9.5 Receive side routing from MAC to queues  `p3463`
+      - 75.9.6 Receive side arbitration between DMA and MTL  `p3464`
+      - 75.9.7 Transit side arbitration between DMA and MTL  `p3464`
+      - 75.9.8 Audio video bridging  `p3464`
+      - 75.9.9 Queue modes  `p3464`
+      - 75.9.10 Queue priorities  `p3465`
+      - 75.9.11 Enhancements to scheduled traffic (EST)  `p3465`
+        - 75.9.11.1 Frequently used terms in EST  `p3466`
+        - 75.9.11.2 Updates to the transmit scheduling to support EST  `p3466`
+          - 75.9.11.2.1 Implementation of gate control list (GCL)  `p3466`
+          - 75.9.11.2.2 Registers related to gate control list  `p3467`
+            - 75.9.11.2.2.1 Base time register (BTR)  `p3468`
+            - 75.9.11.2.2.2 Cycle time register (CTR)  `p3468`
+            - 75.9.11.2.2.3 Time extension register (TER)  `p3468`
+            - 75.9.11.2.2.4 List length register (LLR)  `p3468`
+          - 75.9.11.2.3 Transmission gating implementation  `p3468`
+        - 75.9.11.3 Idle slope computation updates  `p3468`
+          - 75.9.11.3.1 Operational details of GCL  `p3469`
+          - 75.9.11.3.2 Installing a new GCL  `p3471`
+            - 75.9.11.3.2.1 New base time aligned with current schedule  `p3471`
+            - 75.9.11.3.2.2 New base time unaligned with current schedule  `p3472`
+        - 75.9.11.4 Impact of Transmit Scheduling Algorithms on EST  `p3474`
+      - 75.9.12 Frame preemption (FPE)  `p3474`
+        - 75.9.12.1 GCL Modification to Support FPE  `p3475`
+        - 75.9.12.2 Impact of Preemption on CBS  `p3476`
+        - 75.9.12.3 mPacket Format  `p3476`
+        - 75.9.12.4 Transmit Preemption  `p3479`
+          - 75.9.12.4.1 MAC Tx Preemption  `p3480`
+            - 75.9.12.4.1.1 Tx Fragment Status  `p3480`
+        - 75.9.12.5 Receive Preemption  `p3480`
+          - 75.9.12.5.1 MAC Receive Preemption  `p3480`
+            - 75.9.12.5.1.1 Data Alignment  `p3481`
+            - 75.9.12.5.1.2 MTL Receive Preemption  `p3482`
+            - 75.9.12.5.1.3 MTL Receive Arbitration  `p3482`
+        - 75.9.12.6 Verify and Respond mPackets  `p3482`
+        - 75.9.12.7 Frame Preemption and MMC Counter and Interrupt Registers  `p3482`
+          - 75.9.12.7.1 Additional Registers Associated With MMC Interrupts  `p3483`
+      - 75.9.13 Time-Based Scheduling  `p3483`
+        - 75.9.13.1 Launch time  `p3484`
+        - 75.9.13.2 Launch expiry time  `p3485`
+        - 75.9.13.3 Fetch time  `p3486`
+    - 75.10 TCP/IP Offloading Features  `p3487`
+      - 75.10.1 Transmit Checksum Offload Engine  `p3487`
+        - 75.10.1.1 IP Header Checksum Engine  `p3487`
+        - 75.10.1.2 TCP/UDP/ICMP Checksum Engine  `p3488`
+      - 75.10.2 Receive Checksum Offload Engine  `p3490`
+    - 75.11 MAC Management Counters  `p3492`
+    - 75.12 Flow Control  `p3492`
+      - 75.12.1 Transmit Flow Control  `p3492`
+        - 75.12.1.1 Flow control in Full duplex mode  `p3492`
+        - 75.12.1.2 Pause Packet Control  `p3492`
+        - 75.12.1.3 Flow Control in Half-Duplex Mode  `p3493`
+        - 75.12.1.4 Enabling Transmit Flow Control  `p3493`
+      - 75.12.2 Receive Flow Control  `p3493`
+        - 75.12.2.1 Enabling Receive Flow Control  `p3494`
+    - 75.13 Loopback Mode  `p3494`
+    - 75.14 Automotive Safety Features  `p3494`
+      - 75.14.1 Error Correction Code (ECC) Protection for Memories  `p3494`
+        - 75.14.1.1 Handling the Address Mismatch  `p3495`
+        - 75.14.1.2 Diagnostic Support for the Error Management  `p3495`
+        - 75.14.1.3 ECC Error Injection Capabilities  `p3496`
+      - 75.14.2 Finite State Machine(FSM) Parity and Timeout Protection  `p3496`
+        - 75.14.2.1 FSM State Parity Protection  `p3496`
+        - 75.14.2.2 FSM Timeout Protection  `p3496`
+        - 75.14.2.3 Enabling FSM Parity and Timeout Protection  `p3497`
+      - 75.14.3 Application/CSR Interface Timeout Protection  `p3497`
+    - 75.15 Descriptors  `p3498`
+      - 75.15.1 Overview  `p3498`
+      - 75.15.2 Descriptor Structure  `p3498`
+      - 75.15.3 Transmit Descriptor  `p3500`
+        - 75.15.3.1 Transmit Normal Descriptor (Read Format)  `p3500`
+          - 75.15.3.1.1 TDES0 Normal Descriptor (Read Format)  `p3501`
+          - 75.15.3.1.2 TDES1 Normal Descriptor (Read Format)  `p3501`
+          - 75.15.3.1.3 TDES2 Normal Descriptor (Read Format)  `p3501`
+          - 75.15.3.1.4 TDES3 Normal Descriptor (Read Format)  `p3502`
+          - 75.15.3.1.5 Transmit normal descriptor (write-back format)  `p3505`
+        - 75.15.3.2 Transmit context descriptor  `p3509`
+          - 75.15.3.2.1 TDES0 context descriptor  `p3510`
+          - 75.15.3.2.2 TDES1 context descriptor  `p3510`
+          - 75.15.3.2.3 TDES2 context descriptor  `p3511`
+          - 75.15.3.2.4 TDES3 context descriptor  `p3511`
+      - 75.15.4 Receive descriptor  `p3513`
+        - 75.15.4.1 Receive normal descriptor (read format)  `p3513`
+          - 75.15.4.1.1 RDES0 normal descriptor (read format)  `p3514`
+          - 75.15.4.1.2 RDES1 normal descriptor (read format)  `p3514`
+          - 75.15.4.1.3 RDES2 normal descriptor (read format)  `p3514`
+          - 75.15.4.1.4 RDES3 normal descriptor (read format)  `p3515`
+          - 75.15.4.1.5 Receive normal descriptor (write-back format)  `p3516`
+            - 75.15.4.1.5.1 RDES0 normal descriptor (write-back format)  `p3516`
+            - 75.15.4.1.5.2 RDES1 normal descriptor (write-back format)  `p3516`
+            - 75.15.4.1.5.3 RDES2 normal descriptor (Write-back format)  `p3519`
+            - 75.15.4.1.5.4 RDES3 normal descriptor (Write-back format)  `p3521`
+          - 75.15.4.1.6 Receive context descriptor  `p3524`
+            - 75.15.4.1.6.1 RDES0 context descriptor  `p3525`
+            - 75.15.4.1.6.2 RDES1 context descriptor  `p3525`
+            - 75.15.4.1.6.3 RDES2 context descriptor  `p3525`
+            - 75.15.4.1.6.4 RDES3 context descriptor  `p3525`
+      - 75.15.5 Enhanced descriptor for time-based scheduling  `p3526`
+        - 75.15.5.1 Enhanced normal descriptor - Read (32-bit mode)  `p3526`
+        - 75.15.5.2 Enhanced normal descriptor (Write, 32-bit mode)  `p3527`
+        - 75.15.5.3 Enhanced context descriptor (Read, 32-bit mode)  `p3528`
+        - 75.15.5.4 Enhanced context descriptor (Write, 32-bit mode)  `p3529`
+    - 75.16 Programming  `p3529`
+      - 75.16.1 Initializing DMA  `p3529`
+      - 75.16.2 Initializing MTL registers  `p3530`
+      - 75.16.3 Initializing MAC  `p3531`
+      - 75.16.4 Performing normal receive and transmit operation  `p3531`
+      - 75.16.5 Stopping and starting transmission  `p3531`
+      - 75.16.6 Programming guidelines for switching to new descriptor list in RxDMA  `p3532`
+      - 75.16.7 Programming guidelines for multi-channel multi-queuing  `p3532`
+        - 75.16.7.1 Transmit  `p3532`
+        - 75.16.7.2 Receive  `p3532`
+          - 75.16.7.2.1 Programming guidelines for recovering from DMA channel failure  `p3533`
+      - 75.16.8 Programming guidelines for GMII link state transitions  `p3534`
+        - 75.16.8.1 Transmit and receive clocks running when link down  `p3534`
+        - 75.16.8.2 Transmit and receive clocks stopped when link down  `p3534`
+      - 75.16.9 Programming guidelines for IEEE 1588 timestamping  `p3534`
+        - 75.16.9.1 Initialization guidelines for system time generation  `p3534`
+        - 75.16.9.2 System time correction  `p3535`
+          - 75.16.9.2.1 Coarse correction method  `p3535`
+          - 75.16.9.2.2 Fine correction method  `p3535`
+      - 75.16.10 Programming guidelines for AV feature  `p3535`
+        - 75.16.10.1 Initializing the DMA in audio video feature  `p3536`
+        - 75.16.10.2 Enabling slot number checking  `p3536`
+        - 75.16.10.3 Enabling average bits per slot reporting  `p3537`
+        - 75.16.10.4 Disabling flow control for AV enabled queues  `p3537`
+          - 75.16.10.4.1 Transmit flow  `p3537`
+          - 75.16.10.4.2 Receive flow control  `p3537`
+        - 75.16.10.5 Programming guidelines for flexible pulse-per-second output  `p3537`
+          - 75.16.10.5.1 Generating single pulse on PPS  `p3537`
+          - 75.16.10.5.2 Generating next pulse on PPS  `p3538`
+          - 75.16.10.5.3 Generating a pulse train on PPS  `p3538`
+          - 75.16.10.5.4 Generating an interrupt without affecting the PPS  `p3538`
+        - 75.16.10.6 Programming guidelines for VLAN filtering on receive  `p3539`
+        - 75.16.10.7 Programming guidelines for extended VLAN filtering and routing on receive  `p3539`
+        - 75.16.10.8 Programming sequence for queue/channel based VLAN inclusion register  `p3539`
+      - 75.16.11 Programming guidelines for EST  `p3540`
+        - 75.16.11.1 Programming the GCL and GCL linked registers  `p3540`
+        - 75.16.11.2 Programming the EST registers  `p3541`
+      - 75.16.12 Programming the launch time in time-based scheduling  `p3541`
+      - 75.16.13 Programming guidelines for media clock generation and recovery  `p3542`
+        - 75.16.13.1 Programming guidelines for media clock generation  `p3542`
+        - 75.16.13.2 Programming guidelines for media clock recovery  `p3542`
+      - 75.16.14 Programming guidelines for ECC protection for memories  `p3542`
+        - 75.16.14.1 Programming guidelines for ECC hardware error injection (Debug mode)  `p3542`
+      - 75.16.15 Programming guidelines for on-chip datapath parity protection  `p3543`
+      - 75.16.16 Programming guidelines for FSM parity and timeout  `p3543`
+    - 75.17 EMAC register descriptions  `p3543`
+      - 75.17.1 EMAC memory map  `p3544`
+      - 75.17.2 MAC Configuration (MAC_Configuration)  `p3555`
+      - 75.17.3 MAC Extended Configuration (MAC_Ext_Configuration)  `p3562`
+      - 75.17.4 MAC Packet Filter (MAC_Packet_Filter)  `p3565`
+      - 75.17.5 MAC Watchdog Timeout (MAC_Watchdog_Timeout)  `p3569`
+      - 75.17.6 MAC Hash Table First 32 Bits (MAC_Hash_Table_Reg0)  `p3571`
+      - 75.17.7 MAC Hash Table Second 32 Bits (MAC_Hash_Table_Reg1)  `p3572`
+      - 75.17.8 MAC VLAN Tag (MAC_VLAN_Tag)  `p3573`
+      - 75.17.9 MAC VLAN Tag Control (MAC_VLAN_Tag_Ctrl)  `p3577`
+      - 75.17.10 MAC VLAN Tag Data (MAC_VLAN_Tag_Data)  `p3581`
+      - 75.17.11 MAC VLAN Tag Filter 0 (MAC_VLAN_Tag_Filter0)  `p3584`
+      - 75.17.12 MAC VLAN Tag Filter 1 (MAC_VLAN_Tag_Filter1)  `p3586`
+      - 75.17.13 MAC VLAN Tag Filter 2 (MAC_VLAN_Tag_Filter2)  `p3588`
+      - 75.17.14 MAC VLAN Tag Filter 3 (MAC_VLAN_Tag_Filter3)  `p3591`
+      - 75.17.15 MAC VLAN Hash Table (MAC_VLAN_Hash_Table)  `p3593`
+      - 75.17.16 MAC VLAN Inclusion Or Replacement (MAC_VLAN_Incl)  `p3594`
+      - 75.17.17 MAC VLAN Inclusion 0 (MAC_VLAN_Incl0)  `p3597`
+      - 75.17.18 MAC VLAN Inclusion 1 (MAC_VLAN_Incl1)  `p3598`
+      - 75.17.19 MAC VLAN Inclusion 2 (MAC_VLAN_Incl2)  `p3599`
+      - 75.17.20 MAC VLAN Inclusion 3 (MAC_VLAN_Incl3)  `p3601`
+      - 75.17.21 MAC VLAN Inclusion 4 (MAC_VLAN_Incl4)  `p3602`
+      - 75.17.22 MAC VLAN Inclusion 5 (MAC_VLAN_Incl5)  `p3603`
+      - 75.17.23 MAC VLAN Inclusion 6 (MAC_VLAN_Incl6)  `p3604`
+      - 75.17.24 MAC VLAN Inclusion 7 (MAC_VLAN_Incl7)  `p3605`
+      - 75.17.25 Inner VLAN Tag Inclusion Or Replacement (MAC_Inner_VLAN_Incl)  `p3607`
+      - 75.17.26 MAC Q0 Tx Flow Control (MAC_Q0_Tx_Flow_Ctrl)  `p3609`
+      - 75.17.27 MAC Receive Flow Control (MAC_Rx_Flow_Ctrl)  `p3611`
+      - 75.17.28 MAC RxQ Control 4 (MAC_RxQ_Ctrl4)  `p3613`
+      - 75.17.29 MAC RxQ Control 0 (MAC_RxQ_Ctrl0)  `p3615`
+      - 75.17.30 Receive Queue Control 1 (MAC_RxQ_Ctrl1)  `p3616`
+      - 75.17.31 MAC RxQ Control 2 (MAC_RxQ_Ctrl2)  `p3620`
+      - 75.17.32 MAC Interrupt Status (MAC_Interrupt_Status)  `p3621`
+      - 75.17.33 MAC Interrupt Enable (MAC_Interrupt_Enable)  `p3625`
+      - 75.17.34 MAC Rx Transmit Status (MAC_Rx_Tx_Status)  `p3627`
+      - 75.17.35 MAC Version (MAC_Version)  `p3630`
+      - 75.17.36 MAC Debug (MAC_Debug)  `p3631`
+      - 75.17.37 MAC Hardware Feature 0 (MAC_HW_Feature0)  `p3632`
+      - 75.17.38 MAC Hardware Feature 1 (MAC_HW_Feature1)  `p3637`
+      - 75.17.39 MAC Hardware Feature 2 (MAC_HW_Feature2)  `p3641`
+      - 75.17.40 MAC Hardware Feature 3 (MAC_HW_Feature3)  `p3644`
+      - 75.17.41 MAC DPP FSM Interrupt Status (MAC_DPP_FSM_Interrupt_Status)  `p3648`
+      - 75.17.42 MAC FSM Control (MAC_FSM_Control)  `p3651`
+      - 75.17.43 MAC FSM ACT Timer (MAC_FSM_ACT_Timer)  `p3654`
+      - 75.17.44 SCS_REG 1 (SCS_REG1)  `p3656`
+      - 75.17.45 MAC MDIO Address (MAC_MDIO_Address)  `p3657`
+      - 75.17.46 MAC MDIO Data (MAC_MDIO_Data)  `p3661`
+      - 75.17.47 MAC CSR Software Control (MAC_CSR_SW_Ctrl)  `p3661`
+      - 75.17.48 MAC FPE Control STS (MAC_FPE_CTRL_STS)  `p3662`
+      - 75.17.49 MAC Presentation Time (MAC_Presn_Time_ns)  `p3665`
+      - 75.17.50 MAC Presentation Time Update (MAC_Presn_Time_Updt)  `p3665`
+      - 75.17.51 MAC Address 0 High (MAC_Address0_High)  `p3666`
+      - 75.17.52 MAC Address 0 Low (MAC_Address0_Low)  `p3667`
+      - 75.17.53 MAC Address 1 High (MAC_Address1_High)  `p3668`
+      - 75.17.54 MAC Address 1 Low (MAC_Address1_Low)  `p3670`
+      - 75.17.55 MAC Address 2 High (MAC_Address2_High)  `p3671`
+      - 75.17.56 MAC Address 2 Low (MAC_Address2_Low)  `p3672`
+      - 75.17.57 MMC Control (MMC_Control)  `p3673`
+      - 75.17.58 MMC Receive Interrupt (MMC_Rx_Interrupt)  `p3675`
+      - 75.17.59 MMC Transmit Interrupt (MMC_Tx_Interrupt)  `p3682`
+      - 75.17.60 MMC Receive Interrupt Mask (MMC_Rx_Interrupt_Mask)  `p3689`
+      - 75.17.61 MMC Transmit Interrupt Mask (MMC_Tx_Interrupt_Mask)  `p3695`
+      - 75.17.62 Transmit Octet Count Good Bad (Tx_Octet_Count_Good_Bad)  `p3701`
+      - 75.17.63 Transmit Packet Count Good Bad (Tx_Packet_Count_Good_Bad)  `p3701`
+      - 75.17.64 Transmit Broadcast Packets Good (Tx_Broadcast_Packets_Good)  `p3702`
+      - 75.17.65 Transmit Multicast Packets Good (Tx_Multicast_Packets_Good)  `p3703`
+      - 75.17.66 Transmit 64-Octet Packets Good Bad (Tx_64Octets_Packets_Good_Bad)  `p3703`
+      - 75.17.67 Transmit 65 To 127 Octet Packets Good Bad (Tx_65To127Octets_Packets_Good_Bad)  `p3704`
+      - 75.17.68 Transmit 128 To 255 Octet Packets Good Bad (Tx_128To255Octets_Packets_Good_Bad)  `p3705`
+      - 75.17.69 Transmit 256 To 511 Octet Packets Good Bad (Tx_256To511Octets_Packets_Good_Bad)  `p3706`
+      - 75.17.70 Transmit 512 To 1023 Octet Packets Good Bad (Tx_512To1023Octets_Packets_Good_Bad)  `p3707`
+      - 75.17.71 Transmit 1024 To Max Octet Packets Good Bad (Tx_1024ToMaxOctets_Packets_Good_Bad)  `p3707`
+      - 75.17.72 Transmit Unicast Packets Good Bad (Tx_Unicast_Packets_Good_Bad)  `p3708`
+      - 75.17.73 Transmit Multicast Packets Good Bad (Tx_Multicast_Packets_Good_Bad)  `p3709`
+      - 75.17.74 Transmit Broadcast Packets Good Bad (Tx_Broadcast_Packets_Good_Bad)  `p3709`
+      - 75.17.75 Transmit Underflow Error Packets (Tx_Underflow_Error_Packets)  `p3710`
+      - 75.17.76 Transmit Single Collision Good Packets (Tx_Single_Collision_Good_Packets)  `p3711`
+      - 75.17.77 Transmit Multiple Collision Good Packets (Tx_Multiple_Collision_Good_Packets)  `p3711`
+      - 75.17.78 Transmit Deferred Packets (Tx_Deferred_Packets)  `p3712`
+      - 75.17.79 Transmit Late Collision Packets (Tx_Late_Collision_Packets)  `p3713`
+      - 75.17.80 Transmit Excessive Collision Packets (Tx_Excessive_Collision_Packets)  `p3713`
+      - 75.17.81 Transmit Carrier Error Packets (Tx_Carrier_Error_Packets)  `p3714`
+      - 75.17.82 Transmit Octet Count Good (Tx_Octet_Count_Good)  `p3715`
+      - 75.17.83 Transmit Packet Count Good (Tx_Packet_Count_Good)  `p3715`
+      - 75.17.84 Transmit Excessive Deferral Error (Tx_Excessive_Deferral_Error)  `p3716`
+      - 75.17.85 Transmit Pause Packets (Tx_Pause_Packets)  `p3717`
+      - 75.17.86 Transmit VLAN Packets Good (Tx_VLAN_Packets_Good)  `p3717`
+      - 75.17.87 Transmit O Size Packets Good (Tx_OSize_Packets_Good)  `p3718`
+      - 75.17.88 Receive Packets Count Good Bad (Rx_Packets_Count_Good_Bad)  `p3719`
+      - 75.17.89 Receive Octet Count Good Bad (Rx_Octet_Count_Good_Bad)  `p3720`
+      - 75.17.90 Receive Octet Count Good (Rx_Octet_Count_Good)  `p3720`
+      - 75.17.91 Receive Broadcast Packets Good (Rx_Broadcast_Packets_Good)  `p3721`
+      - 75.17.92 Receive Multicast Packets Good (Rx_Multicast_Packets_Good)  `p3722`
+      - 75.17.93 Receive CRC Error Packets (Rx_CRC_Error_Packets)  `p3722`
+      - 75.17.94 Receive Alignment Error Packets (Rx_Alignment_Error_Packets)  `p3723`
+      - 75.17.95 Receive Runt Error Packets (Rx_Runt_Error_Packets)  `p3724`
+      - 75.17.96 Receive Jabber Error Packets (Rx_Jabber_Error_Packets)  `p3724`
+      - 75.17.97 Receive Undersize Packets Good (Rx_Undersize_Packets_Good)  `p3725`
+      - 75.17.98 Receive Oversize Packets Good (Rx_Oversize_Packets_Good)  `p3726`
+      - 75.17.99 Receive 64 Octets Packets Good Bad (Rx_64Octets_Packets_Good_Bad)  `p3727`
+      - 75.17.100 Receive 65-127 Octets Packets Good Bad (Rx_65To127Octets_Packets_Good_Bad)  `p3728`
+      - 75.17.101 Receive 128-255 Octets Packets Good Bad (Rx_128To255Octets_Packets_Good_Bad)  `p3728`
+      - 75.17.102 Receive 256-511 Octets Packets Good Bad (Rx_256To511Octets_Packets_Good_Bad)  `p3729`
+      - 75.17.103 Receive 512-1023 Octets Packets Good Bad (Rx_512To1023Octets_Packets_Good_Bad)  `p3730`
+      - 75.17.104 Receive 1024 To Max Octets Good Bad (Rx_1024ToMaxOctets_Packets_Good_Bad)  `p3731`
+      - 75.17.105 Receive Unicast Packets Good (Rx_Unicast_Packets_Good)  `p3731`
+      - 75.17.106 Receive Length Error Packets (Rx_Length_Error_Packets)  `p3732`
+      - 75.17.107 Receive Out of Range Type Packet (Rx_Out_Of_Range_Type_Packets)  `p3733`
+      - 75.17.108 Receive Pause Packets (Rx_Pause_Packets)  `p3734`
+      - 75.17.109 Receive FIFO Overflow Packets (Rx_FIFO_Overflow_Packets)  `p3734`
+      - 75.17.110 Receive VLAN Packets Good Bad (Rx_VLAN_Packets_Good_Bad)  `p3735`
+      - 75.17.111 Receive Watchdog Error Packets (Rx_Watchdog_Error_Packets)  `p3736`
+      - 75.17.112 Receive Error Packets (Rx_Receive_Error_Packets)  `p3737`
+      - 75.17.113 Receive Control Packets Good (Rx_Control_Packets_Good)  `p3738`
+      - 75.17.114 MMC Transmit FPE Fragment Counter Interrupt Status (MMC_FPE_Tx_Interrupt)  `p3738`
+      - 75.17.115 MMC FPE Transmit Interrupt Mask (MMC_FPE_Tx_Interrupt_Mask)  `p3740`
+      - 75.17.116 Transmit FPE Fragment Counter (MMC_Tx_FPE_Fragment_Cntr)  `p3741`
+      - 75.17.117 Transmit Hold Request Counter (MMC_Tx_Hold_Req_Cntr)  `p3742`
+      - 75.17.118 MMC Receive Packet Assembly Error Counter Interrupt Status (MMC_FPE_Rx_Interrupt)  `p3742`
+      - 75.17.119 MMC FPE Receive Interrupt Mask (MMC_FPE_Rx_Interrupt_Mask)  `p3744`
+      - 75.17.120 MMC Receive Packet Assembly Error Counter (MMC_Rx_Packet_Assembly_Err_Cntr)  `p3746`
+      - 75.17.121 MMC Receive Packet SMD Error Counter (MMC_Rx_Packet_SMD_Err_Cntr)  `p3747`
+      - 75.17.122 MMC Receive Packet Assembly OK Counter (MMC_Rx_Packet_Assembly_OK_Cntr)  `p3748`
+      - 75.17.123 MMC Receive FPE Fragment Counter (MMC_Rx_FPE_Fragment_Cntr)  `p3748`
+      - 75.17.124 MAC Layer 3 Layer 4 Control 0 (MAC_L3_L4_Control0)  `p3749`
+      - 75.17.125 MAC Layer 4 Address 0 (MAC_Layer4_Address0)  `p3754`
+      - 75.17.126 MAC Layer 3 Address 0 Reg 0 (MAC_Layer3_Addr0_Reg0)  `p3755`
+      - 75.17.127 MAC Layer 3 Address 1 Reg 0 (MAC_Layer3_Addr1_Reg0)  `p3756`
+      - 75.17.128 MAC Layer 3 Address 2 Reg 0 (MAC_Layer3_Addr2_Reg0)  `p3756`
+      - 75.17.129 MAC Layer 3 Address 3 Reg 0 (MAC_Layer3_Addr3_Reg0)  `p3757`
+      - 75.17.130 MAC L3 L4 Control 1 (MAC_L3_L4_Control1)  `p3758`
+      - 75.17.131 MAC Layer 4 Address 1 (MAC_Layer4_Address1)  `p3763`
+      - 75.17.132 MAC Layer 3 Address 0 Reg 1 (MAC_Layer3_Addr0_Reg1)  `p3764`
+      - 75.17.133 MAC Layer 3 Address 1 Reg 1 (MAC_Layer3_Addr1_Reg1)  `p3765`
+      - 75.17.134 MAC Layer 3 Address 2 Reg 1 (MAC_Layer3_Addr2_Reg1)  `p3766`
+      - 75.17.135 MAC Layer 3 Address 3 Reg 1 (MAC_Layer3_Addr3_Reg1)  `p3767`
+      - 75.17.136 MAC L3 L4 Control 2 (MAC_L3_L4_Control2)  `p3767`
+      - 75.17.137 MAC Layer 4 Address 2 (MAC_Layer4_Address2)  `p3772`
+      - 75.17.138 MAC Layer 3 Address 0 Reg 2 (MAC_Layer3_Addr0_Reg2)  `p3773`
+      - 75.17.139 MAC Layer 3 Address 1 Reg 2 (MAC_Layer3_Addr1_Reg2)  `p3774`
+      - 75.17.140 MAC Layer 3 Address 2 Reg 2 (MAC_Layer3_Addr2_Reg2)  `p3775`
+      - 75.17.141 MAC Layer 3 Address 3 Reg 2 (MAC_Layer3_Addr3_Reg2)  `p3776`
+      - 75.17.142 MAC L3 L4 Control 3 (MAC_L3_L4_Control3)  `p3776`
+      - 75.17.143 MAC Layer 4 Address 3 (MAC_Layer4_Address3)  `p3781`
+      - 75.17.144 MAC Layer 3 Address 0 Reg 3 (MAC_Layer3_Addr0_Reg3)  `p3782`
+      - 75.17.145 MAC Layer 3 Address 1 Reg 3 (MAC_Layer3_Addr1_Reg3)  `p3783`
+      - 75.17.146 MAC Layer 3 Address 2 Reg 3 (MAC_Layer3_Addr2_Reg3)  `p3784`
+      - 75.17.147 MAC Layer 3 Address 3 Reg 3 (MAC_Layer3_Addr3_Reg3)  `p3785`
+      - 75.17.148 MAC Timestamp Control (MAC_Timestamp_Control)  `p3785`
+      - 75.17.149 MAC Sub Second Increment (MAC_Sub_Second_Increment)  `p3791`
+      - 75.17.150 MAC System Time In Seconds (MAC_System_Time_Seconds)  `p3792`
+      - 75.17.151 MAC System Time In Nanoseconds (MAC_System_Time_Nanoseconds)  `p3793`
+      - 75.17.152 MAC System Time Seconds Update (MAC_System_Time_Seconds_Update)  `p3794`
+      - 75.17.153 MAC System Time Nanoseconds Update (MAC_System_Time_Nanoseconds_Update)  `p3795`
+      - 75.17.154 MAC Timestamp Addend (MAC_Timestamp_Addend)  `p3796`
+      - 75.17.155 MAC System Time Higher Word In Seconds (MAC_System_Time_Higher_Word_Seconds)  `p3797`
+      - 75.17.156 MAC Timestamp Status (MAC_Timestamp_Status)  `p3797`
+      - 75.17.157 MAC Transmit Timestamp Status In Nanoseconds (MAC_Tx_Timestamp_Status_Nanoseconds)  `p3801`
+      - 75.17.158 MAC Transmit Timestamp Status In Seconds (MAC_Tx_Timestamp_Status_Seconds)  `p3802`
+      - 75.17.159 MAC Timestamp Ingress Asymmetry Correction (MAC_Timestamp_Ingress_Asym_Corr)  `p3803`
+      - 75.17.160 MAC Timestamp Egress Asymmetry Correction (MAC_Timestamp_Egress_Asym_Corr)  `p3804`
+      - 75.17.161 MAC Timestamp Ingress Correction In Nanoseconds (MAC_Timestamp_Ingress_Corr_Nanosecond)  `p3805`
+      - 75.17.162 MAC Timestamp Egress Correction In Nanoseconds (MAC_Timestamp_Egress_Corr_Nanosecond)  `p3805`
+      - 75.17.163 MAC Timestamp Ingress Correction In Subnanoseconds (MAC_Timestamp_Ingress_Corr_Subnanosec)  `p3806`
+      - 75.17.164 MAC Timestamp Engress Correction In Subnanoseconds (MAC_Timestamp_Egress_Corr_Subnanosec)  `p3807`
+      - 75.17.165 MAC Timestamp Ingress Latency (MAC_Timestamp_Ingress_Latency)  `p3808`
+      - 75.17.166 MAC Timestamp Egress Latency (MAC_Timestamp_Egress_Latency)  `p3809`
+      - 75.17.167 MAC PPS Control (MAC_PPS_Control)  `p3810`
+      - 75.17.168 MAC PPS0 Target Time In Seconds (MAC_PPS0_Target_Time_Seconds)  `p3815`
+      - 75.17.169 MAC PPS0 Target Time In Nanoseconds (MAC_PPS0_Target_Time_Nanoseconds)  `p3816`
+      - 75.17.170 MAC PPS0 Interval (MAC_PPS0_Interval)  `p3817`
+      - 75.17.171 MAC PPS0 Width (MAC_PPS0_Width)  `p3818`
+      - 75.17.172 MAC PPS1 Target Time In Seconds (MAC_PPS1_Target_Time_Seconds)  `p3819`
+      - 75.17.173 MAC PPS1 Target Time In Nanoseconds (MAC_PPS1_Target_Time_Nanoseconds)  `p3820`
+      - 75.17.174 MAC PPS1 Interval (MAC_PPS1_Interval)  `p3821`
+      - 75.17.175 MAC PPS1 Width (MAC_PPS1_Width)  `p3822`
+      - 75.17.176 MAC PPS2 Target Time In Seconds (MAC_PPS2_Target_Time_Seconds)  `p3823`
+      - 75.17.177 MAC PPS2 Target Time In Nanoseconds (MAC_PPS2_Target_Time_Nanoseconds)  `p3824`
+      - 75.17.178 MAC PPS2 Interval (MAC_PPS2_Interval)  `p3825`
+      - 75.17.179 MAC PPS2 Width (MAC_PPS2_Width)  `p3826`
+      - 75.17.180 MAC PPS3 Target Time In Seconds (MAC_PPS3_Target_Time_Seconds)  `p3826`
+      - 75.17.181 MAC PPS3 Target Time In Nanoseconds (MAC_PPS3_Target_Time_Nanoseconds)  `p3827`
+      - 75.17.182 MAC PPS3 Interval (MAC_PPS3_Interval)  `p3828`
+      - 75.17.183 MAC PPS3 Width (MAC_PPS3_Width)  `p3829`
+      - 75.17.184 MTL Operation Mode (MTL_Operation_Mode)  `p3830`
+      - 75.17.185 MTL Debug Control (MTL_DBG_CTL)  `p3833`
+      - 75.17.186 MTL Debug Status (MTL_DBG_STS)  `p3837`
+      - 75.17.187 MTL FIFO Debug Data (MTL_FIFO_Debug_Data)  `p3839`
+      - 75.17.188 MTL Interrupt Status (MTL_Interrupt_Status)  `p3840`
+      - 75.17.189 MTL Receive Queue DMA Map 0 (MTL_RxQ_DMA_Map0)  `p3842`
+      - 75.17.190 MTL TBS Control (MTL_TBS_CTRL)  `p3845`
+      - 75.17.191 MTL EST Control (MTL_EST_Control)  `p3846`
+      - 75.17.192 MTL EST Status (MTL_EST_Status)  `p3849`
+      - 75.17.193 MTL EST Scheduling Error (MTL_EST_Sch_Error)  `p3851`
+      - 75.17.194 MTL EST Frame Size Error (MTL_EST_Frm_Size_Error)  `p3852`
+      - 75.17.195 MTL EST Frame Size Capture (MTL_EST_Frm_Size_Capture)  `p3853`
+      - 75.17.196 MTL EST Interrupt Enable (MTL_EST_Intr_Enable)  `p3854`
+      - 75.17.197 MTL EST GCL Control (MTL_EST_GCL_Control)  `p3856`
+      - 75.17.198 MTL EST GCL Data (MTL_EST_GCL_Data)  `p3859`
+      - 75.17.199 MTL FPE Control Status (MTL_FPE_CTRL_STS)  `p3860`
+      - 75.17.200 MTL FPE Advance (MTL_FPE_Advance)  `p3861`
+      - 75.17.201 MTL Rx Parser Control Status (MTL_RXP_Control_Status)  `p3862`
+      - 75.17.202 MTL Rx Parser Interrupt Control Status (MTL_RXP_Interrupt_Control_Status)  `p3864`
+      - 75.17.203 MTL Rx Parser Drop Count (MTL_RXP_Drop_Cnt)  `p3866`
+      - 75.17.204 MTL Rx Parser Error Count (MTL_RXP_Error_Cnt)  `p3867`
+      - 75.17.205 MTL Rx Parser Indirect Access Control Status (MTL_RXP_Indirect_Acc_Control_Status)  `p3868`
+      - 75.17.206 MTL Rx Parser Indirect Access Data (MTL_RXP_Indirect_Acc_Data)  `p3870`
+      - 75.17.207 MTL ECC Control (MTL_ECC_Control)  `p3871`
+      - 75.17.208 MTL Safety Interrupt Status (MTL_Safety_Interrupt_Status)  `p3873`
+      - 75.17.209 MTL ECC Interrupt Enable (MTL_ECC_Interrupt_Enable)  `p3874`
+      - 75.17.210 MTL ECC Interrupt Status (MTL_ECC_Interrupt_Status)  `p3876`
+      - 75.17.211 MTL ECC Error Status (MTL_ECC_Err_Sts_Rctl)  `p3879`
+      - 75.17.212 MTL ECC Error Address Status (MTL_ECC_Err_Addr_Status)  `p3880`
+      - 75.17.213 MTL ECC Error Control Status (MTL_ECC_Err_Cntr_Status)  `p3881`
+      - 75.17.214 MTL DPP Control (MTL_DPP_Control)  `p3882`
+      - 75.17.215 MTL Tx Queue 0 Operation Mode (MTL_TxQ0_Operation_Mode)  `p3885`
+      - 75.17.216 MTL Tx Queue 0 Underflow (MTL_TxQ0_Underflow)  `p3888`
+      - 75.17.217 MTL Tx Queue 0 Debug (MTL_TxQ0_Debug)  `p3889`
+      - 75.17.218 MTL Tx Queue 0 ETS Status (MTL_TxQ0_ETS_Status)  `p3891`
+      - 75.17.219 MTL Tx Queue Quantum Weight (MTL_TxQ0_Quantum_Weight)  `p3892`
+      - 75.17.220 MTL Queue 0 Interrupt Control Status (MTL_Q0_Interrupt_Control_Status)  `p3893`
+      - 75.17.221 MTL Rx Queue 0 Operation Mode (MTL_RxQ0_Operation_Mode)  `p3895`
+      - 75.17.222 MTL Rx Queue Missed Packet Overflow Count (MTL_RxQ0_Missed_Packet_Overflow_Cnt)  `p3899`
+      - 75.17.223 MTL Rx Queue 0 Debug (MTL_RxQ0_Debug)  `p3900`
+      - 75.17.224 MTL Rx Queue 0 Control 0 (MTL_RxQ0_Control)  `p3902`
+      - 75.17.225 MTL Tx Queue 1 Operation Mode (MTL_TxQ1_Operation_Mode)  `p3903`
+      - 75.17.226 MTL Tx Queue 1 Underflow (MTL_TxQ1_Underflow)  `p3906`
+      - 75.17.227 MTL Tx Queue 1 Debug (MTL_TxQ1_Debug)  `p3907`
+      - 75.17.228 MTL Tx Queue 1 ETS Control (MTL_TxQ1_ETS_Control)  `p3909`
+      - 75.17.229 MTL Tx Queue 1 ETS Status (MTL_TxQ1_ETS_Status)  `p3911`
+      - 75.17.230 MTL Tx Queue 1 Quantum Weight (MTL_TxQ1_Quantum_Weight)  `p3911`
+      - 75.17.231 MTL Tx Queue 1 Sendslope Credit (MTL_TxQ1_SendSlopeCredit)  `p3913`
+      - 75.17.232 MTL Tx Queue 1 HiCredit (MTL_TxQ1_HiCredit)  `p3914`
+      - 75.17.233 MTL Tx Queue 1 LoCredit (MTL_TxQ1_LoCredit)  `p3915`
+      - 75.17.234 MTL Queue 1 Interrupt Control Status (MTL_Q1_Interrupt_Control_Status)  `p3916`
+      - 75.17.235 MTL Rx Queue 1 Operation Mode (MTL_RxQ1_Operation_Mode)  `p3918`
+      - 75.17.236 MTL Rx Queue 1 Missed Packet Overflow Counter (MTL_RxQ1_Missed_Packet_Overflow_Cnt)  `p3921`
+      - 75.17.237 MTL Rx Queue 1 Debug (MTL_RxQ1_Debug)  `p3923`
+      - 75.17.238 MTL Rx Queue 1 Control (MTL_RxQ1_Control)  `p3924`
+      - 75.17.239 DMA Mode (DMA_Mode)  `p3926`
+      - 75.17.240 DMA System Bus Mode (DMA_SysBus_Mode)  `p3929`
+      - 75.17.241 DMA Interrupt Status (DMA_Interrupt_Status)  `p3931`
+      - 75.17.242 DMA Debug Status 0 (DMA_Debug_Status0)  `p3933`
+      - 75.17.243 DMA TBS Control (DMA_TBS_CTRL)  `p3936`
+      - 75.17.244 DMA Safety Interrupt Status (DMA_Safety_Interrupt_Status)  `p3937`
+      - 75.17.245 DMA Channel 0 Control (DMA_CH0_Control)  `p3938`
+      - 75.17.246 DMA Channel Tx Control (DMA_CH0_Tx_Control)  `p3940`
+      - 75.17.247 DMA Channel Rx Control (DMA_CH0_Rx_Control)  `p3942`
+      - 75.17.248 DMA Channel 0 Tx Descriptor List Address (DMA_CH0_TxDesc_List_Address)  `p3945`
+      - 75.17.249 DMA Channel 0 Rx Descriptor List Address (DMA_CH0_RxDesc_List_Address)  `p3946`
+      - 75.17.250 DMA Channel 0 Tx Descriptor Tail Pointer (DMA_CH0_TxDesc_Tail_Pointer)  `p3947`
+      - 75.17.251 DMA Channel 0 Rx Descriptor List Pointer (DMA_CH0_RxDesc_Tail_Pointer)  `p3948`
+      - 75.17.252 DMA Channel 0 Tx Descriptor Ring Length (DMA_CH0_TxDesc_Ring_Length)  `p3949`
+      - 75.17.253 DMA Channel 0 Rx Descriptor Ring Length (DMA_CH0_RxDesc_Ring_Length)  `p3950`
+      - 75.17.254 DMA Channel 0 Interrupt Enable (DMA_CH0_Interrupt_Enable)  `p3951`
+      - 75.17.255 DMA Channel 0 Rx Interrupt Watchdog Timer (DMA_CH0_Rx_Interrupt_Watchdog_Timer)  `p3955`
+      - 75.17.256 DMA Channel 0 Slot Function Control Status (DMA_CH0_Slot_Function_Control_Status)  `p3956`
+      - 75.17.257 DMA Channel 0 Current Application Transmit Descriptor (DMA_CH0_Current_App_TxDesc)  `p3958`
+      - 75.17.258 DMA Channel 0 Current Application Receive Descriptor (DMA_CH0_Current_App_RxDesc)  `p3959`
+      - 75.17.259 DMA Channel 0 Current Application Transmit Descriptor (DMA_CH0_Current_App_TxBuffer)  `p3960`
+      - 75.17.260 DMA Channel 0 Current Application Receive Buffer (DMA_CH0_Current_App_RxBuffer)  `p3960`
+      - 75.17.261 DMA Channel 0 Status (DMA_CH0_Status)  `p3961`
+      - 75.17.262 DMA Channel 0 Miss Frame Counter (DMA_CH0_Miss_Frame_Cnt)  `p3967`
+      - 75.17.263 DMA Channel 0 Rx Parser Accept Count (DMA_CH0_RXP_Accept_Cnt)  `p3968`
+      - 75.17.264 DMA Channel 0 Rx ERI Count (DMA_CH0_RX_ERI_Cnt)  `p3969`
+      - 75.17.265 DMA Channel 1 Control (DMA_CH1_Control)  `p3970`
+      - 75.17.266 DMA Channel 1 Tx Control (DMA_CH1_Tx_Control)  `p3971`
+      - 75.17.267 DMA Channel 1 Rx Control (DMA_CH1_Rx_Control)  `p3974`
+      - 75.17.268 DMA Channel 1 Tx Descriptor List Address (DMA_CH1_TxDesc_List_Address)  `p3977`
+      - 75.17.269 DMA Channel 1 Rx Descriptor List Address (DMA_CH1_RxDesc_List_Address)  `p3978`
+      - 75.17.270 DMA Channel 1 Tx Descriptor Tail Pointer (DMA_CH1_TxDesc_Tail_Pointer)  `p3979`
+      - 75.17.271 DMA Channel 1 Rx Descriptor Tail Pointer (DMA_CH1_RxDesc_Tail_Pointer)  `p3980`
+      - 75.17.272 DMA Channel 1 Tx Descriptor Ring Length (DMA_CH1_TxDesc_Ring_Length)  `p3981`
+      - 75.17.273 DMA Channel 1 Rx Descriptor Ring Length (DMA_CH1_RxDesc_Ring_Length)  `p3982`
+      - 75.17.274 DMA Channel 1 Interrupt Enable (DMA_CH1_Interrupt_Enable)  `p3983`
+      - 75.17.275 DMA Channel 1 Rx Interrupt Watchdog Timer (DMA_CH1_Rx_Interrupt_Watchdog_Timer)  `p3986`
+      - 75.17.276 DMA Channel 1 Slot Function Control Status (DMA_CH1_Slot_Function_Control_Status)  `p3988`
+      - 75.17.277 DMA Channel 1 Current Application Transmit Descriptor (DMA_CH1_Current_App_TxDesc)  `p3989`
+      - 75.17.278 DMA Channel 1 Current Application Receive Descriptor (DMA_CH1_Current_App_RxDesc)  `p3990`
+      - 75.17.279 DMA Channel 1 Current Application Transmit Buffer (DMA_CH1_Current_App_TxBuffer)  `p3991`
+      - 75.17.280 DMA Channel 1 Current Application Receive Buffer (DMA_CH1_Current_App_RxBuffer)  `p3992`
+      - 75.17.281 DMA Channel 1 Status (DMA_CH1_Status)  `p3992`
+      - 75.17.282 DMA Channel 1 Miss Frame Counter (DMA_CH1_Miss_Frame_Cnt)  `p3998`
+      - 75.17.283 DMA Channel 1 Rx Parser Accept Count (DMA_CH1_RXP_Accept_Cnt)  `p3999`
+      - 75.17.284 DMA Channel 1 Rx ERI Count (DMA_CH1_RX_ERI_Cnt)  `p4000`
+    - 75.18 Glossary  `p4001`
+  - 76 Gigabit Ethernet Media Access Controller (GMAC)  `p4003`
+    - 76.1 Chip-specific GMAC information  `p4003`
+      - 76.1.1 GMAC instances and configuration  `p4003`
+    - 76.2 Introduction  `p4007`
+      - 76.2.1 Features  `p4007`
+      - 76.2.2 Functional block diagram  `p4008`
+    - 76.3 Architecture  `p4009`
+      - 76.3.1 AHB master and CSR slave (APB3) interface  `p4009`
+      - 76.3.2 DMA inclusions  `p4010`
+        - 76.3.2.1 DMA controller bus burst access  `p4010`
+        - 76.3.2.2 DMA application data buffer alignment  `p4011`
+        - 76.3.2.3 DMA buffer size calculations  `p4011`
+        - 76.3.2.4 DMA arbiter  `p4011`
+      - 76.3.3 MTL  `p4012`
+        - 76.3.3.1 Transmit path  `p4012`
+          - 76.3.3.1.1 Transmit control word  `p4012`
+          - 76.3.3.1.2 Transmit operation  `p4012`
+          - 76.3.3.1.3 Initialization flow  `p4013`
+        - 76.3.3.2 Receive path  `p4013`
+          - 76.3.3.2.1 Receive operation  `p4013`
+            - 76.3.3.2.1.1 Threshold mode  `p4013`
+            - 76.3.3.2.1.2 Store-and-Forward mode  `p4013`
+          - 76.3.3.2.2 Multi-packet receive operation  `p4013`
+          - 76.3.3.2.3 Error handling in receive operation  `p4014`
+      - 76.3.4 MAC  `p4014`
+        - 76.3.4.1 MAC transmission  `p4014`
+        - 76.3.4.2 MAC reception  `p4015`
+      - 76.3.5 Interrupts  `p4015`
+    - 76.4 Signal descriptions  `p4018`
+      - 76.4.1 Module signals  `p4018`
+    - 76.5 Using PHY interfaces  `p4022`
+    - 76.6 VLAN and double VLAN insertion, deletion, replacement and tagging  `p4022`
+      - 76.6.1 Double VLAN processing  `p4023`
+        - 76.6.1.1 Transmit path  `p4023`
+        - 76.6.1.2 Receive path  `p4024`
+        - 76.6.1.3 Source address and VLAN insertion, replacement, or deletion  `p4024`
+        - 76.6.1.4 Programming source address insertion or replacement  `p4024`
+        - 76.6.1.5 Programming VLAN insertion, replacement, or deletion  `p4024`
+    - 76.7 Packet Filtering  `p4025`
+      - 76.7.1 Source address or destination address filtering  `p4026`
+        - 76.7.1.1 Unicast destination address filtering  `p4026`
+        - 76.7.1.2 Multicast destination address filtering  `p4027`
+        - 76.7.1.3 Hash or perfect address filtering  `p4027`
+        - 76.7.1.4 Broadcast address filtering  `p4027`
+        - 76.7.1.5 Unicast source address filtering  `p4027`
+        - 76.7.1.6 Inverse filtering  `p4027`
+      - 76.7.2 VLAN filtering  `p4029`
+      - 76.7.3 VLAN filter fail packets queue  `p4030`
+      - 76.7.4 Extended receive VLAN filtering and routing  `p4030`
+        - 76.7.4.1 Comparison mode  `p4030`
+        - 76.7.4.2 Filtering  `p4030`
+        - 76.7.4.3 Filter status  `p4031`
+        - 76.7.4.4 Stripping  `p4033`
+      - 76.7.5 Layer 3 and layer 4 filtering  `p4034`
+      - 76.7.6 Flexible receive parser  `p4034`
+        - 76.7.6.1 Instruction table format of the flexible receive parser  `p4035`
+        - 76.7.6.2 Number of valid entries (NVE)  `p4037`
+        - 76.7.6.3 Number of parsable entries (NPE)  `p4038`
+        - 76.7.6.4 Frame offset  `p4038`
+        - 76.7.6.5 Frame reject  `p4038`
+        - 76.7.6.6 Out of order processing  `p4038`
+        - 76.7.6.7 DMA channel selection  `p4038`
+        - 76.7.6.8 Receive queue selection  `p4038`
+        - 76.7.6.9 MAC packet filtering/drop/error handling  `p4039`
+        - 76.7.6.10 Pad strip or CRC strip handling  `p4039`
+        - 76.7.6.11 VLAN strip handling  `p4039`
+        - 76.7.6.12 Multicast and broadcast support  `p4039`
+        - 76.7.6.13 Pre-emption support  `p4039`
+        - 76.7.6.14 Software access to the flexible receive parser memory  `p4040`
+        - 76.7.6.15 Statistical counters  `p4040`
+        - 76.7.6.16 Changing the instruction table by software  `p4040`
+        - 76.7.6.17 Receive cut-through functionality  `p4040`
+        - 76.7.6.18 Receive packet drop indication  `p4040`
+        - 76.7.6.19 Runt packet handling  `p4040`
+        - 76.7.6.20 Uncorrectable ECC error handling  `p4040`
+    - 76.8 IEEE 1588 timestamp support  `p4041`
+      - 76.8.1 Delay request-response mechanism  `p4041`
+      - 76.8.2 Peer-to-peer PTP transparent clock (P2P TC) message support  `p4042`
+      - 76.8.3 Timestamp correction  `p4042`
+        - 76.8.3.1 Ingress correction  `p4043`
+        - 76.8.3.2 Egress correction  `p4043`
+        - 76.8.3.3 Frequency range of reference timing clock  `p4044`
+        - 76.8.3.4 PTP processing and control  `p4044`
+      - 76.8.4 Transmit path functions  `p4045`
+      - 76.8.5 Receive path functions  `p4046`
+      - 76.8.6 IEEE 1588 system time source  `p4046`
+      - 76.8.7 IEEE 1588 higher word register  `p4047`
+      - 76.8.8 Flexible pulse-per-second output  `p4047`
+      - 76.8.9 Media clock generation and recovery  `p4047`
+        - 76.8.9.1 Presentation time counter  `p4048`
+        - 76.8.9.2 Comparator modules  `p4048`
+        - 76.8.9.3 Media clock generation and recovery flow  `p4049`
+      - 76.8.10 One step timestamp  `p4050`
+      - 76.8.11 IEEE 1588 sub nanoseconds timestamp  `p4050`
+    - 76.9 Multiple channels and queues support  `p4051`
+      - 76.9.1 Multiple queues and channels support in the transmit path  `p4052`
+      - 76.9.2 Multiple queues and channels support in the receive path  `p4053`
+      - 76.9.3 Rx queue to DMA mapping  `p4053`
+        - 76.9.3.1 Static mapping  `p4053`
+        - 76.9.3.2 Dynamic (per packet) mapping  `p4054`
+          - 76.9.3.2.1 Broadcast/multicast packet duplication  `p4054`
+      - 76.9.4 Selection of tag priorities assigned to receive queues  `p4054`
+      - 76.9.5 Receive side routing from MAC to queues  `p4055`
+      - 76.9.6 Receive side arbitration between DMA and MTL  `p4056`
+      - 76.9.7 Transit side arbitration between DMA and MTL  `p4056`
+      - 76.9.8 Audio video bridging  `p4056`
+      - 76.9.9 Data Centre Bridging  `p4056`
+      - 76.9.10 Queue modes  `p4057`
+      - 76.9.11 Queue priorities  `p4057`
+      - 76.9.12 Enhancements to scheduled traffic (EST)  `p4057`
+        - 76.9.12.1 Frequently used terms in EST  `p4058`
+        - 76.9.12.2 Updates to the transmit scheduling to support EST  `p4058`
+          - 76.9.12.2.1 Implementation of gate control list (GCL)  `p4058`
+          - 76.9.12.2.2 Registers related to gate control list  `p4060`
+            - 76.9.12.2.2.1 Base time register (BTR)  `p4060`
+            - 76.9.12.2.2.2 Cycle time register (CTR)  `p4060`
+            - 76.9.12.2.2.3 Time extension register (TER)  `p4060`
+            - 76.9.12.2.2.4 List length register (LLR)  `p4060`
+          - 76.9.12.2.3 Transmission gating implementation  `p4061`
+        - 76.9.12.3 Idle slope computation updates  `p4061`
+          - 76.9.12.3.1 Operational details of GCL  `p4061`
+          - 76.9.12.3.2 Installing a new GCL  `p4063`
+            - 76.9.12.3.2.1 New base time aligned with current schedule  `p4063`
+            - 76.9.12.3.2.2 New base time unaligned with current schedule  `p4065`
+        - 76.9.12.4 Impact of Transmit Scheduling Algorithms on EST  `p4067`
+      - 76.9.13 Frame preemption (FPE)  `p4067`
+        - 76.9.13.1 GCL Modification to Support FPE  `p4068`
+        - 76.9.13.2 Impact of Preemption on CBS  `p4068`
+        - 76.9.13.3 mPacket Format  `p4069`
+        - 76.9.13.4 Transmit Preemption  `p4071`
+          - 76.9.13.4.1 MAC Tx Preemption  `p4072`
+            - 76.9.13.4.1.1 Tx Fragment Status  `p4072`
+        - 76.9.13.5 Receive Preemption  `p4072`
+          - 76.9.13.5.1 MAC Receive Preemption  `p4073`
+            - 76.9.13.5.1.1 Data Alignment  `p4073`
+            - 76.9.13.5.1.2 MTL Receive Preemption  `p4074`
+            - 76.9.13.5.1.3 MTL Receive Arbitration  `p4074`
+        - 76.9.13.6 Verify and Respond mPackets  `p4075`
+        - 76.9.13.7 Frame Preemption and MMC Counter and Interrupt Registers  `p4075`
+          - 76.9.13.7.1 Additional Registers Associated With MMC Interrupts  `p4075`
+      - 76.9.14 Time-Based Scheduling  `p4075`
+        - 76.9.14.1 Launch time  `p4076`
+        - 76.9.14.2 Launch expiry time  `p4077`
+        - 76.9.14.3 Fetch time  `p4078`
+    - 76.10 TCP/IP Offloading Features  `p4079`
+      - 76.10.1 Transmit Checksum Offload Engine  `p4079`
+        - 76.10.1.1 IP Header Checksum Engine  `p4080`
+        - 76.10.1.2 TCP/UDP/ICMP Checksum Engine  `p4080`
+      - 76.10.2 Receive Checksum Offload Engine  `p4082`
+      - 76.10.3 Header payload split  `p4084`
+      - 76.10.4 IPv4 ARP offload engine  `p4084`
+    - 76.11 MAC Management Counters  `p4084`
+    - 76.12 Flow Control  `p4084`
+      - 76.12.1 Transmit Flow Control  `p4085`
+        - 76.12.1.1 Flow control in Full duplex mode  `p4085`
+        - 76.12.1.2 Pause Packet Control  `p4085`
+        - 76.12.1.3 Flow Control in Half-Duplex Mode  `p4085`
+        - 76.12.1.4 Enabling Transmit Flow Control  `p4086`
+      - 76.12.2 Receive Flow Control  `p4086`
+        - 76.12.2.1 Enabling Receive Flow Control  `p4086`
+    - 76.13 Loopback Mode  `p4086`
+    - 76.14 Automotive Safety Features  `p4087`
+      - 76.14.1 Error Correction Code (ECC) Protection for Memories  `p4087`
+        - 76.14.1.1 Handling the Address Mismatch  `p4087`
+        - 76.14.1.2 Diagnostic Support for the Error Management  `p4087`
+        - 76.14.1.3 ECC Error Injection Capabilities  `p4088`
+      - 76.14.2 Finite State Machine(FSM) Parity and Timeout Protection  `p4089`
+        - 76.14.2.1 FSM State Parity Protection  `p4089`
+        - 76.14.2.2 FSM Timeout Protection  `p4089`
+        - 76.14.2.3 Enabling FSM Parity and Timeout Protection  `p4090`
+      - 76.14.3 Application/CSR Interface Timeout Protection  `p4090`
+    - 76.15 Descriptors  `p4090`
+      - 76.15.1 Overview  `p4091`
+      - 76.15.2 Descriptor Structure  `p4091`
+      - 76.15.3 Transmit Descriptor  `p4092`
+        - 76.15.3.1 Transmit Normal Descriptor (Read Format)  `p4092`
+          - 76.15.3.1.1 TDES0 Normal Descriptor (Read Format)  `p4093`
+          - 76.15.3.1.2 TDES1 Normal Descriptor (Read Format)  `p4093`
+          - 76.15.3.1.3 TDES2 Normal Descriptor (Read Format)  `p4093`
+          - 76.15.3.1.4 TDES3 Normal Descriptor (Read Format)  `p4094`
+          - 76.15.3.1.5 Transmit normal descriptor (write-back format)  `p4097`
+        - 76.15.3.2 Transmit context descriptor  `p4101`
+          - 76.15.3.2.1 TDES0 context descriptor  `p4102`
+          - 76.15.3.2.2 TDES1 context descriptor  `p4102`
+          - 76.15.3.2.3 TDES2 context descriptor  `p4103`
+          - 76.15.3.2.4 TDES3 context descriptor  `p4103`
+      - 76.15.4 Receive descriptor  `p4105`
+        - 76.15.4.1 Receive normal descriptor (read format)  `p4105`
+          - 76.15.4.1.1 RDES0 normal descriptor (read format)  `p4106`
+          - 76.15.4.1.2 RDES1 normal descriptor (read format)  `p4106`
+          - 76.15.4.1.3 RDES2 normal descriptor (read format)  `p4106`
+          - 76.15.4.1.4 RDES3 normal descriptor (read format)  `p4107`
+          - 76.15.4.1.5 Receive normal descriptor (write-back format)  `p4108`
+            - 76.15.4.1.5.1 RDES0 normal descriptor (write-back format)  `p4108`
+            - 76.15.4.1.5.2 RDES1 normal descriptor (write-back format)  `p4108`
+            - 76.15.4.1.5.3 RDES2 normal descriptor (Write-back format)  `p4111`
+            - 76.15.4.1.5.4 RDES3 normal descriptor (Write-back format)  `p4113`
+          - 76.15.4.1.6 Receive context descriptor  `p4116`
+            - 76.15.4.1.6.1 RDES0 context descriptor  `p4117`
+            - 76.15.4.1.6.2 RDES1 context descriptor  `p4117`
+            - 76.15.4.1.6.3 RDES2 context descriptor  `p4117`
+            - 76.15.4.1.6.4 RDES3 context descriptor  `p4117`
+      - 76.15.5 Enhanced descriptor for time-based scheduling  `p4118`
+        - 76.15.5.1 Enhanced normal descriptor - Read (32-bit mode)  `p4118`
+        - 76.15.5.2 Enhanced normal descriptor (Write, 32-bit mode)  `p4119`
+        - 76.15.5.3 Enhanced context descriptor (Read, 32-bit mode)  `p4120`
+        - 76.15.5.4 Enhanced context descriptor (Write, 32-bit mode)  `p4121`
+    - 76.16 Programming  `p4121`
+      - 76.16.1 Initializing DMA  `p4121`
+      - 76.16.2 Initializing MTL registers  `p4122`
+      - 76.16.3 Initializing MAC  `p4123`
+      - 76.16.4 Performing normal receive and transmit operation  `p4123`
+      - 76.16.5 Stopping and starting transmission  `p4123`
+      - 76.16.6 Programming guidelines for switching to new descriptor list in RxDMA  `p4124`
+      - 76.16.7 Programming guidelines for multi-channel multi-queuing  `p4124`
+        - 76.16.7.1 Transmit  `p4124`
+        - 76.16.7.2 Receive  `p4124`
+          - 76.16.7.2.1 Programming guidelines for recovering from DMA channel failure  `p4125`
+      - 76.16.8 Programming guidelines for GMII link state transitions  `p4126`
+        - 76.16.8.1 Transmit and receive clocks running when link down  `p4126`
+        - 76.16.8.2 Transmit and receive clocks stopped when link down  `p4126`
+      - 76.16.9 Programming guidelines for IEEE 1588 timestamping  `p4126`
+        - 76.16.9.1 Initialization guidelines for system time generation  `p4126`
+        - 76.16.9.2 System time correction  `p4127`
+          - 76.16.9.2.1 Coarse correction method  `p4127`
+          - 76.16.9.2.2 Fine correction method  `p4127`
+      - 76.16.10 Programming guidelines for AV feature  `p4127`
+        - 76.16.10.1 Initializing the DMA in audio video feature  `p4128`
+        - 76.16.10.2 Enabling slot number checking  `p4128`
+        - 76.16.10.3 Enabling average bits per slot reporting  `p4129`
+        - 76.16.10.4 Disabling flow control for AV enabled queues  `p4129`
+          - 76.16.10.4.1 Transmit flow  `p4129`
+          - 76.16.10.4.2 Receive flow control  `p4129`
+        - 76.16.10.5 Programming guidelines for flexible pulse-per-second output  `p4129`
+          - 76.16.10.5.1 Generating single pulse on PPS  `p4129`
+          - 76.16.10.5.2 Generating next pulse on PPS  `p4130`
+          - 76.16.10.5.3 Generating a pulse train on PPS  `p4130`
+          - 76.16.10.5.4 Generating an interrupt without affecting the PPS  `p4130`
+        - 76.16.10.6 Programming guidelines for VLAN filtering on receive  `p4131`
+        - 76.16.10.7 Programming guidelines for extended VLAN filtering and routing on receive  `p4131`
+        - 76.16.10.8 Programming sequence for queue/channel based VLAN inclusion register  `p4131`
+      - 76.16.11 Programming guidelines for EST  `p4132`
+        - 76.16.11.1 Programming the GCL and GCL linked registers  `p4132`
+        - 76.16.11.2 Programming the EST registers  `p4133`
+      - 76.16.12 Programming the launch time in time-based scheduling  `p4133`
+      - 76.16.13 Programming guidelines for media clock generation and recovery  `p4134`
+        - 76.16.13.1 Programming guidelines for media clock generation  `p4134`
+        - 76.16.13.2 Programming guidelines for media clock recovery  `p4134`
+      - 76.16.14 Programming guidelines for ECC protection for memories  `p4134`
+        - 76.16.14.1 Programming guidelines for ECC hardware error injection (Debug mode)  `p4134`
+      - 76.16.15 Programming guidelines for on-chip datapath parity protection  `p4135`
+      - 76.16.16 Programming guidelines for FSM parity and timeout  `p4135`
+    - 76.17 GMAC register descriptions  `p4135`
+      - 76.17.1 GMAC memory map  `p4136`
+      - 76.17.2 MAC Configuration (MAC_Configuration)  `p4151`
+      - 76.17.3 MAC Extended Configuration (MAC_Ext_Configuration)  `p4157`
+      - 76.17.4 MAC Packet Filter (MAC_Packet_Filter)  `p4160`
+      - 76.17.5 MAC Watchdog Timeout (MAC_Watchdog_Timeout)  `p4163`
+      - 76.17.6 MAC Hash Table First 32 Bits (MAC_Hash_Table_Reg0)  `p4165`
+      - 76.17.7 MAC Hash Table Second 32 Bits (MAC_Hash_Table_Reg1)  `p4166`
+      - 76.17.8 MAC Hash Table Third 32 Bits (MAC_Hash_Table_Reg2)  `p4167`
+      - 76.17.9 MAC Hash Table Fourth 32 Bits (MAC_Hash_Table_Reg3)  `p4168`
+      - 76.17.10 MAC Hash Table Fifth 32 Bits (MAC_Hash_Table_Reg4)  `p4169`
+      - 76.17.11 MAC Hash Table Sixth 32 Bits (MAC_Hash_Table_Reg5)  `p4170`
+      - 76.17.12 MAC Hash Table Seventh 32 Bits (MAC_Hash_Table_Reg6)  `p4171`
+      - 76.17.13 MAC Hash Table Eighth 32 Bits (MAC_Hash_Table_Reg7)  `p4173`
+      - 76.17.14 MAC VLAN Tag Control (MAC_VLAN_Tag_Ctrl)  `p4174`
+      - 76.17.15 MAC VLAN Tag Data (MAC_VLAN_Tag_Data)  `p4177`
+      - 76.17.16 MAC VLAN Tag Filter 0 (MAC_VLAN_Tag_Filter0)  `p4179`
+      - 76.17.17 MAC VLAN Tag Filter 1 (MAC_VLAN_Tag_Filter1)  `p4181`
+      - 76.17.18 MAC VLAN Tag Filter 10 (MAC_VLAN_Tag_Filter10)  `p4183`
+      - 76.17.19 MAC VLAN Tag Filter 11 (MAC_VLAN_Tag_Filter11)  `p4185`
+      - 76.17.20 MAC VLAN Tag Filter 12 (MAC_VLAN_Tag_Filter12)  `p4187`
+      - 76.17.21 MAC VLAN Tag Filter 13 (MAC_VLAN_Tag_Filter13)  `p4189`
+      - 76.17.22 MAC VLAN Tag Filter 14 (MAC_VLAN_Tag_Filter14)  `p4191`
+      - 76.17.23 MAC VLAN Tag Filter 15 (MAC_VLAN_Tag_Filter15)  `p4193`
+      - 76.17.24 MAC VLAN Tag Filter 16 (MAC_VLAN_Tag_Filter16)  `p4195`
+      - 76.17.25 MAC VLAN Tag Filter 17 (MAC_VLAN_Tag_Filter17)  `p4197`
+      - 76.17.26 MAC VLAN Tag Filter 18 (MAC_VLAN_Tag_Filter18)  `p4199`
+      - 76.17.27 MAC VLAN Tag Filter 19 (MAC_VLAN_Tag_Filter19)  `p4201`
+      - 76.17.28 MAC VLAN Tag Filter 2 (MAC_VLAN_Tag_Filter2)  `p4203`
+      - 76.17.29 MAC VLAN Tag Filter 20 (MAC_VLAN_Tag_Filter20)  `p4205`
+      - 76.17.30 MAC VLAN Tag Filter 21 (MAC_VLAN_Tag_Filter21)  `p4207`
+      - 76.17.31 MAC VLAN Tag Filter 22 (MAC_VLAN_Tag_Filter22)  `p4209`
+      - 76.17.32 MAC VLAN Tag Filter 23 (MAC_VLAN_Tag_Filter23)  `p4211`
+      - 76.17.33 MAC VLAN Tag Filter 24 (MAC_VLAN_Tag_Filter24)  `p4213`
+      - 76.17.34 MAC VLAN Tag Filter 25 (MAC_VLAN_Tag_Filter25)  `p4215`
+      - 76.17.35 MAC VLAN Tag Filter 26 (MAC_VLAN_Tag_Filter26)  `p4217`
+      - 76.17.36 MAC VLAN Tag Filter 27 (MAC_VLAN_Tag_Filter27)  `p4219`
+      - 76.17.37 MAC VLAN Tag Filter 28 (MAC_VLAN_Tag_Filter28)  `p4221`
+      - 76.17.38 MAC VLAN Tag Filter 29 (MAC_VLAN_Tag_Filter29)  `p4223`
+      - 76.17.39 MAC VLAN Tag Filter 3 (MAC_VLAN_Tag_Filter3)  `p4225`
+      - 76.17.40 MAC VLAN Tag Filter 30 (MAC_VLAN_Tag_Filter30)  `p4227`
+      - 76.17.41 MAC VLAN Tag Filter 31 (MAC_VLAN_Tag_Filter31)  `p4229`
+      - 76.17.42 MAC VLAN Tag Filter 4 (MAC_VLAN_Tag_Filter4)  `p4231`
+      - 76.17.43 MAC VLAN Tag Filter 5 (MAC_VLAN_Tag_Filter5)  `p4233`
+      - 76.17.44 MAC VLAN Tag Filter 6 (MAC_VLAN_Tag_Filter6)  `p4235`
+      - 76.17.45 MAC VLAN Tag Filter 7 (MAC_VLAN_Tag_Filter7)  `p4237`
+      - 76.17.46 MAC VLAN Tag Filter 8 (MAC_VLAN_Tag_Filter8)  `p4239`
+      - 76.17.47 MAC VLAN Tag Filter 9 (MAC_VLAN_Tag_Filter9)  `p4241`
+      - 76.17.48 MAC VLAN Hash Table (MAC_VLAN_Hash_Table)  `p4243`
+      - 76.17.49 MAC VLAN Inclusion Or Replacement (MAC_VLAN_Incl)  `p4244`
+      - 76.17.50 MAC VLAN Inclusion 0 (MAC_VLAN_Incl0)  `p4247`
+      - 76.17.51 MAC VLAN Inclusion 1 (MAC_VLAN_Incl1)  `p4248`
+      - 76.17.52 MAC VLAN Inclusion 2 (MAC_VLAN_Incl2)  `p4249`
+      - 76.17.53 MAC VLAN Inclusion 3 (MAC_VLAN_Incl3)  `p4250`
+      - 76.17.54 MAC VLAN Inclusion 4 (MAC_VLAN_Incl4)  `p4251`
+      - 76.17.55 MAC VLAN Inclusion 5 (MAC_VLAN_Incl5)  `p4252`
+      - 76.17.56 MAC VLAN Inclusion 6 (MAC_VLAN_Incl6)  `p4253`
+      - 76.17.57 MAC VLAN Inclusion 7 (MAC_VLAN_Incl7)  `p4254`
+      - 76.17.58 Inner VLAN Tag Inclusion Or Replacement (MAC_Inner_VLAN_Incl)  `p4255`
+      - 76.17.59 MAC Q0 Tx Flow Control (MAC_Q0_Tx_Flow_Ctrl)  `p4257`
+      - 76.17.60 MAC Q1 Tx Flow Control (MAC_Q1_Tx_Flow_Ctrl)  `p4259`
+      - 76.17.61 MAC Q2 Tx Flow Control (MAC_Q2_Tx_Flow_Ctrl)  `p4261`
+      - 76.17.62 MAC Receive Flow Control (MAC_Rx_Flow_Ctrl)  `p4263`
+      - 76.17.63 MAC Rx Queue Control 4 (MAC_RxQ_Ctrl4)  `p4264`
+      - 76.17.64 MAC Tx Queue Parity Map 0 (MAC_TxQ_Prty_Map0)  `p4266`
+      - 76.17.65 MAC Rx Queue Control 0 (MAC_RxQ_Ctrl0)  `p4267`
+      - 76.17.66 MAC Rx Queue Control 1 (MAC_RxQ_Ctrl1)  `p4269`
+      - 76.17.67 MAC Rx Queue Control 2 (MAC_RxQ_Ctrl2)  `p4272`
+      - 76.17.68 MAC Interrupt Status (MAC_Interrupt_Status)  `p4274`
+      - 76.17.69 MAC Interrupt Enable (MAC_Interrupt_Enable)  `p4277`
+      - 76.17.70 MAC Rx Transmit Status (MAC_Rx_Tx_Status)  `p4280`
+      - 76.17.71 MAC Physical Interface Control Status (MAC_PHYIF_Control_Status)  `p4282`
+      - 76.17.72 MAC Version (MAC_Version)  `p4284`
+      - 76.17.73 MAC Debug (MAC_Debug)  `p4285`
+      - 76.17.74 MAC Hardware Feature 0 (MAC_HW_Feature0)  `p4286`
+      - 76.17.75 MAC Hardware Feature 1 (MAC_HW_Feature1)  `p4290`
+      - 76.17.76 MAC Hardware Feature 2 (MAC_HW_Feature2)  `p4294`
+      - 76.17.77 MAC Hardware Feature 3 (MAC_HW_Feature3)  `p4297`
+      - 76.17.78 MAC DPP FSM Interrupt Status (MAC_DPP_FSM_Interrupt_Status)  `p4301`
+      - 76.17.79 MAC FSM Control (MAC_FSM_Control)  `p4305`
+      - 76.17.80 MAC FSM ACT Timer (MAC_FSM_ACT_Timer)  `p4308`
+      - 76.17.81 SCS REG 1 (SCS_REG1)  `p4310`
+      - 76.17.82 MAC MDIO Address (MAC_MDIO_Address)  `p4311`
+      - 76.17.83 MAC MDIO Data (MAC_MDIO_Data)  `p4314`
+      - 76.17.84 MAC ARP Address (MAC_ARP_Address)  `p4315`
+      - 76.17.85 MAC CSR Software Control (MAC_CSR_SW_Ctrl)  `p4316`
+      - 76.17.86 MAC FPE Control STS (MAC_FPE_CTRL_STS)  `p4317`
+      - 76.17.87 MAC Extended Configuration 1 (MAC_Ext_Cfg1)  `p4319`
+      - 76.17.88 MAC Presentation Time (MAC_Presn_Time_ns)  `p4320`
+      - 76.17.89 MAC Presentation Time Update (MAC_Presn_Time_Updt)  `p4321`
+      - 76.17.90 MAC Address 0 High (MAC_Address0_High)  `p4322`
+      - 76.17.91 MAC Address 0 Low (MAC_Address0_Low)  `p4323`
+      - 76.17.92 MAC Address 1 High (MAC_Address1_High)  `p4324`
+      - 76.17.93 MAC Address 1 Low (MAC_Address1_Low)  `p4325`
+      - 76.17.94 MAC Address 2 High (MAC_Address2_High)  `p4326`
+      - 76.17.95 MAC Address 2 Low (MAC_Address2_Low)  `p4327`
+      - 76.17.96 MMC Control (MMC_Control)  `p4328`
+      - 76.17.97 MMC Receive Interrupt (MMC_Rx_Interrupt)  `p4330`
+      - 76.17.98 MMC Transmit Interrupt (MMC_Tx_Interrupt)  `p4335`
+      - 76.17.99 MMC Receive Interrupt Mask (MMC_Rx_Interrupt_Mask)  `p4340`
+      - 76.17.100 MMC Transmit Interrupt Mask (MMC_Tx_Interrupt_Mask)  `p4345`
+      - 76.17.101 Transmit Octet Count Good Bad (Tx_Octet_Count_Good_Bad)  `p4350`
+      - 76.17.102 Transmit Packet Count Good Bad (Tx_Packet_Count_Good_Bad)  `p4351`
+      - 76.17.103 Transmit Broadcast Packets Good (Tx_Broadcast_Packets_Good)  `p4351`
+      - 76.17.104 Transmit Multicast Packets Good (Tx_Multicast_Packets_Good)  `p4352`
+      - 76.17.105 Transmit 64-Octet Packets Good Bad (Tx_64Octets_Packets_Good_Bad)  `p4353`
+      - 76.17.106 Transmit 65 to 127 Octet Packets Good Bad (Tx_65To127Octets_Packets_Good_Bad)  `p4354`
+      - 76.17.107 Transmit 128 to 255 Octet Packets Good Bad (Tx_128To255Octets_Packets_Good_Bad)  `p4354`
+      - 76.17.108 Transmit 256 to 511 Octet Packets Good Bad (Tx_256To511Octets_Packets_Good_Bad)  `p4355`
+      - 76.17.109 Transmit 512 to 1023 Octet Packets Good Bad (Tx_512To1023Octets_Packets_Good_Bad)  `p4356`
+      - 76.17.110 Transmit 1024 to Max Octet Packets Good Bad (Tx_1024ToMaxOctets_Packets_Good_Bad)  `p4357`
+      - 76.17.111 Transmit Unicast Packets Good Bad (Tx_Unicast_Packets_Good_Bad)  `p4357`
+      - 76.17.112 Transmit Multicast Packets Good Bad (Tx_Multicast_Packets_Good_Bad)  `p4358`
+      - 76.17.113 Transmit Broadcast Packets Good Bad (Tx_Broadcast_Packets_Good_Bad)  `p4359`
+      - 76.17.114 Transmit Underflow Error Packets (Tx_Underflow_Error_Packets)  `p4359`
+      - 76.17.115 Transmit Single Collision Good Packets (Tx_Single_Collision_Good_Packets)  `p4360`
+      - 76.17.116 Transmit Multiple Collision Good Packets (Tx_Multiple_Collision_Good_Packets)  `p4361`
+      - 76.17.117 Transmit Deferred Packets (Tx_Deferred_Packets)  `p4362`
+      - 76.17.118 Transmit Late Collision Packets (Tx_Late_Collision_Packets)  `p4362`
+      - 76.17.119 Transmit Excessive Collision Packets (Tx_Excessive_Collision_Packets)  `p4363`
+      - 76.17.120 Transmit Carrier Error Packets (Tx_Carrier_Error_Packets)  `p4364`
+      - 76.17.121 Transmit Octet Count Good (Tx_Octet_Count_Good)  `p4365`
+      - 76.17.122 Transmit Packet Count Good (Tx_Packet_Count_Good)  `p4365`
+      - 76.17.123 Transmit Excessive Deferral Error (Tx_Excessive_Deferral_Error)  `p4366`
+      - 76.17.124 Transmit Pause Packets (Tx_Pause_Packets)  `p4367`
+      - 76.17.125 Transmit VLAN Packets Good (Tx_VLAN_Packets_Good)  `p4367`
+      - 76.17.126 Transmit O Size Packets Good (Tx_OSize_Packets_Good)  `p4368`
+      - 76.17.127 Receive Packets Count Good Bad (Rx_Packets_Count_Good_Bad)  `p4369`
+      - 76.17.128 Receive Octet Count Good Bad (Rx_Octet_Count_Good_Bad)  `p4370`
+      - 76.17.129 Receive Octet Count Good (Rx_Octet_Count_Good)  `p4370`
+      - 76.17.130 Receive Broadcast Packets Good (Rx_Broadcast_Packets_Good)  `p4371`
+      - 76.17.131 Receive Multicast Packets Good (Rx_Multicast_Packets_Good)  `p4372`
+      - 76.17.132 Receive CRC Error Packets (Rx_CRC_Error_Packets)  `p4372`
+      - 76.17.133 Receive Alignment Error Packets (Rx_Alignment_Error_Packets)  `p4373`
+      - 76.17.134 Receive Runt Error Packets (Rx_Runt_Error_Packets)  `p4374`
+      - 76.17.135 Receive Jabber Error Packets (Rx_Jabber_Error_Packets)  `p4375`
+      - 76.17.136 Receive Undersize Packets Good (Rx_Undersize_Packets_Good)  `p4375`
+      - 76.17.137 Receive Oversize Packets Good (Rx_Oversize_Packets_Good)  `p4376`
+      - 76.17.138 Receive 64 Octets Packets Good Bad (Rx_64Octets_Packets_Good_Bad)  `p4377`
+      - 76.17.139 Receive 65 to 127 Octets Packets Good Bad (Rx_65To127Octets_Packets_Good_Bad)  `p4378`
+      - 76.17.140 Receive 128 to 255 Octets Packets Good Bad (Rx_128To255Octets_Packets_Good_Bad)  `p4378`
+      - 76.17.141 Receive 256 to 511 Octets Packets Good Bad (Rx_256To511Octets_Packets_Good_Bad)  `p4379`
+      - 76.17.142 Receive 512 to 1023 Octets Packets Good Bad (Rx_512To1023Octets_Packets_Good_Bad)  `p4380`
+      - 76.17.143 Receive 1024 to Max Octets Packets Good Bad (Rx_1024ToMaxOctets_Packets_Good_Bad)  `p4381`
+      - 76.17.144 Receive Unicast Packets Good (Rx_Unicast_Packets_Good)  `p4381`
+      - 76.17.145 Receive Length Error Packets (Rx_Length_Error_Packets)  `p4382`
+      - 76.17.146 Receive Out of Range Type Packet (Rx_Out_Of_Range_Type_Packets)  `p4383`
+      - 76.17.147 Receive Pause Packets (Rx_Pause_Packets)  `p4384`
+      - 76.17.148 Receive FIFO Overflow Packets (Rx_FIFO_Overflow_Packets)  `p4384`
+      - 76.17.149 Receive VLAN Packets Good Bad (Rx_VLAN_Packets_Good_Bad)  `p4385`
+      - 76.17.150 Receive Watchdog Error Packets (Rx_Watchdog_Error_Packets)  `p4386`
+      - 76.17.151 Receive Error Packets (Rx_Receive_Error_Packets)  `p4387`
+      - 76.17.152 Receive Control Packets Good (Rx_Control_Packets_Good)  `p4387`
+      - 76.17.153 MMC Transmit FPE Fragment Counter Interrupt Status (MMC_FPE_Tx_Interrupt)  `p4388`
+      - 76.17.154 MMC FPE Transmit Interrupt Mask (MMC_FPE_Tx_Interrupt_Mask)  `p4389`
+      - 76.17.155 Transmit FPE Fragment Counter (MMC_Tx_FPE_Fragment_Cntr)  `p4390`
+      - 76.17.156 Transmit Hold Request Counter (MMC_Tx_Hold_Req_Cntr)  `p4391`
+      - 76.17.157 MMC Receive Packet Assembly Error Counter Interrupt Status (MMC_FPE_Rx_Interrupt)  `p4392`
+      - 76.17.158 MMC FPE Receive Interrupt Mask (MMC_FPE_Rx_Interrupt_Mask)  `p4393`
+      - 76.17.159 MMC Receive Packet Assembly Error Counter (MMC_Rx_Packet_Assembly_Err_Cntr)  `p4395`
+      - 76.17.160 MMC Receive Packet SMD Error Counter (MMC_Rx_Packet_SMD_Err_Cntr)  `p4396`
+      - 76.17.161 MMC Receive Packet Assembly OK Counter (MMC_Rx_Packet_Assembly_OK_Cntr)  `p4396`
+      - 76.17.162 MMC Receive FPE Fragment Counter (MMC_Rx_FPE_Fragment_Cntr)  `p4397`
+      - 76.17.163 MAC Layer 3 Layer 4 Control 0 (MAC_L3_L4_Control0)  `p4398`
+      - 76.17.164 MAC Layer 4 Address 0 (MAC_Layer4_Address0)  `p4401`
+      - 76.17.165 MAC Layer 3 Address 0 Reg 0 (MAC_Layer3_Addr0_Reg0)  `p4402`
+      - 76.17.166 MAC Layer 3 Address 1 Reg 0 (MAC_Layer3_Addr1_Reg0)  `p4403`
+      - 76.17.167 MAC Layer 3 Address 2 Reg 0 (MAC_Layer3_Addr2_Reg0)  `p4404`
+      - 76.17.168 MAC Layer 3 Address 3 Reg 0 (MAC_Layer3_Addr3_Reg0)  `p4405`
+      - 76.17.169 MAC Layer 3 Layer 4 Control 1 (MAC_L3_L4_Control1)  `p4406`
+      - 76.17.170 MAC Layer 4 Address 1 (MAC_Layer4_Address1)  `p4409`
+      - 76.17.171 MAC Layer 3 Address 0 Reg 1 (MAC_Layer3_Addr0_Reg1)  `p4410`
+      - 76.17.172 MAC Layer 3 Address 1 Reg 1 (MAC_Layer3_Addr1_Reg1)  `p4411`
+      - 76.17.173 MAC Layer 3 Address 2 Reg 1 (MAC_Layer3_Addr2_Reg1)  `p4412`
+      - 76.17.174 MAC Layer 3 Address 3 Reg 1 (MAC_Layer3_Addr3_Reg1)  `p4413`
+      - 76.17.175 MAC Layer 3 Layer 4 Control 2 (MAC_L3_L4_Control2)  `p4414`
+      - 76.17.176 MAC Layer 4 Address 2 (MAC_Layer4_Address2)  `p4417`
+      - 76.17.177 MAC Layer 3 Address 0 Reg 2 (MAC_Layer3_Addr0_Reg2)  `p4418`
+      - 76.17.178 MAC Layer 3 Address 1 Reg 2 (MAC_Layer3_Addr1_Reg2)  `p4419`
+      - 76.17.179 MAC Layer 3 Address 2 Reg 2 (MAC_Layer3_Addr2_Reg2)  `p4420`
+      - 76.17.180 MAC Layer 3 Address 3 Reg 2 (MAC_Layer3_Addr3_Reg2)  `p4421`
+      - 76.17.181 MAC Layer 3 Layer 4 Control 3 (MAC_L3_L4_Control3)  `p4422`
+      - 76.17.182 MAC Layer 4 Address 3 (MAC_Layer4_Address3)  `p4425`
+      - 76.17.183 MAC Layer 3 Address 0 Reg 3 (MAC_Layer3_Addr0_Reg3)  `p4426`
+      - 76.17.184 MAC Layer 3 Address 1 Reg 3 (MAC_Layer3_Addr1_Reg3)  `p4427`
+      - 76.17.185 MAC Layer 3 Address 2 Reg 3 (MAC_Layer3_Addr2_Reg3)  `p4428`
+      - 76.17.186 MAC Layer 3 Address 3 Reg 3 (MAC_Layer3_Addr3_Reg3)  `p4429`
+      - 76.17.187 MAC Layer 3 Layer 4 Control 4 (MAC_L3_L4_Control4)  `p4430`
+      - 76.17.188 MAC Layer 4 Address 4 (MAC_Layer4_Address4)  `p4433`
+      - 76.17.189 MAC Layer 3 Address 0 Reg 4 (MAC_Layer3_Addr0_Reg4)  `p4434`
+      - 76.17.190 MAC Layer 3 Address 1 Reg 4 (MAC_Layer3_Addr1_Reg4)  `p4435`
+      - 76.17.191 MAC Layer 3 Address 2 Reg 4 (MAC_Layer3_Addr2_Reg4)  `p4436`
+      - 76.17.192 MAC Layer 3 Address 3 Reg 4 (MAC_Layer3_Addr3_Reg4)  `p4437`
+      - 76.17.193 MAC Layer 3 Layer 4 Control 5 (MAC_L3_L4_Control5)  `p4438`
+      - 76.17.194 MAC Layer 4 Address 5 (MAC_Layer4_Address5)  `p4441`
+      - 76.17.195 MAC Layer 3 Address 0 Reg 5 (MAC_Layer3_Addr0_Reg5)  `p4442`
+      - 76.17.196 MAC Layer 3 Address 1 Reg 5 (MAC_Layer3_Addr1_Reg5)  `p4443`
+      - 76.17.197 MAC Layer 3 Address 2 Reg 5 (MAC_Layer3_Addr2_Reg5)  `p4444`
+      - 76.17.198 MAC Layer 3 Address 3 Reg 5 (MAC_Layer3_Addr3_Reg5)  `p4445`
+      - 76.17.199 MAC Layer 3 Layer 4 Control 6 (MAC_L3_L4_Control6)  `p4446`
+      - 76.17.200 MAC Layer 4 Address 6 (MAC_Layer4_Address6)  `p4449`
+      - 76.17.201 MAC Layer 3 Address 0 Reg 6 (MAC_Layer3_Addr0_Reg6)  `p4450`
+      - 76.17.202 MAC Layer 3 Address 1 Reg 6 (MAC_Layer3_Addr1_Reg6)  `p4451`
+      - 76.17.203 MAC Layer 3 Address 2 Reg 6 (MAC_Layer3_Addr2_Reg6)  `p4452`
+      - 76.17.204 MAC Layer 3 Address 3 Reg 6 (MAC_Layer3_Addr3_Reg6)  `p4453`
+      - 76.17.205 MAC Layer 3 Layer 4 Control 7 (MAC_L3_L4_Control7)  `p4454`
+      - 76.17.206 MAC Layer 4 Address 7 (MAC_Layer4_Address7)  `p4457`
+      - 76.17.207 MAC Layer 3 Address 0 Reg 7 (MAC_Layer3_Addr0_Reg7)  `p4458`
+      - 76.17.208 MAC Layer 3 Address 1 Reg 7 (MAC_Layer3_Addr1_Reg7)  `p4459`
+      - 76.17.209 MAC Layer 3 Address 2 Reg 7 (MAC_Layer3_Addr2_Reg7)  `p4460`
+      - 76.17.210 MAC Layer 3 Address 3 Reg 7 (MAC_Layer3_Addr3_Reg7)  `p4461`
+      - 76.17.211 MAC Indirect Access Control (MAC_Indir_Access_Ctrl)  `p4462`
+      - 76.17.212 MAC Indirect Access Data (MAC_Indir_Access_Data)  `p4463`
+      - 76.17.213 MAC TMR Queue Regs 0 (MAC_TMRQ_Regs0)  `p4464`
+      - 76.17.214 MAC TMR Queue Regs 1 (MAC_TMRQ_Regs1)  `p4465`
+      - 76.17.215 MAC TMR Queue Regs 2 (MAC_TMRQ_Regs2)  `p4466`
+      - 76.17.216 MAC TMR Queue Regs 3 (MAC_TMRQ_Regs3)  `p4467`
+      - 76.17.217 MAC TMR Queue Regs 4 (MAC_TMRQ_Regs4)  `p4468`
+      - 76.17.218 MAC TMR Queue Regs 5 (MAC_TMRQ_Regs5)  `p4469`
+      - 76.17.219 MAC TMR Queue Regs 6 (MAC_TMRQ_Regs6)  `p4470`
+      - 76.17.220 MAC TMR Queue Regs 7 (MAC_TMRQ_Regs7)  `p4471`
+      - 76.17.221 MAC Timestamp Control (MAC_Timestamp_Control)  `p4472`
+      - 76.17.222 MAC Sub Second Increment (MAC_Sub_Second_Increment)  `p4477`
+      - 76.17.223 MAC System Time In Seconds (MAC_System_Time_Seconds)  `p4478`
+      - 76.17.224 MAC System Time In Nanoseconds (MAC_System_Time_Nanoseconds)  `p4478`
+      - 76.17.225 MAC System Time Seconds Update (MAC_System_Time_Seconds_Update)  `p4479`
+      - 76.17.226 MAC System Time Nanoseconds Update (MAC_System_Time_Nanoseconds_Update)  `p4480`
+      - 76.17.227 MAC Timestamp Addend (MAC_Timestamp_Addend)  `p4481`
+      - 76.17.228 MAC System Time Higher Word In Seconds (MAC_System_Time_Higher_Word_Seconds)  `p4482`
+      - 76.17.229 MAC Timestamp Status (MAC_Timestamp_Status)  `p4483`
+      - 76.17.230 MAC Transmit Timestamp Status In Nanoseconds (MAC_Tx_Timestamp_Status_Nanoseconds)  `p4486`
+      - 76.17.231 MAC Transmit Timestamp Status In Seconds (MAC_Tx_Timestamp_Status_Seconds)  `p4487`
+      - 76.17.232 MAC Timestamp Ingress Asymmetry Correction (MAC_Timestamp_Ingress_Asym_Corr)  `p4488`
+      - 76.17.233 MAC Timestamp Egress Asymmetry Correction (MAC_Timestamp_Egress_Asym_Corr)  `p4489`
+      - 76.17.234 MAC Timestamp Ingress Correction In Nanoseconds (MAC_Timestamp_Ingress_Corr_Nanosecond)  `p4490`
+      - 76.17.235 MAC Timestamp Egress Correction In Nanoseconds (MAC_Timestamp_Egress_Corr_Nanosecond)  `p4490`
+      - 76.17.236 MAC Timestamp Ingress Correction In Subnanoseconds (MAC_Timestamp_Ingress_Corr_Subnanosec)  `p4491`
+      - 76.17.237 MAC Timestamp Egress Correction In Subnanoseconds (MAC_Timestamp_Egress_Corr_Subnanosec)  `p4492`
+      - 76.17.238 MAC Timestamp Ingress Latency (MAC_Timestamp_Ingress_Latency)  `p4493`
+      - 76.17.239 MAC Timestamp Egress Latency (MAC_Timestamp_Egress_Latency)  `p4494`
+      - 76.17.240 MAC PPS Control (MAC_PPS_Control)  `p4495`
+      - 76.17.241 MAC PPS0 Target Time In Seconds (MAC_PPS0_Target_Time_Seconds)  `p4499`
+      - 76.17.242 MAC PPS0 Target Time In Nanoseconds (MAC_PPS0_Target_Time_Nanoseconds)  `p4500`
+      - 76.17.243 MAC PPS0 Interval (MAC_PPS0_Interval)  `p4501`
+      - 76.17.244 MAC PPS0 Width (MAC_PPS0_Width)  `p4502`
+      - 76.17.245 MAC PPS1 Target Time In Seconds (MAC_PPS1_Target_Time_Seconds)  `p4503`
+      - 76.17.246 MAC PPS1 Target Time In Nanoseconds (MAC_PPS1_Target_Time_Nanoseconds)  `p4504`
+      - 76.17.247 MAC PPS1 Interval (MAC_PPS1_Interval)  `p4505`
+      - 76.17.248 MAC PPS1 Width (MAC_PPS1_Width)  `p4506`
+      - 76.17.249 MAC PPS2 Target Time In Seconds (MAC_PPS2_Target_Time_Seconds)  `p4507`
+      - 76.17.250 MAC PPS2 Target Time In Nanoseconds (MAC_PPS2_Target_Time_Nanoseconds)  `p4508`
+      - 76.17.251 MAC PPS2 Interval (MAC_PPS2_Interval)  `p4509`
+      - 76.17.252 MAC PPS2 Width (MAC_PPS2_Width)  `p4510`
+      - 76.17.253 MAC PPS3 Target Time In Seconds (MAC_PPS3_Target_Time_Seconds)  `p4511`
+      - 76.17.254 MAC PPS3 Target Time In Nanoseconds (MAC_PPS3_Target_Time_Nanoseconds)  `p4512`
+      - 76.17.255 MAC PPS3 Interval (MAC_PPS3_Interval)  `p4513`
+      - 76.17.256 MAC PPS3 Width (MAC_PPS3_Width)  `p4514`
+      - 76.17.257 MTL Operation Mode (MTL_Operation_Mode)  `p4515`
+      - 76.17.258 MTL Debus Control (MTL_DBG_CTL)  `p4517`
+      - 76.17.259 MTL Debus Status (MTL_DBG_STS)  `p4521`
+      - 76.17.260 MTL FIFO Debug Data (MTL_FIFO_Debug_Data)  `p4523`
+      - 76.17.261 MTL Interrupt Status (MTL_Interrupt_Status)  `p4524`
+      - 76.17.262 MTL Receive Queue DMA Map 0 (MTL_RxQ_DMA_Map0)  `p4526`
+      - 76.17.263 MTL TBS Control (MTL_TBS_CTRL)  `p4528`
+      - 76.17.264 MTL EST Control (MTL_EST_Control)  `p4530`
+      - 76.17.265 MTL EST Extended Control (MTL_EST_Ext_Control)  `p4532`
+      - 76.17.266 MTL EST Status (MTL_EST_Status)  `p4533`
+      - 76.17.267 MTL EST Scheduling Error (MTL_EST_Sch_Error)  `p4535`
+      - 76.17.268 MTL EST Frame Size Error (MTL_EST_Frm_Size_Error)  `p4536`
+      - 76.17.269 MTL EST Frame Size Capture (MTL_EST_Frm_Size_Capture)  `p4536`
+      - 76.17.270 MTL EST Interrupt Enable (MTL_EST_Intr_Enable)  `p4537`
+      - 76.17.271 MTL EST GCL Control (MTL_EST_GCL_Control)  `p4539`
+      - 76.17.272 MTL EST GCL Data (MTL_EST_GCL_Data)  `p4541`
+      - 76.17.273 MTL FPE Control Status (MTL_FPE_CTRL_STS)  `p4542`
+      - 76.17.274 MTL FPE Advance (MTL_FPE_Advance)  `p4543`
+      - 76.17.275 MTL Rx Parser Control Status (MTL_RXP_Control_Status)  `p4544`
+      - 76.17.276 MTL Rx Parser Interrupt Control Status (MTL_RXP_Interrupt_Control_Status)  `p4546`
+      - 76.17.277 MTL Rx Parser Drop Count (MTL_RXP_Drop_Cnt)  `p4548`
+      - 76.17.278 MTL Rx Parser Error Count (MTL_RXP_Error_Cnt)  `p4549`
+      - 76.17.279 MTL Rx Parser Indirect Access Control Status (MTL_RXP_Indirect_Acc_Control_Status)  `p4550`
+      - 76.17.280 MTL Rx Parser Indirect Access Data (MTL_RXP_Indirect_Acc_Data)  `p4552`
+      - 76.17.281 MTL Rx Parser Bypass Count (MTL_RXP_Bypass_Cnt)  `p4553`
+      - 76.17.282 MTL ECC Control (MTL_ECC_Control)  `p4553`
+      - 76.17.283 MTL Safety Interrupt Status (MTL_Safety_Interrupt_Status)  `p4555`
+      - 76.17.284 MTL ECC Interrupt Enable (MTL_ECC_Interrupt_Enable)  `p4556`
+      - 76.17.285 MTL ECC Interrupt Status (MTL_ECC_Interrupt_Status)  `p4558`
+      - 76.17.286 MTL ECC Error Status (MTL_ECC_Err_Sts_Rctl)  `p4561`
+      - 76.17.287 MTL ECC Error Address Status (MTL_ECC_Err_Addr_Status)  `p4563`
+      - 76.17.288 MTL ECC Error Control Status (MTL_ECC_Err_Cntr_Status)  `p4564`
+      - 76.17.289 MTL DPP Control (MTL_DPP_Control)  `p4565`
+      - 76.17.290 MTL DPP ECC Error Injection Channel (MTL_DPP_ECC_EIC)  `p4568`
+      - 76.17.291 MTL Tx Queue 0 Operation Mode (MTL_TxQ0_Operation_Mode)  `p4569`
+      - 76.17.292 MTL Tx Queue 0 Underflow (MTL_TxQ0_Underflow)  `p4571`
+      - 76.17.293 MTL Tx Queue 0 Debug (MTL_TxQ0_Debug)  `p4572`
+      - 76.17.294 MTL Tx Queue 0 ETS Staus (MTL_TxQ0_ETS_Status)  `p4574`
+      - 76.17.295 MTL Tx Queue 0 Quantum Weight (MTL_TxQ0_Quantum_Weight)  `p4575`
+      - 76.17.296 MTL Queue 0 Interrupt Control Status (MTL_Q0_Interrupt_Control_Status)  `p4576`
+      - 76.17.297 MTL Rx Queue 0 Operation Mode (MTL_RxQ0_Operation_Mode)  `p4578`
+      - 76.17.298 MTL Rx Queue 0 Missed Packet Overflow Count (MTL_RxQ0_Missed_Packet_Overflow_Cnt)  `p4581`
+      - 76.17.299 MTL Rx Queue 0 Debug (MTL_RxQ0_Debug)  `p4582`
+      - 76.17.300 MTL Tx Queue 0 Control (MTL_RxQ0_Control)  `p4584`
+      - 76.17.301 MTL Tx Queue 1 Operation Mode (MTL_TxQ1_Operation_Mode)  `p4585`
+      - 76.17.302 MTL Tx Queue 1 Underflow (MTL_TxQ1_Underflow)  `p4587`
+      - 76.17.303 MTL Tx Queue 1 Debug (MTL_TxQ1_Debug)  `p4588`
+      - 76.17.304 MTL Tx Queue 1 ETS Control (MTL_TxQ1_ETS_Control)  `p4590`
+      - 76.17.305 MTL Tx Queue 1 ETS_Status (MTL_TxQ1_ETS_Status)  `p4591`
+      - 76.17.306 MTL Tx Queue 1 Quantum Weight (MTL_TxQ1_Quantum_Weight)  `p4592`
+      - 76.17.307 MTL Tx Queue 1 Sendslope Credit (MTL_TxQ1_SendSlopeCredit)  `p4594`
+      - 76.17.308 MTL Tx Queue 1 Hi Credit (MTL_TxQ1_HiCredit)  `p4594`
+      - 76.17.309 MTL Tx Queue 1 Lo Credit (MTL_TxQ1_LoCredit)  `p4595`
+      - 76.17.310 MTL Queue 1 Interrupt Control Status (MTL_Q1_Interrupt_Control_Status)  `p4596`
+      - 76.17.311 MTL Rx Queue 1 Operation Mode (MTL_RxQ1_Operation_Mode)  `p4598`
+      - 76.17.312 MTL Rx Queue 1 Missed Packet Overflow Counter (MTL_RxQ1_Missed_Packet_Overflow_Cnt)  `p4601`
+      - 76.17.313 MTL Rx Queue 1 Debug (MTL_RxQ1_Debug)  `p4603`
+      - 76.17.314 MTL Rx Queue 1 Control (MTL_RxQ1_Control)  `p4604`
+      - 76.17.315 MTL Tx Queue 2 Operation Mode (MTL_TxQ2_Operation_Mode)  `p4605`
+      - 76.17.316 MTL Tx Queue 2 Underflow (MTL_TxQ2_Underflow)  `p4607`
+      - 76.17.317 MTL Tx Queue 2 Debug (MTL_TxQ2_Debug)  `p4608`
+      - 76.17.318 MTL Tx Queue 2 ETS Control (MTL_TxQ2_ETS_Control)  `p4610`
+      - 76.17.319 MTL Tx Queue 2 ETS Status (MTL_TxQ2_ETS_Status)  `p4612`
+      - 76.17.320 MTL Tx Queue 2 Quantum Weight (MTL_TxQ2_Quantum_Weight)  `p4613`
+      - 76.17.321 MTL Tx Queue 2 SendSlope Credit (MTL_TxQ2_SendSlopeCredit)  `p4614`
+      - 76.17.322 MTL Tx Queue 2 Hi Credit (MTL_TxQ2_HiCredit)  `p4615`
+      - 76.17.323 MTL Tx Queue 2 Lo Credit (MTL_TxQ2_LoCredit)  `p4616`
+      - 76.17.324 MTL Queue 2 Interrupt Control Status (MTL_Q2_Interrupt_Control_Status)  `p4617`
+      - 76.17.325 MTL Rx Queue 2 Operation Mode (MTL_RxQ2_Operation_Mode)  `p4619`
+      - 76.17.326 MTL Rx Queue 2 Missed Packet Overflow Counter (MTL_RxQ2_Missed_Packet_Overflow_Cnt)  `p4622`
+      - 76.17.327 MTL Rx Queue 2 Debug (MTL_RxQ2_Debug)  `p4623`
+      - 76.17.328 MTL Rx Queue 2 Control (MTL_RxQ2_Control)  `p4624`
+      - 76.17.329 DMA Mode (DMA_Mode)  `p4626`
+      - 76.17.330 DMA System Bus Mode (DMA_SysBus_Mode)  `p4629`
+      - 76.17.331 DMA Interrupt Status (DMA_Interrupt_Status)  `p4631`
+      - 76.17.332 DMA Debug Status 0 (DMA_Debug_Status0)  `p4633`
+      - 76.17.333 DMA TBS Control 0 (DMA_TBS_CTRL0)  `p4636`
+      - 76.17.334 DMA TBS Control 1 (DMA_TBS_CTRL1)  `p4637`
+      - 76.17.335 DMA TBS Control 2 (DMA_TBS_CTRL2)  `p4639`
+      - 76.17.336 DMA TBS Control 3 (DMA_TBS_CTRL3)  `p4640`
+      - 76.17.337 DMA Safety Interrupt Status (DMA_Safety_Interrupt_Status)  `p4641`
+      - 76.17.338 DMA Channel 0 Control (DMA_CH0_Control)  `p4642`
+      - 76.17.339 DMA Channel 0 Tx Control (DMA_CH0_Tx_Control)  `p4644`
+      - 76.17.340 DMA Channel 0 Rx Control (DMA_CH0_Rx_Control)  `p4646`
+      - 76.17.341 DMA Channel 0 Tx Descriptor List Address (DMA_CH0_TxDesc_List_Address)  `p4649`
+      - 76.17.342 DMA Channel 0 Rx Descriptor List Address (DMA_CH0_RxDesc_List_Address)  `p4650`
+      - 76.17.343 DMA Channel 0 Tx Descriptor Tail Pointer (DMA_CH0_TxDesc_Tail_Pointer)  `p4651`
+      - 76.17.344 DMA Channel 0 Rx Descriptor Tail Pointer (DMA_CH0_RxDesc_Tail_Pointer)  `p4652`
+      - 76.17.345 DMA Channel 0 Tx Descriptor Ring Length (DMA_CH0_TxDesc_Ring_Length)  `p4653`
+      - 76.17.346 DMA Channel 0 Rx Control 2 (DMA_CH0_Rx_Control2)  `p4653`
+      - 76.17.347 DMA Channel 0 Interrupt Enable (DMA_CH0_Interrupt_Enable)  `p4654`
+      - 76.17.348 DMA Channel 0 Rx Interrupt Watchdog Timer (DMA_CH0_Rx_Interrupt_Watchdog_Timer)  `p4657`
+      - 76.17.349 DMA Channel 0 Slot Function Control Status (DMA_CH0_Slot_Function_Control_Status)  `p4659`
+      - 76.17.350 DMA Channel 0 Current Application Transmit Descriptor (DMA_CH0_Current_App_TxDesc)  `p4660`
+      - 76.17.351 DMA Channel 0 Current Application Receive Descriptor (DMA_CH0_Current_App_RxDesc)  `p4661`
+      - 76.17.352 DMA Channel 0 Current Application Transmit Buffer (DMA_CH0_Current_App_TxBuffer)  `p4662`
+      - 76.17.353 DMA Channel 0 Current Application Receive Buffer (DMA_CH0_Current_App_RxBuffer)  `p4662`
+      - 76.17.354 DMA Channel 0 Status (DMA_CH0_Status)  `p4663`
+      - 76.17.355 DMA Channel 0 Miss Frame Counter (DMA_CH0_Miss_Frame_Cnt)  `p4668`
+      - 76.17.356 DMA Channel 0 Rx Parser Accept Count (DMA_CH0_RXP_Accept_Cnt)  `p4669`
+      - 76.17.357 DMA Channel 0 Rx ERI Count (DMA_CH0_RX_ERI_Cnt)  `p4670`
+      - 76.17.358 DMA Channel 1 Control (DMA_CH1_Control)  `p4671`
+      - 76.17.359 DMA Channel 1 Tx Control (DMA_CH1_Tx_Control)  `p4672`
+      - 76.17.360 DMA Channel 1 Rx Control (DMA_CH1_Rx_Control)  `p4675`
+      - 76.17.361 DMA Channel 1 Tx Descriptor List Address (DMA_CH1_TxDesc_List_Address)  `p4677`
+      - 76.17.362 DMA Channel 1 Rx Descriptor List Address (DMA_CH1_RxDesc_List_Address)  `p4678`
+      - 76.17.363 DMA Channel 1 Tx Descriptor Tail Pointer (DMA_CH1_TxDesc_Tail_Pointer)  `p4679`
+      - 76.17.364 DMA Channel 1 Rx Descriptor Tail Pointer (DMA_CH1_RxDesc_Tail_Pointer)  `p4680`
+      - 76.17.365 DMA Channel 1 Tx Descriptor Ring Length (DMA_CH1_TxDesc_Ring_Length)  `p4681`
+      - 76.17.366 DMA Channel 1 Rx Control 2 (DMA_CH1_Rx_Control2)  `p4682`
+      - 76.17.367 DMA Channel 1 Interrupt Enable (DMA_CH1_Interrupt_Enable)  `p4683`
+      - 76.17.368 DMA Channel 1 Rx Interrupt Watchdog Timer (DMA_CH1_Rx_Interrupt_Watchdog_Timer)  `p4686`
+      - 76.17.369 DMA Channel 1 Slot Function Control Status (DMA_CH1_Slot_Function_Control_Status)  `p4688`
+      - 76.17.370 DMA Channel 1 Current Application Transmit Descriptor (DMA_CH1_Current_App_TxDesc)  `p4689`
+      - 76.17.371 DMA Channel 1 Current Application Receive Descriptor (DMA_CH1_Current_App_RxDesc)  `p4690`
+      - 76.17.372 DMA Channel 1 Current Application Transmit Buffer (DMA_CH1_Current_App_TxBuffer)  `p4691`
+      - 76.17.373 DMA Channel 1 Current Application Receive Buffer (DMA_CH1_Current_App_RxBuffer)  `p4691`
+      - 76.17.374 DMA Channel 1 Status (DMA_CH1_Status)  `p4692`
+      - 76.17.375 DMA Channel 1 Miss Frame Counter (DMA_CH1_Miss_Frame_Cnt)  `p4697`
+      - 76.17.376 DMA Channel 1 Rx Parser Accept Count (DMA_CH1_RXP_Accept_Cnt)  `p4698`
+      - 76.17.377 DMA Channel 1 Rx ERI Count (DMA_CH1_RX_ERI_Cnt)  `p4699`
+      - 76.17.378 DMA Channel 2 Control (DMA_CH2_Control)  `p4700`
+      - 76.17.379 DMA Channel 2 Tx Control (DMA_CH2_Tx_Control)  `p4701`
+      - 76.17.380 DMA Channel 2 Rx Control (DMA_CH2_Rx_Control)  `p4704`
+      - 76.17.381 DMA Channel 2 Tx Descriptor List Address (DMA_CH2_TxDesc_List_Address)  `p4706`
+      - 76.17.382 DMA Channel 2 Rx Descriptor List Address (DMA_CH2_RxDesc_List_Address)  `p4707`
+      - 76.17.383 DMA Channel 2 Tx Descriptor Tail Pointer (DMA_CH2_TxDesc_Tail_Pointer)  `p4708`
+      - 76.17.384 DMA Channel 2 Rx Descriptor Tail Pointer (DMA_CH2_RxDesc_Tail_Pointer)  `p4709`
+      - 76.17.385 DMA Channel 2 Tx Descriptor Ring Length (DMA_CH2_TxDesc_Ring_Length)  `p4710`
+      - 76.17.386 DMA Channel 2 Rx Control 2 (DMA_CH2_Rx_Control2)  `p4711`
+      - 76.17.387 DMA Channel 2 Interrupt Enable (DMA_CH2_Interrupt_Enable)  `p4712`
+      - 76.17.388 DMA Channel 2 Rx Interrupt Watchdog Timer (DMA_CH2_Rx_Interrupt_Watchdog_Timer)  `p4715`
+      - 76.17.389 DMA Channel 2 Slot Function Control Status (DMA_CH2_Slot_Function_Control_Status)  `p4717`
+      - 76.17.390 DMA Channel 2 Current Application Transmit Descriptor (DMA_CH2_Current_App_TxDesc)  `p4718`
+      - 76.17.391 DMA Channel 2 Current Application Receive Descriptor (DMA_CH2_Current_App_RxDesc)  `p4719`
+      - 76.17.392 DMA Channel 2 Current Application Transmit Buffer (DMA_CH2_Current_App_TxBuffer)  `p4720`
+      - 76.17.393 DMA Channel 2 Current Application Receive Buffer (DMA_CH2_Current_App_RxBuffer)  `p4720`
+      - 76.17.394 DMA Channel 2 Status (DMA_CH2_Status)  `p4721`
+      - 76.17.395 DMA Channel 2 Miss Frame Count (DMA_CH2_Miss_Frame_Cnt)  `p4726`
+      - 76.17.396 DMA Channel 2 Rx Parser Accept Count (DMA_CH2_RXP_Accept_Cnt)  `p4727`
+      - 76.17.397 DMA Channel 2 Rx ERI Count (DMA_CH2_RX_ERI_Cnt)  `p4728`
+    - 76.18 Glossary  `p4729`
+  - 77 Low Power Universal Asynchronous Receiver/Transmitter (LPUART)  `p4731`
+    - 77.1 Chip-specific LPUART information  `p4731`
+      - 77.1.1 LPUART instances and configuration  `p4731`
+    - 77.2 Overview  `p4732`
+      - 77.2.1 Block diagram  `p4732`
+      - 77.2.2 Features  `p4734`
+    - 77.3 Functional description  `p4735`
+      - 77.3.1 Baud rate generation  `p4735`
+      - 77.3.2 Baud rate tolerance  `p4736`
+      - 77.3.3 Calculating baud rate tolerance  `p4736`
+      - 77.3.4 Transmitter functional description  `p4736`
+        - 77.3.4.1 Break character length  `p4737`
+        - 77.3.4.2 Hardware flow control  `p4738`
+        - 77.3.4.3 Transceiver driver enable  `p4738`
+        - 77.3.4.4 Transceiver driver enable using RTS_B  `p4738`
+      - 77.3.5 Receiver functional description  `p4739`
+        - 77.3.5.1 Data sampling technique  `p4739`
+        - 77.3.5.2 Receiver wake-up operation  `p4740`
+          - 77.3.5.2.1 Idle line wake-up  `p4741`
+          - 77.3.5.2.2 Address mark wake-up  `p4742`
+          - 77.3.5.2.3 Data match wake-up  `p4742`
+          - 77.3.5.2.4 Address match operation  `p4742`
+          - 77.3.5.2.5 Idle match operation  `p4742`
+          - 77.3.5.2.6 Match on, match off operation  `p4743`
+        - 77.3.5.3 Hardware flow control  `p4743`
+      - 77.3.6 Additional LPUART functions  `p4743`
+        - 77.3.6.1 Data modes  `p4743`
+        - 77.3.6.2 Idle length  `p4744`
+        - 77.3.6.3 Loop mode  `p4744`
+        - 77.3.6.4 Single-Wire mode  `p4744`
+        - 77.3.6.5 Timeout counter  `p4744`
+      - 77.3.7 Peripheral triggers  `p4745`
+        - 77.3.7.1 Output triggers  `p4745`
+        - 77.3.7.2 Input trigger  `p4745`
+      - 77.3.8 Infrared (IR) interface  `p4745`
+        - 77.3.8.1 Infrared transmit encoder  `p4746`
+        - 77.3.8.2 Infrared receive decoder  `p4746`
+        - 77.3.8.3 Start-bit detection  `p4746`
+        - 77.3.8.4 Noise filtering  `p4746`
+        - 77.3.8.5 Low-bit detection  `p4746`
+        - 77.3.8.6 High-bit detection  `p4746`
+      - 77.3.9 MODBUS protocol  `p4746`
+        - 77.3.9.1 MODBUS frame structure  `p4746`
+        - 77.3.9.2 MODBUS frame for LPUART  `p4747`
+        - 77.3.9.3 MODBUS TX and RX programming sequence  `p4747`
+      - 77.3.10 Modes of operation  `p4749`
+        - 77.3.10.1 Low-Power modes  `p4749`
+        - 77.3.10.2 Debug mode  `p4749`
+      - 77.3.11 Clocking  `p4749`
+      - 77.3.12 Reset  `p4749`
+      - 77.3.13 Interrupts  `p4750`
+      - 77.3.14 DMA  `p4750`
+        - 77.3.14.1 DMA burst support  `p4750`
+    - 77.4 External signals  `p4751`
+    - 77.5 Initialization  `p4751`
+    - 77.6 LPUART register descriptions  `p4751`
+      - 77.6.1 LPUART memory map  `p4751`
+      - 77.6.2 Version ID (VERID)  `p4753`
+      - 77.6.3 Parameter (PARAM)  `p4754`
+      - 77.6.4 Global (GLOBAL)  `p4755`
+      - 77.6.5 Pin Configuration (PINCFG)  `p4756`
+      - 77.6.6 Baud Rate (BAUD)  `p4757`
+      - 77.6.7 Status (STAT)  `p4761`
+      - 77.6.8 Control (CTRL)  `p4771`
+      - 77.6.9 Data (DATA)  `p4777`
+      - 77.6.10 Match Address (MATCH)  `p4780`
+      - 77.6.11 MODEM IrDA (MODIR)  `p4781`
+      - 77.6.12 FIFO (FIFO)  `p4785`
+      - 77.6.13 Watermark (WATER)  `p4789`
+      - 77.6.14 Data Read-Only (DATARO)  `p4794`
+      - 77.6.15 MODEM Control (MCR)  `p4795`
+      - 77.6.16 MODEM Status (MSR)  `p4797`
+      - 77.6.17 Receiver Extended Idle (REIR)  `p4801`
+      - 77.6.18 Transmitter Extended Idle (TEIR)  `p4803`
+      - 77.6.19 Half Duplex Control (HDCR)  `p4804`
+      - 77.6.20 Timeout Control (TOCR)  `p4807`
+      - 77.6.21 Timeout Status (TOSR)  `p4808`
+      - 77.6.22 Timeout N (TIMEOUT0 - TIMEOUT3)  `p4810`
+      - 77.6.23 Transmit Command Burst (TCBR0 - TCBR127)  `p4812`
+      - 77.6.24 Transmit Data Burst (TDBR0 - TDBR255)  `p4814`
+    - 77.7 Glossary  `p4816`
+  - 78 Quad Serial Peripheral Interface (QuadSPI) for S32K322, S32K342, S32K341, S32K314, S32K324, and S32K344  `p4817`
+    - 78.1 Chip-specific QuadSPI information  `p4817`
+      - 78.1.1 QuadSPI configuration  `p4817`
+      - 78.1.2 Supported read modes  `p4818`
+      - 78.1.3 QuadSPI initialization sequence  `p4818`
+      - 78.1.4 Pad clock loopback  `p4819`
+      - 78.1.5 QuadSPI SOC Configuration register SOCCR[SOCCFG] implementation  `p4819`
+      - 78.1.6 QuadSPI AHB Buffer write access control  `p4820`
+    - 78.2 Introduction  `p4820`
+      - 78.2.1 Features  `p4820`
+      - 78.2.2 RX buffer push event  `p4820`
+      - 78.2.3 RX buffer POP event  `p4820`
+      - 78.2.4 Block diagram  `p4820`
+      - 78.2.5 QuadSPI modes of operation  `p4821`
+    - 78.3 External signal description  `p4822`
+      - 78.3.1 Driving external signals  `p4822`
+    - 78.4 Functional description  `p4824`
+      - 78.4.1 Serial flash memory access schemes  `p4824`
+      - 78.4.2 Normal mode  `p4824`
+        - 78.4.2.1 Programmable sequence engine  `p4824`
+        - 78.4.2.2 Flexible read xAHB buffers  `p4826`
+        - 78.4.2.3 Abort mechanism during AHB read  `p4826`
+        - 78.4.2.4 HBURST support with AHB read  `p4827`
+        - 78.4.2.5 LUT  `p4827`
+        - 78.4.2.6 Issuing SFM commands  `p4828`
+        - 78.4.2.7 Flash memory programming  `p4829`
+        - 78.4.2.8 Flash memory read  `p4829`
+        - 78.4.2.9 Byte ordering of serial flash memory read data  `p4832`
+        - 78.4.2.10 Normal mode interrupt and DMA requests  `p4833`
+        - 78.4.2.11 TX buffer operation  `p4834`
+        - 78.4.2.12 Address scheme  `p4835`
+      - 78.4.3 Module Disable mode  `p4835`
+      - 78.4.4 Leaving Module Disable mode  `p4836`
+    - 78.5 Initialization/application information  `p4836`
+      - 78.5.1 Power up and reset  `p4836`
+      - 78.5.2 Available status/flag information  `p4836`
+        - 78.5.2.1 IP commands  `p4836`
+        - 78.5.2.2 AHB commands  `p4837`
+        - 78.5.2.3 SFM commands  `p4837`
+        - 78.5.2.4 Overview of error flags  `p4837`
+        - 78.5.2.5 IP bus and AHB access command collisions  `p4838`
+      - 78.5.3 Flash memory device selection  `p4838`
+      - 78.5.4 DMA usage  `p4838`
+        - 78.5.4.1 DMA usage in normal mode  `p4838`
+          - 78.5.4.1.1 Bandwidth considerations  `p4838`
+      - 78.5.5 Flash memory devices address mapping  `p4841`
+        - 78.5.5.1 Single mode  `p4841`
+    - 78.6 Byte ordering – endianness  `p4842`
+      - 78.6.1 Programming flash memory data  `p4842`
+      - 78.6.2 Reading flash memory data into the RX buffer  `p4842`
+        - 78.6.2.1 Readout of the RX buffer through RBDRn  `p4843`
+        - 78.6.2.2 Readout of the RX buffer through ARDBn  `p4843`
+      - 78.6.3 Reading flash memory data into the AHB buffer  `p4843`
+        - 78.6.3.1 Readout of the AHB buffer through memory-mapped read  `p4843`
+    - 78.7 Driving flash memory control signals in single and dual modes  `p4843`
+    - 78.8 Serial flash memory devices  `p4844`
+      - 78.8.1 Example sequences  `p4844`
+        - 78.8.1.1 Fast read sequence (Macronix/Numonyx/Spansion/Winbond)  `p4844`
+        - 78.8.1.2 Fast read quad output (Winbond)  `p4844`
+        - 78.8.1.3 4 x I/O read enhance performance mode (XIP) (Macronix)  `p4845`
+        - 78.8.1.4 Dual command page program (Numonyx)  `p4845`
+        - 78.8.1.5 Sector erase (Macronix/Numonyx/Spansion)  `p4846`
+        - 78.8.1.6 Read status register (Macronix/Numonyx/Spansion/Winbond)  `p4846`
+    - 78.9 Sampling of serial flash memory input data  `p4846`
+      - 78.9.1 Basic description  `p4846`
+      - 78.9.2 DQS sampling method  `p4847`
+        - 78.9.2.1 Basic description  `p4847`
+        - 78.9.2.2 Dummy Pad loopback  `p4848`
+    - 78.10 Delay chain usage  `p4848`
+    - 78.11 Memory map and register definition  `p4849`
+      - 78.11.1 Register write access  `p4849`
+      - 78.11.2 QuadSPI register descriptions  `p4849`
+        - 78.11.2.1 QuadSPI memory map  `p4850`
+        - 78.11.2.2 Module Configuration Register (MCR)  `p4851`
+        - 78.11.2.3 IP Configuration Register (IPCR)  `p4855`
+        - 78.11.2.4 Flash Memory Configuration Register (FLSHCR)  `p4856`
+        - 78.11.2.5 Buffer 0 Configuration Register (BUF0CR)  `p4857`
+        - 78.11.2.6 Buffer 1 Configuration Register (BUF1CR)  `p4859`
+        - 78.11.2.7 Buffer 2 Configuration Register (BUF2CR)  `p4860`
+        - 78.11.2.8 Buffer 3 Configuration Register (BUF3CR)  `p4861`
+        - 78.11.2.9 Buffer Generic Configuration Register (BFGENCR)  `p4863`
+        - 78.11.2.10 SOC Configuration Register (SOCCR)  `p4864`
+        - 78.11.2.11 Buffer 0 Top Index Register (BUF0IND)  `p4865`
+        - 78.11.2.12 Buffer 1 Top Index Register (BUF1IND)  `p4866`
+        - 78.11.2.13 Buffer 2 Top Index Register (BUF2IND)  `p4867`
+        - 78.11.2.14 DLL Flash Memory A Configuration Register (DLLCRA)  `p4868`
+        - 78.11.2.15 Serial Flash Memory Address Register (SFAR)  `p4870`
+        - 78.11.2.16 Sampling Register (SMPR)  `p4871`
+        - 78.11.2.17 RX Buffer Status Register (RBSR)  `p4872`
+        - 78.11.2.18 RX Buffer Control Register (RBCT)  `p4873`
+        - 78.11.2.19 Data Learning Status Flash Memory A Register (DLSR_FA)  `p4874`
+        - 78.11.2.20 TX Buffer Status Register (TBSR)  `p4875`
+        - 78.11.2.21 TX Buffer Data Register (TBDR)  `p4876`
+        - 78.11.2.22 TX Buffer Control Register (TBCT)  `p4877`
+        - 78.11.2.23 Status Register (SR)  `p4878`
+        - 78.11.2.24 Flag Register (FR)  `p4881`
+        - 78.11.2.25 Interrupt and DMA Request Select and Enable Register (RSER)  `p4884`
+        - 78.11.2.26 Sequence Pointer Clear Register (SPTRCLR)  `p4888`
+        - 78.11.2.27 Serial Flash Memory A1 Top Address Register (SFA1AD)  `p4889`
+        - 78.11.2.28 Serial Flash Memory A2 Top Address Register (SFA2AD)  `p4890`
+        - 78.11.2.29 Serial Flash Memory B1 Top Address Register (SFB1AD)  `p4891`
+        - 78.11.2.30 Serial Flash Memory B2 Top Address Register (SFB2AD)  `p4892`
+        - 78.11.2.31 RX Buffer Data Register (RBDR0 - RBDR63)  `p4893`
+        - 78.11.2.32 LUT Key Register (LUTKEY)  `p4894`
+        - 78.11.2.33 LUT Lock Configuration Register (LCKCR)  `p4895`
+        - 78.11.2.34 LUT Register (LUT0)  `p4896`
+        - 78.11.2.35 LUT Register (LUT1)  `p4897`
+        - 78.11.2.36 LUT Register (LUT2 - LUT19)  `p4898`
+      - 78.11.3 Serial flash memory address assignment  `p4900`
+    - 78.12 Flash memory mapped AMBA bus  `p4901`
+      - 78.12.1 AHB bus access read considerations  `p4901`
+      - 78.12.2 Memory-mapped serial flash memory data—individual flash memory mode on flash memory A  `p4901`
+      - 78.12.3 ARDB register descriptions  `p4902`
+        - 78.12.3.1 ARDB memory map  `p4902`
+        - 78.12.3.2 AHB RX Data Buffer Register (ARDB0 - ARDB127)  `p4902`
+    - 78.13 Glossary  `p4903`
+  - 79 Quad Serial Peripheral Interface (QuadSPI) for S32K358, S32K356, S32K348, S32K338, and S32K328  `p4905`
+    - 79.1 Chip-specific QuadSPI information  `p4905`
+      - 79.1.1 QuadSPI configuration  `p4905`
+      - 79.1.2 Supported read modes  `p4906`
+      - 79.1.3 QuadSPI initialization sequence  `p4906`
+      - 79.1.4 Pad clock loopback  `p4907`
+      - 79.1.5 QuadSPI SOC Configuration register SOCCR[SOCCFG] implementation  `p4907`
+    - 79.2 Introduction  `p4907`
+      - 79.2.1 Features  `p4908`
+      - 79.2.2 RX buffer push event  `p4908`
+      - 79.2.3 RX buffer POP event  `p4908`
+      - 79.2.4 Block diagram  `p4908`
+      - 79.2.5 QuadSPI modes of operation  `p4910`
+    - 79.3 External signal description  `p4910`
+      - 79.3.1 Driving external signals  `p4910`
+    - 79.4 Functional description  `p4912`
+      - 79.4.1 Serial flash memory access schemes  `p4912`
+      - 79.4.2 Normal mode  `p4912`
+        - 79.4.2.1 Programmable sequence engine  `p4912`
+        - 79.4.2.2 Flexible read xAHB buffers  `p4916`
+        - 79.4.2.3 Abort mechanism during AHB read  `p4917`
+        - 79.4.2.4 HBURST support with AHB read  `p4917`
+        - 79.4.2.5 LUT  `p4918`
+        - 79.4.2.6 Issuing SFM commands  `p4920`
+        - 79.4.2.7 Flash memory programming  `p4920`
+        - 79.4.2.8 Flash memory read  `p4921`
+        - 79.4.2.9 AHB write  `p4924`
+        - 79.4.2.10 Byte ordering of serial flash memory read data  `p4925`
+        - 79.4.2.11 Normal mode interrupt and DMA requests  `p4926`
+        - 79.4.2.12 TX buffer operation  `p4927`
+        - 79.4.2.13 Address scheme  `p4927`
+      - 79.4.3 Module Disable mode  `p4928`
+      - 79.4.4 Leaving Module Disable mode  `p4929`
+      - 79.4.5 HyperRAM support  `p4929`
+    - 79.5 Initialization/application information  `p4929`
+      - 79.5.1 Power up and reset  `p4929`
+      - 79.5.2 Available status/flag information  `p4930`
+        - 79.5.2.1 IP commands  `p4930`
+        - 79.5.2.2 AHB commands  `p4930`
+        - 79.5.2.3 SFM commands  `p4930`
+        - 79.5.2.4 Overview of error flags  `p4931`
+        - 79.5.2.5 IP bus and AHB access command collisions  `p4931`
+      - 79.5.3 Flash memory device selection  `p4931`
+      - 79.5.4 DMA usage  `p4932`
+        - 79.5.4.1 DMA usage in normal mode  `p4932`
+          - 79.5.4.1.1 Bandwidth considerations  `p4932`
+      - 79.5.5 Flash memory devices address mapping  `p4935`
+        - 79.5.5.1 Single mode  `p4935`
+    - 79.6 Byte ordering – endianness  `p4935`
+      - 79.6.1 Programming flash memory data  `p4935`
+      - 79.6.2 Reading flash memory data into the RX buffer  `p4936`
+        - 79.6.2.1 Readout of the RX buffer through RBDRn  `p4936`
+        - 79.6.2.2 Readout of the RX buffer through ARDBn  `p4936`
+      - 79.6.3 Reading flash memory data into the AHB buffer  `p4936`
+        - 79.6.3.1 Readout of the AHB buffer through memory-mapped read  `p4937`
+    - 79.7 Driving flash memory control signals in single and dual modes  `p4937`
+    - 79.8 Serial flash memory devices  `p4937`
+      - 79.8.1 Example sequences  `p4937`
+        - 79.8.1.1 Read command (hyperflash memory/HyperRAM)  `p4937`
+        - 79.8.1.2 Read status register (hyperflash memory/HyperRAM)  `p4938`
+        - 79.8.1.3 Word program (hyperflash memory/HyperRAM)  `p4938`
+        - 79.8.1.4 Fast read sequence (Macronix/Numonyx/Spansion/Winbond)  `p4940`
+        - 79.8.1.5 Fast dual I/O DT read sequence (Macronix)  `p4940`
+        - 79.8.1.6 Fast read quad output (Winbond)  `p4941`
+        - 79.8.1.7 4 x I/O read enhance performance mode (XIP) (Macronix)  `p4941`
+        - 79.8.1.8 Dual command page program (Numonyx)  `p4942`
+        - 79.8.1.9 Sector erase (Macronix/Numonyx/Spansion)  `p4942`
+        - 79.8.1.10 Read status register (Macronix/Numonyx/Spansion/Winbond)  `p4942`
+        - 79.8.1.11 Data learn instruction sequence  `p4943`
+    - 79.9 Sampling of serial flash memory input data  `p4944`
+      - 79.9.1 Basic description  `p4944`
+      - 79.9.2 DQS sampling method  `p4945`
+        - 79.9.2.1 Basic description  `p4945`
+        - 79.9.2.2 External DQS  `p4947`
+        - 79.9.2.3 Dummy Pad loopback  `p4947`
+    - 79.10 Data learning  `p4948`
+      - 79.10.1 Basic description  `p4948`
+      - 79.10.2 DQS sampling method  `p4948`
+      - 79.10.3 Programming the data learning pattern in flash memory  `p4949`
+    - 79.11 DLL and delay chain usage  `p4950`
+    - 79.12 Secure flash protection  `p4950`
+      - 79.12.1 MDAD  `p4951`
+        - 79.12.1.1 MDAD checks  `p4951`
+        - 79.12.1.2 Error conditions  `p4952`
+      - 79.12.2 FRAD  `p4953`
+        - 79.12.2.1 FRAD checks  `p4954`
+        - 79.12.2.2 Error conditions  `p4955`
+        - 79.12.2.3 Atomic commands considerations  `p4956`
+      - 79.12.3 TBDR register write lock  `p4956`
+      - 79.12.4 Transaction status registers  `p4957`
+      - 79.12.5 Timeout error  `p4960`
+      - 79.12.6 Arbitration lock  `p4960`
+      - 79.12.7 Soft reset consideration with SFP  `p4960`
+      - 79.12.8 Error Interrupt Enable  `p4961`
+    - 79.13 Memory map and register definition  `p4961`
+      - 79.13.1 Register write access  `p4962`
+      - 79.13.2 QuadSPI register descriptions  `p4962`
+        - 79.13.2.1 QuadSPI memory map  `p4962`
+        - 79.13.2.2 Module Configuration Register (MCR)  `p4966`
+        - 79.13.2.3 IP Configuration Register (IPCR)  `p4971`
+        - 79.13.2.4 Flash Memory Configuration Register (FLSHCR)  `p4972`
+        - 79.13.2.5 Buffer 0 Configuration Register (BUF0CR)  `p4973`
+        - 79.13.2.6 Buffer 1 Configuration Register (BUF1CR)  `p4975`
+        - 79.13.2.7 Buffer 2 Configuration Register (BUF2CR)  `p4976`
+        - 79.13.2.8 Buffer 3 Configuration Register (BUF3CR)  `p4977`
+        - 79.13.2.9 Buffer Generic Configuration Register (BFGENCR)  `p4979`
+        - 79.13.2.10 SOC Configuration Register (SOCCR)  `p4980`
+        - 79.13.2.11 Buffer 0 Top Index Register (BUF0IND)  `p4981`
+        - 79.13.2.12 Buffer 1 Top Index Register (BUF1IND)  `p4982`
+        - 79.13.2.13 Buffer 2 Top Index Register (BUF2IND)  `p4983`
+        - 79.13.2.14 AHB Write Configuration Register (AWRCR)  `p4984`
+        - 79.13.2.15 DLL Flash Memory A Configuration Register (DLLCRA)  `p4985`
+        - 79.13.2.16 Parity Configuration Register (PARITYCR)  `p4987`
+        - 79.13.2.17 Serial Flash Memory Address Register (SFAR)  `p4989`
+        - 79.13.2.18 Serial Flash Memory Address Configuration Register (SFACR)  `p4990`
+        - 79.13.2.19 Sampling Register (SMPR)  `p4991`
+        - 79.13.2.20 RX Buffer Status Register (RBSR)  `p4993`
+        - 79.13.2.21 RX Buffer Control Register (RBCT)  `p4994`
+        - 79.13.2.22 AHB Write Status Register (AWRSR)  `p4995`
+        - 79.13.2.23 DLL Status Register (DLLSR)  `p4996`
+        - 79.13.2.24 Data Learning Configuration Register (DLCR)  `p4997`
+        - 79.13.2.25 Data Learning Status Flash Memory A Register (DLSR_FA)  `p4999`
+        - 79.13.2.26 TX Buffer Status Register (TBSR)  `p5000`
+        - 79.13.2.27 TX Buffer Data Register (TBDR)  `p5001`
+        - 79.13.2.28 TX Buffer Control Register (TBCT)  `p5002`
+        - 79.13.2.29 Status Register (SR)  `p5003`
+        - 79.13.2.30 Flag Register (FR)  `p5005`
+        - 79.13.2.31 Interrupt and DMA Request Select and Enable Register (RSER)  `p5009`
+        - 79.13.2.32 Sequence Pointer Clear Register (SPTRCLR)  `p5013`
+        - 79.13.2.33 Serial Flash Memory A1 Top Address Register (SFA1AD)  `p5015`
+        - 79.13.2.34 Serial Flash Memory A2 Top Address Register (SFA2AD)  `p5015`
+        - 79.13.2.35 Data Learn Pattern Register (DLPR)  `p5016`
+        - 79.13.2.36 Flash Memory A Failing Address Status Register (FAILA_ADDR)  `p5017`
+        - 79.13.2.37 RX Buffer Data Register (RBDR0 - RBDR31)  `p5018`
+        - 79.13.2.38 LUT Key Register (LUTKEY)  `p5019`
+        - 79.13.2.39 LUT Lock Configuration Register (LCKCR)  `p5020`
+        - 79.13.2.40 LUT Register (LUT0)  `p5021`
+        - 79.13.2.41 LUT Register (LUT1)  `p5022`
+        - 79.13.2.42 LUT Register (LUT2 - LUT79)  `p5024`
+        - 79.13.2.43 Flash Region Start Address (FRAD0_WORD0 - FRAD7_WORD0)  `p5025`
+        - 79.13.2.44 Flash Region End Address (FRAD0_WORD1 - FRAD7_WORD1)  `p5026`
+        - 79.13.2.45 Flash Region Privileges (FRAD0_WORD2 - FRAD7_WORD2)  `p5027`
+        - 79.13.2.46 Flash Region Lock Control (FRAD0_WORD3 - FRAD7_WORD3)  `p5028`
+        - 79.13.2.47 Flash Region Compare Address Status (FRAD0_WORD4 - FRAD7_WORD4)  `p5030`
+        - 79.13.2.48 Flash Region Compare Status Data (FRAD0_WORD5 - FRAD7_WORD5)  `p5031`
+        - 79.13.2.49 Target Group n Master Domain Access Descriptor (TG0MDAD - TG1MDAD)  `p5032`
+        - 79.13.2.50 Target Group n SFAR Address (TG0SFAR - TG1SFAR)  `p5034`
+        - 79.13.2.51 Target Group n SFAR Status (TG0SFARS - TG1SFARS)  `p5035`
+        - 79.13.2.52 Target Group n IPCR Status (TG0IPCRS - TG1IPCRS)  `p5036`
+        - 79.13.2.53 Master Global Configuration (MGC)  `p5038`
+        - 79.13.2.54 Master Read Command (MRC)  `p5039`
+        - 79.13.2.55 Master Timeout (MTO)  `p5041`
+        - 79.13.2.56 FlashSeq Request (FLSEQREQ)  `p5042`
+        - 79.13.2.57 FSM Status (FSMSTAT)  `p5044`
+        - 79.13.2.58 IPS Error (IPSERROR)  `p5045`
+        - 79.13.2.59 Error Status (ERRSTAT)  `p5047`
+        - 79.13.2.60 Interrupt Enable (INT_EN)  `p5049`
+      - 79.13.3 Serial flash memory address assignment  `p5050`
+    - 79.14 Flash memory mapped AMBA bus  `p5051`
+      - 79.14.1 AHB bus access read considerations  `p5051`
+      - 79.14.2 Memory-mapped serial flash memory data—individual flash memory mode on flash memory A  `p5052`
+      - 79.14.3 ARDB register descriptions  `p5052`
+        - 79.14.3.1 ARDB memory map  `p5052`
+        - 79.14.3.2 AHB RX Data Buffer Register (ARDB0 - ARDB31)  `p5053`
+    - 79.15 Glossary  `p5054`
+  - 80 Quad Serial Peripheral Interface (QuadSPI) for S32K388 and S32K389  `p5055`
+    - 80.1 Chip-specific QuadSPI information  `p5055`
+      - 80.1.1 QuadSPI configuration  `p5055`
+      - 80.1.2 Supported read modes  `p5056`
+      - 80.1.3 QuadSPI initialization sequence  `p5056`
+      - 80.1.4 Pad clock loopback  `p5057`
+      - 80.1.5 QuadSPI SOC Configuration register SOCCR[SOCCFG] implementation  `p5057`
+      - 80.1.6 QuadSPI AHB Buffer write access control  `p5057`
+    - 80.2 Introduction  `p5058`
+      - 80.2.1 Features  `p5058`
+      - 80.2.2 RX buffer push event  `p5058`
+      - 80.2.3 RX buffer POP event  `p5058`
+      - 80.2.4 Block diagram  `p5058`
+      - 80.2.5 QuadSPI modes of operation  `p5059`
+    - 80.3 External signal description  `p5060`
+      - 80.3.1 Driving external signals  `p5060`
+    - 80.4 Functional description  `p5062`
+      - 80.4.1 Serial flash memory access schemes  `p5062`
+      - 80.4.2 Normal mode  `p5062`
+        - 80.4.2.1 Programmable sequence engine  `p5062`
+        - 80.4.2.2 Flexible read xAHB buffers  `p5064`
+        - 80.4.2.3 Abort mechanism during AHB read  `p5065`
+        - 80.4.2.4 HBURST support with AHB read  `p5065`
+        - 80.4.2.5 LUT  `p5066`
+        - 80.4.2.6 Issuing SFM commands  `p5068`
+        - 80.4.2.7 Flash memory programming  `p5068`
+        - 80.4.2.8 Flash memory read  `p5069`
+        - 80.4.2.9 Byte ordering of serial flash memory read data  `p5071`
+        - 80.4.2.10 Normal mode interrupt and DMA requests  `p5072`
+        - 80.4.2.11 TX buffer operation  `p5073`
+        - 80.4.2.12 Address scheme  `p5074`
+      - 80.4.3 Module Disable mode  `p5075`
+      - 80.4.4 Leaving Module Disable mode  `p5075`
+    - 80.5 Initialization/application information  `p5075`
+      - 80.5.1 Power up and reset  `p5075`
+      - 80.5.2 Available status/flag information  `p5076`
+        - 80.5.2.1 IP commands  `p5076`
+        - 80.5.2.2 AHB commands  `p5076`
+        - 80.5.2.3 SFM commands  `p5076`
+        - 80.5.2.4 Overview of error flags  `p5077`
+        - 80.5.2.5 IP bus and AHB access command collisions  `p5077`
+      - 80.5.3 Flash memory device selection  `p5077`
+      - 80.5.4 DMA usage  `p5078`
+        - 80.5.4.1 DMA usage in normal mode  `p5078`
+          - 80.5.4.1.1 Bandwidth considerations  `p5078`
+      - 80.5.5 Flash memory devices address mapping  `p5080`
+        - 80.5.5.1 Single mode  `p5081`
+    - 80.6 Byte ordering – endianness  `p5081`
+      - 80.6.1 Programming flash memory data  `p5081`
+      - 80.6.2 Reading flash memory data into the RX buffer  `p5081`
+        - 80.6.2.1 Readout of the RX buffer through RBDRn  `p5082`
+        - 80.6.2.2 Readout of the RX buffer through ARDBn  `p5082`
+      - 80.6.3 Reading flash memory data into the AHB buffer  `p5082`
+        - 80.6.3.1 Readout of the AHB buffer through memory-mapped read  `p5082`
+    - 80.7 Driving flash memory control signals in single and dual modes  `p5082`
+    - 80.8 Serial flash memory devices  `p5083`
+      - 80.8.1 Example sequences  `p5083`
+        - 80.8.1.1 Fast read sequence (Macronix/Numonyx/Spansion/Winbond)  `p5083`
+        - 80.8.1.2 Fast read quad output (Winbond)  `p5083`
+        - 80.8.1.3 4 x I/O read enhance performance mode (XIP) (Macronix)  `p5084`
+        - 80.8.1.4 Dual command page program (Numonyx)  `p5084`
+        - 80.8.1.5 Sector erase (Macronix/Numonyx/Spansion)  `p5085`
+        - 80.8.1.6 Read status register (Macronix/Numonyx/Spansion/Winbond)  `p5085`
+    - 80.9 Sampling of serial flash memory input data  `p5085`
+      - 80.9.1 Basic description  `p5085`
+      - 80.9.2 DQS sampling method  `p5086`
+        - 80.9.2.1 Basic description  `p5086`
+        - 80.9.2.2 Dummy Pad loopback  `p5087`
+    - 80.10 DLL and delay chain usage  `p5088`
+    - 80.11 Data input hold requirement of flash memory  `p5088`
+    - 80.12 Secure flash protection  `p5089`
+      - 80.12.1 MDAD  `p5089`
+        - 80.12.1.1 MDAD checks  `p5090`
+        - 80.12.1.2 Error conditions  `p5091`
+      - 80.12.2 FRAD  `p5092`
+        - 80.12.2.1 FRAD checks  `p5092`
+        - 80.12.2.2 Error conditions  `p5094`
+        - 80.12.2.3 Atomic commands considerations  `p5094`
+      - 80.12.3 TBDR register write lock  `p5095`
+      - 80.12.4 Transaction status registers  `p5095`
+      - 80.12.5 Timeout error  `p5098`
+      - 80.12.6 Arbitration lock  `p5098`
+      - 80.12.7 Soft reset consideration with SFP  `p5098`
+      - 80.12.8 Error Interrupt Enable  `p5099`
+    - 80.13 Memory map and register definition  `p5099`
+      - 80.13.1 Register write access  `p5100`
+      - 80.13.2 QUADSPI register descriptions  `p5100`
+        - 80.13.2.1 QuadSPI memory map  `p5100`
+        - 80.13.2.2 Module Configuration Register (MCR)  `p5104`
+        - 80.13.2.3 IP Configuration Register (IPCR)  `p5108`
+        - 80.13.2.4 Flash Memory Configuration Register (FLSHCR)  `p5110`
+        - 80.13.2.5 Buffer 0 Configuration Register (BUF0CR)  `p5111`
+        - 80.13.2.6 Buffer 1 Configuration Register (BUF1CR)  `p5112`
+        - 80.13.2.7 Buffer 2 Configuration Register (BUF2CR)  `p5113`
+        - 80.13.2.8 Buffer 3 Configuration Register (BUF3CR)  `p5115`
+        - 80.13.2.9 Buffer Generic Configuration Register (BFGENCR)  `p5116`
+        - 80.13.2.10 SOC Configuration Register (SOCCR)  `p5117`
+        - 80.13.2.11 Buffer 0 Top Index Register (BUF0IND)  `p5118`
+        - 80.13.2.12 Buffer 1 Top Index Register (BUF1IND)  `p5119`
+        - 80.13.2.13 Buffer 2 Top Index Register (BUF2IND)  `p5120`
+        - 80.13.2.14 DLL Flash Memory A Configuration Register (DLLCRA)  `p5121`
+        - 80.13.2.15 Serial Flash Memory Address Register (SFAR)  `p5124`
+        - 80.13.2.16 Serial Flash Memory Address Configuration Register (SFACR)  `p5125`
+        - 80.13.2.17 Sampling Register (SMPR)  `p5126`
+        - 80.13.2.18 RX Buffer Status Register (RBSR)  `p5128`
+        - 80.13.2.19 RX Buffer Control Register (RBCT)  `p5129`
+        - 80.13.2.20 DLL Status Register (DLLSR)  `p5130`
+        - 80.13.2.21 Data Learning Status Flash Memory A Register (DLSR_FA)  `p5131`
+        - 80.13.2.22 TX Buffer Status Register (TBSR)  `p5132`
+        - 80.13.2.23 TX Buffer Data Register (TBDR)  `p5133`
+        - 80.13.2.24 TX Buffer Control Register (TBCT)  `p5134`
+        - 80.13.2.25 Status Register (SR)  `p5135`
+        - 80.13.2.26 Flag Register (FR)  `p5138`
+        - 80.13.2.27 Interrupt and DMA Request Select and Enable Register (RSER)  `p5141`
+        - 80.13.2.28 Sequence Pointer Clear Register (SPTRCLR)  `p5145`
+        - 80.13.2.29 Serial Flash Memory A1 Top Address Register (SFA1AD)  `p5146`
+        - 80.13.2.30 Serial Flash Memory A2 Top Address Register (SFA2AD)  `p5147`
+        - 80.13.2.31 RX Buffer Data Register (RBDR0 - RBDR31)  `p5148`
+        - 80.13.2.32 LUT Key Register (LUTKEY)  `p5149`
+        - 80.13.2.33 LUT Lock Configuration Register (LCKCR)  `p5150`
+        - 80.13.2.34 LUT Register (LUT0)  `p5151`
+        - 80.13.2.35 LUT Register (LUT1)  `p5152`
+        - 80.13.2.36 LUT Register (LUT2 - LUT79)  `p5154`
+        - 80.13.2.37 Flash Region Start Address (FRAD0_WORD0 - FRAD7_WORD0)  `p5155`
+        - 80.13.2.38 Flash Region End Address (FRAD0_WORD1 - FRAD7_WORD1)  `p5156`
+        - 80.13.2.39 Flash Region Privileges (FRAD0_WORD2 - FRAD7_WORD2)  `p5157`
+        - 80.13.2.40 Flash Region Lock Control (FRAD0_WORD3 - FRAD7_WORD3)  `p5158`
+        - 80.13.2.41 Flash Region Compare Address Status (FRAD0_WORD4 - FRAD7_WORD4)  `p5160`
+        - 80.13.2.42 Flash Region Compare Status Data (FRAD0_WORD5 - FRAD7_WORD5)  `p5161`
+        - 80.13.2.43 Target Group n Master Domain Access Descriptor (TG0MDAD - TG1MDAD)  `p5162`
+        - 80.13.2.44 Target Group n SFAR Address (TG0SFAR - TG1SFAR)  `p5164`
+        - 80.13.2.45 Target Group n SFAR Status (TG0SFARS - TG1SFARS)  `p5165`
+        - 80.13.2.46 Target Group n IPCR Status (TG0IPCRS - TG1IPCRS)  `p5167`
+        - 80.13.2.47 Master Global Configuration (MGC)  `p5168`
+        - 80.13.2.48 Master Read Command (MRC)  `p5170`
+        - 80.13.2.49 Master Timeout (MTO)  `p5171`
+        - 80.13.2.50 FlashSeq Request (FLSEQREQ)  `p5172`
+        - 80.13.2.51 FSM Status (FSMSTAT)  `p5174`
+        - 80.13.2.52 IPS Error (IPSERROR)  `p5176`
+        - 80.13.2.53 Error Status (ERRSTAT)  `p5177`
+        - 80.13.2.54 Interrupt Enable (INT_EN)  `p5179`
+      - 80.13.3 Serial flash memory address assignment  `p5180`
+    - 80.14 Flash memory mapped AMBA bus  `p5181`
+      - 80.14.1 AHB bus access read considerations  `p5182`
+      - 80.14.2 Memory-mapped serial flash memory data—individual flash memory mode on flash memory A  `p5182`
+      - 80.14.3 ARDB register descriptions  `p5183`
+        - 80.14.3.1 ARDB memory map  `p5183`
+        - 80.14.3.2 AHB RX Data Buffer Register (ARDB0 - ARDB31)  `p5183`
+    - 80.15 Glossary  `p5184`
+  - 81 Ultra Secured Digital Host Controller (uSDHC)  `p5185`
+    - 81.1 Chip-specific uSDHC information  `p5185`
+      - 81.1.1 uSDHC instances and configuration  `p5185`
+      - 81.1.2 Sequence for DLL implementation in SDR25 mode  `p5186`
+    - 81.2 Overview  `p5186`
+      - 81.2.1 Block diagram  `p5186`
+      - 81.2.2 Features  `p5188`
+    - 81.3 Functional description  `p5189`
+      - 81.3.1 Modes and operations  `p5189`
+        - 81.3.1.1 Data transfer modes  `p5189`
+      - 81.3.2 Data buffer  `p5189`
+        - 81.3.2.1 Write operation sequence  `p5191`
+        - 81.3.2.2 Read operation sequence  `p5191`
+        - 81.3.2.3 Data buffer and block size  `p5191`
+        - 81.3.2.4 Dividing large data transfer  `p5192`
+        - 81.3.2.5 External DMA request  `p5192`
+      - 81.3.3 DMA AHB interface  `p5193`
+        - 81.3.3.1 Internal DMA request  `p5193`
+        - 81.3.3.2 DMA burst length  `p5194`
+        - 81.3.3.3 AHB master interface  `p5194`
+        - 81.3.3.4 ADMA engine  `p5194`
+          - 81.3.3.4.1 ADMA concept and descriptor format  `p5194`
+          - 81.3.3.4.2 ADMA interrupt  `p5198`
+          - 81.3.3.4.3 ADMA error  `p5199`
+      - 81.3.4 Register bank with IP bus interface  `p5199`
+        - 81.3.4.1 SD protocol unit  `p5200`
+        - 81.3.4.2 SD control miscellaneous  `p5200`
+        - 81.3.4.3 SD clock control  `p5200`
+        - 81.3.4.4 Command control  `p5200`
+        - 81.3.4.5 Data control  `p5201`
+      - 81.3.5 Card insertion and removal detection  `p5201`
+      - 81.3.6 Power management and wakeup events  `p5201`
+        - 81.3.6.1 Setting wakeup events  `p5202`
+      - 81.3.7 eMMC fast boot  `p5202`
+        - 81.3.7.1 Boot operation  `p5202`
+        - 81.3.7.2 Alternative boot operation  `p5203`
+      - 81.3.8 Commands for SD card, SDIO, and eMMC  `p5203`
+      - 81.3.9 SDIO interrupt  `p5210`
+        - 81.3.9.1 Interrupts in 1-bit mode  `p5210`
+        - 81.3.9.2 Interrupt in 4-bit mode  `p5210`
+        - 81.3.9.3 Card interrupt handling  `p5210`
+      - 81.3.10 Software restrictions  `p5211`
+        - 81.3.10.1 Initialization active  `p5211`
+        - 81.3.10.2 Software polling procedure  `p5211`
+        - 81.3.10.3 Suspend operation  `p5211`
+        - 81.3.10.4 Data length setting  `p5212`
+        - 81.3.10.5 (A)DMA address setting  `p5212`
+        - 81.3.10.6 Data port access  `p5212`
+        - 81.3.10.7 Change clock frequency  `p5212`
+        - 81.3.10.8 Multi-block read  `p5212`
+      - 81.3.11 Clocking  `p5212`
+        - 81.3.11.1 Clock and reset manager  `p5212`
+        - 81.3.11.2 Clock generator  `p5213`
+    - 81.4 External signals  `p5214`
+    - 81.5 Application information  `p5215`
+      - 81.5.1 Command send and response receive basic operation  `p5215`
+      - 81.5.2 Card identification mode  `p5216`
+        - 81.5.2.1 Card detect  `p5216`
+        - 81.5.2.2 Reset  `p5217`
+        - 81.5.2.3 Voltage validation  `p5218`
+        - 81.5.2.4 Card registry  `p5219`
+      - 81.5.3 Card access  `p5220`
+        - 81.5.3.1 Block write  `p5220`
+          - 81.5.3.1.1 Normal Write  `p5220`
+          - 81.5.3.1.2 DDR write  `p5221`
+          - 81.5.3.1.3 Write with Pause  `p5221`
+        - 81.5.3.2 Block read  `p5222`
+          - 81.5.3.2.1 Normal read  `p5222`
+          - 81.5.3.2.2 DDR read  `p5223`
+          - 81.5.3.2.3 Read with Pause  `p5223`
+          - 81.5.3.2.4 Delay Line (DLL) in read path  `p5224`
+        - 81.5.3.3 Suspend Resume  `p5225`
+          - 81.5.3.3.1 Suspend  `p5225`
+          - 81.5.3.3.2 Resume  `p5226`
+        - 81.5.3.4 ADMA usage  `p5226`
+        - 81.5.3.5 Transfer error  `p5226`
+          - 81.5.3.5.1 CRC error  `p5226`
+          - 81.5.3.5.2 Internal DMA error  `p5227`
+          - 81.5.3.5.3 Transfer ADMA error  `p5227`
+          - 81.5.3.5.4 Auto CMD12 error  `p5227`
+        - 81.5.3.6 Card interrupt  `p5227`
+      - 81.5.4 Switch function  `p5228`
+        - 81.5.4.1 Query, enable, and disable SDIO high-speed mode  `p5228`
+        - 81.5.4.2 Query, enable, and disable SD high-speed mode  `p5228`
+        - 81.5.4.3 Query, enable, and disable eMMC high-speed mode  `p5229`
+        - 81.5.4.4 Set eMMC bus width  `p5229`
+      - 81.5.5 ADMA operation  `p5230`
+        - 81.5.5.1 ADMA1 operation  `p5230`
+        - 81.5.5.2 ADMA2 operation  `p5230`
+      - 81.5.6 Fast boot operation  `p5231`
+        - 81.5.6.1 Normal fast boot flow  `p5231`
+        - 81.5.6.2 Alternative fast boot flow  `p5231`
+        - 81.5.6.3 Fast boot application case (in DMA mode)  `p5232`
+    - 81.6 uSDHC memory map and register definition  `p5233`
+      - 81.6.1 uSDHC register descriptions  `p5233`
+        - 81.6.1.1 uSDHC memory map  `p5233`
+        - 81.6.1.2 DMA System Address (DS_ADDR)  `p5234`
+        - 81.6.1.3 Block Attributes (BLK_ATT)  `p5235`
+        - 81.6.1.4 Command Argument (CMD_ARG)  `p5237`
+        - 81.6.1.5 Command Transfer Type (CMD_XFR_TYP)  `p5238`
+        - 81.6.1.6 Command Response0 (CMD_RSP0)  `p5243`
+        - 81.6.1.7 Command Response1 (CMD_RSP1)  `p5243`
+        - 81.6.1.8 Command Response2 (CMD_RSP2)  `p5244`
+        - 81.6.1.9 Command Response3 (CMD_RSP3)  `p5245`
+        - 81.6.1.10 Data Buffer Access Port (DATA_BUFF_ACC_PORT)  `p5246`
+        - 81.6.1.11 Present State (PRES_STATE)  `p5247`
+        - 81.6.1.12 Protocol Control (PROT_CTRL)  `p5252`
+        - 81.6.1.13 System Control (SYS_CTRL)  `p5257`
+        - 81.6.1.14 Interrupt Status (INT_STATUS)  `p5261`
+        - 81.6.1.15 Interrupt Status Enable (INT_STATUS_EN)  `p5268`
+        - 81.6.1.16 Interrupt Signal Enable (INT_SIGNAL_EN)  `p5271`
+        - 81.6.1.17 Auto CMD12 Error Status (AUTOCMD12_ERR_STATUS)  `p5274`
+        - 81.6.1.18 Host Controller Capabilities (HOST_CTRL_CAP)  `p5277`
+        - 81.6.1.19 Watermark Level (WTMK_LVL)  `p5279`
+        - 81.6.1.20 Mixer Control (MIX_CTRL)  `p5280`
+        - 81.6.1.21 Force Event (FORCE_EVENT)  `p5283`
+        - 81.6.1.22 ADMA Error Status (ADMA_ERR_STATUS)  `p5285`
+        - 81.6.1.23 ADMA System Address (ADMA_SYS_ADDR)  `p5287`
+        - 81.6.1.24 DLL (Delay Line) Control (DLL_CTRL)  `p5288`
+        - 81.6.1.25 DLL Status (DLL_STATUS)  `p5290`
+        - 81.6.1.26 Vendor Specific Register (VEND_SPEC)  `p5291`
+        - 81.6.1.27 eMMC Boot (MMC_BOOT)  `p5293`
+        - 81.6.1.28 Vendor Specific 2 Register (VEND_SPEC2)  `p5295`
+- Debug  `p5298`
+  - 82 Debug Subsystem  `p5298`
+    - 82.1 Introduction  `p5298`
+    - 82.2 Interfaces supported in S32K3 family  `p5298`
+    - 82.3 Block diagram  `p5299`
+    - 82.4 Features  `p5300`
+    - 82.5 Debug  `p5301`
+      - 82.5.1 TAP connectivity  `p5301`
+      - 82.5.2 DAP TAP  `p5302`
+      - 82.5.3 System JTAGC  `p5304`
+        - 82.5.3.1 Chip JTAG/Target ID  `p5305`
+        - 82.5.3.2 JDC  `p5306`
+      - 82.5.4 Peripheral IPG debug implementation  `p5306`
+      - 82.5.5 Application debugging  `p5307`
+        - 82.5.5.1 Application debugging from first instruction  `p5307`
+          - 82.5.5.1.1 Debug from first instruction on functional reset onwards  `p5308`
+          - 82.5.5.1.2 Debug on standby exit by wake-up or functional reset  `p5308`
+        - 82.5.5.2 Debugger not connected  `p5308`
+      - 82.5.6 Debugger considerations while flash program/erase  `p5308`
+      - 82.5.7 SWJ-DP sequence for debug authentication  `p5308`
+    - 82.6 APB memory map  `p5309`
+    - 82.7 Trace  `p5311`
+      - 82.7.1 Trace modules and connectivity  `p5311`
+        - 82.7.1.1 Chip's bus trace client  `p5317`
+        - 82.7.1.2 TPIU interface  `p5317`
+        - 82.7.1.3 TPIU flush  `p5318`
+        - 82.7.1.4 Trace through reset  `p5318`
+    - 82.8 Embedded cross trigger (ECT)  `p5318`
+      - 82.8.1 CTI assignments  `p5319`
+    - 82.9 Low-power debug handshake protocol  `p5320`
+    - 82.10 Debug resets  `p5321`
+    - 82.11 Debug across device LifeCycles  `p5322`
+    - 82.12 Pin interface  `p5323`
+      - 82.12.1 Debug port and pin descriptions  `p5323`
+      - 82.12.2 Trace port pin descriptions  `p5324`
+    - 82.13 Timestamp distribution network  `p5324`
+    - 82.14 Peripheral debug freeze register descriptions  `p5325`
+    - 82.15 MDM_AP register descriptions  `p5325`
+      - 82.15.1 MDM_AP memory map  `p5325`
+      - 82.15.2 Status (MDMAPSTTS)  `p5326`
+      - 82.15.3 Control (MDMAPCTL)  `p5329`
+      - 82.15.4 WIR Enable (MDMAPWIREN)  `p5334`
+      - 82.15.5 MDM AP WIR Release (MDMAPWIRREL)  `p5335`
+    - 82.16 SDA_AP register descriptions  `p5335`
+      - 82.16.1 SDA_AP memory map  `p5336`
+      - 82.16.2 Authentication Status (AUTHSTTS)  `p5336`
+      - 82.16.3 Authentication Control (AUTHCTL)  `p5338`
+      - 82.16.4 Key Challenge (KEYCHAL0 - KEYCHAL7)  `p5339`
+      - 82.16.5 Key Response (KEYRESP0 - KEYRESP7)  `p5340`
+      - 82.16.6 Unique Device Identifier 0 (UID0)  `p5340`
+      - 82.16.7 Unique Device Identifier 1 (UID1)  `p5341`
+      - 82.16.8 Debug Enable Control (DBGENCTRL)  `p5342`
+      - 82.16.9 Reset Control (SDAAPRSTCTRL)  `p5343`
+      - 82.16.10 SDA_AP Generic Status (SDAAPGENSTATUS0 - SDAAPGENSTATUS4)  `p5345`
+      - 82.16.11 Generic Control 0 (SDAAPGENCTRL0)  `p5346`
+      - 82.16.12 Identity (ID)  `p5346`
+    - 82.17 Glossary  `p5347`
+    - 82.18 References  `p5348`
+  - 83 JTAG Controller (JTAGC)  `p5349`
+    - 83.1 Chip-specific JTAGC information  `p5349`
+    - 83.2 Overview  `p5349`
+      - 83.2.1 Block diagram  `p5349`
+      - 83.2.2 Features  `p5350`
+    - 83.3 Functional description  `p5350`
+      - 83.3.1 Modes of operation  `p5350`
+        - 83.3.1.1 IEEE 1149.1–2001 defined test modes  `p5350`
+        - 83.3.1.2 Bypass mode  `p5351`
+      - 83.3.2 IEEE 1149.1-2001 (JTAG) TAP  `p5351`
+      - 83.3.3 TAP controller state machine  `p5351`
+        - 83.3.3.1 Enabling the TAP controller  `p5352`
+        - 83.3.3.2 Selecting an IEEE 1149.1-2001 register  `p5352`
+      - 83.3.4 JTAGC block instructions  `p5353`
+        - 83.3.4.1 IDCODE instruction  `p5353`
+        - 83.3.4.2 PRELOAD instruction  `p5353`
+        - 83.3.4.3 EXTEST external test instruction  `p5353`
+        - 83.3.4.4 TEST_LEAKAGE instruction  `p5353`
+        - 83.3.4.5 HIGHZ instruction  `p5353`
+        - 83.3.4.6 CLAMP instruction  `p5353`
+        - 83.3.4.7 ACCESS_AUX_x instructions  `p5354`
+        - 83.3.4.8 BYPASS instruction  `p5354`
+      - 83.3.5 Boundary scan  `p5354`
+      - 83.3.6 Clocking  `p5354`
+      - 83.3.7 Interrupts  `p5354`
+      - 83.3.8 Reset  `p5354`
+    - 83.4 External signals  `p5354`
+      - 83.4.1 Test clock input (TCK)  `p5355`
+      - 83.4.2 Test data input (TDI)  `p5355`
+      - 83.4.3 Test data output (TDO)  `p5355`
+      - 83.4.4 Test mode select (TMS)  `p5355`
+    - 83.5 Initialization  `p5355`
+    - 83.6 Application information  `p5355`
+    - 83.7 Register description  `p5355`
+      - 83.7.1 Instruction register  `p5355`
+      - 83.7.2 Bypass register  `p5356`
+      - 83.7.3 Device identification register  `p5356`
+      - 83.7.4 Boundary scan register  `p5357`
+    - 83.8 Glossary  `p5357`
+  - 84 JTAG Data Communication (JDC)  `p5358`
+    - 84.1 Overview  `p5358`
+      - 84.1.1 Block diagram  `p5358`
+    - 84.2 Functional description  `p5359`
+      - 84.2.1 JDC functionality  `p5359`
+      - 84.2.2 JTAG register access  `p5359`
+        - 84.2.2.1 JDC block instructions  `p5359`
+      - 84.2.3 Clocking  `p5360`
+      - 84.2.4 Interrupts  `p5360`
+    - 84.3 External signals  `p5360`
+    - 84.4 Initialization  `p5360`
+    - 84.5 Secure challenge/response connection procedure  `p5360`
+    - 84.6 JDC register descriptions  `p5361`
+      - 84.6.1 JDC memory map  `p5361`
+      - 84.6.2 Module Configuration Register (MCR)  `p5361`
+      - 84.6.3 Module Status Register (MSR)  `p5362`
+      - 84.6.4 JTAG Output Data Register (JOUT_IPS)  `p5364`
+      - 84.6.5 JTAG Input Data Register (JIN_IPS)  `p5364`
+    - 84.7 Non-memory-mapped register definition  `p5365`
+      - 84.7.1 JTAG output data register (JOUT)  `p5365`
+      - 84.7.2 JTAG input data register (JIN)  `p5366`
+    - 84.8 Glossary  `p5366`
+- Analog  `p5367`
+  - 85 Temperature Sensor (TempSense)  `p5367`
+    - 85.1 Overview  `p5367`
+      - 85.1.1 Block diagram  `p5367`
+      - 85.1.2 Features  `p5368`
+    - 85.2 Functional description  `p5369`
+      - 85.2.1 Clocking  `p5369`
+      - 85.2.2 Interrupts  `p5369`
+      - 85.2.3 General  `p5369`
+      - 85.2.4 Initialization  `p5369`
+        - 85.2.4.1 Conversion from voltage to temperature  `p5369`
+    - 85.3 External signals  `p5369`
+    - 85.4 Memory map and register definition  `p5370`
+      - 85.4.1 Transfer error description  `p5370`
+      - 85.4.2 TEMPSENSE register descriptions  `p5370`
+        - 85.4.2.1 TEMPSENSE memory map  `p5370`
+        - 85.4.2.2 ETS Control (ETSCTL)  `p5370`
+        - 85.4.2.3 Temperature Coefficient (TCA0)  `p5371`
+        - 85.4.2.4 Temperature Coefficient (TCA1)  `p5372`
+        - 85.4.2.5 Temperature Coefficient (TCA2)  `p5373`
+    - 85.5 Glossary  `p5373`
+- A General Changes  `p5374`
+  - A.1 General changes  `p5374`
+- B Release notes  `p5375`
+  - B.1 About This Manual changes  `p5375`
+  - B.2 Introduction changes  `p5375`
+  - B.3 Memory map module changes  `p5375`
+  - B.4 Signal Multiplexing module changes  `p5375`
+  - B.5 Cortex-M7 changes  `p5375`
+  - B.6 Miscellaneous Control Module (MCM)  `p5375`
+    - B.6.1 Chip-specific MCM information changes  `p5375`
+    - B.6.2 MCM module changes  `p5375`
+  - B.7 Miscellaneous System Control Module (MSCM)  `p5375`
+    - B.7.1 Chip-specific MSCM information changes  `p5375`
+    - B.7.2 MSCM module changes  `p5376`
+  - B.8 Virtualization Wrapper (VIRT_WRAPPER) for S32K388 and S32K389  `p5376`
+    - B.8.1 Chip-specific VIRT WRAPPER information changes  `p5376`
+    - B.8.2 VIRT_WRAPPER changes  `p5376`
+  - B.9 Virtualization Wrapper (VIRT_WRAPPER) for all chips except S32K388 and S32K389  `p5376`
+    - B.9.1 Chip-specific VIRT WRAPPER information changes  `p5376`
+    - B.9.2 Virt_Wrapper changes  `p5376`
+  - B.10 System Integration Unit Lite2 (SIUL2)  `p5376`
+    - B.10.1 Chip-specific SIUL2 information changes  `p5376`
+    - B.10.2 SIUL2 module changes  `p5376`
+  - B.11 Touch Sensing Pin Coupling (TSPC)  `p5376`
+    - B.11.1 Chip-specific TSPC information changes  `p5376`
+    - B.11.2 TSPC module changes  `p5376`
+  - B.12 Crossbar Switch (AXBS)  `p5377`
+    - B.12.1 Chip-specific AXBS information changes  `p5377`
+    - B.12.2 AXBS module changes  `p5377`
+  - B.13 Peripheral Bridge (AIPS_Lite)  `p5377`
+    - B.13.1 Chip-specific AIPS_Lite information changes  `p5377`
+    - B.13.2 AIPS_Lite module changes  `p5377`
+  - B.14 Direct Memory Access Multiplexer (DMAMUX)  `p5377`
+    - B.14.1 Chip-specific DMAMUX information changes  `p5377`
+    - B.14.2 DMAMUX module changes  `p5377`
+  - B.15 Enhanced Direct Memory Access (eDMA)  `p5377`
+    - B.15.1 Chip-specific eDMA information changes  `p5377`
+    - B.15.2 eDMA3 module changes  `p5377`
+  - B.16 INTM module changes  `p5377`
+  - B.17 Semaphores2 (SEMA42)  `p5378`
+    - B.17.1 Chip-specific SEMA42 information changes  `p5378`
+    - B.17.2 SEMA42 module changes  `p5378`
+  - B.18 Crossbar Integrity Checker (XBIC)  `p5378`
+    - B.18.1 Chip-specific XBIC information changes  `p5378`
+    - B.18.2 XBIC module changes  `p5378`
+  - B.19 Extended Resource Domain Controller (XRDC)  `p5378`
+    - B.19.1 Chip-specific XRDC information changes  `p5378`
+    - B.19.2 XRDC module changes  `p5378`
+  - B.20 Memories and Memory Interfaces changes  `p5378`
+  - B.21 Embedded Flash Memory (c40asf)  `p5378`
+    - B.21.1 Chip-specific C40asf information changes  `p5378`
+    - B.21.2 Embedded Flash Memory (c40asf)  `p5378`
+  - B.22 Flash Memory Controller (PFLASH)  `p5379`
+    - B.22.1 Chip-specific PFLASH information changes  `p5379`
+    - B.22.2 PFLASH controller module changes  `p5379`
+  - B.23 RAM Controller (PRAMC)  `p5379`
+    - B.23.1 Chip-specific PRAMC information changes  `p5379`
+    - B.23.2 PRAMC module changes  `p5379`
+  - B.24 Clocking module changes  `p5379`
+  - B.25 Clock Generation Module (MC_CGM)  `p5380`
+    - B.25.1 Chip-specific MC_CGM information changes  `p5380`
+    - B.25.2 MC_CGM module changes  `p5380`
+  - B.26 FIRC module changes  `p5380`
+  - B.27 SIRC module changes  `p5380`
+  - B.28 Fast Crystal Oscillator Digital Controller (FXOSC)  `p5380`
+    - B.28.1 Chip-specific FXOSC information changes  `p5380`
+    - B.28.2 FXOSC module changes  `p5380`
+  - B.29 SXOSC module changes  `p5380`
+  - B.30 PLL Digital Interface (PLLDIG)  `p5380`
+    - B.30.1 Chip-specific PLLDIG information changes  `p5380`
+    - B.30.2 PLLDIG module changes  `p5380`
+  - B.31 Reset module changes  `p5380`
+  - B.32 Boot Overview changes  `p5381`
+  - B.33 Reset Generation Module (MC_RGM)  `p5381`
+    - B.33.1 Chip-specific MC_RGM information changes  `p5381`
+    - B.33.2 MC_RGM module changes  `p5381`
+  - B.34 POR_WDG module changes  `p5381`
+  - B.35 Security overview changes  `p5381`
+  - B.36 HSE Subsystem Overview changes  `p5381`
+  - B.37 DCF module changes  `p5381`
+  - B.38 DCM_GPR module changes  `p5381`
+  - B.39 DCM module changes  `p5381`
+  - B.40 Messaging Unit (MU)  `p5381`
+    - B.40.1 Chip-specific MU information changes  `p5381`
+    - B.40.2 MU module changes  `p5382`
+  - B.41 Power management changes  `p5382`
+  - B.42 PMC changes  `p5382`
+  - B.43 PMC changes  `p5382`
+  - B.44 PMC changes  `p5382`
+  - B.45 PMC changes  `p5382`
+  - B.46 Mode Entry Module (MC_ME)  `p5382`
+    - B.46.1 Chip-specific MC_ME information changes  `p5382`
+    - B.46.2 MC_ME module changes  `p5382`
+  - B.47 MC_PCU changes  `p5382`
+  - B.48 Wakeup Unit (WKPU)  `p5382`
+    - B.48.1 Chip-specific WKPU information changes  `p5382`
+    - B.48.2 WKPU module changes  `p5382`
+  - B.49 Safety overview changes  `p5383`
+  - B.50 Error Injection Module (EIM)  `p5383`
+    - B.50.1 Chip-specific EIM information changes  `p5383`
+    - B.50.2 EIM module changes  `p5383`
+  - B.51 Error Reporting Module (ERM)  `p5383`
+    - B.51.1 Chip-specific ERM information changes  `p5383`
+    - B.51.2 ERM module changes  `p5383`
+  - B.52 Fault Collection and Control Unit (FCCU)  `p5383`
+    - B.52.1 Chip-specific FCCU information changes  `p5383`
+    - B.52.2 FCCU module changes  `p5383`
+  - B.53 SELFTEST_GPR module changes  `p5383`
+  - B.54 Self-Test Control Unit (STCU2)  `p5384`
+    - B.54.1 Chip-specific STCU2 information changes  `p5384`
+    - B.54.2 STCU2 module changes  `p5384`
+  - B.55 Register Protection (REG_PROT)  `p5384`
+    - B.55.1 Chip-specific REGPROT information changes  `p5384`
+    - B.55.2 REG_PROT module changes  `p5384`
+  - B.56 Clock Monitoring Unit – Frequency Check (CMU_FC)  `p5384`
+    - B.56.1 Chip-specific CMU_FC information changes  `p5384`
+    - B.56.2 CMU_FC module changes  `p5384`
+  - B.57 Clock Monitoring Unit – Frequency Meter (CMU_FM)  `p5384`
+    - B.57.1 Chip-specific CMU_FM information changes  `p5384`
+    - B.57.2 CMU_FM module changes  `p5385`
+  - B.58 Cyclic Redundancy Check (CRC)  `p5385`
+    - B.58.1 Chip-specific CRC information changes  `p5385`
+    - B.58.2 CRC module changes  `p5385`
+  - B.59 PCMC changes  `p5385`
+  - B.60 Analog-to-Digital Converter (ADC)  `p5385`
+    - B.60.1 Chip-specific ADC information changes  `p5385`
+    - B.60.2 ADC module changes  `p5385`
+  - B.61 Low Power Comparator (LPCMP)  `p5385`
+    - B.61.1 Chip-specific LPCMP information changes  `p5385`
+    - B.61.2 LPCMP module changes  `p5385`
+  - B.62 Logic Control Unit (LCU)  `p5386`
+    - B.62.1 Chip-specific LCU information changes  `p5386`
+    - B.62.2 LCU module  `p5386`
+  - B.63 Enhanced Modular IO Subsystem (eMIOS)  `p5386`
+    - B.63.1 Chip-specific eMIOS information changes  `p5386`
+    - B.63.2 eMIOS module changes  `p5386`
+  - B.64 Body Cross-triggering Unit (BCTU)  `p5386`
+    - B.64.1 Chip-specific BCTU information changes  `p5386`
+    - B.64.2 BCTU module changes  `p5386`
+  - B.65 Trigger MUX (TRGMUX)  `p5386`
+    - B.65.1 Chip-specific TRGMUX information changes  `p5386`
+    - B.65.2 TRGMUX module changes  `p5386`
+  - B.66 Software Watchdog Timer (SWT)  `p5386`
+    - B.66.1 Chip-specific SWT information changes  `p5386`
+    - B.66.2 SWT module changes  `p5387`
+  - B.67 System Timer Module (STM)  `p5387`
+    - B.67.1 Chip-specific STM information changes  `p5387`
+    - B.67.2 STM module changes  `p5387`
+  - B.68 Periodic Interrupt Timer (PIT)  `p5387`
+    - B.68.1 Chip-specific PIT information changes  `p5387`
+    - B.68.2 PIT module changes  `p5387`
+  - B.69 Real Time Clock (RTC)  `p5387`
+    - B.69.1 Chip-specific RTC information changes  `p5387`
+    - B.69.2 RTC module changes  `p5387`
+  - B.70 Low Power Serial Peripheral Interface (LPSPI)  `p5387`
+    - B.70.1 Chip-specific LPSPI information changes  `p5387`
+    - B.70.2 LPSPI module changes  `p5387`
+  - B.71 Low Power Inter-Integrated Circuit (LPI2C)  `p5388`
+    - B.71.1 Chip-specific LPI2C information changes  `p5388`
+    - B.71.2 LPI2C module changes  `p5388`
+  - B.72 Flexible I/O (FlexIO)  `p5388`
+    - B.72.1 Chip-specific FlexIO information changes  `p5388`
+    - B.72.2 FLEXIO module changes  `p5388`
+  - B.73 CAN (FlexCAN)  `p5388`
+    - B.73.1 Chip-specific FlexCAN information changes  `p5388`
+    - B.73.2 FlexCAN module changes  `p5388`
+  - B.74 Synchronous Audio Interface (SAI)  `p5388`
+    - B.74.1 Chip-specific SAI information changes  `p5388`
+    - B.74.2 SAI module changes  `p5388`
+  - B.75 Ethernet Media Access Controller (EMAC)  `p5389`
+    - B.75.1 Chip-specific EMAC information changes  `p5389`
+    - B.75.2 ENET_Controller module changes  `p5389`
+  - B.76 Gigabit Ethernet Media Access Controller (GMAC)  `p5389`
+    - B.76.1 Chip-specific GMAC information changes  `p5389`
+    - B.76.2 GMAC module changes  `p5389`
+  - B.77 Low Power Universal Asynchronous Receiver/Transmitter (LPUART)  `p5389`
+    - B.77.1 Chip-specific LPUART information changes  `p5389`
+    - B.77.2 LPUART module changes  `p5389`
+  - B.78 Quad Serial Peripheral Interface (QuadSPI) for S32K322, S32K342, S32K341, S32K314, S32K324, and S32K344  `p5389`
+    - B.78.1 Chip-specific QuadSPI information changes  `p5389`
+    - B.78.2 QuadSPI module changes  `p5389`
+  - B.79 Quad Serial Peripheral Interface (QuadSPI) for S32K358, S32K356, S32K348, S32K338, and S32K328  `p5390`
+    - B.79.1 Chip-specific QuadSPI information changes  `p5390`
+    - B.79.2 QuadSPI module changes  `p5390`
+  - B.80 Quad Serial Peripheral Interface (QuadSPI) for S32K388 and S32K389  `p5390`
+    - B.80.1 Chip-specific QuadSPI information changes  `p5390`
+    - B.80.2 QuadSPI module changes  `p5390`
+  - B.81 Ultra Secured Digital Host Controller (uSDHC)  `p5390`
+    - B.81.1 Chip-specific uSDHC information changes  `p5390`
+    - B.81.2 uSDHC module changes  `p5390`
+  - B.82 Debug changes  `p5390`
+  - B.83 JTAG Controller (JTAGC)  `p5390`
+    - B.83.1 Chip-specific JTAGC information changes  `p5390`
+    - B.83.2 JTAGC module changes  `p5390`
+  - B.84 JDC module changes  `p5391`
+  - B.85 TEMPSENSE module changes  `p5391`
+- Legal information  `p5392`
