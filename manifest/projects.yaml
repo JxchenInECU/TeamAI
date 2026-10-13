@@ -1,0 +1,14 @@
+version: 1
+projects:
+  - id: global-common
+    name: 整机通用资源
+    description: ""
+    resources:
+      knowledge:
+        - common
+      skills:
+        - common
+      learnings:
+        - common
+      agents:
+        - common
